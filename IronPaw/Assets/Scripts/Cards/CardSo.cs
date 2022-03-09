@@ -4,8 +4,19 @@ using UnityEngine;
 
 public class CardSo : ScriptableObject
 {
-    string Title;
-    string Description;
-    Color _colors;
-    Rarity _rarity;
+    public string Title;
+    public string Description;
+    public Color[] Colors;
+    public Rarity Rarity;
+    public int ManaCost;
+    CardEffect CardEffect;
+    CardUI CardUI;
+    public bool IsSwift;
+    Sprite CardImage;
+    CardType CardType;
+
+    public void PlayCard(CharacterTEMP playingCharacter)
+    {
+
+    }
 }
