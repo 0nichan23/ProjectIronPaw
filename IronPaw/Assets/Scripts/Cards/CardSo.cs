@@ -15,7 +15,7 @@ public class CardSo : ScriptableObject
     Sprite CardImage;
     CardType CardType;
 
-    public void PlayCard(CharacterTEMP playingCharacter)
+    public void PlayCard(Character playingCharacter)
     {
 
     }

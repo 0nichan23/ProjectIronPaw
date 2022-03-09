@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class CardEffect : MonoBehaviour
 {
     public TargetType TargetType;
-    public CharacterTEMP[] Targets;
+    public Character[] Targets;
 
     public abstract void Activate();
 

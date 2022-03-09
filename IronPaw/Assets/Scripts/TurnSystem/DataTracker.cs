@@ -14,8 +14,8 @@ public struct DataTracker
     private int _numberOfBuffsApplied;
     private int _numberOfUltimatesPerformed;
     private int _numberOfTurnsSinceStart;
-    private Dictionary<CharacterTEMP, int> _enemiesSlain;
-    private Dictionary<CharacterTEMP, int> _damageTaken;
+    private Dictionary<Character, int> _enemiesSlain;
+    private Dictionary<Character, int> _damageTaken;
 
     public void ResetData()
     {

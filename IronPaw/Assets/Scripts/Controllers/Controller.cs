@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Controller : MonoBehaviour
 {
-    public List<CharacterTEMP> controllerChracters;
+    public List<Character> controllerChracters;
     public DataTracker TurnTracker;
     public DataTracker CombatTracker;
     public DataTracker RunTracker;
