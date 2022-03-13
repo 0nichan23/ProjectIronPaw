@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class CardPile : MonoBehaviour
 {
-    Stack<CardSo> _cards = new Stack<CardSo>();
+    Stack<CardSO> _cards = new Stack<CardSO>();
 
     [SerializeField]
     private Hand _hand;
@@ -11,7 +11,7 @@ public abstract class CardPile : MonoBehaviour
 
     // Will be removed/Initialized differently when deck building is a thing
     [SerializeField]
-    private List<CardSo> _cardsGiven = new List<CardSo>();
+    private List<CardSO> _cardsGiven = new List<CardSO>();
 
     private void Start()
     {
@@ -28,7 +28,7 @@ public abstract class CardPile : MonoBehaviour
 
     public void Draw(int amount)
     {
-        CardSo cardDrawn = _cards.Pop();
+        CardSO cardDrawn = _cards.Pop();
 
         GameObject GO = Instantiate(PrefabManager.Instance.PlainCardDispaly);
 
@@ -42,7 +42,7 @@ public abstract class CardPile : MonoBehaviour
 
     }
 
-    public CardSo[] Search(Filter filter)
+    public CardSO[] Search(Filter filter)
     {
         return null;
     }

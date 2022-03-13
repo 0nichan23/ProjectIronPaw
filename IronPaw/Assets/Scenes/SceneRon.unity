@@ -699,11 +699,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hand: {fileID: 1933233248}
   _cardsGiven:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: a51d14e83e0fe54438d62b9251e1b7ac, type: 2}
+  - {fileID: 11400000, guid: 99fcabcff30b2ad4e920a5c4d46bef32, type: 2}
+  - {fileID: 11400000, guid: a51d14e83e0fe54438d62b9251e1b7ac, type: 2}
+  - {fileID: 11400000, guid: 99fcabcff30b2ad4e920a5c4d46bef32, type: 2}
+  - {fileID: 11400000, guid: 99fcabcff30b2ad4e920a5c4d46bef32, type: 2}
 --- !u!114 &1381249967
 MonoBehaviour:
   m_ObjectHideFlags: 0
