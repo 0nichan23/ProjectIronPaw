@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
-    protected List<Color> _colors;
+    private List<Color> colors;
     protected int _maxHp;
     protected int _currentHp;
     protected int _currentBlock;
@@ -11,8 +11,14 @@ public abstract class Character : MonoBehaviour
     //protected CharacterStats _stats;
     protected int _keepBlock;
     protected int _currentAp;
+
+
+
     //Dictionary<ModifierType, int> _activeModifiers;
     //List<Card> PersonalDeck;
+
+
+    public List<Color> Colors { get => colors; set => colors = value; }
 
 
     public abstract void TakeDmg(int amount);

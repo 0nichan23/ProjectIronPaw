@@ -57,6 +57,7 @@ public abstract class CardPile : MonoBehaviour
 
         CreateCardDisplay(cardDrawn);
 
+        _hand.AddCard(cardDrawn);
     }
 
     private void CreateCardDisplay(CardSO cardGiven)
@@ -70,6 +71,7 @@ public abstract class CardPile : MonoBehaviour
         GO.transform.SetParent(_hand.gameObject.transform);
     }
 
+    // Not For Build
     public CardSO[] Search(Filter filter)
     {
         return null;

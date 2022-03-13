@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
-    private List<CardSO> _cards;
+    [SerializeField]
+    private List<CardSO> _cards = new List<CardSO>();
 
     bool DiscardAtTurnEnd;
     int DrawAmount;
 
-    public List<CardSO> Cards { get => _cards; set => _cards = value; }
+    public void AddCard(CardSO givenCard)
+    {
+        _cards.Add(givenCard);
+    }
 
     void DiscardCard(CardSO _card)
     {
