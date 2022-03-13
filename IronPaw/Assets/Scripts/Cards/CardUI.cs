@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class CardUI : MonoBehaviour
 {
-    public CardSO CardSO;
+    public CardSo CardSO;
 
     [SerializeField]
     private Image _artWorkDisplay;
@@ -20,15 +20,7 @@ public class CardUI : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _cardTypeDisplay;
 
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        InitializeDisplay();
-    }
-
-    private void InitializeDisplay()
+    public void InitializeDisplay()
     {
         _artWorkDisplay.sprite = CardSO.Artwork;
         _manaCostDisplay.text = CardSO.ManaCost.ToString();

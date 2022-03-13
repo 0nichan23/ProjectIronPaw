@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Card", menuName = "Cards")]
-public class CardSO : ScriptableObject
+public class CardSo : ScriptableObject
 {
     public string CardName;
     public string Description;
@@ -11,7 +11,6 @@ public class CardSO : ScriptableObject
     public Rarity Rarity;
     public int ManaCost;
     CardEffect CardEffect;
-    CardUI CardUI;
     public bool IsSwift;
     public Sprite Artwork;
     public CardType CardType;
@@ -20,4 +19,9 @@ public class CardSO : ScriptableObject
     {
 
     }
+
+    //private void InstantiateCardDisplay()
+    //{
+        
+    //}
 }

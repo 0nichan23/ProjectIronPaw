@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
-    List<CardSO> _cards;
+    private List<CardSo> _cards;
+
     bool DiscardAtTurnEnd;
     int DrawAmount;
-    void DiscardCard(CardSO _card)
+
+    public List<CardSo> Cards { get => _cards; set => _cards = value; }
+
+    void DiscardCard(CardSo _card)
     {
 
     }
-    void ExileCard(CardSO _card)
+    void ExileCard(CardSo _card)
     {
 
     }
-    void ReturnCardToDeck(CardSO _card)
+    void ReturnCardToDeck(CardSo _card)
     {
 
     }
