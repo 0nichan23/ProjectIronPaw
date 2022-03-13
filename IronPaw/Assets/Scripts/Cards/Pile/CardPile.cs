@@ -23,23 +23,51 @@ public abstract class CardPile : MonoBehaviour
 
     public void Shuffle()
     {
+        _cardsGiven.Clear();
 
+        foreach (var card in _cards)
+        {
+            _cardsGiven.Add(card);
+        }
+
+        _cards.Clear();
+
+        int n = _cardsGiven.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = Random.Range(0, n + 1);
+
+            CardSO tempCardSlot = _cardsGiven[k];
+            _cardsGiven[k] = _cardsGiven[n];
+            _cardsGiven[n] = tempCardSlot;
+        }
+
+        
+
+        foreach (var card in _cardsGiven)
+        {
+            _cards.Push(card);
+        }
     }
 
     public void Draw(int amount)
     {
         CardSO cardDrawn = _cards.Pop();
 
+        CreateCardDisplay(cardDrawn);
+
+    }
+
+    private void CreateCardDisplay(CardSO cardGiven)
+    {
         GameObject GO = Instantiate(PrefabManager.Instance.PlainCardDispaly);
 
         CardUI GOUI = GO.GetComponent<CardUI>();
-        GOUI.CardSO = cardDrawn;
+        GOUI.CardSO = cardGiven;
         GOUI.InitializeDisplay();
 
         GO.transform.SetParent(_hand.gameObject.transform);
-        
-        // Instantiate Card UI
-
     }
 
     public CardSO[] Search(Filter filter)
