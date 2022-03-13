@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2630ed2cf596cfb4f93acbd47012e618, type: 3}
+  m_Name: RedAttackThing
+  m_EditorClassIdentifier: 
+  CardName: RedAttack
+  Description: Deal 5 damage or something
+  Colors: 00000000
+  Rarity: 1
+  ManaCost: 1
+  IsSwift: 0
+  Artwork: {fileID: 21300000, guid: e1e93c690f87df2419f4ad2b64b7c17f, type: 3}

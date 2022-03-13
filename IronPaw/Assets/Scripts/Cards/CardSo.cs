@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardSo : ScriptableObject
+[CreateAssetMenu(fileName = "New Card", menuName = "Cards")]
+public class CardSO : ScriptableObject
 {
-    public string Title;
+    public string CardName;
     public string Description;
     public Color[] Colors;
     public Rarity Rarity;
@@ -12,8 +13,8 @@ public class CardSo : ScriptableObject
     CardEffect CardEffect;
     CardUI CardUI;
     public bool IsSwift;
-    Sprite CardImage;
-    CardType CardType;
+    public Sprite Artwork;
+    public CardType CardType;
 
     public void PlayCard(Character playingCharacter)
     {
