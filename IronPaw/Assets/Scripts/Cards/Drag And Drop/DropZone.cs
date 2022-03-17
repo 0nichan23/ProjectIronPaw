@@ -12,12 +12,11 @@ public class DropZone : MonoBehaviour, IDropHandler
         if(draggable != null)
         {
             draggable.ParentToReturnTo = transform;
-            if(draggable.gameObject.GetComponent<CardUI>())
+            CardUI cardUI = draggable.gameObject.GetComponent<CardUI>();
+            if (cardUI != null)
             {
-                // Character selection
-
-
-                // draggable.gameObject.GetComponent<CardUI>().CardSO.PlayCard(hero);
+                Debug.Log("cardUI functional?");
+                StartCoroutine(PartyManager.Instance.WaitUntilHeroIsClicked(cardUI.CardSO));            
             }
         }
     }

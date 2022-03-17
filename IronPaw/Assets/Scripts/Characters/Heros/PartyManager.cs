@@ -10,45 +10,56 @@ public class PartyManager : Singleton<PartyManager>
     List<Hero> heros = new List<Hero>();
 
     public Hero SelectedHero;
-    public IEnumerator WaitUntilHeroIsPicked(CardSO card)
+
+    public IEnumerator WaitUntilHeroIsClicked(CardSO card)
     {
-        
-        yield return new WaitUntil(() => gogogo != null);
-        SelectedHero = heros[(int)gogogo];
+        yield return new WaitUntil(() => SelectedHero != null);
+
+        if (CheckCardAndHeroColors(card, SelectedHero))
+        {
+            card.PlayCard(SelectedHero);
+            SelectedHero = null;
+        }
+        else
+        {
+            Debug.Log("Invalid Card / Hero");
+        }    
     }
 
-    public void CheckIfCardIsValid(CardSO card)
+    public IEnumerator WaitUntilHeroIsPicked(CardSO card)
     {
-        foreach (var hero in heros)
+        yield return new WaitUntil(() => gogogo != null);
+        SelectedHero = heros[(int)gogogo];
+
+        //if (SelectedHero.Selectable)
+        //{
+        //    card.PlayCard(SelectedHero);
+        //}
+        //else
+        //{
+        //    SelectedHero = null;
+        //    Debug.Log("Invalid hero");
+        //}
+    }
+
+    public bool CheckCardAndHeroColors(CardSO card, Hero hero)
+    {
+        foreach (Color heroColor in hero.Colors)
         {
-            foreach (var heroColor in hero.Colors)
+            foreach (var cardColor in card.Colors)
             {
-                foreach (var cardColor in card.Colors)
+                if (heroColor == cardColor)
                 {
-                    if (heroColor == cardColor)
-                    {
-                        // selectable = true;
-                    }
+                    return true;
                 }
             }
         }
 
-
+        return false;
     }
 
     public void SetHeroIndex(int givenIndex)
     {
         gogogo = givenIndex;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Hero : Character
 {
+    private bool _selectable;
+
+    public bool Selectable { get => _selectable; set => _selectable = value; }
+
     public override void GainBlock(int amount)
     {
         _currentBlock += amount;
@@ -44,6 +48,12 @@ public class Hero : Character
     public virtual void Ultimate()
     {
 
+    }
+
+    public void SelectHero()
+    {
+        PartyManager.Instance.SelectedHero = this;
+        Debug.Log("Selected Hero" + this);
     }
 
 }

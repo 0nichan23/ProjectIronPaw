@@ -3,6 +3,7 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
+    [SerializeField]
     private List<Color> colors;
     protected int _maxHp;
     protected int _currentHp;

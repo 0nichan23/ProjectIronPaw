@@ -17,7 +17,7 @@ public class CardSO : ScriptableObject
 
     public void PlayCard(Character playingCharacter)
     {
-
+        Debug.Log(CardName + "played!");
     }
 
     //private void InstantiateCardDisplay()
