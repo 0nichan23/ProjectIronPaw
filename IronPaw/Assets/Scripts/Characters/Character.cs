@@ -11,7 +11,7 @@ public abstract class Character : MonoBehaviour
     protected string _name;
     //protected CharacterStats _stats;
     protected int _keepBlock;
-    protected int _currentAp;
+    private int currentAp;
 
 
 
@@ -20,7 +20,7 @@ public abstract class Character : MonoBehaviour
 
 
     public List<Color> Colors { get => colors; set => colors = value; }
-
+    public int CurrentAp { get => currentAp; set => currentAp = value; }
 
     public abstract void TakeDmg(int amount);
     public abstract void Heal(int amount);

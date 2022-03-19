@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2630ed2cf596cfb4f93acbd47012e618, type: 3}
   m_Name: RedAttack
   m_EditorClassIdentifier: Assembly-CSharp::CardSO
-  CardName: Red Attacj
+  CardName: Red Attack
   Description: Deal 5 damage
   Colors: 00000000
   Rarity: 0
-  ManaCost: 1
-  CardUI: {fileID: 1107705182379805953, guid: a57d6ef6767412b4299ac0efe1f0506b, type: 3}
+  EnergyCost: 0
+  CardEffect: {fileID: 0}
   IsSwift: 0
   Artwork: {fileID: 21300000, guid: e1e93c690f87df2419f4ad2b64b7c17f, type: 3}
   CardType: 0

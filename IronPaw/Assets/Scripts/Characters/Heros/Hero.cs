@@ -52,7 +52,7 @@ public class Hero : Character
 
     public void SelectHero()
     {
-        PartyManager.Instance.SelectedHero = this;
+        PartyManager.Instance.SelectedCharacter = this;
         Debug.Log("Selected Hero" + this);
     }
 

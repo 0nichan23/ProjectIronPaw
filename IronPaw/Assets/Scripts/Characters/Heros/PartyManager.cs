@@ -4,62 +4,107 @@ using UnityEngine;
 
 public class PartyManager : Singleton<PartyManager>
 {
-    // an int that is null until it's set
-    int? gogogo; 
+    public List<Character> GoodGuys = new List<Character>();
+    public List<Character> BadGuys = new List<Character>();
 
-    List<Hero> heros = new List<Hero>();
+    public Character SelectedCharacter;
 
-    public Hero SelectedHero;
-
-    public IEnumerator WaitUntilHeroIsClicked(CardSO card)
+    public IEnumerator WaitUntilHeroIsClickedPlayCard(CardSO card/*, Event func*/)
     {
-        yield return new WaitUntil(() => SelectedHero != null);
+        yield return new WaitUntil(() => SelectedCharacter != null);
 
-        if (CheckCardAndHeroColors(card, SelectedHero))
-        {
-            card.PlayCard(SelectedHero);
-            SelectedHero = null;
-        }
-        else
-        {
-            Debug.Log("Invalid Card / Hero");
-        }    
+        card.PlayCard(SelectedCharacter);
+        SelectedCharacter = null;
     }
 
-    public IEnumerator WaitUntilHeroIsPicked(CardSO card)
+    public IEnumerator WaitUntilTargetIsSelected (CardEffect cardEffect)
     {
-        yield return new WaitUntil(() => gogogo != null);
-        SelectedHero = heros[(int)gogogo];
+        yield return new WaitUntil(() => SelectedCharacter != null);
 
-        //if (SelectedHero.Selectable)
-        //{
-        //    card.PlayCard(SelectedHero);
-        //}
-        //else
-        //{
-        //    SelectedHero = null;
-        //    Debug.Log("Invalid hero");
-        //}
+        cardEffect.Targets.Add(SelectedCharacter);
+
+        cardEffect.PlayEffect();
+
+        SelectedCharacter = null;
+
+
     }
 
-    public bool CheckCardAndHeroColors(CardSO card, Hero hero)
+    public void PickTargets(Character playingCharacter, CardSO card)
     {
-        foreach (Color heroColor in hero.Colors)
+        CardEffect cardEffectRef = card.CardEffect;
+
+        switch (cardEffectRef.TargetType)
         {
-            foreach (var cardColor in card.Colors)
-            {
-                if (heroColor == cardColor)
+            case TargetType.Self:
+                cardEffectRef.Targets.Add(playingCharacter);
+                cardEffectRef.PlayEffect();
+                break;
+
+            case TargetType.SingleAlly:
+                // enemies will need some sort of "if" statement to not wait for a coroutine, cuz they pick random targets or something
+
+                // set active true for all hero allies buttons
+                StartCoroutine(WaitUntilTargetIsSelected(cardEffectRef));
+                break;
+
+            case TargetType.RandomAlly:
+                System.Random rand = new System.Random();
+                Character randomAlly = GoodGuys[rand.Next(0, GoodGuys.Count)];
+
+                cardEffectRef.Targets.Add(randomAlly);
+
+                cardEffectRef.PlayEffect();
+
+                break;
+
+            case TargetType.AllAllies:
+                foreach (Character ally in GoodGuys)
                 {
-                    return true;
+                    cardEffectRef.Targets.Add(ally);
                 }
-            }
+                cardEffectRef.PlayEffect();
+
+                break;
+
+            case TargetType.AllAlliesButMe:
+                foreach (Character ally in GoodGuys)
+                {
+                    if(ally != playingCharacter)
+                    {
+                        cardEffectRef.Targets.Add(ally);
+                    }                 
+                }
+                cardEffectRef.PlayEffect();
+                break;
+
+            case TargetType.SingleEnemy:
+                // set active true for all hero enemies buttons
+                StartCoroutine(WaitUntilTargetIsSelected(cardEffectRef));
+                break;
+
+            case TargetType.RandomEnemy:
+                System.Random rand1 = new System.Random();
+                Character randomEnemy = BadGuys[rand1.Next(0, BadGuys.Count)];
+
+                cardEffectRef.Targets.Add(randomEnemy);
+
+                cardEffectRef.PlayEffect();
+                break;
+
+            case TargetType.AllEnemies:
+
+                foreach (Character enemy in BadGuys)
+                {
+                    cardEffectRef.Targets.Add(enemy);
+                }
+                cardEffectRef.PlayEffect();
+
+                break;
         }
-
-        return false;
     }
 
-    public void SetHeroIndex(int givenIndex)
-    {
-        gogogo = givenIndex;
-    }
+
+
+
 }
