@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public abstract class CardEffect : MonoBehaviour
+
+public abstract class CardEffect : ScriptableObject
 {
     public TargetType TargetType;
     public List<Character> Targets = new List<Character>();
