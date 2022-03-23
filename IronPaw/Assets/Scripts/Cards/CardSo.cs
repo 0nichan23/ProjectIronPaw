@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Card", menuName = "Cards")]
+[CreateAssetMenu(fileName = "New Card", menuName = "Cards/CardSO")]
 public class CardSO : ScriptableObject
 {
     public string CardName;
@@ -21,7 +21,7 @@ public class CardSO : ScriptableObject
 
         if (CheckCardAndHeroColors(playingCharacter))
         {
-            if(PlayerController.CurrentEnergy >= EnergyCost)
+            if(PlayerWrapper.Instance.PlayerController.CurrentEnergy >= EnergyCost /*true*/)
             {
                 if (playingCharacter.CurrentAp >= 1 || IsSwift)
                 {

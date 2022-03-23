@@ -9,7 +9,12 @@ public class PlayerController : Controller
     public Deck Deck;
     public DiscardPile DiscardPile;
     public ExiledPile ExiledPile;
-    public static int MaxEnergy;
-    public static int CurrentEnergy;
+    public int MaxEnergy;
+    public int CurrentEnergy;
+
+    private void Start()
+    {
+        CurrentEnergy = MaxEnergy;
+    }
 
 }

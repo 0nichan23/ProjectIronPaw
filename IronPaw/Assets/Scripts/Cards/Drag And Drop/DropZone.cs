@@ -15,7 +15,6 @@ public class DropZone : MonoBehaviour, IDropHandler
             CardUI cardUI = draggable.gameObject.GetComponent<CardUI>();
             if (cardUI != null)
             {
-                Debug.Log("cardUI functional?");
                 StartCoroutine(PartyManager.Instance.WaitUntilHeroIsClickedPlayCard(cardUI.CardSO));            
             }
         }
