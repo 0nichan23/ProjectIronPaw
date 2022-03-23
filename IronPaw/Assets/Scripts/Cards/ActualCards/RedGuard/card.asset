@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2630ed2cf596cfb4f93acbd47012e618, type: 3}
-  m_Name: RedAttack
-  m_EditorClassIdentifier: Assembly-CSharp::CardSO
-  CardName: Red Attack
-  Description: Deal 5 damage
+  m_Name: card
+  m_EditorClassIdentifier: 
+  CardName: stam klaf
+  Description: 'klaf '
   Colors: 00000000
   Rarity: 0
   EnergyCost: 0

@@ -21,6 +21,7 @@ public class CardSO : ScriptableObject
 
         if (CheckCardAndHeroColors(playingCharacter))
         {
+            Debug.Log("colors match");
             if(PlayerWrapper.Instance.PlayerController.CurrentEnergy >= EnergyCost /*true*/)
             {
                 if (playingCharacter.CurrentAp >= 1 || IsSwift)

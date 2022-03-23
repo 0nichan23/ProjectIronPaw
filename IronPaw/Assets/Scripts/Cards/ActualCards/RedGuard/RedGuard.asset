@@ -16,8 +16,8 @@ MonoBehaviour:
   Description: YES
   Colors: 00000000
   Rarity: 0
-  ManaCost: 0
-  CardUI: {fileID: 0}
+  EnergyCost: 0
+  CardEffect: {fileID: 11400000, guid: 2f463d6c1948bef4ab237a37a6c589a7, type: 2}
   IsSwift: 0
-  Artwork: {fileID: 0}
+  Artwork: {fileID: 21300000, guid: e1e93c690f87df2419f4ad2b64b7c17f, type: 3}
   CardType: 0
