@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Duckislav : Hero
 {
+
+
     public override void Passive()
     {
         base.Passive();

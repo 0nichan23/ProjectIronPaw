@@ -2,26 +2,56 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Card", menuName = "Cards")]
+[CreateAssetMenu(fileName = "New Card", menuName = "Cards/CardSO")]
 public class CardSO : ScriptableObject
 {
     public string CardName;
     public string Description;
     public Color[] Colors;
     public Rarity Rarity;
-    public int ManaCost;
-    CardEffect CardEffect;
+    public int EnergyCost;
+    [SerializeField]
+    public CardEffect CardEffect;
     public bool IsSwift;
     public Sprite Artwork;
     public CardType CardType;
 
     public void PlayCard(Character playingCharacter)
     {
-        Debug.Log(CardName + "played!");
+
+        if (CheckCardAndHeroColors(playingCharacter))
+        {
+            Debug.Log("colors match");
+            if(PlayerWrapper.Instance.PlayerController.CurrentEnergy >= EnergyCost /*true*/)
+            {
+                if (playingCharacter.CurrentAp >= 1 || IsSwift)
+                {
+                    PartyManager.Instance.PickTargets(playingCharacter, this);
+              
+                    if (!IsSwift)
+                    {
+                        playingCharacter.CurrentAp--;
+                    }
+
+                }
+            }
+        }
     }
 
-    //private void InstantiateCardDisplay()
-    //{
-        
-    //}
+
+    private bool CheckCardAndHeroColors(Character playingCharacter)
+    {
+        foreach (Color heroColor in playingCharacter.Colors)
+        {
+            foreach (var cardColor in Colors)
+            {
+                if (heroColor == cardColor)
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
 }

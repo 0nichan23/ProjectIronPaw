@@ -23,7 +23,7 @@ public class CardUI : MonoBehaviour
     public void InitializeDisplay()
     {
         _artWorkDisplay.sprite = CardSO.Artwork;
-        _manaCostDisplay.text = CardSO.ManaCost.ToString();
+        _manaCostDisplay.text = CardSO.EnergyCost.ToString();
         _cardNameDisplay.text = CardSO.CardName;
         _cardDescDisplay.text = CardSO.Description;
         InitType(CardSO.CardType);
