@@ -23,18 +23,11 @@ public class CardSO : ScriptableObject
         if (CheckCardAndHeroColors(playingCharacter))
         {
             Debug.Log("colors match");
-            if(PlayerWrapper.Instance.PlayerController.CurrentEnergy >= EnergyCost /*true*/)
+            if(PlayerWrapper.Instance.PlayerController.CurrentEnergy >= EnergyCost || playingCharacter is Enemy)
             {
                 if (playingCharacter.CurrentAp >= 1 || IsSwift)
                 {
                     PartyManager.Instance.PickTargets(playingCharacter, this);
-              
-                    if (!IsSwift)
-                    {
-                        playingCharacter.CurrentAp--;
-                    }
-
-
                 }
             }
         }
@@ -58,12 +51,19 @@ public class CardSO : ScriptableObject
         {
             PlayerWrapper.Instance.PlayerController.Hand.RemoveCard(this);
             PlayerWrapper.Instance.PlayerController.DiscardPile.Cards.Push(this);
+            PlayerWrapper.Instance.PlayerController.CurrentEnergy -= EnergyCost;
+            if (!IsSwift)
+            {
+                playingCharacter.CurrentAp--;
+            }
         }
         else if (playingCharacter is Enemy)
         {
             EnemyWrapper.Instance.EnemyController.Hand.RemoveCard(this);
             EnemyWrapper.Instance.EnemyController.DiscardPiles[playingCharacter].Cards.Push(this);
         }
+
+        
     }
 
     private bool CheckCardAndHeroColors(Character playingCharacter)
