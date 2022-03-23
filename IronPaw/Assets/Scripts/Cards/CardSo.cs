@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Card", menuName = "Cards/CardSO")]
@@ -23,7 +21,7 @@ public class CardSO : ScriptableObject
         if (CheckCardAndHeroColors(playingCharacter))
         {
             Debug.Log("colors match");
-            if(PlayerWrapper.Instance.PlayerController.CurrentEnergy >= EnergyCost || playingCharacter is Enemy)
+            if (PlayerWrapper.Instance.PlayerController.CurrentEnergy >= EnergyCost || playingCharacter is Enemy)
             {
                 if (playingCharacter.CurrentAp >= 1 || IsSwift)
                 {
@@ -33,10 +31,10 @@ public class CardSO : ScriptableObject
         }
     }
 
-    
+
     public void RemoveCard(Character playingCharacter)
     {
-       
+
         /*  
          *  Removing the CardSO from the relevant places after it is played happens inside PartyManager.Instance.PickTargets(playingCharacter, this),
          *  because in case target selection is required, the card needs to be removed after the target was selected and not while waiting 
@@ -59,11 +57,13 @@ public class CardSO : ScriptableObject
         }
         else if (playingCharacter is Enemy)
         {
-            EnemyWrapper.Instance.EnemyController.Hand.RemoveCard(this);
-            EnemyWrapper.Instance.EnemyController.DiscardPiles[playingCharacter].Cards.Push(this);
+            Enemy _playingEnemy = playingCharacter.GetComponent<Enemy>();
+
+            _playingEnemy.Hand.RemoveCard(this);
+            _playingEnemy.DiscardPile.Cards.Push(this);
         }
 
-        
+
     }
 
     private bool CheckCardAndHeroColors(Character playingCharacter)
@@ -82,5 +82,5 @@ public class CardSO : ScriptableObject
         return false;
     }
 
-    
+
 }

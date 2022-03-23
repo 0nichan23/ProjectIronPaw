@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Enemy : Character
 {
+    public Deck Deck;
+    public DiscardPile DiscardPile;
+    public ExiledPile ExiledPile;
+    public Hand Hand;
+
     public override void ClearBlock()
     {
     }

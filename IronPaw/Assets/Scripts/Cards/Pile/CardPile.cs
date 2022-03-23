@@ -19,7 +19,8 @@ public abstract class CardPile : MonoBehaviour
     {
         foreach (var card in _cardsGiven)
         {
-            Cards.Push(card);
+            Debug.Log("pushed card");
+            _cards.Push(card);
         }
     }
 
@@ -55,11 +56,12 @@ public abstract class CardPile : MonoBehaviour
 
     public virtual void Draw()
     {
+        Debug.Log("card drawn");
         CardSO cardDrawn = Cards.Pop();
+        _hand.AddCard(cardDrawn);
 
         CreateCardDisplay(cardDrawn);
 
-        _hand.AddCard(cardDrawn);
     }
 
     private void CreateCardDisplay(CardSO cardGiven)

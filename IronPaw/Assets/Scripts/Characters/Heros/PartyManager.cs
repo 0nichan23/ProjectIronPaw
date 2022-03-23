@@ -8,7 +8,6 @@ public class PartyManager : Singleton<PartyManager>
     public List<Character> BadGuys = new List<Character>();
 
     public Character SelectedCharacter;
-
     public IEnumerator WaitUntilHeroIsClickedPlayCard(CardSO card/*, Event func*/)
     {
         yield return new WaitUntil(() => SelectedCharacter != null);

@@ -5,19 +5,19 @@ using UnityEngine;
 public class Hand : MonoBehaviour
 {
     [SerializeField]
-    private List<CardSO> _cards = new List<CardSO>();
+    public List<CardSO> Cards = new List<CardSO>();
 
     bool DiscardAtTurnEnd;
     int DrawAmount;
 
     public void AddCard(CardSO givenCard)
     {
-        _cards.Add(givenCard);
+        Cards.Add(givenCard);
     }
 
     public void RemoveCard(CardSO givenCard)
     {
-        _cards.Remove(givenCard);
+        Cards.Remove(givenCard);
     }
 
     void DiscardCard(CardSO _card)
