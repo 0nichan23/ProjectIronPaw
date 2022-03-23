@@ -1679,6 +1679,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 922a7bfb9b7cdc94e9ba0eed13ae1d5d, type: 2}
   - {fileID: 11400000, guid: 922a7bfb9b7cdc94e9ba0eed13ae1d5d, type: 2}
   - {fileID: 11400000, guid: 922a7bfb9b7cdc94e9ba0eed13ae1d5d, type: 2}
+  _discardPile: {fileID: 155978776}
 --- !u!114 &1381249967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1724,9 +1725,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1381249966}
-        m_TargetAssemblyTypeName: CardPile, Assembly-CSharp
+        m_TargetAssemblyTypeName: Deck, Assembly-CSharp
         m_MethodName: Draw
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2273,6 +2274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hand: {fileID: 0}
   _cardsGiven: []
+  _discardPile: {fileID: 0}
 --- !u!1 &2025732008
 GameObject:
   m_ObjectHideFlags: 0

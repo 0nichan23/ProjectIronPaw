@@ -53,7 +53,7 @@ public abstract class CardPile : MonoBehaviour
         }
     }
 
-    public void Draw(int amount)
+    public virtual void Draw()
     {
         CardSO cardDrawn = Cards.Pop();
 
