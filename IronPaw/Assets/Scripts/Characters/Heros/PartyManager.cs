@@ -17,35 +17,32 @@ public class PartyManager : Singleton<PartyManager>
         SelectedCharacter = null;
     }
 
-    public IEnumerator WaitUntilTargetIsSelected (CardEffect cardEffect)
+    public IEnumerator WaitUntilTargetIsSelected (Character playingCharacter, CardSO card)
     {
         yield return new WaitUntil(() => SelectedCharacter != null);
-
-        cardEffect.Targets.Add(SelectedCharacter);
-
-        cardEffect.PlayEffect();
-
+        card.CardEffect.Targets.Add(SelectedCharacter);
+        card.CardEffect.PlayEffect();
+        card.RemoveCard(playingCharacter);
         SelectedCharacter = null;
-
-
     }
 
     public void PickTargets(Character playingCharacter, CardSO card)
     {
         CardEffect cardEffectRef = card.CardEffect;
-
+        SelectedCharacter = null;
         switch (cardEffectRef.TargetType)
         {
             case TargetType.Self:
                 cardEffectRef.Targets.Add(playingCharacter);
                 cardEffectRef.PlayEffect();
+                card.RemoveCard(playingCharacter);
                 break;
 
             case TargetType.SingleAlly:
                 // enemies will need some sort of "if" statement to not wait for a coroutine, cuz they pick random targets or something
 
                 // set active true for all hero allies buttons
-                StartCoroutine(WaitUntilTargetIsSelected(cardEffectRef));
+                StartCoroutine(WaitUntilTargetIsSelected(playingCharacter, card));
                 break;
 
             case TargetType.RandomAlly:
@@ -53,8 +50,8 @@ public class PartyManager : Singleton<PartyManager>
                 Character randomAlly = GoodGuys[rand.Next(0, GoodGuys.Count)];
 
                 cardEffectRef.Targets.Add(randomAlly);
-
                 cardEffectRef.PlayEffect();
+                card.RemoveCard(playingCharacter);
 
                 break;
 
@@ -64,6 +61,7 @@ public class PartyManager : Singleton<PartyManager>
                     cardEffectRef.Targets.Add(ally);
                 }
                 cardEffectRef.PlayEffect();
+                card.RemoveCard(playingCharacter);
 
                 break;
 
@@ -76,11 +74,12 @@ public class PartyManager : Singleton<PartyManager>
                     }                 
                 }
                 cardEffectRef.PlayEffect();
+                card.RemoveCard(playingCharacter);
                 break;
 
             case TargetType.SingleEnemy:
                 // set active true for all hero enemies buttons
-                StartCoroutine(WaitUntilTargetIsSelected(cardEffectRef));
+                StartCoroutine(WaitUntilTargetIsSelected(playingCharacter, card));
                 break;
 
             case TargetType.RandomEnemy:
@@ -90,6 +89,7 @@ public class PartyManager : Singleton<PartyManager>
                 cardEffectRef.Targets.Add(randomEnemy);
 
                 cardEffectRef.PlayEffect();
+                card.RemoveCard(playingCharacter);
                 break;
 
             case TargetType.AllEnemies:
@@ -99,9 +99,13 @@ public class PartyManager : Singleton<PartyManager>
                     cardEffectRef.Targets.Add(enemy);
                 }
                 cardEffectRef.PlayEffect();
+                card.RemoveCard(playingCharacter);
 
                 break;
         }
+
+        
+
     }
 
 

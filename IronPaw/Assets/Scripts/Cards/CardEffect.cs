@@ -11,7 +11,13 @@ public abstract class CardEffect : ScriptableObject
     public List<Character> Targets = new List<Character>();
 
 
-    public abstract void PlayEffect();
+    public void PlayEffect()
+    {
+        PlayCardEffect();
+        Targets.Clear();
+    }
+
+    protected abstract void PlayCardEffect();
 
     
 }

@@ -15,6 +15,11 @@ public class Hand : MonoBehaviour
         _cards.Add(givenCard);
     }
 
+    public void RemoveCard(CardSO givenCard)
+    {
+        _cards.Remove(givenCard);
+    }
+
     void DiscardCard(CardSO _card)
     {
 

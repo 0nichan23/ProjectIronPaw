@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad7fa4adfd6898e47b67d0907f201cc7, type: 3}
   m_Name: RedAttackEffectSO
   m_EditorClassIdentifier: 
-  TargetType: 0
+  TargetType: 1
   Targets: []

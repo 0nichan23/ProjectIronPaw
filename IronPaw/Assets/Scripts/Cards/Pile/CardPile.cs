@@ -13,11 +13,13 @@ public abstract class CardPile : MonoBehaviour
     [SerializeField]
     private List<CardSO> _cardsGiven = new List<CardSO>();
 
+    public Stack<CardSO> Cards { get => _cards; set => _cards = value; }
+
     private void Start()
     {
         foreach (var card in _cardsGiven)
         {
-            _cards.Push(card);
+            Cards.Push(card);
         }
     }
 
@@ -25,12 +27,12 @@ public abstract class CardPile : MonoBehaviour
     {
         _cardsGiven.Clear();
 
-        foreach (var card in _cards)
+        foreach (var card in Cards)
         {
             _cardsGiven.Add(card);
         }
 
-        _cards.Clear();
+        Cards.Clear();
 
         int n = _cardsGiven.Count;
         while (n > 1)
@@ -47,13 +49,13 @@ public abstract class CardPile : MonoBehaviour
 
         foreach (var card in _cardsGiven)
         {
-            _cards.Push(card);
+            Cards.Push(card);
         }
     }
 
     public void Draw(int amount)
     {
-        CardSO cardDrawn = _cards.Pop();
+        CardSO cardDrawn = Cards.Pop();
 
         CreateCardDisplay(cardDrawn);
 
@@ -63,9 +65,13 @@ public abstract class CardPile : MonoBehaviour
     private void CreateCardDisplay(CardSO cardGiven)
     {
         GameObject GO = Instantiate(PrefabManager.Instance.PlainCardDispaly);
+        cardGiven.CardDisplay = GO;
 
         CardUI GOUI = GO.GetComponent<CardUI>();
         GOUI.CardSO = cardGiven;
+        
+
+
         GOUI.InitializeDisplay();
 
         GO.transform.SetParent(_hand.gameObject.transform);

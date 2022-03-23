@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : Controller
 {
     public Hand Hand;
-    Dictionary<Character, Deck> Decks;
-    Dictionary<Character, Deck> DiscardPiles;
-    Dictionary<Character, Deck> ExiledPiles;
+    public Dictionary<Character, Deck> Decks;
+    public Dictionary<Character, Deck> DiscardPiles;
+    public Dictionary<Character, Deck> ExiledPiles;
 
     public void PlayTurn()
     {

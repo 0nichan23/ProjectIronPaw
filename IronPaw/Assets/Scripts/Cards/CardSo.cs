@@ -15,6 +15,7 @@ public class CardSO : ScriptableObject
     public bool IsSwift;
     public Sprite Artwork;
     public CardType CardType;
+    public GameObject CardDisplay;
 
     public void PlayCard(Character playingCharacter)
     {
@@ -33,11 +34,37 @@ public class CardSO : ScriptableObject
                         playingCharacter.CurrentAp--;
                     }
 
+
                 }
             }
         }
     }
 
+    
+    public void RemoveCard(Character playingCharacter)
+    {
+       
+        /*  
+         *  Removing the CardSO from the relevant places after it is played happens inside PartyManager.Instance.PickTargets(playingCharacter, this),
+         *  because in case target selection is required, the card needs to be removed after the target was selected and not while waiting 
+         *  for the player to select
+         */
+
+        // Destroy CardDisplay
+        Destroy(CardDisplay);
+
+        // Discard this CardSO to discardpile
+        if (playingCharacter is Hero)
+        {
+            PlayerWrapper.Instance.PlayerController.Hand.RemoveCard(this);
+            PlayerWrapper.Instance.PlayerController.DiscardPile.Cards.Push(this);
+        }
+        else if (playingCharacter is Enemy)
+        {
+            EnemyWrapper.Instance.EnemyController.Hand.RemoveCard(this);
+            EnemyWrapper.Instance.EnemyController.DiscardPiles[playingCharacter].Cards.Push(this);
+        }
+    }
 
     private bool CheckCardAndHeroColors(Character playingCharacter)
     {
@@ -54,4 +81,6 @@ public class CardSO : ScriptableObject
 
         return false;
     }
+
+    
 }
