@@ -8,6 +8,7 @@ public class Hero : Character
 
     public bool Selectable { get => _selectable; set => _selectable = value; }
 
+
     public override void GainBlock(int amount)
     {
         _currentBlock += amount;
@@ -29,10 +30,23 @@ public class Hero : Character
     public override void TakeDmg(int amount)
     {
         _currentHp -= amount;
-        if (_currentHp > 0)
+        Debug.Log("i took " + amount + " dmg");
+
+        if (_currentHp <= 0)
         {
             _currentHp = 0;
         }
+    }
+
+    public override void Subscribe()
+    {
+        TurnManager.Instance.OnStartPlayerTurn += InvokeStartTurn;
+        TurnManager.Instance.OnEndPlayerTurn += InvokeEndTurn;
+    }
+    public override void UnSubscribe()
+    {
+        TurnManager.Instance.OnStartPlayerTurn -= InvokeStartTurn;
+        TurnManager.Instance.OnEndPlayerTurn -= InvokeEndTurn;
     }
 
     public virtual void Passive()

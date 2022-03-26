@@ -666,7 +666,7 @@ MonoBehaviour:
   GoodGuys:
   - {fileID: 1017670661}
   - {fileID: 196199338}
-  - {fileID: 742882879}
+  - {fileID: 0}
   BadGuys:
   - {fileID: 536749457}
   - {fileID: 192807671}
@@ -1120,7 +1120,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 742882877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6360c536945f4754aa79f556dfa105f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 03049ab415b33284ea62d27e398aea1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   colors: 01000000
@@ -1690,7 +1690,7 @@ MonoBehaviour:
   controllerChracters:
   - {fileID: 1017670661}
   - {fileID: 196199338}
-  - {fileID: 742882879}
+  - {fileID: 0}
   UltimateMeter: 0
   Hand: {fileID: 1933233248}
   Deck: {fileID: 1381249966}

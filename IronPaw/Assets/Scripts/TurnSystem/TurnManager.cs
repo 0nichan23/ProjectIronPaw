@@ -1,6 +1,7 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
 
 public class TurnManager : Singleton<TurnManager>
 {
@@ -16,6 +17,12 @@ public class TurnManager : Singleton<TurnManager>
     bool _endTurn;
     public GameObject EndTurnButton;
     bool firstTurn = true;
+    public Action OnStartPlayerTurn;
+    public Action OnEndPlayerTurn;
+    public Action OnStartEnemyTurn;
+    public Action OnEndEnemyTurn;
+
+
     private void Start()
     {
         foreach (Enemy enemy in PartyManager.Instance.BadGuys)
@@ -23,6 +30,7 @@ public class TurnManager : Singleton<TurnManager>
             _enemies.Add(enemy);
         }
         StartCoroutine(TurnLoop());
+
     }
 
 
@@ -37,16 +45,24 @@ public class TurnManager : Singleton<TurnManager>
                 firstTurn = false;
                 EnemyWrapper.Instance.EnemyController.RevealIntentions();
             }
+            //onstartplayer
+            OnStartPlayerTurn?.Invoke();
             LockInputs = false;
             EndTurnButton.SetActive(true);
             yield return new WaitUntil(() => _endTurn);
+            //onendPlayerturn
+            OnEndPlayerTurn?.Invoke();
+            //onstartenemy
+            OnStartEnemyTurn?.Invoke();
             _endTurn = false;
             EndTurnButton.SetActive(false);
             LockInputs = true;
             enemyturn();
+            //onendround
+            OnEndEnemyTurn?.Invoke();
         }
     }
-    
+
 
 
     public void EndTurn()
@@ -56,7 +72,7 @@ public class TurnManager : Singleton<TurnManager>
 
     public void enemyturn()
     {
-        EnemyWrapper.Instance.EnemyController.PlayTurn();        
+        EnemyWrapper.Instance.EnemyController.PlayTurn();
     }
 
 

@@ -21,7 +21,21 @@ public class Enemy : Character
     {
     }
 
+    public override void Subscribe()
+    {
+        TurnManager.Instance.OnStartEnemyTurn += InvokeStartTurn;
+        TurnManager.Instance.OnEndEnemyTurn += InvokeEndTurn;
+
+    }
+    public override void UnSubscribe()
+    {
+        TurnManager.Instance.OnStartEnemyTurn -= InvokeStartTurn;
+        TurnManager.Instance.OnEndEnemyTurn -= InvokeEndTurn;
+    }
+
     public override void TakeDmg(int amount)
     {
+
     }
+
 }
