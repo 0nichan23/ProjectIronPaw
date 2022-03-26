@@ -15,7 +15,7 @@ public abstract class CardPile : MonoBehaviour
 
     public Stack<CardSO> Cards { get => _cards; set => _cards = value; }
 
-    private void Start()
+    private void Awake()
     {
         foreach (var card in _cardsGiven)
         {
