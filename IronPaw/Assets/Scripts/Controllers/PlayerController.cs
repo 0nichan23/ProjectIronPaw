@@ -12,9 +12,12 @@ public class PlayerController : Controller
     public int MaxEnergy;
     public int CurrentEnergy;
 
-    private void Start()
-    {
-        CurrentEnergy = MaxEnergy;
+    private void Awake()
+    {  
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            controllerChracters.Add(transform.GetChild(i).GetComponent<Hero>());
+        }
     }
 
 }
