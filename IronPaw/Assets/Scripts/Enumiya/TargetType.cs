@@ -1,3 +1,5 @@
+// TODO: chage "Ally" to "Hero"
+
 public enum TargetType
 {
     Self,

@@ -7059,52 +7059,8 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1054981407}
     m_Modifications:
-    - target: {fileID: 2185228706944530951, guid: 9af38de2b2496da429e4080afe503000, type: 3}
-      propertyPath: m_Colors.m_NormalColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2185228706944530951, guid: 9af38de2b2496da429e4080afe503000, type: 3}
-      propertyPath: m_Colors.m_NormalColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2185228706944530951, guid: 9af38de2b2496da429e4080afe503000, type: 3}
-      propertyPath: m_Colors.m_NormalColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2185228706944530951, guid: 9af38de2b2496da429e4080afe503000, type: 3}
-      propertyPath: m_Colors.m_NormalColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2185228706944530951, guid: 9af38de2b2496da429e4080afe503000, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectCharacter
-      objectReference: {fileID: 0}
-    - target: {fileID: 2185228706944530951, guid: 9af38de2b2496da429e4080afe503000, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Character, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2185228706944530953, guid: 9af38de2b2496da429e4080afe503000, type: 3}
-      propertyPath: m_Color.a
-      value: 0.4117647
-      objectReference: {fileID: 0}
-    - target: {fileID: 2185228706944530953, guid: 9af38de2b2496da429e4080afe503000, type: 3}
-      propertyPath: m_Color.b
-      value: 0.31425774
-      objectReference: {fileID: 0}
-    - target: {fileID: 2185228706944530953, guid: 9af38de2b2496da429e4080afe503000, type: 3}
-      propertyPath: m_Color.g
-      value: 0.31425774
-      objectReference: {fileID: 0}
-    - target: {fileID: 2185228706944530953, guid: 9af38de2b2496da429e4080afe503000, type: 3}
-      propertyPath: m_Color.r
-      value: 0.6226415
-      objectReference: {fileID: 0}
-    - target: {fileID: 2185228706944530953, guid: 9af38de2b2496da429e4080afe503000, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2185228706944530954, guid: 9af38de2b2496da429e4080afe503000, type: 3}
-      propertyPath: _name
+      propertyPath: _characterName
       value: Vikinguin
       objectReference: {fileID: 0}
     - target: {fileID: 2185228706944530955, guid: 9af38de2b2496da429e4080afe503000, type: 3}
@@ -7142,18 +7098,6 @@ PrefabInstance:
     - target: {fileID: 2185228706944530955, guid: 9af38de2b2496da429e4080afe503000, type: 3}
       propertyPath: m_SizeDelta.y
       value: 144.7581
-      objectReference: {fileID: 0}
-    - target: {fileID: 2185228706944530955, guid: 9af38de2b2496da429e4080afe503000, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.47525892
-      objectReference: {fileID: 0}
-    - target: {fileID: 2185228706944530955, guid: 9af38de2b2496da429e4080afe503000, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.47525892
-      objectReference: {fileID: 0}
-    - target: {fileID: 2185228706944530955, guid: 9af38de2b2496da429e4080afe503000, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.47525892
       objectReference: {fileID: 0}
     - target: {fileID: 2185228706944530955, guid: 9af38de2b2496da429e4080afe503000, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7685,6 +7629,18 @@ PrefabInstance:
     - target: {fileID: 2185228706944530954, guid: 9af38de2b2496da429e4080afe503000, type: 3}
       propertyPath: _name
       value: Sima
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185228706944530954, guid: 9af38de2b2496da429e4080afe503000, type: 3}
+      propertyPath: _maxHp
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185228706944530954, guid: 9af38de2b2496da429e4080afe503000, type: 3}
+      propertyPath: _characterName
+      value: Sima
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185228706944530954, guid: 9af38de2b2496da429e4080afe503000, type: 3}
+      propertyPath: colors.Array.data[0]
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2185228706944530955, guid: 9af38de2b2496da429e4080afe503000, type: 3}
       propertyPath: m_Pivot.x
@@ -8480,6 +8436,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2185228706944530954, guid: 9af38de2b2496da429e4080afe503000, type: 3}
       propertyPath: _name
+      value: Duckislav
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185228706944530954, guid: 9af38de2b2496da429e4080afe503000, type: 3}
+      propertyPath: _maxHp
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185228706944530954, guid: 9af38de2b2496da429e4080afe503000, type: 3}
+      propertyPath: _characterName
       value: Duckislav
       objectReference: {fileID: 0}
     - target: {fileID: 2185228706944530954, guid: 9af38de2b2496da429e4080afe503000, type: 3}
@@ -9509,7 +9473,7 @@ PrefabInstance:
       objectReference: {fileID: 1085283461}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[0]
@@ -9522,7 +9486,7 @@ PrefabInstance:
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: d23a571c396188b4ba5ea2baaeefb653, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[3]
       value: 

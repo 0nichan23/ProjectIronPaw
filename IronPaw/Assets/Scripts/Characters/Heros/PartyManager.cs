@@ -47,8 +47,6 @@ public class PartyManager : Singleton<PartyManager>
                 break;
 
             case TargetType.SingleAlly:
-                // enemies will need some sort of "if" statement to not wait for a coroutine, cuz they pick random targets or something
-
                 // set active true for all hero allies buttons
                 StartCoroutine(WaitUntilTargetIsSelected(playingCharacter, card));
                 break;
@@ -122,6 +120,15 @@ public class PartyManager : Singleton<PartyManager>
         foreach (var enemy in Enemies)
         {
             enemy.Button.enabled = true;
+        }
+    }
+
+    private void TurnOnAllHeroButtons()
+    {
+        // TODO: Filter heros by color, ifAlive, and so on
+        foreach (var hero in Heros)
+        {
+            hero.Button.enabled = true;
         }
     }
 

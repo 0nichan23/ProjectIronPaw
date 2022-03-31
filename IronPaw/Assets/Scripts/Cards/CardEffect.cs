@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+/* 
+  Copy this and change when inheriting:
+  [CreateAssetMenu(fileName = "New Card", menuName = "Cards/CardEffect/WhiteCards/Utility/WhiteSingleAllyEffect")]
+*/
 
 public abstract class CardEffect : ScriptableObject
 {
