@@ -121,7 +121,7 @@ public class PartyManager : Singleton<PartyManager>
     {
         foreach (var enemy in Enemies)
         {
-            enemy.gameObject.GetComponent<Button>().enabled = true;
+            enemy.Button.enabled = true;
         }
     }
 
@@ -129,12 +129,12 @@ public class PartyManager : Singleton<PartyManager>
     {
         foreach (var enemy in Enemies)
         {
-            enemy.gameObject.GetComponent<Button>().enabled = false;
+            enemy.Button.enabled = false;
         }
 
         foreach (var hero in Heros)
         {
-            hero.gameObject.GetComponent<Button>().enabled = false;
+            hero.Button.enabled = false;
         }
     }
 

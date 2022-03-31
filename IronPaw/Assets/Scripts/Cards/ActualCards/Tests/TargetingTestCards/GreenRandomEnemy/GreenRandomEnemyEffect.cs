@@ -9,8 +9,8 @@ public class GreenRandomEnemyEffect : CardEffect
     {
         Character charCache = Targets[0].GetComponent<Character>();
 
-        Debug.Log(charCache.CurrentHP);
+        Debug.Log(charCache.CharacterName + " took " + charCache.CurrentHP + " dmg");
         charCache.TakeDmg(6);
-        Debug.Log(charCache.CurrentHP);
+        Debug.Log(charCache.CharacterName + " took " + charCache.CurrentHP + " dmg");
     }
 }
