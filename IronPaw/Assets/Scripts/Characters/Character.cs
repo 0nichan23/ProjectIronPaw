@@ -17,6 +17,8 @@ public abstract class Character : MonoBehaviour
     public Action OnStartTurn;
     public Action OnEndTurn;
 
+    public int CurrentHP { get => _currentHp; }
+
     //Dictionary<ModifierType, int> _activeModifiers;
     //List<Card> PersonalDeck;
     private void Start()
@@ -50,4 +52,9 @@ public abstract class Character : MonoBehaviour
     public abstract void GainBlock(int amount);
     public abstract void ClearBlock();
 
+    public void SelectCharacter()
+    {
+        PartyManager.Instance.SelectedCharacter = this;
+        Debug.Log("Pls " + _name);
+    }
 }

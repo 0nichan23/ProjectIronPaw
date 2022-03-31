@@ -64,10 +64,6 @@ public class Hero : Character
 
     }
 
-    public void SelectHero()
-    {
-        PartyManager.Instance.SelectedCharacter = this;
-        Debug.Log("Selected Hero " + this);
-    }
+
 
 }

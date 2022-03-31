@@ -25,7 +25,7 @@ public class TurnManager : Singleton<TurnManager>
 
     private void Start()
     {
-        foreach (Enemy enemy in PartyManager.Instance.BadGuys)
+        foreach (Enemy enemy in PartyManager.Instance.Enemies)
         {
             _enemies.Add(enemy);
         }
