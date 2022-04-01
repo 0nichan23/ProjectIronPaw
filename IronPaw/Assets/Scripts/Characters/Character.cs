@@ -10,12 +10,13 @@ public abstract class Character : MonoBehaviour
     [SerializeField] private int _currentHp;
     [SerializeField] private int _currentBlock;
     [SerializeField] private string _characterName;
-    //protected CharacterStats _stats;
+    private CharacterStats _stats;
     [SerializeField] private int _keepBlock;
     [SerializeField] private int currentAp;
 
     public Action OnStartTurn;
     public Action OnEndTurn;
+    public Action<Damage> OnTakeDamage;
 
     public Button Button;
 
@@ -23,6 +24,7 @@ public abstract class Character : MonoBehaviour
     public List<Color> Colors { get => colors; set => colors = value; }
     public int CurrentAp { get => currentAp; set => currentAp = value; }
     public string CharacterName { get => _characterName; set => _characterName = value; }
+    public CharacterStats Stats { get => _stats; set => _stats = value; }
 
     //Dictionary<ModifierType, int> _activeModifiers;
     //List<Card> PersonalDeck;
@@ -37,6 +39,7 @@ public abstract class Character : MonoBehaviour
     {
         Button = GetComponent<Button>();
         _currentHp = _maxHp;
+        OnStartTurn += ClearBlock;
     }
 
     protected void InvokeStartTurn()
@@ -78,13 +81,27 @@ public abstract class Character : MonoBehaviour
         }
     }
 
-    public void TakeDmg(int amount)
+    public void TakeDmg(Damage damage)
     {
+        int amount = damage.FinalDamage;
+        
+        if (_currentBlock >= amount)
+        {
+            _currentBlock -= amount;
+        }
+        else
+        {
+            int remainder = amount - _currentBlock;
+            _currentBlock = 0;
+            amount = remainder;
+        }
         _currentHp -= amount;
 
         if (_currentHp <= 0)
         {
             _currentHp = 0;
         }
+
+        OnTakeDamage?.Invoke(damage);
     }
 }

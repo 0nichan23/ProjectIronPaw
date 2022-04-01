@@ -15,13 +15,13 @@ public abstract class CardEffect : ScriptableObject
     public List<Character> Targets = new List<Character>();
 
 
-    public void PlayEffect()
+    public void PlayEffect(Character playingCharacter)
     {
-        PlayCardEffect();
+        PlayCardEffect(playingCharacter);
         Targets.Clear();
     }
 
-    protected abstract void PlayCardEffect();
+    protected abstract void PlayCardEffect(Character playingCharacter);
 
     
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Card", menuName = "Cards/CardEffect/WhiteCards/Utility/WhiteSingleAllyEffect")]
 public class WhiteSingleAllyEffect : CardEffect
 {
-    protected override void PlayCardEffect()
+    protected override void PlayCardEffect(Character playingCharacter)
     {
         Character charCache = Targets[0].GetComponent<Character>();
 
