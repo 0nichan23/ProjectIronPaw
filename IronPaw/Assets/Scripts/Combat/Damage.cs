@@ -10,24 +10,26 @@ public class Damage
 
     private int _givenDamage;
 
+    public int GivenDamage { get => _givenDamage; set => _givenDamage = value; }
+
     public int FinalDamage 
     { 
         get
         {
             if(_isSourceAttack)
             {
-                return _givenDamage + _sourceCharacter.Stats.Strength;
+                return GivenDamage + _sourceCharacter.Stats.Strength;
             }
             else
             {
-                return _givenDamage;
+                return GivenDamage;
             }
         }
     }
 
     public Damage(int givenDamage, Character playingCharacter)
     {
-        _givenDamage = givenDamage;
+        GivenDamage = givenDamage;
         _sourceCharacter = playingCharacter;
     }
 }

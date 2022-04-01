@@ -10,7 +10,7 @@ public class WhiteSingleAllyEffect : CardEffect
         Character charCache = Targets[0].GetComponent<Character>();
 
         Debug.Log(charCache.CharacterName + " has " + charCache.CurrentHP + " health ");
-        charCache.TakeDmg(4);
+        charCache.TakeDmg(new Damage(4, playingCharacter));
         Debug.Log(charCache.CharacterName + " has " + charCache.CurrentHP + " health ");
         charCache.Heal(4);
         Debug.Log(charCache.CharacterName + " has " + charCache.CurrentHP + " health ");

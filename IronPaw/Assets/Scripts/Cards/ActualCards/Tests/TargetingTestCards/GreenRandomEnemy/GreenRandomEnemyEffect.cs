@@ -7,10 +7,10 @@ public class GreenRandomEnemyEffect : CardEffect
 {
     protected override void PlayCardEffect(Character playingCharacter)
     {
-        Character charCache = Targets[0].GetComponent<Character>();
+        Character charCache = Targets[0];
 
         Debug.Log(charCache.CharacterName + " has " + charCache.CurrentHP + " health ");
-        charCache.TakeDmg(6);
+        charCache.TakeDmg(new Damage(6, playingCharacter));
         Debug.Log(charCache.CharacterName + " has " + charCache.CurrentHP + " health ");
     }
 }

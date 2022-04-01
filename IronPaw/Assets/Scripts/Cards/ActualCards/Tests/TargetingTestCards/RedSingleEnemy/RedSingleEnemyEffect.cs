@@ -10,7 +10,7 @@ public class RedSingleEnemyEffect : CardEffect
         Character charCache = Targets[0].GetComponent<Character>();
 
         Debug.Log(charCache.CurrentHP);
-        charCache.TakeDmg(5);
+        charCache.TakeDmg(new Damage(5, playingCharacter));
         Debug.Log(charCache.CurrentHP);
     }
 }
