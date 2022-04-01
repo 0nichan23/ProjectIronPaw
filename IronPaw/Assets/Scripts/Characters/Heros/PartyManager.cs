@@ -46,12 +46,12 @@ public class PartyManager : Singleton<PartyManager>
                 card.RemoveCard(playingCharacter);
                 break;
 
-            case TargetType.SingleAlly:
+            case TargetType.SingleHero:
                 // set active true for all hero allies buttons
                 StartCoroutine(WaitUntilTargetIsSelected(playingCharacter, card));
                 break;
 
-            case TargetType.RandomAlly:
+            case TargetType.RandomHero:
                 System.Random rand = new System.Random();
                 Character randomAlly = Heros[rand.Next(0, Heros.Count)];
 
@@ -61,7 +61,7 @@ public class PartyManager : Singleton<PartyManager>
 
                 break;
 
-            case TargetType.AllAllies:
+            case TargetType.AllHeroes:
                 foreach (Character ally in Heros)
                 {
                     cardEffectRef.Targets.Add(ally);
@@ -71,7 +71,7 @@ public class PartyManager : Singleton<PartyManager>
 
                 break;
 
-            case TargetType.AllAlliesButMe:
+            case TargetType.AllHeroesButMe:
                 foreach (Character ally in Heros)
                 {
                     if(ally != playingCharacter)
