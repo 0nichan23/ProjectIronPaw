@@ -5,20 +5,23 @@ public class Bleed
 
     public Character Host;
 
+    private Damage _givenDamage;
 
-    public Bleed(Character givenHost, int amount)
+
+
+    public Bleed(Character givenHost, Damage givenDamage)
     {
         Host = givenHost;
-        _bleedDamage = amount;
-        Subscibre();
+        _givenDamage = givenDamage;
+        Subscribe();
     }
 
 
-    private void Subscibre()
+    private void Subscribe()
     {
         Host.OnStartTurn += Bleeding;
     }
-    private void UnSubscibre()
+    private void UnSubscribe()
     {
         Host.OnStartTurn -= Bleeding;
     }
@@ -26,11 +29,11 @@ public class Bleed
 
     public void Bleeding()
     {
-        Host.TakeDmg(_bleedDamage);
-        _bleedDamage--;
-        if (_bleedDamage <= 0)
+        Host.TakeDmg(_givenDamage);
+        _givenDamage.GivenDamage--;
+        if (_givenDamage.GivenDamage <= 0)
         {
-            UnSubscibre();
+            UnSubscribe();
         }
 
     }

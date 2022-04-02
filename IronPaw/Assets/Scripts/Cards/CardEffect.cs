@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+/* 
+  Copy this and change when inheriting:
+  [CreateAssetMenu(fileName = "New Card", menuName = "Cards/CardEffect/WhiteCards/Utility/WhiteSingleAllyEffect")]
+*/
 
 public abstract class CardEffect : ScriptableObject
 {
@@ -11,40 +15,13 @@ public abstract class CardEffect : ScriptableObject
     public List<Character> Targets = new List<Character>();
 
 
-    public void PlayEffect()
+    public void PlayEffect(Character playingCharacter)
     {
-        PlayCardEffect();
+        PlayCardEffect(playingCharacter);
         Targets.Clear();
     }
 
-    protected abstract void PlayCardEffect();
+    protected abstract void PlayCardEffect(Character playingCharacter);
 
     
 }
-
-//[CustomPropertyDrawer(typeof(CardEffect))]
-//public class CardEffectDrawer : PropertyDrawer
-//{
-//    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
-//    {
-//        // Using BeginProperty / EndProperty on the parent property means that
-//        // prefab override logic works on the entire property.
-//        EditorGUI.BeginProperty(position, label, property);
-
-//        float recSize = 50;
-
-//        // Draw Label
-//        position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);
-
-//        // Define X & Y Labels
-//        GUIContent xLabel = new GUIContent();
-//        xLabel.text = "X :";
-
-//        Rect xLabelPos = EditorGUI.PrefixLabel(new Rect(position.x, position.y, 0, position.height), GUIUtility.GetControlID(FocusType.Passive), xLabel);
-//        Rect xRect = new Rect(xLabelPos.x - 140, position.y, recSize, position.height);
-//        EditorGUI.PropertyField(xRect, property.FindPropertyRelative("X"), GUIContent.none);
-
-
-//        EditorGUI.EndProperty();
-//    }
-//}

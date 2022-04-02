@@ -16,8 +16,13 @@ public class PlayerController : Controller
     {  
         for (int i = 0; i < transform.childCount; i++)
         {
-            controllerChracters.Add(transform.GetChild(i).GetComponent<Hero>());
+            ControllerChracters.Add(transform.GetChild(i).GetComponent<Hero>());
         }
+    }
+
+    private void Start()
+    {
+        CurrentEnergy = MaxEnergy;
     }
 
 }
