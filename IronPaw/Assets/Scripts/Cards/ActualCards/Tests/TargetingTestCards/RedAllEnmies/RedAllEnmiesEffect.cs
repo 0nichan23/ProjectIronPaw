@@ -9,7 +9,6 @@ public class RedAllEnmiesEffect : CardEffect
     {
         foreach (var target in Targets)
         {
-            
             target.TakeDmg(new Damage(3, playingCharacter));
         }
     }

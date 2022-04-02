@@ -6,11 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Card", menuName = "Cards/CardEffect/RedCards/Attacks/DealDamageAttempt")]
 public class DealDamage : CardEffect
 {
-    protected override void PlayCardEffect()
+    protected override void PlayCardEffect(Character playingCharacter)
     {
-        Debug.Log("callback");
-        Targets[0].TakeDmg(2);
+        throw new System.NotImplementedException();
     }
-
-    
 }

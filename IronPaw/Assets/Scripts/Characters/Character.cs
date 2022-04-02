@@ -7,7 +7,7 @@ public abstract class Character : MonoBehaviour
 {
     [SerializeField] private List<Color> colors;
     [SerializeField] private int _maxHp;
-    [SerializeField] private int _currentHp;
+    [SerializeField] internal int _currentHp;
     [SerializeField] private int _currentBlock;
     [SerializeField] private string _characterName;
     private CharacterStats _stats;
@@ -81,7 +81,7 @@ public abstract class Character : MonoBehaviour
         }
     }
 
-    public void TakeDmg(Damage damage)
+    public virtual void TakeDmg(Damage damage)
     {
         int amount = damage.FinalDamage;
         

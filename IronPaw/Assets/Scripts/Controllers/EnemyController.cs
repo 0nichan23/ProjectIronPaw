@@ -29,7 +29,7 @@ public class EnemyController : Controller
     {
         foreach (Enemy item in Enemies)
         {
-            if (item._currentHp <= 0)
+            if (item.CurrentHP <= 0)
             {
                 continue;
             }
