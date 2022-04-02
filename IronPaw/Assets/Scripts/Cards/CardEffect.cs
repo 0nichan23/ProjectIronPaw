@@ -17,11 +17,14 @@ public abstract class CardEffect : ScriptableObject
 
     public void PlayEffect(Character playingCharacter)
     {
-        PlayCardEffect(playingCharacter);
+        foreach (var item in Targets)
+        {
+            PlayCardEffect(playingCharacter, item);
+        }
         Targets.Clear();
     }
 
-    protected abstract void PlayCardEffect(Character playingCharacter);
+    protected abstract void PlayCardEffect(Character playingCharacter, Character target);
 
     
 }

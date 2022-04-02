@@ -5,11 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Card", menuName = "Cards/CardEffect/WhiteCards/Guard/WhiteAllAlliesEffect")]
 public class WhiteAllAlliesEffect : CardEffect
 {
-    protected override void PlayCardEffect(Character playingCharacter)
+    
+
+    protected override void PlayCardEffect(Character playingCharacter, Character target)
     {
-        foreach (var target in Targets)
-        {
-            target.GainBlock(3);
-        }
+        target.GainBlock(3);
+
     }
 }

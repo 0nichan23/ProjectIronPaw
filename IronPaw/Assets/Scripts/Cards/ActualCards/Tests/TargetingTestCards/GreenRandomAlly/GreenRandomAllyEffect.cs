@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Card", menuName = "Cards/CardEffect/GreenCards/Utility/GreenRandomAllyEffect")]
 public class GreenRandomAllyEffect : CardEffect
 {
-    protected override void PlayCardEffect(Character playingCharacter)
+
+
+    protected override void PlayCardEffect(Character playingCharacter, Character target)
     {
-        Character charCache = Targets[0];
-
-        Debug.Log(charCache.CharacterName + " has " + charCache.CurrentHP + " health ");
-        charCache.GainBlock(3);
-        Debug.Log(charCache.CharacterName + " has " + charCache.CurrentHP + " health ");
+        Debug.Log(target.CharacterName + " has " + target.CurrentHP + " health ");
+        target.GainBlock(3);
+        Debug.Log(target.CharacterName + " has " + target.CurrentHP + " health ");
     }
-
-   
 }
