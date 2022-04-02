@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4486426, g: 0.49869394, b: 0.575672, a: 1}
+  m_IndirectSpecularColor: {r: 0.44864297, g: 0.49869418, b: 0.57567257, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2970,7 +2970,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 39.8, y: 78}
+  m_AnchoredPosition: {x: 39.80005, y: 78}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &589836112
@@ -9473,16 +9473,16 @@ PrefabInstance:
       objectReference: {fileID: 1085283461}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 86c23e1e86e06744fbebbac35dff7167, type: 2}
+      objectReference: {fileID: 11400000, guid: 26d06e6cc86ba244da9e840002e74e4c, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 690abd0ff74a8454da4655af64473008, type: 2}
+      objectReference: {fileID: 11400000, guid: 26d06e6cc86ba244da9e840002e74e4c, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[2]
       value: 
