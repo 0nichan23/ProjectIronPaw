@@ -35,6 +35,7 @@ public class Enemy : Character
 
     public override void TakeDmg(int amount)
     {
+        DamagePopup.Create(transform.position, amount);
 
     }
 

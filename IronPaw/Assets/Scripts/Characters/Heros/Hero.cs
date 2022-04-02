@@ -31,7 +31,7 @@ public class Hero : Character
     {
         _currentHp -= amount;
         Debug.Log("i took " + amount + " dmg");
-
+        DamagePopup.Create(transform.position, amount);
         if (_currentHp <= 0)
         {
             _currentHp = 0;
@@ -67,7 +67,7 @@ public class Hero : Character
     public void SelectHero()
     {
         PartyManager.Instance.SelectedCharacter = this;
-        Debug.Log("Selected Hero " + this);
+        //Debug.Log("Selected Hero " + this);
     }
 
 }

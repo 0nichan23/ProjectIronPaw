@@ -7,12 +7,15 @@ public abstract class Character : MonoBehaviour
     [SerializeField]
     private List<Color> colors;
     protected int _maxHp;
-    protected int _currentHp;
+    public int _currentHp;
     protected int _currentBlock;
     protected string _name;
     //protected CharacterStats _stats;
     protected int _keepBlock;
     private int currentAp;
+
+    [SerializeField]
+    Transform Model;
 
     public Action OnStartTurn;
     public Action OnEndTurn;
@@ -45,7 +48,10 @@ public abstract class Character : MonoBehaviour
     public List<Color> Colors { get => colors; set => colors = value; }
     public int CurrentAp { get => currentAp; set => currentAp = value; }
 
-    public abstract void TakeDmg(int amount);
+    public virtual void TakeDmg(int amount)
+    {
+        DamagePopup.Create(Model.position, amount);
+    }
     public abstract void Heal(int amount);
     public abstract void GainBlock(int amount);
     public abstract void ClearBlock();

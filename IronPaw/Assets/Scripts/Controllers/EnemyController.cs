@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyController : Controller
 {
     public List<Character> Enemies;
+    [SerializeField]
+    float timeBetweenTurns;
 
     private void Awake()
     {
@@ -19,12 +21,22 @@ public class EnemyController : Controller
 
     public void PlayTurn()
     {
+        StartCoroutine(TurnSpacing());
+
+    }
+
+    IEnumerator TurnSpacing()
+    {
         foreach (Enemy item in Enemies)
         {
+            if (item._currentHp <= 0)
+            {
+                continue;
+            }
             item.Hand.Cards[0].PlayCard(item);
+            yield return new WaitForSeconds(timeBetweenTurns);
         }
         RevealIntentions();
-
     }
 
 
