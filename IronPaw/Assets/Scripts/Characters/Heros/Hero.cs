@@ -9,34 +9,7 @@ public class Hero : Character
     public bool Selectable { get => _selectable; set => _selectable = value; }
 
 
-    public override void GainBlock(int amount)
-    {
-        _currentBlock += amount;
-    }
-    public override void ClearBlock()
-    {
-        _currentBlock = 0;
-    }
-
-    public override void Heal(int amount)
-    {
-        _currentHp += amount;
-        if (_currentHp >= _maxHp)
-        {
-            _currentHp = _maxHp;
-        }
-    }
-
-    public override void TakeDmg(int amount)
-    {
-        _currentHp -= amount;
-        Debug.Log("i took " + amount + " dmg");
-        DamagePopup.Create(transform.position, amount);
-        if (_currentHp <= 0)
-        {
-            _currentHp = 0;
-        }
-    }
+    
 
     public override void Subscribe()
     {
@@ -64,10 +37,6 @@ public class Hero : Character
 
     }
 
-    public void SelectHero()
-    {
-        PartyManager.Instance.SelectedCharacter = this;
-        //Debug.Log("Selected Hero " + this);
-    }
+
 
 }

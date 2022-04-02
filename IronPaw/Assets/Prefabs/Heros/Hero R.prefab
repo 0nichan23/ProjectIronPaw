@@ -29,7 +29,7 @@ RectTransform:
   m_GameObject: {fileID: 2185228706944530956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.47525892, y: 0.47525892, z: 0.47525892}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8301887, g: 0.755785, b: 0.755785, a: 1}
+  m_Color: {r: 0.6226415, g: 0.31425774, b: 0.31425774, a: 0.4117647}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -90,6 +90,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colors: 00000000
+  _maxHp: 10
+  _currentHp: 0
+  _currentBlock: 0
+  _characterName: 
+  _keepBlock: 0
+  currentAp: 0
+  Button: {fileID: 0}
 --- !u!114 &2185228706944530951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,8 +142,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2185228706944530954}
-        m_TargetAssemblyTypeName: Hero, Assembly-CSharp
-        m_MethodName: SelectHero
+        m_TargetAssemblyTypeName: Character, Assembly-CSharp
+        m_MethodName: SelectCharacter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
