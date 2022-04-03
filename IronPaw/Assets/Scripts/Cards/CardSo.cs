@@ -17,7 +17,6 @@ public class CardSO : ScriptableObject
 
     public void PlayCard(Character playingCharacter)
     {
-
         if (CheckCardAndHeroColors(playingCharacter))
         {
             if (PlayerWrapper.Instance.PlayerController.CurrentEnergy >= EnergyCost || playingCharacter is Enemy)

@@ -6,7 +6,8 @@ using UnityEngine;
 public class RedAttackEffect : CardEffect
 {
 
-    protected override void PlayCardEffect(Character playingCharacter)
+
+    protected override void PlayCardEffect(Character playingCharacter, Character target)
     {
         Debug.Log("Heal for 5");
     }

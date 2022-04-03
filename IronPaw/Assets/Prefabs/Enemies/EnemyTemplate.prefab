@@ -94,6 +94,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colors: 00000000
+  _maxHp: 0
+  _currentHp: 0
+  _currentBlock: 0
+  _characterName: 
+  _keepBlock: 0
+  currentAp: 0
+  Button: {fileID: 0}
   Deck: {fileID: 6965992137193135921}
   DiscardPile: {fileID: 6965992137193135920}
   ExiledPile: {fileID: 6965992137193135923}

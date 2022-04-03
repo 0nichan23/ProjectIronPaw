@@ -5,4 +5,5 @@ using UnityEngine;
 public class PrefabManager : Singleton<PrefabManager>
 {
     public GameObject PlainCardDispaly;
+    public GameObject DamagePopup;
 }

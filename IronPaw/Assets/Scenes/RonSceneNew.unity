@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4486426, g: 0.49869394, b: 0.575672, a: 1}
+  m_IndirectSpecularColor: {r: 0.44864297, g: 0.49869418, b: 0.57567257, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2970,7 +2970,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 39.8, y: 78}
+  m_AnchoredPosition: {x: 39.80005, y: 78}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &589836112
@@ -7059,6 +7059,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1054981407}
     m_Modifications:
+    - target: {fileID: 2185228706944530951, guid: 9af38de2b2496da429e4080afe503000, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2185228706944530954, guid: 9af38de2b2496da429e4080afe503000, type: 3}
       propertyPath: _characterName
       value: Vikinguin
@@ -7586,6 +7590,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1054981407}
     m_Modifications:
+    - target: {fileID: 2185228706944530951, guid: 9af38de2b2496da429e4080afe503000, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2185228706944530951, guid: 9af38de2b2496da429e4080afe503000, type: 3}
       propertyPath: m_Colors.m_NormalColor.a
       value: 1
@@ -8394,6 +8402,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1054981407}
     m_Modifications:
+    - target: {fileID: 2185228706944530951, guid: 9af38de2b2496da429e4080afe503000, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2185228706944530951, guid: 9af38de2b2496da429e4080afe503000, type: 3}
       propertyPath: m_Colors.m_NormalColor.a
       value: 1
@@ -9478,7 +9490,7 @@ PrefabInstance:
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 86c23e1e86e06744fbebbac35dff7167, type: 2}
+      objectReference: {fileID: 11400000, guid: c4909107993f1dc4f9fa268d976e9c0f, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[1]
       value: 
@@ -9486,7 +9498,7 @@ PrefabInstance:
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: cc6e10b9b666f254ab5e101ac82bc503, type: 2}
+      objectReference: {fileID: 11400000, guid: d23a571c396188b4ba5ea2baaeefb653, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[3]
       value: 

@@ -9,6 +9,8 @@ public class Enemy : Character
     public ExiledPile ExiledPile;
     public Hand Hand;
 
+   
+
     public override void Subscribe()
     {
         TurnManager.Instance.OnStartEnemyTurn += InvokeStartTurn;
@@ -20,5 +22,4 @@ public class Enemy : Character
         TurnManager.Instance.OnStartEnemyTurn -= InvokeStartTurn;
         TurnManager.Instance.OnEndEnemyTurn -= InvokeEndTurn;
     }
-
 }

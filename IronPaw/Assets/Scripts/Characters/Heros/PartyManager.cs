@@ -18,6 +18,7 @@ public class PartyManager : Singleton<PartyManager>
     }
     public IEnumerator WaitUntilHeroIsClickedPlayCard(CardSO card/*, Event func*/)
     {
+        TurnOnAllHeroButtons(card);
         yield return new WaitUntil(() => SelectedCharacter != null);
         Debug.Log(SelectedCharacter + " was selected");
         card.PlayCard(SelectedCharacter);
@@ -44,10 +45,12 @@ public class PartyManager : Singleton<PartyManager>
                 cardEffectRef.Targets.Add(playingCharacter);
                 cardEffectRef.PlayEffect(playingCharacter);
                 card.RemoveCard(playingCharacter);
+                TurnOffAllButtons();
                 break;
 
             case TargetType.SingleHero:
                 // set active true for all hero allies buttons
+                TurnOnAllHeroButtons();
                 StartCoroutine(WaitUntilTargetIsSelected(playingCharacter, card));
                 break;
 
@@ -58,7 +61,7 @@ public class PartyManager : Singleton<PartyManager>
                 cardEffectRef.Targets.Add(randomAlly);
                 cardEffectRef.PlayEffect(playingCharacter);
                 card.RemoveCard(playingCharacter);
-
+                TurnOffAllButtons();
                 break;
 
             case TargetType.AllHeroes:
@@ -68,7 +71,7 @@ public class PartyManager : Singleton<PartyManager>
                 }
                 cardEffectRef.PlayEffect(playingCharacter);
                 card.RemoveCard(playingCharacter);
-
+                TurnOffAllButtons();
                 break;
 
             case TargetType.AllHeroesButMe:
@@ -81,6 +84,7 @@ public class PartyManager : Singleton<PartyManager>
                 }
                 cardEffectRef.PlayEffect(playingCharacter);
                 card.RemoveCard(playingCharacter);
+                TurnOffAllButtons();
                 break;
 
             case TargetType.SingleEnemy:
@@ -97,6 +101,7 @@ public class PartyManager : Singleton<PartyManager>
 
                 cardEffectRef.PlayEffect(playingCharacter);
                 card.RemoveCard(playingCharacter);
+                TurnOffAllButtons();
                 break;
 
             case TargetType.AllEnemies:
@@ -107,7 +112,7 @@ public class PartyManager : Singleton<PartyManager>
                 }
                 cardEffectRef.PlayEffect(playingCharacter);
                 card.RemoveCard(playingCharacter);
-
+                TurnOffAllButtons();
                 break;
         }
 
@@ -119,16 +124,49 @@ public class PartyManager : Singleton<PartyManager>
     {
         foreach (var enemy in Enemies)
         {
-            enemy.Button.enabled = true;
+            if (enemy.CurrentHP > 0)
+            {
+                enemy.Button.enabled = true;
+            }
+           
         }
     }
 
     private void TurnOnAllHeroButtons()
     {
         // TODO: Filter heros by color, ifAlive, and so on
+
         foreach (var hero in Heros)
         {
-            hero.Button.enabled = true;
+            if (hero.CurrentHP > 0)
+            {
+                hero.Button.enabled = true;
+            }
+            
+        }
+    }
+    private void TurnOnAllHeroButtons(CardSO card)
+    {
+       
+        foreach (var hero in Heros)
+        {
+            if (hero.CurrentHP > 0)
+            {
+                foreach (Color heroColor in hero.Colors)
+                {
+                    foreach (Color cardColor in card.Colors)
+                    {
+                        if (heroColor == cardColor)
+                        {
+                            hero.Button.enabled = true;
+                            
+                        }
+                    }
+                    
+                }
+                
+            }
+
         }
     }
 

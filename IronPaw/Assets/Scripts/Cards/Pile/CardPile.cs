@@ -60,8 +60,10 @@ public abstract class CardPile : MonoBehaviour
         CardSO cardDrawn = Cards.Pop();
         _hand.AddCard(cardDrawn);
 
-        CreateCardDisplay(cardDrawn);
-
+        if (!GetComponent<Enemy>())
+        {
+            CreateCardDisplay(cardDrawn);
+        }
     }
 
     private void CreateCardDisplay(CardSO cardGiven)
