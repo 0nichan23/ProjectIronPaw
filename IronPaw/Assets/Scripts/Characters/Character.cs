@@ -14,6 +14,8 @@ public abstract class Character : MonoBehaviour
     [SerializeField] private int _keepBlock;
     [SerializeField] private int currentAp;
 
+    private List<Modifier> _activeModifiers = new List<Modifier>();
+
     public Action OnStartTurn;
     public Action OnEndTurn;
     public Action<Damage> OnTakeDamage;
@@ -25,8 +27,9 @@ public abstract class Character : MonoBehaviour
     public int CurrentAp { get => currentAp; set => currentAp = value; }
     public string CharacterName { get => _characterName; set => _characterName = value; }
     public CharacterStats Stats { get => _stats; set => _stats = value; }
+    public List<Modifier> ActiveModifiers { get => _activeModifiers; set => _activeModifiers = value; }
 
-    //Dictionary<ModifierType, int> _activeModifiers;
+    
     //List<Card> PersonalDeck;
     private void Start()
     {

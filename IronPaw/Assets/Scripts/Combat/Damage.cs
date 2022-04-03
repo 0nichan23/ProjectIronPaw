@@ -16,9 +16,9 @@ public class Damage
     { 
         get
         {
-            if(_isSourceAttack)
+            if(IsSourceAttack)
             {
-                return GivenDamage + _sourceCharacter.Stats.Strength;
+                return GivenDamage + SourceCharacter.Stats.Strength;
             }
             else
             {
@@ -27,9 +27,13 @@ public class Damage
         }
     }
 
-    public Damage(int givenDamage, Character playingCharacter)
+    public bool IsSourceAttack { get => _isSourceAttack; }
+    public Character SourceCharacter { get => _sourceCharacter; }
+
+    public Damage(int givenDamage, Character playingCharacter, bool isSourceAttack = true)
     {
         GivenDamage = givenDamage;
         _sourceCharacter = playingCharacter;
+        _isSourceAttack = isSourceAttack;
     }
 }
