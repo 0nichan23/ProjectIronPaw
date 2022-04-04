@@ -7,8 +7,12 @@ public class Hand : MonoBehaviour
     [SerializeField]
     public List<CardSO> Cards = new List<CardSO>();
 
+    [SerializeField] public DiscardPile DiscardPile;
+
     bool DiscardAtTurnEnd;
-    int DrawAmount;
+    [SerializeField] private int _drawAmount;
+
+    public int DrawAmount { get => _drawAmount; set => _drawAmount = value; }
 
     public void AddCard(CardSO givenCard)
     {
@@ -20,15 +24,30 @@ public class Hand : MonoBehaviour
         Cards.Remove(givenCard);
     }
 
-    void DiscardCard(CardSO _card)
+    public void DiscardCard(CardSO card)
+    {
+        Destroy(card.CardDisplay);
+        RemoveCard(card);
+        DiscardPile.Cards.Push(card);
+    }
+
+    public void DiscardHand()
+    {
+        //foreach (var card in Cards)
+        //{
+        //    DiscardCard(card);
+        //}
+
+        while(Cards.Count > 0)
+        {
+            DiscardCard(Cards[0]);
+        }
+    }
+    void ExileCard(CardSO card)
     {
 
     }
-    void ExileCard(CardSO _card)
-    {
-
-    }
-    void ReturnCardToDeck(CardSO _card)
+    void ReturnCardToDeck(CardSO card)
     {
 
     }

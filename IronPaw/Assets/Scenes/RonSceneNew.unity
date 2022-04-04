@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44864297, g: 0.49869418, b: 0.57567257, a: 1}
+  m_IndirectSpecularColor: {r: 0.4486426, g: 0.49869394, b: 0.575672, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4085,6 +4085,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 760049888}
     m_Modifications:
+    - target: {fileID: 718048170301519494, guid: 4e77a4f0693331444ba769593761dbb3, type: 3}
+      propertyPath: DiscardPile
+      value: 
+      objectReference: {fileID: 1085283461}
+    - target: {fileID: 718048170301519494, guid: 4e77a4f0693331444ba769593761dbb3, type: 3}
+      propertyPath: _drawAmount
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 718048170301519546, guid: 4e77a4f0693331444ba769593761dbb3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7064,6 +7072,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2185228706944530954, guid: 9af38de2b2496da429e4080afe503000, type: 3}
+      propertyPath: _maxAp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185228706944530954, guid: 9af38de2b2496da429e4080afe503000, type: 3}
       propertyPath: _characterName
       value: Vikinguin
       objectReference: {fileID: 0}
@@ -7637,6 +7649,10 @@ PrefabInstance:
     - target: {fileID: 2185228706944530954, guid: 9af38de2b2496da429e4080afe503000, type: 3}
       propertyPath: _name
       value: Sima
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185228706944530954, guid: 9af38de2b2496da429e4080afe503000, type: 3}
+      propertyPath: _maxAp
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2185228706944530954, guid: 9af38de2b2496da429e4080afe503000, type: 3}
       propertyPath: _maxHp
@@ -8449,6 +8465,10 @@ PrefabInstance:
     - target: {fileID: 2185228706944530954, guid: 9af38de2b2496da429e4080afe503000, type: 3}
       propertyPath: _name
       value: Duckislav
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185228706944530954, guid: 9af38de2b2496da429e4080afe503000, type: 3}
+      propertyPath: _maxAp
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2185228706944530954, guid: 9af38de2b2496da429e4080afe503000, type: 3}
       propertyPath: _maxHp
@@ -10435,7 +10455,7 @@ GameObject:
   - component: {fileID: 2104666029}
   - component: {fileID: 2104666031}
   m_Layer: 5
-  m_Name: Image
+  m_Name: NumberOfCardsRemaining
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

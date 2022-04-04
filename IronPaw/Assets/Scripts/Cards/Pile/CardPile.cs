@@ -6,7 +6,7 @@ public abstract class CardPile : MonoBehaviour
     Stack<CardSO> _cards = new Stack<CardSO>();
 
     [SerializeField]
-    private Hand _hand;
+    protected Hand _hand;
 
 
     // Will be removed/Initialized differently when deck building is a thing
@@ -56,14 +56,17 @@ public abstract class CardPile : MonoBehaviour
 
     public virtual void Draw()
     {
-        Debug.Log("card drawn");
-        CardSO cardDrawn = Cards.Pop();
-        _hand.AddCard(cardDrawn);
-
-        if (!GetComponent<Enemy>())
+        if(Cards.Count > 0)
         {
-            CreateCardDisplay(cardDrawn);
+            CardSO cardDrawn = Cards.Pop();
+            _hand.AddCard(cardDrawn);
+
+            if (!GetComponent<Enemy>())
+            {
+                CreateCardDisplay(cardDrawn);
+            }
         }
+        
     }
 
     private void CreateCardDisplay(CardSO cardGiven)

@@ -18,9 +18,9 @@ public class Deck : CardPile
                 Cards.Push(_discardPile.Cards.Pop());
             }
 
-            Shuffle();  
+            Shuffle();
         }
-         
+
         base.Draw();
     }
 }

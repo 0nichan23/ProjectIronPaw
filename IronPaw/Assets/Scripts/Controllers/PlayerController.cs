@@ -13,16 +13,37 @@ public class PlayerController : Controller
     public int CurrentEnergy;
 
     private void Awake()
-    {  
+    {
         for (int i = 0; i < transform.childCount; i++)
         {
             ControllerChracters.Add(transform.GetChild(i).GetComponent<Hero>());
         }
+
+        TurnManager.Instance.OnStartPlayerTurn += BasicStartOfTurnTasks;
+        TurnManager.Instance.OnEndPlayerTurn += BasicEndOfTurnTasks;
     }
 
-    private void Start()
+    private void BasicStartOfTurnTasks()
+    {
+        StartOfTurnDraw();
+        StartOfTurnEnergyRegen();
+    }
+
+    private void StartOfTurnDraw()
+    {
+        for (int i = 0; i < Hand.DrawAmount; i++)
+        {
+            Deck.Draw();
+        }
+    }
+
+    private void StartOfTurnEnergyRegen()
     {
         CurrentEnergy = MaxEnergy;
     }
 
+    private void BasicEndOfTurnTasks()
+    {
+        Hand.DiscardHand();
+    }
 }

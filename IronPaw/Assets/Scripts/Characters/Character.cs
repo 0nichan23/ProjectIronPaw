@@ -12,7 +12,8 @@ public abstract class Character : MonoBehaviour
     [SerializeField] private string _characterName;
     private CharacterStats _stats;
     [SerializeField] private int _keepBlock;
-    [SerializeField] private int currentAp;
+    [SerializeField] private int _currentAp;
+    [SerializeField] private int _maxAp;
 
     private List<Modifier> _activeModifiers = new List<Modifier>();
 
@@ -24,12 +25,13 @@ public abstract class Character : MonoBehaviour
 
     public int CurrentHP { get => _currentHp; }
     public List<Color> Colors { get => colors; set => colors = value; }
-    public int CurrentAp { get => currentAp; set => currentAp = value; }
+    public int CurrentAp { get => _currentAp; set => _currentAp = value; }
     public string CharacterName { get => _characterName; set => _characterName = value; }
     public CharacterStats Stats { get => _stats; set => _stats = value; }
     public List<Modifier> ActiveModifiers { get => _activeModifiers; set => _activeModifiers = value; }
+    public int MaxAp { get => _maxAp; set => _maxAp = value; }
 
-    
+
     //List<Card> PersonalDeck;
     private void Start()
     {
@@ -42,7 +44,7 @@ public abstract class Character : MonoBehaviour
     {
         Button = GetComponent<Button>();
         _currentHp = _maxHp;
-        OnStartTurn += ClearBlock;
+        OnStartTurn += StartOfTurnReset;
     }
 
     protected void InvokeStartTurn()
@@ -68,11 +70,6 @@ public abstract class Character : MonoBehaviour
     public void GainBlock(int amount)
     {
         _currentBlock += amount;
-    }
-
-    public void ClearBlock()
-    {
-        _currentBlock = 0;
     }
 
     public void Heal(int amount)
@@ -106,5 +103,21 @@ public abstract class Character : MonoBehaviour
         }
 
         OnTakeDamage?.Invoke(damage);
+    }
+
+    private void StartOfTurnReset()
+    {
+        ClearBlock();
+        Regenerate();
+    }
+
+    public void ClearBlock()
+    {
+        _currentBlock = 0;
+    }
+
+    private void Regenerate()
+    {
+        CurrentAp = MaxAp;
     }
 }
