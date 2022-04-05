@@ -29,7 +29,7 @@ public class PartyManager : Singleton<PartyManager>
     {
         yield return new WaitUntil(() => SelectedCharacter != null);
         card.CardEffect.Targets.Add(SelectedCharacter);
-        card.CardEffect.PlayEffect(playingCharacter);
+        card.CardEffect.PlayEffect(playingCharacter, card);
         card.RemoveCard(playingCharacter);
         SelectedCharacter = null;
         TurnOffAllButtons();
@@ -43,7 +43,7 @@ public class PartyManager : Singleton<PartyManager>
         {
             case TargetType.Self:
                 cardEffectRef.Targets.Add(playingCharacter);
-                cardEffectRef.PlayEffect(playingCharacter);
+                cardEffectRef.PlayEffect(playingCharacter, card);
                 card.RemoveCard(playingCharacter);
                 TurnOffAllButtons();
                 break;
@@ -59,7 +59,7 @@ public class PartyManager : Singleton<PartyManager>
                 Character randomAlly = Heros[rand.Next(0, Heros.Count)];
 
                 cardEffectRef.Targets.Add(randomAlly);
-                cardEffectRef.PlayEffect(playingCharacter);
+                cardEffectRef.PlayEffect(playingCharacter, card);
                 card.RemoveCard(playingCharacter);
                 TurnOffAllButtons();
                 break;
@@ -69,7 +69,7 @@ public class PartyManager : Singleton<PartyManager>
                 {
                     cardEffectRef.Targets.Add(ally);
                 }
-                cardEffectRef.PlayEffect(playingCharacter);
+                cardEffectRef.PlayEffect(playingCharacter, card);
                 card.RemoveCard(playingCharacter);
                 TurnOffAllButtons();
                 break;
@@ -82,7 +82,7 @@ public class PartyManager : Singleton<PartyManager>
                         cardEffectRef.Targets.Add(ally);
                     }                 
                 }
-                cardEffectRef.PlayEffect(playingCharacter);
+                cardEffectRef.PlayEffect(playingCharacter, card);
                 card.RemoveCard(playingCharacter);
                 TurnOffAllButtons();
                 break;
@@ -99,7 +99,7 @@ public class PartyManager : Singleton<PartyManager>
 
                 cardEffectRef.Targets.Add(randomEnemy);
 
-                cardEffectRef.PlayEffect(playingCharacter);
+                cardEffectRef.PlayEffect(playingCharacter, card);
                 card.RemoveCard(playingCharacter);
                 TurnOffAllButtons();
                 break;
@@ -110,7 +110,7 @@ public class PartyManager : Singleton<PartyManager>
                 {
                     cardEffectRef.Targets.Add(enemy);
                 }
-                cardEffectRef.PlayEffect(playingCharacter);
+                cardEffectRef.PlayEffect(playingCharacter, card);
                 card.RemoveCard(playingCharacter);
                 TurnOffAllButtons();
                 break;

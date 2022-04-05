@@ -11,6 +11,7 @@ public class CardSO : ScriptableObject
     [SerializeField]
     public CardEffect CardEffect;
     public bool IsSwift;
+    public bool IsUsable;
     public Sprite Artwork;
     public CardType CardType;
     public GameObject CardDisplay;
@@ -29,6 +30,26 @@ public class CardSO : ScriptableObject
         }
     }
 
+    private bool CheckCardAndHeroColors(Character playingCharacter)
+    {
+        if (Colors[0] == Color.Colorless)
+        {
+            return true;
+        }
+
+        foreach (Color heroColor in playingCharacter.Colors)
+        {
+            foreach (var cardColor in Colors)
+            {
+                if (heroColor == cardColor)
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
 
     public void RemoveCard(Character playingCharacter)
     {
@@ -64,21 +85,18 @@ public class CardSO : ScriptableObject
 
     }
 
-    private bool CheckCardAndHeroColors(Character playingCharacter)
+    private void SendCardToAppropriatePile()
     {
-        foreach (Color heroColor in playingCharacter.Colors)
+        if(IsUsable)
         {
-            foreach (var cardColor in Colors)
-            {
-                if (heroColor == cardColor)
-                {
-                    return true;
-                }
-            }
+            /* 
+             * DISCUSS: Maybe its worth for every character to reference a Hand, Deck and Exile pile, and then getting those componenets
+             * will depend on whether that character is a Hero or an Enemy
+            */
         }
-
-        return false;
     }
+
+    
 
 
 }

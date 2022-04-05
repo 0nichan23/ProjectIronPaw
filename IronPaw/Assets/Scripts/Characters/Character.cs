@@ -23,6 +23,8 @@ public abstract class Character : MonoBehaviour
 
     public Button Button;
 
+    [SerializeField] private Controller _controller;
+
     public int CurrentHP { get => _currentHp; }
     public List<Color> Colors { get => colors; set => colors = value; }
     public int CurrentAp { get => _currentAp; set => _currentAp = value; }
@@ -30,6 +32,7 @@ public abstract class Character : MonoBehaviour
     public CharacterStats Stats { get => _stats; set => _stats = value; }
     public List<Modifier> ActiveModifiers { get => _activeModifiers; set => _activeModifiers = value; }
     public int MaxAp { get => _maxAp; set => _maxAp = value; }
+    public Controller Controller { get => _controller; set => _controller = value; }
 
 
     //List<Card> PersonalDeck;
@@ -45,6 +48,7 @@ public abstract class Character : MonoBehaviour
         Button = GetComponent<Button>();
         _currentHp = _maxHp;
         OnStartTurn += StartOfTurnReset;
+        DetermineController();
     }
 
     protected void InvokeStartTurn()
@@ -120,4 +124,6 @@ public abstract class Character : MonoBehaviour
     {
         CurrentAp = MaxAp;
     }
+
+    protected abstract void DetermineController();
 }

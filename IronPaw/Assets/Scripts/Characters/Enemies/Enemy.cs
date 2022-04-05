@@ -22,4 +22,9 @@ public class Enemy : Character
         TurnManager.Instance.OnStartEnemyTurn -= InvokeStartTurn;
         TurnManager.Instance.OnEndEnemyTurn -= InvokeEndTurn;
     }
+
+    protected override void DetermineController()
+    {
+        Controller = EnemyWrapper.Instance.EnemyController;
+    }
 }
