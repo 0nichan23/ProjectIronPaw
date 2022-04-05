@@ -15,6 +15,11 @@ public class DropZone : MonoBehaviour, IDropHandler
             CardUI cardUI = draggable.gameObject.GetComponent<CardUI>();
             if (cardUI != null)
             {
+                /* 
+                 * Maybe check for card validity here? makes no sense to check after the corutine started, especially in case where the card
+                 * inst valid (example: not enough energy, no valid heroes, etc), in which case we might want to return the card display to 
+                 * Hand or something
+                 */
                 StartCoroutine(PartyManager.Instance.WaitUntilHeroIsClickedPlayCard(cardUI.CardSO));            
             }
         }
