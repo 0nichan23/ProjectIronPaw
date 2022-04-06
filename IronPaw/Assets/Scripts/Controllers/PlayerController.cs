@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PlayerController : Controller
 {
-    public float UltimateMeter;
+
     public Hand Hand;
     public Deck Deck;
     public DiscardPile DiscardPile;
     public ExiledPile ExiledPile;
+
+    public float UltimateMeter;
     public int MaxEnergy;
     public int CurrentEnergy;
 

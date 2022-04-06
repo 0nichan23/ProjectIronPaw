@@ -59,30 +59,19 @@ public abstract class CardPile : MonoBehaviour
         if(Cards.Count > 0)
         {
             CardSO cardDrawn = Cards.Pop();
+
             _hand.AddCard(cardDrawn);
 
             if (!GetComponent<Enemy>())
             {
-                CreateCardDisplay(cardDrawn);
+                cardDrawn.CreateCardDisplay();
             }
         }
         
     }
 
-    private void CreateCardDisplay(CardSO cardGiven)
-    {
-        GameObject GO = Instantiate(PrefabManager.Instance.PlainCardDispaly);
-        cardGiven.CardDisplay = GO;
+    
 
-        CardUI GOUI = GO.GetComponent<CardUI>();
-        GOUI.CardSO = cardGiven;
-        
-
-
-        GOUI.InitializeDisplay();
-
-        GO.transform.SetParent(_hand.gameObject.transform);
-    }
 
     // Not For Build
     public CardSO[] Search(Filter filter)

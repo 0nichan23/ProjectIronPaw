@@ -50,7 +50,7 @@ public class CardSO : ScriptableObject
          */
 
         // Destroy CardDisplay
-        Destroy(CardDisplay);
+        PrefabManager.Instance.DropZone.Abortion();
 
         // Discard this CardSO to discardpile
         if (playingCharacter is Hero)
@@ -71,7 +71,7 @@ public class CardSO : ScriptableObject
             _playingEnemy.DiscardPile.Cards.Push(this);
         }
 
-
+        
     }
 
     private void SendCardToAppropriatePile()
@@ -99,7 +99,7 @@ public class CardSO : ScriptableObject
         {
             if (hero.CurrentHP > 0 && CheckCardAndHeroColors(hero))
             {
-                if(hero.CurrentAp >= 1 || IsSwift)
+                if (hero.CurrentAp >= 1 || IsSwift)
                 {
                     cachedHeroes.Add(hero);
                     hero.Button.enabled = true;
@@ -115,12 +115,41 @@ public class CardSO : ScriptableObject
             return true;
         }
 
-       
+
 
         cachedHeroes.Clear();
         return false;
 
-       
+
+    }
+
+
+    public void GenerateCard(Character character)
+    {
+        /* 
+         * NEVER HAVE A CARD CREATE ANOTHER COPY OF ITSELF, BROKEN AS FUCK FOR SOME REASON, REQUESTING ASSISTANCE
+         * TODO: Figure why this is the case
+         */
+
+        character.Hand.AddCard(this);
+        CreateCardDisplay();
+
+        Debug.Log("Lo Yodea");
+    }
+
+    public void CreateCardDisplay()
+    {
+        GameObject GO = Instantiate(PrefabManager.Instance.PlainCardDispaly, PlayerWrapper.Instance.PlayerController.Hand.transform);
+        CardDisplay = GO;
+
+        CardUI GOUI = GO.GetComponent<CardUI>();
+        GOUI.CardSO = this;
+
+        GOUI.InitializeDisplay();
+
+        GameObject hand = PlayerWrapper.Instance.PlayerController.Hand.gameObject;
+
+        GO.transform.SetParent(hand.transform);
     }
 
 

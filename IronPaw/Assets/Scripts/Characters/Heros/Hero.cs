@@ -8,7 +8,6 @@ public class Hero : Character
 
     public bool Selectable { get => _selectable; set => _selectable = value; }
 
-
     public override void Subscribe()
     {
         TurnManager.Instance.OnStartPlayerTurn += InvokeStartTurn;
@@ -38,5 +37,9 @@ public class Hero : Character
     protected override void DetermineController()
     {
         Controller = PlayerWrapper.Instance.PlayerController;
+        Hand = ((PlayerController)Controller).Hand;
+        Deck = ((PlayerController)Controller).Deck;
+        DiscardPile = ((PlayerController)Controller).DiscardPile;
+        ExiledPile = ((PlayerController)Controller).ExiledPile;
     }
 }

@@ -10,6 +10,7 @@ public abstract class Controller : MonoBehaviour
     public DataTracker CombatTracker;
     public DataTracker RunTracker;
 
+
     public Action<CardSO> OnPlayCard;
 
     private void Start()

@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public abstract class Character : MonoBehaviour
 {
+    public Deck Deck;
+    public DiscardPile DiscardPile;
+    public ExiledPile ExiledPile;
+    public Hand Hand;
+
     [SerializeField] private List<Color> colors;
     [SerializeField] private int _maxHp;
     [SerializeField] private int _currentHp;

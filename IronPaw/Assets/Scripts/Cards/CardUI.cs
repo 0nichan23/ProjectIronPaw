@@ -47,4 +47,9 @@ public class CardUI : MonoBehaviour
 
         }
     }
+
+    public void DestroyTheHeretic()
+    {
+        Destroy(gameObject);
+    }
 }
