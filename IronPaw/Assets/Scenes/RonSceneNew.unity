@@ -9054,6 +9054,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PrefabManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3317774568791796296, guid: 611976528af8cc3439f73994bbffd750, type: 3}
+      propertyPath: DropZone
+      value: 
+      objectReference: {fileID: 1882053613}
     - target: {fileID: 3317774568791796297, guid: 611976528af8cc3439f73994bbffd750, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -9336,6 +9340,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4385080170327957909, guid: ff62b58c5a9ea164fa8ddf8038e10cd1, type: 3}
   m_PrefabInstance: {fileID: 1865921405}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1882053613 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1587449615549857222, guid: 35e361f350b8df74993a06eea6b8d456, type: 3}
+  m_PrefabInstance: {fileID: 787281098}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bed01c1b9d7bb74c9eb29582728c041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1899052647
 GameObject:
   m_ObjectHideFlags: 0

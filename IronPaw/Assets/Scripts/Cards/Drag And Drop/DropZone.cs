@@ -12,7 +12,7 @@ public class DropZone : MonoBehaviour, IDropHandler
         if(draggable != null)
         {
             CardUI cardUI = draggable.gameObject.GetComponent<CardUI>();
-            if (!cardUI.CardSO.CheckCardValidity())
+            if (!cardUI.CardSO.CheckCardValidity() || transform.childCount > 0)
             {
                 return;
             }
