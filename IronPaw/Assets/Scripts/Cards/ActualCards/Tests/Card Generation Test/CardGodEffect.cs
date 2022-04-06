@@ -10,7 +10,5 @@ public class CardGodEffect : CardEffect
     protected override void PlayCardEffect(Character playingCharacter, Character target)
     {
         cardToCreate.GenerateCard(playingCharacter);
-
-        Debug.Log("Lo Yodeaaaa");
     }
 }

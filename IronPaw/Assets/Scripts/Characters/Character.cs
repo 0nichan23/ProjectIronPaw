@@ -73,7 +73,6 @@ public abstract class Character : MonoBehaviour
     public void SelectCharacter()
     {
         PartyManager.Instance.SelectedCharacter = this;
-        Debug.Log("Pls " + CharacterName);
     }
 
     public void GainBlock(int amount)

@@ -19,7 +19,6 @@ public abstract class CardPile : MonoBehaviour
     {
         foreach (var card in _cardsGiven)
         {
-            Debug.Log("pushed card");
             _cards.Push(card);
         }
     }

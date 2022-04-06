@@ -41,7 +41,6 @@ public class TurnManager : Singleton<TurnManager>
         {
             if (firstTurn)
             {
-                Debug.Log("enemies set up");
                 firstTurn = false;
                 EnemyWrapper.Instance.EnemyController.RevealIntentions();
             }

@@ -19,7 +19,6 @@ public class PartyManager : Singleton<PartyManager>
     public IEnumerator WaitUntilHeroIsClickedPlayCard(CardSO card/*, Event func*/)
     {
         yield return new WaitUntil(() => SelectedCharacter != null);
-        Debug.Log(SelectedCharacter + " was selected");
         PlayCard(SelectedCharacter, card);
         SelectedCharacter = null;
     }

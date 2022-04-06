@@ -91,7 +91,6 @@ public class CardSO : ScriptableObject
 
         if (PlayerWrapper.Instance.PlayerController.CurrentEnergy < EnergyCost)
         {
-            Debug.Log("Walla no Energy");
             return false;
         }
 
@@ -106,8 +105,6 @@ public class CardSO : ScriptableObject
                 }
             }
         }
-
-        Debug.Log("cachedHeroes.Count: " + cachedHeroes.Count);
 
         if (cachedHeroes.Count > 0)
         {
@@ -133,8 +130,6 @@ public class CardSO : ScriptableObject
 
         character.Hand.AddCard(this);
         CreateCardDisplay();
-
-        Debug.Log("Lo Yodea");
     }
 
     public void CreateCardDisplay()

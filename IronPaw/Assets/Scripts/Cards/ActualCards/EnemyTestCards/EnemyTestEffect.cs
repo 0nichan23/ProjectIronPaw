@@ -4,6 +4,6 @@ public class EnemyTestEffect : CardEffect
 {
     protected override void PlayCardEffect(Character playingCharacter, Character target)
     {
-        Debug.Log("yes");
+        Debug.Log("Enemy Test Effect is Yes");
     }
 }
