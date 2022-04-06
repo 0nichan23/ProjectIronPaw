@@ -19,6 +19,7 @@ MonoBehaviour:
   EnergyCost: 1
   CardEffect: {fileID: 11400000, guid: 6d7aff4c8ed142b4fb61e5eb1fc23b0d, type: 2}
   IsSwift: 1
+  IsUsable: 0
   Artwork: {fileID: 0}
   CardType: 1
   CardDisplay: {fileID: 0}

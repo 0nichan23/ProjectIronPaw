@@ -1,4 +1,7 @@
 using UnityEngine;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "New Card", menuName = "Cards/CardSO")]
 public class CardSO : ScriptableObject
@@ -15,20 +18,6 @@ public class CardSO : ScriptableObject
     public Sprite Artwork;
     public CardType CardType;
     public GameObject CardDisplay;
-
-    public void PlayCard(Character playingCharacter)
-    {
-        if (CheckCardAndHeroColors(playingCharacter))
-        {
-            if (PlayerWrapper.Instance.PlayerController.CurrentEnergy >= EnergyCost || playingCharacter is Enemy)
-            {
-                if (playingCharacter.CurrentAp >= 1 || IsSwift)
-                {
-                    PartyManager.Instance.PickTargets(playingCharacter, this);
-                }
-            }
-        }
-    }
 
     private bool CheckCardAndHeroColors(Character playingCharacter)
     {
@@ -87,7 +76,7 @@ public class CardSO : ScriptableObject
 
     private void SendCardToAppropriatePile()
     {
-        if(IsUsable)
+        if (IsUsable)
         {
             /* 
              * DISCUSS: Maybe its worth for every character to reference a Hand, Deck and Exile pile, and then getting those componenets
@@ -96,7 +85,45 @@ public class CardSO : ScriptableObject
         }
     }
 
-    
+    public bool CheckCardValidity()
+    {
+        List<Character> cachedHeroes = new List<Character>();
+
+        if (PlayerWrapper.Instance.PlayerController.CurrentEnergy < EnergyCost)
+        {
+            Debug.Log("Walla no Energy");
+            return false;
+        }
+
+        foreach (var hero in PlayerWrapper.Instance.PlayerController.ControllerChracters)
+        {
+            if (hero.CurrentHP > 0 && CheckCardAndHeroColors(hero))
+            {
+                if(hero.CurrentAp >= 1 || IsSwift)
+                {
+                    cachedHeroes.Add(hero);
+                    hero.Button.enabled = true;
+                }
+            }
+        }
+
+        Debug.Log("cachedHeroes.Count: " + cachedHeroes.Count);
+
+        if (cachedHeroes.Count > 0)
+        {
+            cachedHeroes.Clear();
+            return true;
+        }
+
+       
+
+        cachedHeroes.Clear();
+        return false;
+
+       
+    }
+
+
 
 
 }

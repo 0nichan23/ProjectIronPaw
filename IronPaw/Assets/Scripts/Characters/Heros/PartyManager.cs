@@ -18,10 +18,9 @@ public class PartyManager : Singleton<PartyManager>
     }
     public IEnumerator WaitUntilHeroIsClickedPlayCard(CardSO card/*, Event func*/)
     {
-        TurnOnAllHeroButtons(card);
         yield return new WaitUntil(() => SelectedCharacter != null);
         Debug.Log(SelectedCharacter + " was selected");
-        card.PlayCard(SelectedCharacter);
+        PlayCard(SelectedCharacter, card);
         SelectedCharacter = null;
     }
 
@@ -35,7 +34,7 @@ public class PartyManager : Singleton<PartyManager>
         TurnOffAllButtons();
     }
 
-    public void PickTargets(Character playingCharacter, CardSO card)
+    public void PlayCard(Character playingCharacter, CardSO card)
     {
         CardEffect cardEffectRef = card.CardEffect;
         SelectedCharacter = null;
@@ -143,30 +142,6 @@ public class PartyManager : Singleton<PartyManager>
                 hero.Button.enabled = true;
             }
             
-        }
-    }
-    private void TurnOnAllHeroButtons(CardSO card)
-    {
-       
-        foreach (var hero in Heros)
-        {
-            if (hero.CurrentHP > 0)
-            {
-                foreach (Color heroColor in hero.Colors)
-                {
-                    foreach (Color cardColor in card.Colors)
-                    {
-                        if (heroColor == cardColor)
-                        {
-                            hero.Button.enabled = true;
-                            
-                        }
-                    }
-                    
-                }
-                
-            }
-
         }
     }
 

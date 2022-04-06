@@ -33,7 +33,7 @@ public class EnemyController : Controller
             {
                 continue;
             }
-            item.Hand.Cards[0].PlayCard(item);
+            PartyManager.Instance.PlayCard(item, item.Hand.Cards[0]);
             yield return new WaitForSeconds(timeBetweenTurns);
         }
         RevealIntentions();
