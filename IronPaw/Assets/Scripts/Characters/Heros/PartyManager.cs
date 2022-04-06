@@ -16,7 +16,7 @@ public class PartyManager : Singleton<PartyManager>
         Enemies = EnemyWrapper.Instance.EnemyController.Enemies;
         Heros = PlayerWrapper.Instance.PlayerController.ControllerChracters;
     }
-    public IEnumerator WaitUntilHeroIsClickedPlayCard(CardSO card/*, Event func*/)
+    public IEnumerator WaitUntilHeroIsClickedPlayCard(CardSO card)
     {
         yield return new WaitUntil(() => SelectedCharacter != null);
         PlayCard(SelectedCharacter, card);

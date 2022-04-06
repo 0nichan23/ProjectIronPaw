@@ -42,7 +42,6 @@ public class CardSO : ScriptableObject
 
     public void RemoveCard(Character playingCharacter)
     {
-
         /*  
          *  Removing the CardSO from the relevant places after it is played happens inside PartyManager.Instance.PickTargets(playingCharacter, this),
          *  because in case target selection is required, the card needs to be removed after the target was selected and not while waiting 
@@ -53,25 +52,17 @@ public class CardSO : ScriptableObject
         PrefabManager.Instance.DropZone.Abortion();
 
         // Discard this CardSO to discardpile
+        playingCharacter.Hand.RemoveCard(this);
+        playingCharacter.DiscardPile.Cards.Push(this);
+
         if (playingCharacter is Hero)
         {
-            PlayerWrapper.Instance.PlayerController.Hand.RemoveCard(this);
-            PlayerWrapper.Instance.PlayerController.DiscardPile.Cards.Push(this);
             PlayerWrapper.Instance.PlayerController.CurrentEnergy -= EnergyCost;
             if (!IsSwift)
             {
                 playingCharacter.CurrentAp--;
             }
         }
-        else if (playingCharacter is Enemy)
-        {
-            Enemy _playingEnemy = playingCharacter.GetComponent<Enemy>();
-
-            _playingEnemy.Hand.RemoveCard(this);
-            _playingEnemy.DiscardPile.Cards.Push(this);
-        }
-
-        
     }
 
     private void SendCardToAppropriatePile()

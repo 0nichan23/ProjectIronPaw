@@ -69,9 +69,6 @@ public abstract class CardPile : MonoBehaviour
         
     }
 
-    
-
-
     // Not For Build
     public CardSO[] Search(Filter filter)
     {
