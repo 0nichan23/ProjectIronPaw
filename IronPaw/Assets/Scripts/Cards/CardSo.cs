@@ -52,8 +52,8 @@ public class CardSO : ScriptableObject
         PrefabManager.Instance.DropZone.Abortion();
 
         // Discard this CardSO to discardpile
-        playingCharacter.Hand.RemoveCard(this);
-        playingCharacter.DiscardPile.Cards.Push(this);
+
+        SendCardToAppropriatePile(playingCharacter);
 
         if (playingCharacter is Hero)
         {
@@ -65,14 +65,17 @@ public class CardSO : ScriptableObject
         }
     }
 
-    private void SendCardToAppropriatePile()
+    private void SendCardToAppropriatePile(Character playingCharacter)
     {
+        playingCharacter.Hand.RemoveCard(this);
+
         if (IsUsable)
         {
-            /* 
-             * DISCUSS: Maybe its worth for every character to reference a Hand, Deck and Exile pile, and then getting those componenets
-             * will depend on whether that character is a Hero or an Enemy
-            */
+            playingCharacter.ExiledPile.Cards.Push(this);
+        }
+        else
+        {
+            playingCharacter.DiscardPile.Cards.Push(this);
         }
     }
 
