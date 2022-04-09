@@ -6,17 +6,14 @@ using UnityEngine.UI;
 public class characterSlot : MonoBehaviour
 {
     //script to display character effects, hp, level etc.. 
-    Canvas PersonalCanvas;
+    [SerializeField]
+    Transform DisplayZone;
 
-    private void Start()
-    {
-        PersonalCanvas = GetComponentInChildren<Canvas>();
-    }
 
-    public void DisplayEffect()
+    public void DisplayEffect(Modifier mod)
     {
-        GameObject NewEffect = Instantiate(PrefabManager.Instance.EffectSlot, PersonalCanvas.transform.position, Quaternion.identity);
-        NewEffect.transform.SetParent(PersonalCanvas.transform);        
+        GameObject NewEffect = Instantiate(PrefabManager.Instance.EffectSlot, DisplayZone.position, Quaternion.identity, DisplayZone);
+        NewEffect.GetComponent<Image>().sprite = PrefabManager.Instance.GetSprite(mod);
     }
 
 

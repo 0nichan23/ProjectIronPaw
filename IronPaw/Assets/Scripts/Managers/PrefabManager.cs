@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PrefabManager : Singleton<PrefabManager>
@@ -8,4 +6,10 @@ public class PrefabManager : Singleton<PrefabManager>
     public GameObject DamagePopup;
 
     public GameObject EffectSlot;
+    Sprite BleedIcon;
+
+    public Sprite GetSprite(Modifier mod)
+    {
+        return BleedIcon;
+    }
 }
