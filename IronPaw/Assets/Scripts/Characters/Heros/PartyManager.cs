@@ -5,11 +5,8 @@ using UnityEngine.UI;
 
 public class PartyManager : Singleton<PartyManager>
 {
-    public List<Character> Heroes;
+    public List<Character> Heros;
     public List<Character> Enemies;
-
-    private List<Character> TauntingHeroes;
-    private List<Character> TauntingEnemies;
 
     public Character SelectedCharacter;
 
@@ -17,11 +14,12 @@ public class PartyManager : Singleton<PartyManager>
     private void Start()
     {
         Enemies = EnemyWrapper.Instance.EnemyController.Enemies;
-        Heroes = PlayerWrapper.Instance.PlayerController.ControllerChracters;
+        Heros = PlayerWrapper.Instance.PlayerController.ControllerChracters;
     }
-    public IEnumerator WaitUntilHeroIsClickedPlayCard(CardSO card)
+    public IEnumerator WaitUntilHeroIsClickedPlayCard(CardSO card/*, Event func*/)
     {
         yield return new WaitUntil(() => SelectedCharacter != null);
+        //Debug.Log(SelectedCharacter + " was selected");
         PlayCard(SelectedCharacter, card);
         SelectedCharacter = null;
     }
@@ -40,8 +38,6 @@ public class PartyManager : Singleton<PartyManager>
     {
         CardEffect cardEffectRef = card.CardEffect;
         SelectedCharacter = null;
-
-        //Use Cached enemies / heroes to determine legal targets
         switch (cardEffectRef.TargetType)
         {
             case TargetType.Self:
@@ -59,7 +55,7 @@ public class PartyManager : Singleton<PartyManager>
 
             case TargetType.RandomHero:
                 System.Random rand = new System.Random();
-                Character randomAlly = Heroes[rand.Next(0, Heroes.Count)];
+                Character randomAlly = Heros[rand.Next(0, Heros.Count)];
 
                 cardEffectRef.Targets.Add(randomAlly);
                 cardEffectRef.PlayEffect(playingCharacter, card);
@@ -68,7 +64,7 @@ public class PartyManager : Singleton<PartyManager>
                 break;
 
             case TargetType.AllHeroes:
-                foreach (Character ally in Heroes)
+                foreach (Character ally in Heros)
                 {
                     cardEffectRef.Targets.Add(ally);
                 }
@@ -78,7 +74,7 @@ public class PartyManager : Singleton<PartyManager>
                 break;
 
             case TargetType.AllHeroesButMe:
-                foreach (Character ally in Heroes)
+                foreach (Character ally in Heros)
                 {
                     if(ally != playingCharacter)
                     {
@@ -139,7 +135,7 @@ public class PartyManager : Singleton<PartyManager>
     {
         // TODO: Filter heros by color, ifAlive, and so on
 
-        foreach (var hero in Heroes)
+        foreach (var hero in Heros)
         {
             if (hero.CurrentHP > 0)
             {
@@ -156,7 +152,7 @@ public class PartyManager : Singleton<PartyManager>
             enemy.Button.enabled = false;
         }
 
-        foreach (var hero in Heroes)
+        foreach (var hero in Heros)
         {
             hero.Button.enabled = false;
         }
