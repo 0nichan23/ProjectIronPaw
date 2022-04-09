@@ -15,6 +15,10 @@ public abstract class Character : MonoBehaviour
     [SerializeField] private int _currentAp;
     [SerializeField] private int _maxAp;
 
+
+    [SerializeField]
+    characterSlot RefSlot;
+
     private List<Modifier> _activeModifiers = new List<Modifier>();
 
     public Action OnStartTurn;
