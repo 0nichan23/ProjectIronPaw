@@ -3,11 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Modifier
+public enum ModifierType
+{
+    Bleed, 
+    Taunt
+}
+
+public abstract class StatusEffect
 {
     protected Character _host;
 
-    public Modifier(Character host)
+    public ModifierType ModType;
+
+    public StatusEffect(Character host)
     {
         _host = host;
     }
@@ -25,7 +33,7 @@ public abstract class Modifier
     protected abstract void Subscribe();
 
     protected abstract void UnSubscribe();
-    protected Modifier CheckModifier(Character character)
+    protected StatusEffect CheckModifier(Character character)
     {
         Type A = this.GetType();
         foreach (var modifier in character.ActiveModifiers)

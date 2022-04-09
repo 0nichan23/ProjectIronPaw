@@ -24,7 +24,7 @@ public abstract class Character : MonoBehaviour
     [SerializeField]
     characterSlot RefSlot;
 
-    private List<Modifier> _activeModifiers = new List<Modifier>();
+    private List<StatusEffect> _activeModifiers = new List<StatusEffect>();
 
     public Action OnStartTurn;
     public Action OnEndTurn;
@@ -39,7 +39,7 @@ public abstract class Character : MonoBehaviour
     public int CurrentAp { get => _currentAp; set => _currentAp = value; }
     public string CharacterName { get => _characterName; set => _characterName = value; }
     public CharacterStats Stats { get => _stats; set => _stats = value; }
-    public List<Modifier> ActiveModifiers { get => _activeModifiers; set => _activeModifiers = value; }
+    public List<StatusEffect> ActiveModifiers { get => _activeModifiers; set => _activeModifiers = value; }
     public int MaxAp { get => _maxAp; set => _maxAp = value; }
     public Controller Controller { get => _controller; set => _controller = value; }
 
@@ -54,7 +54,7 @@ public abstract class Character : MonoBehaviour
 
     protected virtual void TheBetterStart()
     {
-        Button = GetComponent<Button>();
+        Button = GetComponentInChildren<Button>();
         _currentHp = _maxHp;
         OnStartTurn += StartOfTurnReset;
         DetermineController();
@@ -73,6 +73,13 @@ public abstract class Character : MonoBehaviour
     public abstract void Subscribe();
 
     public abstract void UnSubscribe();
+
+
+    public void AddModifer(StatusEffect mod)
+    {
+        ActiveModifiers.Add(mod);
+        RefSlot.DisplayEffect(mod);
+    }
 
     public void SelectCharacter()
     {

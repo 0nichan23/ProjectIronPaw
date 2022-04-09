@@ -32,12 +32,16 @@ public class PartyManager : Singleton<PartyManager>
         card.RemoveCard(playingCharacter);
         SelectedCharacter = null;
         TurnOffAllButtons();
+        CardUI cardui = card.CardDisplay.GetComponent<CardUI>();
+        cardui.DestroyTheHeretic();
+
     }
 
     public void PlayCard(Character playingCharacter, CardSO card)
     {
         CardEffect cardEffectRef = card.CardEffect;
         SelectedCharacter = null;
+        CardUI cardui = card.CardDisplay.GetComponent<CardUI>();
         switch (cardEffectRef.TargetType)
         {
             case TargetType.Self:
@@ -45,6 +49,7 @@ public class PartyManager : Singleton<PartyManager>
                 cardEffectRef.PlayEffect(playingCharacter, card);
                 card.RemoveCard(playingCharacter);
                 TurnOffAllButtons();
+                cardui.DestroyTheHeretic();
                 break;
 
             case TargetType.SingleHero:
@@ -61,6 +66,8 @@ public class PartyManager : Singleton<PartyManager>
                 cardEffectRef.PlayEffect(playingCharacter, card);
                 card.RemoveCard(playingCharacter);
                 TurnOffAllButtons();
+                cardui.DestroyTheHeretic();
+
                 break;
 
             case TargetType.AllHeroes:
@@ -71,6 +78,8 @@ public class PartyManager : Singleton<PartyManager>
                 cardEffectRef.PlayEffect(playingCharacter, card);
                 card.RemoveCard(playingCharacter);
                 TurnOffAllButtons();
+                cardui.DestroyTheHeretic();
+
                 break;
 
             case TargetType.AllHeroesButMe:
@@ -84,6 +93,8 @@ public class PartyManager : Singleton<PartyManager>
                 cardEffectRef.PlayEffect(playingCharacter, card);
                 card.RemoveCard(playingCharacter);
                 TurnOffAllButtons();
+                cardui.DestroyTheHeretic();
+
                 break;
 
             case TargetType.SingleEnemy:
@@ -101,6 +112,8 @@ public class PartyManager : Singleton<PartyManager>
                 cardEffectRef.PlayEffect(playingCharacter, card);
                 card.RemoveCard(playingCharacter);
                 TurnOffAllButtons();
+                cardui.DestroyTheHeretic();
+
                 break;
 
             case TargetType.AllEnemies:
@@ -112,6 +125,8 @@ public class PartyManager : Singleton<PartyManager>
                 cardEffectRef.PlayEffect(playingCharacter, card);
                 card.RemoveCard(playingCharacter);
                 TurnOffAllButtons();
+                cardui.DestroyTheHeretic();
+
                 break;
         }
 

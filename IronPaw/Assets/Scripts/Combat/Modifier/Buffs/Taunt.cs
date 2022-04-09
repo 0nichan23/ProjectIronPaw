@@ -7,7 +7,7 @@ public class Taunt : Buff
     public Taunt(Character host, int numberOfTurns) : base(host)
     {
 
-        Modifier modifier = CheckModifier(host);
+        StatusEffect modifier = CheckModifier(host);
 
 
         if (modifier == null)

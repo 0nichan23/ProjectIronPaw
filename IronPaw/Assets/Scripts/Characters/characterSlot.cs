@@ -10,7 +10,7 @@ public class characterSlot : MonoBehaviour
     Transform DisplayZone;
 
 
-    public void DisplayEffect(Modifier mod)
+    public void DisplayEffect(StatusEffect mod)
     {
         GameObject NewEffect = Instantiate(PrefabManager.Instance.EffectSlot, DisplayZone.position, Quaternion.identity, DisplayZone);
         NewEffect.GetComponent<Image>().sprite = PrefabManager.Instance.GetSprite(mod);

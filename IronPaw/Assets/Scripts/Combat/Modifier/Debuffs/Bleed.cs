@@ -2,8 +2,11 @@ public class Bleed : Debuff
 { 
     private int _givenDamage;
 
+
+    
     public Bleed(Character host, int givenDamage) : base(host)
     {
+        ModType = ModifierType.Bleed;
         _host = host;
         _givenDamage = givenDamage;
         Subscribe();

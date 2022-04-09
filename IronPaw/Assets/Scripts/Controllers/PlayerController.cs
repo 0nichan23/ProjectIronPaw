@@ -18,7 +18,7 @@ public class PlayerController : Controller
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            ControllerChracters.Add(transform.GetChild(i).GetComponent<Hero>());
+            ControllerChracters.Add(transform.GetChild(i).GetComponentInChildren<Hero>());
         }
 
         TurnManager.Instance.OnStartPlayerTurn += BasicStartOfTurnTasks;

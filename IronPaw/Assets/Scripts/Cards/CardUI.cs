@@ -48,6 +48,16 @@ public class CardUI : MonoBehaviour
         }
     }
 
+    private void OnGUI()
+    {
+        if (!CardSO.CheckCardValidity())
+        {
+            return;
+        }
+        StartCoroutine(PartyManager.Instance.WaitUntilHeroIsClickedPlayCard(CardSO));
+    }
+
+    
     public void DestroyTheHeretic()
     {
         Destroy(gameObject);

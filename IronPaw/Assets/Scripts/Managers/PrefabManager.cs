@@ -1,4 +1,6 @@
 using UnityEngine;
+using System;
+using System.Collections.Generic;
 
 public class PrefabManager : Singleton<PrefabManager>
 {
@@ -6,10 +8,29 @@ public class PrefabManager : Singleton<PrefabManager>
     public GameObject DamagePopup;
 
     public GameObject EffectSlot;
-    Sprite BleedIcon;
+    
+    
+    public Sprite BleedIcon;
 
-    public Sprite GetSprite(Modifier mod)
+
+    public DropZone DropZone;
+
+    Dictionary<Type, Sprite> ModifierDictionary = new Dictionary<Type, Sprite>();
+
+
+    public Sprite GetSprite(StatusEffect mod)
     {
-        return BleedIcon;
+        switch (mod.ModType)
+        {
+            case ModifierType.Bleed:
+                //
+                return BleedIcon;
+            case ModifierType.Taunt:
+                //
+                return BleedIcon;
+
+            default:
+                return BleedIcon;
+        }
     }
 }

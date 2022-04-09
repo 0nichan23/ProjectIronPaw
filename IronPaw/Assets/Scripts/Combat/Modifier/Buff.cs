@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Buff : Modifier
+public abstract class Buff : StatusEffect
 {
    public Buff(Character host) : base(host)
    {
