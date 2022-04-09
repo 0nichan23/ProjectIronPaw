@@ -28,6 +28,7 @@ public class Thorns : Buff
         RemoveModifierFromHost();
         _host.OnTakeDamage -= Retaliate;
         _host.OnStartTurn -= ThornsCountdown;
+
     }
 
     private void Retaliate(Damage damage)
