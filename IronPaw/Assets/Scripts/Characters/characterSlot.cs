@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class characterSlot : MonoBehaviour
+public class CharacterSlot : MonoBehaviour
 {
     //script to display character effects, hp, level etc.. 
     [SerializeField]

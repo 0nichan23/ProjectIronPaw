@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : Character
 {  
+
+    //aquire target
     public override void Subscribe()
     {
         TurnManager.Instance.OnStartEnemyTurn += InvokeStartTurn;
