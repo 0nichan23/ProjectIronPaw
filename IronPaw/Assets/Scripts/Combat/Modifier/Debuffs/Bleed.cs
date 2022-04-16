@@ -9,12 +9,11 @@ public class Bleed : Debuff
         ModType = ModifierType.Bleed;
         _host = host;
         _givenDamage = givenDamage;
-        Subscribe();
+        InitializeStatusEffect();
     }
 
     protected override void Subscribe()
     {
-        AddModifierToHost();
         _host.OnStartTurn += Bleeding;
     }
 

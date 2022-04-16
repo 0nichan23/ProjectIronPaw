@@ -13,12 +13,11 @@ public class Thorns : Buff
         _host = host;
         _givenDamage = givenDamage;
         _turnCounter = 3;
-        Subscribe();
+        InitializeStatusEffect();
     }
 
     protected override void Subscribe()
     {
-        AddModifierToHost();
         _host.OnTakeDamage += Retaliate;
         _host.OnStartTurn += ThornsCountdown;
     }

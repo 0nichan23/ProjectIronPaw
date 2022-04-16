@@ -57,6 +57,16 @@ public class CardUI : MonoBehaviour
         StartCoroutine(PartyManager.Instance.WaitUntilHeroIsClickedPlayCard(CardSO));
     }
 
+    public void AttemptToPressCard()
+    {
+        if (CardSO.CheckCardValidity())
+        {
+            StartCoroutine(PartyManager.Instance.WaitUntilHeroIsClickedPlayCard(CardSO));
+        }        
+    }
+
+
+
     
     public void DestroyTheHeretic()
     {

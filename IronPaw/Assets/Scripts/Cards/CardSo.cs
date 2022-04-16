@@ -49,7 +49,7 @@ public class CardSO : ScriptableObject
          */
 
         // Destroy CardDisplay
-        PrefabManager.Instance.DropZone.Abortion();
+        //PrefabManager.Instance.DropZone.Abortion();
 
         // Discard this CardSO to discardpile
 
@@ -131,14 +131,14 @@ public class CardSO : ScriptableObject
         GameObject GO = Instantiate(PrefabManager.Instance.PlainCardDispaly, PlayerWrapper.Instance.PlayerController.Hand.transform);
         CardDisplay = GO;
 
+        GO.transform.SetParent(PlayerWrapper.Instance.PlayerController.Hand.gameObject.transform);
+
         CardUI GOUI = GO.GetComponent<CardUI>();
         GOUI.CardSO = this;
 
         GOUI.InitializeDisplay();
 
-        GameObject hand = PlayerWrapper.Instance.PlayerController.Hand.gameObject;
-
-        GO.transform.SetParent(hand.transform);
+        
     }
 
 

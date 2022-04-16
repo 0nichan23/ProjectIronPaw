@@ -10,11 +10,10 @@ public class Regen : Buff
         ModType = ModifierType.Regen;
         _host = host;
         _givenRegen = givenRegen;
-        Subscribe();
+        InitializeStatusEffect();
     }
     protected override void Subscribe()
     {
-        AddModifierToHost();
         _host.OnStartTurn += Regening;
     }
 

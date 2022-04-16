@@ -2,27 +2,22 @@ using UnityEngine;
 
 public class Taunt : Buff
 {
-    private int _turnCounter;
-    public int TurnCounter { get => _turnCounter; set => _turnCounter = value; }
+
     public Taunt(Character host, int numberOfTurns) : base(host)
     {
 
-        StatusEffect modifier = CheckModifier(host);
+        StatusEffect statusEffect = CheckModifier(host);
 
 
-        if (modifier == null)
+        if (statusEffect == null)
         {
-            
             TurnCounter = numberOfTurns;
             _host = host;
-            Subscribe();
-            Debug.Log(TurnCounter);
+            InitializeStatusEffect();
         }
         else
         {
-
-            ((Taunt)modifier).TurnCounter += numberOfTurns;
-            Debug.Log(((Taunt)modifier).TurnCounter);
+            ((Taunt)statusEffect).TurnCounter += numberOfTurns;
         }
 
     }
@@ -40,8 +35,8 @@ public class Taunt : Buff
     }
     private void TauntCountdown()
     {
-        _turnCounter--;
-        if (_turnCounter <= 0)
+        TurnCounter--;
+        if (TurnCounter <= 0)
         {
             UnSubscribe();
         }

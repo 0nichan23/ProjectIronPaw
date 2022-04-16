@@ -16,9 +16,17 @@ public abstract class StatusEffect
 
     public ModifierType ModType;
 
+    private int _turnCounter;
+    public int TurnCounter { get => _turnCounter; set => _turnCounter = value; }
+
     public StatusEffect(Character host)
     {
         _host = host;
+    }
+
+    protected void InitializeStatusEffect()
+    {
+        Subscribe();
     }
 
     protected void AddModifierToHost()

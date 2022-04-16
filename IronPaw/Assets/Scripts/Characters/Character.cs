@@ -79,7 +79,7 @@ public abstract class Character : MonoBehaviour
     public void AddModifer(StatusEffect mod)
     {
         ActiveModifiers.Add(mod);
-        RefSlot.DisplayEffect(mod);
+        //RefSlot.DisplayEffect(mod);
     }
 
     public void SelectCharacter()
