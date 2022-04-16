@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Deck : CardPile
@@ -9,7 +7,7 @@ public class Deck : CardPile
 
     public override void Draw()
     {
-        if(Cards.Count == 0)
+        if (Cards.Count == 0 && _discardPile.Cards.Count > 0)
         {
             int numberOfCardsToShuffle = _discardPile.Cards.Count;
 
@@ -18,9 +16,11 @@ public class Deck : CardPile
                 Cards.Push(_discardPile.Cards.Pop());
             }
 
-            Shuffle();
+            Shuffle();  
         }
 
         base.Draw();
+
+
     }
 }

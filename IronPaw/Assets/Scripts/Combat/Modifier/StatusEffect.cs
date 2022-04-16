@@ -59,7 +59,7 @@ public abstract class StatusEffect
         else
         {
             statusEffect.TurnCounter += numberOfTurns;
-            _host.ActiveModifiers.Remove(this);
+            _host.ActiveStatusEffects.Remove(this);
         }
     }
 
@@ -76,13 +76,13 @@ public abstract class StatusEffect
     protected StatusEffect CheckForExistingStatusEffectOfSameType(Character character)
     {
         Type A = this.GetType();
-        foreach (var modifier in character.ActiveModifiers)
+        foreach (var StatusEffect in character.ActiveStatusEffects)
         {
-            Type B = modifier.GetType();
+            Type B = StatusEffect.GetType();
 
             if (A == B)
             {
-                return modifier;
+                return StatusEffect;
             }
         }
         return null;
@@ -97,7 +97,7 @@ public abstract class StatusEffect
 
     protected void RemoveStatusEffectFromHost()
     {
-        _host.ActiveModifiers.Remove(this);
+        _host.ActiveStatusEffects.Remove(this);
         UnSubscribe();
     }
 

@@ -8,6 +8,6 @@ public class RegenTestEffect : CardEffect
     protected override void PlayCardEffect(Character playingCharacter, Character target)
     {
         
-        target.AddModifer(new Regen(target, 3));
+        target.AddStatusEffect(new Regen(target, 3));
     }
 }

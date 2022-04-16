@@ -8,15 +8,18 @@ public class PartyManager : Singleton<PartyManager>
     public List<Character> Heros;
     public List<Character> Enemies;
 
+    private List<Character> _charactersCache;
+
     public Character SelectedCharacter;
 
 
     private void Start()
     {
-        Enemies = EnemyWrapper.Instance.EnemyController.Enemies;
+        Enemies = EnemyWrapper.Instance.EnemyController.ControllerChracters;
         Heros = PlayerWrapper.Instance.PlayerController.ControllerChracters;
+        _charactersCache = new List<Character>();
     }
-    public IEnumerator WaitUntilHeroIsClickedPlayCard(CardSO card/*, Event func*/)
+    public IEnumerator WaitUntilHeroIsClickedPlayCard(CardSO card)
     {
         yield return new WaitUntil(() => SelectedCharacter != null);
         //Debug.Log(SelectedCharacter + " was selected");
@@ -41,6 +44,7 @@ public class PartyManager : Singleton<PartyManager>
 
     public void PlayCard(Character playingCharacter, CardSO card)
     {
+        _charactersCache.Clear();
         CardEffect cardEffectRef = card.CardEffect;
         SelectedCharacter = null;
         CardUI cardui = card.CardDisplay.GetComponent<CardUI>();
@@ -56,13 +60,15 @@ public class PartyManager : Singleton<PartyManager>
 
             case TargetType.SingleHero:
                 // set active true for all hero allies buttons
-                TurnOnAllHeroButtons();
+                FillLegalTargets(playingCharacter, card);
+                TurnOnAllCachedButtons();
                 StartCoroutine(WaitUntilTargetIsSelected(playingCharacter, card));
                 break;
 
             case TargetType.RandomHero:
                 System.Random rand = new System.Random();
-                Character randomAlly = Heros[rand.Next(0, Heros.Count)];
+                FillLegalTargets(playingCharacter, card);
+                Character randomAlly = _charactersCache[rand.Next(0, _charactersCache.Count)];
 
                 cardEffectRef.Targets.Add(randomAlly);
                 cardEffectRef.PlayEffect(playingCharacter, card);
@@ -101,13 +107,15 @@ public class PartyManager : Singleton<PartyManager>
 
             case TargetType.SingleEnemy:
                 // set active true for all hero enemies buttons
-                TurnOnAllEnemyButtons();
+                FillLegalTargets(playingCharacter, card);
+                TurnOnAllCachedButtons();
                 StartCoroutine(WaitUntilTargetIsSelected(playingCharacter, card));
                 break;
 
             case TargetType.RandomEnemy:
                 System.Random rand1 = new System.Random();
-                Character randomEnemy = Enemies[rand1.Next(0, Enemies.Count)];
+                FillLegalTargets(playingCharacter, card);
+                Character randomEnemy = _charactersCache[rand1.Next(0, _charactersCache.Count)];
 
                 cardEffectRef.Targets.Add(randomEnemy);
 
@@ -131,9 +139,42 @@ public class PartyManager : Singleton<PartyManager>
 
                 break;
         }
+    }
+
+    private void FillLegalTargets(Character playingCharacter, CardSO card)
+    {
+        if(card.CardType == CardType.Attack)
+        {
+            List<Character> cache;
+            if (playingCharacter is Hero)
+            {
+                cache = Enemies;
+            }
+            else
+            {
+                cache = Heros;
+            }
+
+            foreach (var character in cache)
+            {
+                foreach (var StatusEffect in character.ActiveStatusEffects)
+                {
+                    if(StatusEffect is Taunt)
+                    {
+                        _charactersCache.Add(character);
+                        break;
+                    }
+                }
+            }
+
+            if (_charactersCache.Count == 0)
+            {
+                _charactersCache = cache;
+            }
+
+        }
 
         
-
     }
 
     private void TurnOnAllEnemyButtons()
@@ -159,6 +200,17 @@ public class PartyManager : Singleton<PartyManager>
                 hero.Button.enabled = true;
             }
             
+        }
+    }
+
+    private void TurnOnAllCachedButtons()
+    {
+        foreach (var character in _charactersCache)
+        {
+            if (character.CurrentHP > 0)
+            {
+                character.Button.enabled = true;
+            }
         }
     }
 

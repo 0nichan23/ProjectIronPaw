@@ -1,16 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : Controller
 {
-    public List<Character> Enemies;
     [SerializeField]
     float timeBetweenTurns;
 
     private void Awake()
     {
-        Enemies = new List<Character>();
         for (int i = 0; i < transform.childCount; i++)
         {
             ControllerChracters.Add(transform.GetChild(i).GetComponentInChildren<Enemy>());
@@ -27,16 +24,21 @@ public class EnemyController : Controller
 
     IEnumerator TurnSpacing()
     {
-        foreach (Enemy item in Enemies)
+        foreach (Enemy item in ControllerChracters)
         {
             if (item.CurrentHP <= 0)
             {
                 continue;
             }
-            PartyManager.Instance.PlayCard(item, item.Hand.Cards[0]);
+
+            if(item.Hand.Cards.Count > 0)
+            {
+                PartyManager.Instance.PlayCard(item, item.Hand.Cards[0]);
+            }
+            
             yield return new WaitForSeconds(timeBetweenTurns);
         }
-        RevealIntentions();
+        //RevealIntentions();
     }
 
 
@@ -44,7 +46,7 @@ public class EnemyController : Controller
     public void RevealIntentions()
     {
         //shows the player the next played card?
-        foreach (Enemy item in Enemies)
+        foreach (Character item in ControllerChracters)
         {
             item.Deck.Draw();
         }

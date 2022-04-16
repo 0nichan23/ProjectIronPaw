@@ -15,12 +15,12 @@ public class PrefabManager : Singleton<PrefabManager>
 
     public DropZone DropZone;
 
-    Dictionary<Type, Sprite> ModifierDictionary = new Dictionary<Type, Sprite>();
+    Dictionary<Type, Sprite> StatusEffectDictionary = new Dictionary<Type, Sprite>();
 
 
-    public Sprite GetSprite(StatusEffect mod)
+    public Sprite GetSprite(StatusEffect StatusEffect)
     {
-        switch (mod.StatusEffectType)
+        switch (StatusEffect.StatusEffectType)
         {
             case StatusEffectType.Bleed:
                 //
