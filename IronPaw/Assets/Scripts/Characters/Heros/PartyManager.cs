@@ -20,8 +20,10 @@ public class PartyManager : Singleton<PartyManager>
     {
         yield return new WaitUntil(() => SelectedCharacter != null);
         //Debug.Log(SelectedCharacter + " was selected");
+        
         PlayCard(SelectedCharacter, card);
         SelectedCharacter = null;
+
     }
 
     public IEnumerator WaitUntilTargetIsSelected (Character playingCharacter, CardSO card)

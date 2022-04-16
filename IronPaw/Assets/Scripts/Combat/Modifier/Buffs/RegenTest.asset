@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RegenTest
   m_EditorClassIdentifier: 
   CardName: RegenTest
-  Description: 
+  Description: regen +3
   Colors: 03000000
   Rarity: 0
   EnergyCost: 0

@@ -48,7 +48,7 @@ public class CardUI : MonoBehaviour
         }
     }
 
-    private void OnGUI()
+    private void OnMouseDown()
     {
         if (!CardSO.CheckCardValidity())
         {
