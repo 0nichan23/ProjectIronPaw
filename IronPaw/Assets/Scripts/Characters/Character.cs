@@ -76,9 +76,9 @@ public abstract class Character : MonoBehaviour
     public abstract void UnSubscribe();
 
 
-    public void AddModifer(StatusEffect mod)
+    public void AddModifer(StatusEffect statusEffect)
     {
-        ActiveModifiers.Add(mod);
+        ActiveModifiers.Add(statusEffect);
         //RefSlot.DisplayEffect(mod);
     }
 

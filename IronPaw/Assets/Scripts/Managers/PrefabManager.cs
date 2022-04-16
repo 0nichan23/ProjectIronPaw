@@ -20,12 +20,12 @@ public class PrefabManager : Singleton<PrefabManager>
 
     public Sprite GetSprite(StatusEffect mod)
     {
-        switch (mod.ModType)
+        switch (mod.StatusEffectType)
         {
-            case ModifierType.Bleed:
+            case StatusEffectType.Bleed:
                 //
                 return BleedIcon;
-            case ModifierType.Taunt:
+            case StatusEffectType.Taunt:
                 //
                 return BleedIcon;
 

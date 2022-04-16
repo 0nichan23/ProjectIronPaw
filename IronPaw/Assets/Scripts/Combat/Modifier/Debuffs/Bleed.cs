@@ -1,15 +1,10 @@
 public class Bleed : Debuff
 { 
-    private int _givenDamage;
-
-
     
-    public Bleed(Character host, int givenDamage) : base(host)
+    public Bleed(Character host, int numberOfTurns) : base(host, numberOfTurns)
     {
-        ModType = ModifierType.Bleed;
-        _host = host;
-        _givenDamage = givenDamage;
-        InitializeStatusEffect();
+        StatusEffectType = StatusEffectType.Bleed;
+        CustomConstructor(host, numberOfTurns);
     }
 
     protected override void Subscribe()
@@ -19,16 +14,15 @@ public class Bleed : Debuff
 
     protected override void UnSubscribe()
     {
-        RemoveModifierFromHost();
         _host.OnStartTurn -= Bleeding;
     }
     public void Bleeding()
     {
-        _host.TakeDmg(new Damage(_givenDamage, _host, false));
-        _givenDamage--;
-        if (_givenDamage <= 0)
+        _host.TakeDmg(new Damage(TurnCounter, _host, false));
+        TurnCounter--;
+        if (TurnCounter <= 0)
         {
-            UnSubscribe();
+            RemoveStatusEffectFromHost();
         }
     }
 

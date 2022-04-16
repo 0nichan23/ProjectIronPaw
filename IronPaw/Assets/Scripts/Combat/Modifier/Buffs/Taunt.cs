@@ -3,23 +3,10 @@ using UnityEngine;
 public class Taunt : Buff
 {
 
-    public Taunt(Character host, int numberOfTurns) : base(host)
+    public Taunt(Character host, int numberOfTurns) : base(host, numberOfTurns)
     {
-
-        StatusEffect statusEffect = CheckModifier(host);
-
-
-        if (statusEffect == null)
-        {
-            TurnCounter = numberOfTurns;
-            _host = host;
-            InitializeStatusEffect();
-        }
-        else
-        {
-            ((Taunt)statusEffect).TurnCounter += numberOfTurns;
-        }
-
+        StatusEffectType = StatusEffectType.Taunt;
+        CustomConstructor(host, numberOfTurns);
     }
 
     protected override void Subscribe()
@@ -31,14 +18,13 @@ public class Taunt : Buff
     protected override void UnSubscribe()
     {
         _host.OnStartTurn -= TauntCountdown;
-        RemoveModifierFromHost();
     }
     private void TauntCountdown()
     {
         TurnCounter--;
         if (TurnCounter <= 0)
         {
-            UnSubscribe();
+            RemoveStatusEffectFromHost();
         }
     }
 }

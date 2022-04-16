@@ -5,15 +5,11 @@ using UnityEngine;
 public class Thorns : Buff
 {
     private int _givenDamage;
-
-    private int _turnCounter;
-
-    public Thorns(Character host, int givenDamage) : base(host)
+    public Thorns(Character host, int numberOfTurns, int givenDamage) : base(host, numberOfTurns)
     {
-        _host = host;
         _givenDamage = givenDamage;
-        _turnCounter = 3;
-        InitializeStatusEffect();
+        StatusEffectType = StatusEffectType.Thorns;
+        CustomConstructor(host, numberOfTurns);
     }
 
     protected override void Subscribe()
@@ -24,7 +20,6 @@ public class Thorns : Buff
 
     protected override void UnSubscribe()
     {
-        RemoveModifierFromHost();
         _host.OnTakeDamage -= Retaliate;
         _host.OnStartTurn -= ThornsCountdown;
 
@@ -40,10 +35,10 @@ public class Thorns : Buff
 
     private void ThornsCountdown()
     {
-        _turnCounter--;
-        if(_turnCounter <= 0)
+        TurnCounter--;
+        if(TurnCounter <= 0)
         {
-            UnSubscribe();
+            RemoveStatusEffectFromHost();
         }
     }
 }

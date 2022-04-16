@@ -6,6 +6,11 @@ public abstract class Debuff : StatusEffect
 {
     public Debuff(Character host) : base(host)
     {
-        _host = host;
+
+    }
+
+    public Debuff(Character host, int numberOfTurns) : base(host, numberOfTurns)
+    {
+
     }
 }

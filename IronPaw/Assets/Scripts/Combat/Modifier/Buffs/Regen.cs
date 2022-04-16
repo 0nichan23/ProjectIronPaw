@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class Regen : Buff
 {
-    private int _givenRegen;
-    public Regen(Character host, int givenRegen) : base(host)
+    public Regen(Character host, int numberOfTurns) : base(host, numberOfTurns)
     {
-        ModType = ModifierType.Regen;
-        _host = host;
-        _givenRegen = givenRegen;
-        InitializeStatusEffect();
+        StatusEffectType = StatusEffectType.Regen;
+        CustomConstructor(host, numberOfTurns);
     }
     protected override void Subscribe()
     {
@@ -19,17 +16,16 @@ public class Regen : Buff
 
     protected override void UnSubscribe()
     {
-        RemoveModifierFromHost();
         _host.OnStartTurn -= Regening;
     }
+
     public void Regening()
     {
-       
-        _host.Heal(_givenRegen);
-        _givenRegen--;
-        if (_givenRegen <= 0)
+        _host.Heal(TurnCounter);
+        TurnCounter--;
+        if (TurnCounter <= 0)
         {
-            UnSubscribe();
+            RemoveStatusEffectFromHost();
         }
     }
 }
