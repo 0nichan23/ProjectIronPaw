@@ -22,7 +22,7 @@ public abstract class Character : MonoBehaviour
 
 
     [SerializeField]
-    characterSlot RefSlot;
+    CharacterSlot RefSlot;
 
     private List<StatusEffect> _activeModifiers = new List<StatusEffect>();
 
@@ -55,6 +55,7 @@ public abstract class Character : MonoBehaviour
     protected virtual void TheBetterStart()
     {
         Button = GetComponentInChildren<Button>();
+        RefSlot = GetComponent<CharacterSlot>();
         _currentHp = _maxHp;
         OnStartTurn += StartOfTurnReset;
         DetermineController();

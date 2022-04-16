@@ -13,7 +13,7 @@ public class EnemyController : Controller
         Enemies = new List<Character>();
         for (int i = 0; i < transform.childCount; i++)
         {
-            Enemies.Add(transform.GetChild(i).GetComponent<Enemy>());
+            ControllerChracters.Add(transform.GetChild(i).GetComponentInChildren<Enemy>());
         }
 
     }
