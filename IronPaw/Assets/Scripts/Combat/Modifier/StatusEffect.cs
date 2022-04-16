@@ -6,7 +6,8 @@ using UnityEngine;
 public enum ModifierType
 {
     Bleed, 
-    Taunt
+    Taunt,
+    Regen
 }
 
 public abstract class StatusEffect

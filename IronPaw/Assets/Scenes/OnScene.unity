@@ -2544,6 +2544,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8251978784159582739, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8251978784159582739, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8251978784159582739, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8251978784159582739, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8251978784159582739, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8251978784159582739, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
 --- !u!224 &459324056 stripped
@@ -9001,6 +9025,10 @@ PrefabInstance:
       propertyPath: DiscardPile
       value: 
       objectReference: {fileID: 1085283461}
+    - target: {fileID: 2796265857363522211, guid: e8a8d9f042ca4bc4099634048b90d501, type: 3}
+      propertyPath: CurrentEnergy
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8a8d9f042ca4bc4099634048b90d501, type: 3}
 --- !u!4 &1692654155 stripped
@@ -10378,11 +10406,11 @@ PrefabInstance:
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: d23a571c396188b4ba5ea2baaeefb653, type: 2}
+      objectReference: {fileID: 11400000, guid: 2d46d88ac502b2a4f8556cb9a93a231c, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: d23a571c396188b4ba5ea2baaeefb653, type: 2}
+      objectReference: {fileID: 11400000, guid: 2d46d88ac502b2a4f8556cb9a93a231c, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[2]
       value: 
