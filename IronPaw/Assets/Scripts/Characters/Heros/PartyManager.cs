@@ -21,12 +21,8 @@ public class PartyManager : Singleton<PartyManager>
     }
     public IEnumerator WaitUntilHeroIsClickedPlayCard(CardSO card)
     {
-        yield return new WaitUntil(() => SelectedCharacter != null);
-        //Debug.Log(SelectedCharacter + " was selected");
-        
+        yield return new WaitUntil(() => SelectedCharacter != null);        
         PlayCard(SelectedCharacter, card);
-        SelectedCharacter = null;
-
     }
 
     public IEnumerator WaitUntilTargetIsSelected (Character playingCharacter, CardSO card)
@@ -44,7 +40,8 @@ public class PartyManager : Singleton<PartyManager>
 
     public void PlayCard(Character playingCharacter, CardSO card)
     {
-        _charactersCache.Clear();
+        ClearCachedCharacters();
+        TurnOffAllButtons();
         CardEffect cardEffectRef = card.CardEffect;
         SelectedCharacter = null;
         CardUI cardui = card.CardDisplay.GetComponent<CardUI>();
@@ -54,7 +51,6 @@ public class PartyManager : Singleton<PartyManager>
                 cardEffectRef.Targets.Add(playingCharacter);
                 cardEffectRef.PlayEffect(playingCharacter, card);
                 card.RemoveCard(playingCharacter);
-                TurnOffAllButtons();
                 cardui.DestroyTheHeretic();
                 break;
 
@@ -141,6 +137,11 @@ public class PartyManager : Singleton<PartyManager>
         }
     }
 
+    private void ClearCachedCharacters()
+    {
+        _charactersCache.Clear();
+    }
+
     private void FillLegalTargets(Character playingCharacter, CardSO card)
     {
         if(card.CardType == CardType.Attack)
@@ -169,7 +170,10 @@ public class PartyManager : Singleton<PartyManager>
 
             if (_charactersCache.Count == 0)
             {
-                _charactersCache = cache;
+                foreach (var item in cache)
+                {
+                    _charactersCache.Add(item);
+                }
             }
 
         }
