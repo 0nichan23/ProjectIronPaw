@@ -19,7 +19,6 @@ public class EnemyController : Controller
     public void PlayTurn()
     {
         StartCoroutine(TurnSpacing());
-
     }
 
     IEnumerator TurnSpacing()

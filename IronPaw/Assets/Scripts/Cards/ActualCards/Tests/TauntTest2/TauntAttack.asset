@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2630ed2cf596cfb4f93acbd47012e618, type: 3}
-  m_Name: RedSingleEnemy
+  m_Name: TauntAttack
   m_EditorClassIdentifier: 
-  CardName: RedSingleEnemy
-  Description: Red Attack Deals 1 damage
+  CardName: Taunt Attack
+  Description: Apply 3 dmg & 3 Taunt
   Colors: 00000000
   Rarity: 0
   EnergyCost: 1
-  CardEffect: {fileID: 11400000, guid: b53d632666cd62f4bbdf413a1f4228a4, type: 2}
+  CardEffect: {fileID: 11400000, guid: 823ce9fe3bcacbe41ab415b29b55ac90, type: 2}
   IsSwift: 1
   IsUsable: 0
   Artwork: {fileID: 0}

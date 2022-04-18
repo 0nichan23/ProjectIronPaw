@@ -62,8 +62,6 @@ public class TurnManager : Singleton<TurnManager>
         }
     }
 
-
-
     public void EndTurn()
     {
         _endTurn = true;
@@ -72,11 +70,6 @@ public class TurnManager : Singleton<TurnManager>
     public void enemyturn()
     {
         EnemyWrapper.Instance.EnemyController.PlayTurn();
+        Debug.Log("very cool enemy yes");
     }
-
-
-
-
-
-
 }
