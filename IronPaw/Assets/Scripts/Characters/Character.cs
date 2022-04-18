@@ -114,13 +114,15 @@ public abstract class Character : MonoBehaviour
             int remainder = amount - _currentBlock;
             _currentBlock = 0;
             amount = remainder;
-        }
-        _currentHp -= amount;
 
-        if (_currentHp <= 0)
-        {
-            _currentHp = 0;
+            _currentHp -= amount;
+
+            if (_currentHp <= 0)
+            {
+                _currentHp = 0;
+            }
         }
+        
 
         OnTakeDamage?.Invoke(damage);
     }
@@ -128,7 +130,7 @@ public abstract class Character : MonoBehaviour
     private void StartOfTurnReset()
     {
         ClearBlock();
-        Regenerate();
+        RegainAP();
     }
 
     public void ClearBlock()
@@ -136,7 +138,7 @@ public abstract class Character : MonoBehaviour
         _currentBlock = 0;
     }
 
-    private void Regenerate()
+    private void RegainAP()
     {
         CurrentAp = MaxAp;
     }

@@ -8,13 +8,15 @@ public class PartyManager : Singleton<PartyManager>
     public List<Character> Heroes;
     public List<Character> Enemies;
 
+    
 
-    [SerializeField] private List<Character> pointerList;
+    [SerializeField] private List<Character> _pointerList;
 
     private List<Character> _potentialTargets;
 
     public Character SelectedCharacter;
 
+    [SerializeField] private GameObject _selectionCanvas;
 
     private void Start()
     {
@@ -24,6 +26,7 @@ public class PartyManager : Singleton<PartyManager>
     }
     public IEnumerator WaitUntilHeroIsClickedPlayCard(CardSO card)
     {
+        ToggleSelectionCanvas(true);
         yield return new WaitUntil(() => SelectedCharacter != null);        
         PlayCard(SelectedCharacter, card);
     }
@@ -150,11 +153,11 @@ public class PartyManager : Singleton<PartyManager>
 
     private void FillLegalTargets(Character playingCharacter, CardSO card, List<Character> targetList)
     {
-        pointerList = targetList;
+        _pointerList = targetList;
 
         if (card.CardType == CardType.Attack)
         {
-            foreach (var character in pointerList)
+            foreach (var character in _pointerList)
             {
                 foreach (var StatusEffect in character.ActiveStatusEffects)
                 {
@@ -170,13 +173,13 @@ public class PartyManager : Singleton<PartyManager>
 
         if (_potentialTargets.Count == 0)
         {
-            foreach (var item in pointerList)
+            foreach (var item in _pointerList)
             {
                 _potentialTargets.Add(item);
             }
         }
 
-        pointerList = null;
+        _pointerList = null;
     }
 
     private void TurnOnAllEnemyButtons()
@@ -230,6 +233,20 @@ public class PartyManager : Singleton<PartyManager>
     }
 
 
+    public void CancelCard()
+    {
+        StopCoroutine("WaitUntilHeroIsClickedPlayCard");
+        StopCoroutine("WaitUntilTargetIsSelected");
+        SelectedCharacter = null;
+        _pointerList = null;
+        TurnOffAllButtons();
+        ClearCachedCharacters();
+        ToggleSelectionCanvas(false);
+    }
 
+    private void ToggleSelectionCanvas(bool state)
+    {
+        _selectionCanvas.SetActive(state);
+    }
 
 }
