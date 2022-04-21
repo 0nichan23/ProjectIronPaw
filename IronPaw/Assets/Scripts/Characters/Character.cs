@@ -21,8 +21,7 @@ public abstract class Character : MonoBehaviour
     [SerializeField] private int _maxAp;
 
 
-    [SerializeField]
-    CharacterSlot RefSlot;
+    [SerializeField] private CharacterSlot RefSlot;
 
     private List<StatusEffect> _activeStatusEffects = new List<StatusEffect>();
 
@@ -43,13 +42,12 @@ public abstract class Character : MonoBehaviour
     public int MaxAp { get => _maxAp; set => _maxAp = value; }
     public Controller Controller { get => _controller; set => _controller = value; }
 
-
     //List<Card> PersonalDeck;
+
     private void Start()
     {
         TheBetterStart();
         Subscribe();
-
     }
 
     protected virtual void TheBetterStart()
@@ -74,7 +72,6 @@ public abstract class Character : MonoBehaviour
     public abstract void Subscribe();
 
     public abstract void UnSubscribe();
-
 
     public void AddStatusEffect(StatusEffect statusEffect)
     {
