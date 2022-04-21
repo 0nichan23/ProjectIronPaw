@@ -15,13 +15,13 @@ public class Thorns : Buff
     protected override void Subscribe()
     {
         _host.OnTakeDamage += Retaliate;
-        _host.OnStartTurn += ThornsCountdown;
+        _host.OnStartTurn += Countdown;
     }
 
     protected override void UnSubscribe()
     {
         _host.OnTakeDamage -= Retaliate;
-        _host.OnStartTurn -= ThornsCountdown;
+        _host.OnStartTurn -= Countdown;
 
     }
 
@@ -33,12 +33,4 @@ public class Thorns : Buff
         }
     }
 
-    private void ThornsCountdown()
-    {
-        TurnCounter--;
-        if(TurnCounter <= 0)
-        {
-            RemoveStatusEffectFromHost();
-        }
-    }
 }

@@ -9,17 +9,22 @@ public enum StatusEffectType
     Bleed, 
     Taunt,
     Regen,
-    Thorns
+    Thorns,
+    Weak,
+    Immune
 }
 
 public abstract class StatusEffect
 {
     protected Character _host;
 
+    private bool _newStatusEffect = true;
+
     public StatusEffectType StatusEffectType;
 
     private int _turnCounter;
     public int TurnCounter { get => _turnCounter; set => _turnCounter = value; }
+    public bool NewStatusEffect { get => _newStatusEffect; }
 
     #region StatusEffectInitialization
 
@@ -59,7 +64,7 @@ public abstract class StatusEffect
         else
         {
             statusEffect.TurnCounter += numberOfTurns;
-            _host.ActiveStatusEffects.Remove(this);
+            _newStatusEffect = false;
         }
     }
 
@@ -94,6 +99,14 @@ public abstract class StatusEffect
     }
     #endregion
 
+    protected void Countdown()
+    {
+        TurnCounter--;
+        if (TurnCounter <= 0)
+        {
+            RemoveStatusEffectFromHost();
+        }
+    }
 
     protected void RemoveStatusEffectFromHost()
     {

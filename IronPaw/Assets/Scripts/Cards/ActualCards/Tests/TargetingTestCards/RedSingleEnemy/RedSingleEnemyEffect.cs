@@ -9,7 +9,7 @@ public class RedSingleEnemyEffect : CardEffect
 
 
         Debug.Log(target.CurrentHP);
-        target.TakeDmg(new Damage(1, playingCharacter));
+        target.TakeDmg(new Damage(10, playingCharacter));
         Debug.Log(target.CurrentHP);
     }
 }

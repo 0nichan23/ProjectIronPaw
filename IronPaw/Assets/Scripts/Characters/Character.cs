@@ -78,7 +78,10 @@ public abstract class Character : MonoBehaviour
 
     public void AddStatusEffect(StatusEffect statusEffect)
     {
-        ActiveStatusEffects.Add(statusEffect);
+        if(statusEffect.NewStatusEffect)
+        {
+            ActiveStatusEffects.Add(statusEffect);
+        }
         //RefSlot.DisplayEffect(mod);
     }
 
@@ -103,28 +106,38 @@ public abstract class Character : MonoBehaviour
 
     public void TakeDmg(Damage damage)
     {
-        int amount = damage.FinalDamage;
-        
-        if (_currentBlock >= amount)
+        int amount;
+
+        if (IsAfflictedBy(StatusEffectType.Immune))
         {
-            _currentBlock -= amount;
+            amount = 0;
         }
         else
         {
-            int remainder = amount - _currentBlock;
-            _currentBlock = 0;
-            amount = remainder;
+            amount = damage.FinalDamage;
 
-            _currentHp -= amount;
-
-            if (_currentHp <= 0)
+            if (_currentBlock >= amount)
             {
-                _currentHp = 0;
+                _currentBlock -= amount;
             }
+            else
+            {
+                int remainder = amount - _currentBlock;
+                _currentBlock = 0;
+                amount = remainder;
+
+                _currentHp -= amount;
+
+                OnTakeDamage?.Invoke(damage);
+
+                if (_currentHp <= 0)
+                {
+                    _currentHp = 0;
+                }
+
+            }           
         }
         
-
-        OnTakeDamage?.Invoke(damage);
     }
 
     private void StartOfTurnReset()
@@ -144,4 +157,16 @@ public abstract class Character : MonoBehaviour
     }
 
     protected abstract void DetermineController();
+
+    public bool IsAfflictedBy(StatusEffectType givenStatusEffectType)
+    {
+        foreach (StatusEffect StatusEffect in ActiveStatusEffects)
+        {
+            if (givenStatusEffectType == StatusEffect.StatusEffectType)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

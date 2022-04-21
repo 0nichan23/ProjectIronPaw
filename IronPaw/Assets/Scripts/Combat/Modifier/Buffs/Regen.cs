@@ -12,20 +12,17 @@ public class Regen : Buff
     protected override void Subscribe()
     {
         _host.OnStartTurn += Regening;
+        _host.OnStartTurn += Countdown;
     }
 
     protected override void UnSubscribe()
     {
         _host.OnStartTurn -= Regening;
+        _host.OnStartTurn -= Countdown;
     }
 
     public void Regening()
     {
         _host.Heal(TurnCounter);
-        TurnCounter--;
-        if (TurnCounter <= 0)
-        {
-            RemoveStatusEffectFromHost();
-        }
     }
 }

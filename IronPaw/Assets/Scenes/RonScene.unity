@@ -669,6 +669,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7395125938555267317, guid: 7e46784fedf644d4db3dd252d6a7361c, type: 3}
+      propertyPath: _maxHp
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7395125939831897585, guid: 7e46784fedf644d4db3dd252d6a7361c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -5504,7 +5508,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1067735206
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7956,6 +7960,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7395125938555267317, guid: 7e46784fedf644d4db3dd252d6a7361c, type: 3}
+      propertyPath: _maxHp
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7395125939831897585, guid: 7e46784fedf644d4db3dd252d6a7361c, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -10116,11 +10124,11 @@ PrefabInstance:
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 86c23e1e86e06744fbebbac35dff7167, type: 2}
+      objectReference: {fileID: 11400000, guid: f99f41e02d8e4f141a4c6e9fceca4334, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 8db1d7e3ba0fa704fa95a0e9dec20351, type: 2}
+      objectReference: {fileID: 11400000, guid: 3c4a043ef71e9ca47a2f59f9846653ef, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[2]
       value: 
@@ -11077,6 +11085,10 @@ PrefabInstance:
       propertyPath: _cardsGiven.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 41460824aad3a034d8724fc8f976f4bf, type: 2}
+    - target: {fileID: 7395125938555267317, guid: 7e46784fedf644d4db3dd252d6a7361c, type: 3}
+      propertyPath: _maxHp
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7395125938555267318, guid: 7e46784fedf644d4db3dd252d6a7361c, type: 3}
       propertyPath: _drawAmount
       value: 0

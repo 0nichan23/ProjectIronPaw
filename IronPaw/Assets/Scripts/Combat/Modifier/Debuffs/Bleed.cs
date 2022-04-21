@@ -10,20 +10,17 @@ public class Bleed : Debuff
     protected override void Subscribe()
     {
         _host.OnStartTurn += Bleeding;
+        _host.OnStartTurn += Countdown;
     }
 
     protected override void UnSubscribe()
     {
         _host.OnStartTurn -= Bleeding;
+        _host.OnStartTurn -= Countdown;
     }
     public void Bleeding()
     {
         _host.TakeDmg(new Damage(TurnCounter, _host, false));
-        TurnCounter--;
-        if (TurnCounter <= 0)
-        {
-            RemoveStatusEffectFromHost();
-        }
     }
 
 

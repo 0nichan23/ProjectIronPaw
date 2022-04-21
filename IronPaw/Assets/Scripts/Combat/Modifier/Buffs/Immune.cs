@@ -1,17 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Taunt : Buff
+public class Immune : Buff
 {
 
-    public Taunt(Character host, int numberOfTurns) : base(host, numberOfTurns)
+    public Immune(Character host, int numberOfTurns) : base(host, numberOfTurns)
     {
-        StatusEffectType = StatusEffectType.Taunt;
+        StatusEffectType = StatusEffectType.Immune;
         CustomConstructor(host, numberOfTurns);
     }
 
     protected override void Subscribe()
     {
-
         _host.OnStartTurn += Countdown;
     }
 
@@ -19,7 +20,4 @@ public class Taunt : Buff
     {
         _host.OnStartTurn -= Countdown;
     }
-
 }
-
-

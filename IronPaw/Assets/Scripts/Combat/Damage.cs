@@ -7,18 +7,23 @@ public class Damage
 
     private Character _sourceCharacter;
     private bool _isSourceAttack;
-
     private int _givenDamage;
+    private float _weakModifier = 1;
 
+    public Character SourceCharacter { get => _sourceCharacter; }
+    public bool IsSourceAttack { get => _isSourceAttack; }
     public int GivenDamage { get => _givenDamage; set => _givenDamage = value; }
-
     public int FinalDamage 
     { 
         get
         {
             if(IsSourceAttack)
             {
-                return GivenDamage + SourceCharacter.Stats.Strength;
+                if(SourceCharacter.IsAfflictedBy(StatusEffectType.Weak))
+                {
+                    _weakModifier = 0.67f;
+                }
+                return (int)((GivenDamage + SourceCharacter.Stats.Strength) * _weakModifier);
             }
             else
             {
@@ -27,8 +32,6 @@ public class Damage
         }
     }
 
-    public bool IsSourceAttack { get => _isSourceAttack; }
-    public Character SourceCharacter { get => _sourceCharacter; }
 
     public Damage(int givenDamage, Character playingCharacter, bool isSourceAttack = true)
     {

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2630ed2cf596cfb4f93acbd47012e618, type: 3}
-  m_Name: RedSingleEnemy
+  m_Name: ImmuneTest
   m_EditorClassIdentifier: 
-  CardName: RedSingleEnemy
-  Description: Red Attack Deals 10 damage
+  CardName: Immune Test
+  Description: Apply 1 self Damage and Immune
   Colors: 00000000
   Rarity: 0
-  EnergyCost: 1
-  CardEffect: {fileID: 11400000, guid: b53d632666cd62f4bbdf413a1f4228a4, type: 2}
+  EnergyCost: 0
+  CardEffect: {fileID: 11400000, guid: b1ee56751124f9d4ebfd56ecc336b855, type: 2}
   IsSwift: 1
   IsUsable: 0
   Artwork: {fileID: 0}

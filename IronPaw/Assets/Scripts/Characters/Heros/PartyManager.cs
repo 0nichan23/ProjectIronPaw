@@ -31,16 +31,13 @@ public class PartyManager : Singleton<PartyManager>
         PlayCard(SelectedCharacter, card);
     }
 
-    public IEnumerator WaitUntilTargetIsSelected (Character playingCharacter, CardSO card)
+    public IEnumerator WaitUntilTargetIsSelected (Character playingCharacter, CardSO card, CardEffect cardEffectRef, CardUI cardUI)
     {
         yield return new WaitUntil(() => SelectedCharacter != null);
-        card.CardEffect.Targets.Add(SelectedCharacter);
-        card.CardEffect.PlayEffect(playingCharacter, card);
-        card.RemoveCard(playingCharacter);
+        
+        cardEffectRef.Targets.Add(SelectedCharacter);
+        PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
         SelectedCharacter = null;
-        TurnOffAllButtons();
-        CardUI cardui = card.CardDisplay.GetComponent<CardUI>();
-        cardui.DestroyTheHeretic();
 
     }
 
@@ -50,35 +47,28 @@ public class PartyManager : Singleton<PartyManager>
         TurnOffAllButtons(); // Turns off the button of playingCharacter
         CardEffect cardEffectRef = card.CardEffect;
         SelectedCharacter = null;
-        CardUI cardui = card.CardDisplay.GetComponent<CardUI>();
+        CardUI cardUI = card.CardDisplay.GetComponent<CardUI>();
 
         switch (cardEffectRef.TargetType)
         {
             case TargetType.Self:
                 cardEffectRef.Targets.Add(playingCharacter);
-                cardEffectRef.PlayEffect(playingCharacter, card);
-                card.RemoveCard(playingCharacter);
-                cardui.DestroyTheHeretic();
+                PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
                 break;
 
             case TargetType.SingleHero:
                 // set active true for all hero allies buttons
                 FillLegalTargets(playingCharacter, card, Heroes);
                 TurnOnAllCachedButtons();
-                StartCoroutine(WaitUntilTargetIsSelected(playingCharacter, card));
+                StartCoroutine(WaitUntilTargetIsSelected(playingCharacter, card, cardEffectRef, cardUI));
                 break;
 
             case TargetType.RandomHero:
                 System.Random rand = new System.Random();
                 FillLegalTargets(playingCharacter, card, Heroes);
                 Character randomHero = _potentialTargets[rand.Next(0, _potentialTargets.Count)];
-
                 cardEffectRef.Targets.Add(randomHero);
-                cardEffectRef.PlayEffect(playingCharacter, card);
-                card.RemoveCard(playingCharacter);
-                TurnOffAllButtons();
-                cardui.DestroyTheHeretic();
-
+                PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
                 break;
 
             case TargetType.AllHeroes:
@@ -86,11 +76,7 @@ public class PartyManager : Singleton<PartyManager>
                 {
                     cardEffectRef.Targets.Add(ally);
                 }
-                cardEffectRef.PlayEffect(playingCharacter, card);
-                card.RemoveCard(playingCharacter);
-                TurnOffAllButtons();
-                cardui.DestroyTheHeretic();
-
+                PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
                 break;
 
             case TargetType.AllHeroesButMe:
@@ -101,10 +87,7 @@ public class PartyManager : Singleton<PartyManager>
                         cardEffectRef.Targets.Add(ally);
                     }                 
                 }
-                cardEffectRef.PlayEffect(playingCharacter, card);
-                card.RemoveCard(playingCharacter);
-                TurnOffAllButtons();
-                cardui.DestroyTheHeretic();
+                PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
 
                 break;
 
@@ -112,34 +95,24 @@ public class PartyManager : Singleton<PartyManager>
                 // set active true for all hero enemies buttons
                 FillLegalTargets(playingCharacter, card, Enemies);
                 TurnOnAllCachedButtons();
-                StartCoroutine(WaitUntilTargetIsSelected(playingCharacter, card));
+                StartCoroutine(WaitUntilTargetIsSelected(playingCharacter, card, cardEffectRef, cardUI));
                 break;
 
             case TargetType.RandomEnemy:
                 System.Random rand1 = new System.Random();
                 FillLegalTargets(playingCharacter, card, Enemies);
                 Character randomEnemy = _potentialTargets[rand1.Next(0, _potentialTargets.Count)];
-
                 cardEffectRef.Targets.Add(randomEnemy);
-
-                cardEffectRef.PlayEffect(playingCharacter, card);
-                card.RemoveCard(playingCharacter);
-                TurnOffAllButtons();
-                cardui.DestroyTheHeretic();
+                PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
 
                 break;
 
             case TargetType.AllEnemies:
-
                 foreach (Character enemy in Enemies)
                 {
                     cardEffectRef.Targets.Add(enemy);
                 }
-                cardEffectRef.PlayEffect(playingCharacter, card);
-                card.RemoveCard(playingCharacter);
-                TurnOffAllButtons();
-                cardui.DestroyTheHeretic();
-
+                PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
                 break;
         }
 
@@ -247,6 +220,15 @@ public class PartyManager : Singleton<PartyManager>
     private void ToggleSelectionCanvas(bool state)
     {
         _selectionCanvas.SetActive(state);
+    }
+
+    private void PlayEffectAndCleanUp(Character playingCharacter, CardSO card, CardEffect cardEffectRef, CardUI cardUI)
+    {
+        cardEffectRef.PlayEffect(playingCharacter, card);
+        card.RemoveCard(playingCharacter);
+        cardUI.DestroyTheHeretic();
+        TurnOffAllButtons();
+        ToggleSelectionCanvas(false);
     }
 
 }
