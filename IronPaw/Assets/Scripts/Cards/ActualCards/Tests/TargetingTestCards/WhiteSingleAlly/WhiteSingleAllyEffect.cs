@@ -10,7 +10,7 @@ public class WhiteSingleAllyEffect : CardEffect
         Debug.Log(target.CharacterName + " has " + target.CurrentHP + " health ");
         target.TakeDmg(new Damage(4, playingCharacter));
         Debug.Log(target.CharacterName + " has " + target.CurrentHP + " health ");
-        target.Heal(4);
+        target.Heal(4, playingCharacter);
         Debug.Log(target.CharacterName + " has " + target.CurrentHP + " health ");
     }
 }

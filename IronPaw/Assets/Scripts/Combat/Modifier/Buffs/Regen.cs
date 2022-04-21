@@ -23,6 +23,6 @@ public class Regen : Buff
 
     public void Regening()
     {
-        _host.Heal(TurnCounter);
+        _host.Heal(TurnCounter, _host);
     }
 }

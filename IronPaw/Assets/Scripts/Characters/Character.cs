@@ -16,7 +16,8 @@ public abstract class Character : MonoBehaviour
     [SerializeField] private int _currentBlock;
     [SerializeField] private string _characterName;
     private CharacterStats _stats;
-    [SerializeField] private int _keepBlock;
+    private bool _loseAllBlock = true;
+    [SerializeField] private int _amountOfBlockToLose;
     [SerializeField] private int _currentAp;
     [SerializeField] private int _maxAp;
 
@@ -41,6 +42,19 @@ public abstract class Character : MonoBehaviour
     public List<StatusEffect> ActiveStatusEffects { get => _activeStatusEffects; set => _activeStatusEffects = value; }
     public int MaxAp { get => _maxAp; set => _maxAp = value; }
     public Controller Controller { get => _controller; set => _controller = value; }
+    public int CurrentBlock { get => _currentBlock; set => _currentBlock = value; }
+    public int AmountOfBlockToLose
+    {
+        get => _amountOfBlockToLose;
+        set
+        {
+            if(_loseAllBlock)
+            {
+                _loseAllBlock = false;
+            }
+            _amountOfBlockToLose = value;
+        }
+    }
 
     //List<Card> PersonalDeck;
 
@@ -89,12 +103,12 @@ public abstract class Character : MonoBehaviour
 
     public void GainBlock(int amount)
     {
-        _currentBlock += amount;
+        CurrentBlock += amount + Stats.Dexterity;
     }
 
-    public void Heal(int amount)
+    public void Heal(int amount, Character source)
     {
-        _currentHp += amount;
+        _currentHp += amount + source.Stats.Faith;
         if (_currentHp >= _maxHp)
         {
             _currentHp = _maxHp;
@@ -118,14 +132,14 @@ public abstract class Character : MonoBehaviour
                 amount = (int)(amount * 1.5f);
             }
             
-            if (_currentBlock >= amount)
+            if (CurrentBlock >= amount)
             {
-                _currentBlock -= amount;
+                CurrentBlock -= amount;
             }
             else
             {
-                int remainder = amount - _currentBlock;
-                _currentBlock = 0;
+                int remainder = amount - CurrentBlock;
+                CurrentBlock = 0;
                 amount = remainder;
 
                 _currentHp -= amount;
@@ -148,7 +162,14 @@ public abstract class Character : MonoBehaviour
 
     public void ClearBlock()
     {
-        _currentBlock = 0;
+        if(_loseAllBlock)
+        {
+            CurrentBlock = 0;
+        }
+        else
+        {
+            CurrentBlock -= AmountOfBlockToLose;
+        }
     }
 
     private void RegainAP()

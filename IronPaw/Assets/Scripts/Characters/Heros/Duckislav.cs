@@ -4,13 +4,40 @@ using UnityEngine;
 
 public class Duckislav : Hero
 {
+    [SerializeField] private int _numberOfCardsToProcc;
+    [SerializeField] private int _passiveDamage;
 
-    protected override void TheBetterStart()
+    public void Passive(CardSO card)
     {
-        base.TheBetterStart();
+        Debug.Log(Controller.TurnTracker.NumberOfCardsPlayed);
+        if(Controller.TurnTracker.NumberOfCardsPlayed == _numberOfCardsToProcc)
+        {
+            List<Character> enemies = EnemyWrapper.Instance.EnemyController.ControllerChracters;
+            Character randomEnemy = enemies[new System.Random().Next(0, enemies.Count)];
+            Debug.Log(randomEnemy.CurrentHP);
+            randomEnemy.TakeDmg(new Damage(_passiveDamage, this, false));
+            Debug.Log(randomEnemy.CurrentHP);
+        }
     }
-    public override void Passive()
+
+    public override void SubscribePassive()
     {
-        base.Passive();
+        Controller.OnPlayCard += Passive;
+    }
+
+    public override void UnSubscribePassive()
+    {
+        Controller.OnPlayCard -= Passive;
+    }
+
+    public override void Ultimate()
+    {
+        MaxAp++;
+        OnStartTurn += DuckislavBuff;
+    }
+
+    private void DuckislavBuff()
+    {
+        Deck.Draw();
     }
 }

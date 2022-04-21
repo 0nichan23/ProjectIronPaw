@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hero : Character
+public abstract class Hero : Character
 {
     private bool _selectable;
 
@@ -12,27 +12,19 @@ public class Hero : Character
     {
         TurnManager.Instance.OnStartPlayerTurn += InvokeStartTurn;
         TurnManager.Instance.OnEndPlayerTurn += InvokeEndTurn;
+        SubscribePassive();
     }
     public override void UnSubscribe()
     {
         TurnManager.Instance.OnStartPlayerTurn -= InvokeStartTurn;
         TurnManager.Instance.OnEndPlayerTurn -= InvokeEndTurn;
+        UnSubscribePassive();
     }
 
-    public virtual void Passive()
-    {
+    public abstract void SubscribePassive();
+    public abstract void UnSubscribePassive();
 
-    }
-
-    public virtual void SubscribePassive()
-    {
-
-    }
-
-    public virtual void Ultimate()
-    {
-
-    }
+    public abstract void Ultimate();
 
     protected override void DetermineController()
     {

@@ -24,6 +24,22 @@ public class PartyManager : Singleton<PartyManager>
         Heroes = PlayerWrapper.Instance.PlayerController.ControllerChracters;
         _potentialTargets = new List<Character>();
     }
+    
+    public void SelectHeroToUltimate()
+    {
+        StartCoroutine(WaitUntilHeroIsClickedUltimate());
+    }
+
+    private IEnumerator WaitUntilHeroIsClickedUltimate()
+    {
+        ToggleSelectionCanvas(true);
+        TurnOnAllHeroButtons();
+
+        yield return new WaitUntil(() => SelectedCharacter != null);
+        ToggleSelectionCanvas(false);
+        ((Hero)SelectedCharacter).Ultimate();
+    }
+
     public IEnumerator WaitUntilHeroIsClickedPlayCard(CardSO card)
     {
         ToggleSelectionCanvas(true);
@@ -38,7 +54,6 @@ public class PartyManager : Singleton<PartyManager>
         cardEffectRef.Targets.Add(SelectedCharacter);
         PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
         SelectedCharacter = null;
-
     }
 
     public void PlayCard(Character playingCharacter, CardSO card)
@@ -205,10 +220,10 @@ public class PartyManager : Singleton<PartyManager>
         }
     }
 
-
     public void CancelCard()
     {
         StopCoroutine("WaitUntilHeroIsClickedPlayCard");
+        StopCoroutine("WaitUntilHeroIsClickedUltimate");
         StopCoroutine("WaitUntilTargetIsSelected");
         SelectedCharacter = null;
         _pointerList = null;

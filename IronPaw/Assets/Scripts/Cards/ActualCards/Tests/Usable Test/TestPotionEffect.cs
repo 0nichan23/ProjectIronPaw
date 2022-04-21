@@ -8,7 +8,7 @@ public class TestPotionEffect : CardEffect
 {
     protected override void PlayCardEffect(Character playingCharacter, Character target)
     {
-        target.Heal(5);
+        target.Heal(5, target);
 
         Debug.Log("Potion Drank");
     }
