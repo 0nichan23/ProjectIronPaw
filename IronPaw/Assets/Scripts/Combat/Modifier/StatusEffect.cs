@@ -11,7 +11,8 @@ public enum StatusEffectType
     Regen,
     Thorns,
     Weak,
-    Immune
+    Immune,
+    Frail
 }
 
 public abstract class StatusEffect

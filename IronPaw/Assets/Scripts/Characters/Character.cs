@@ -113,6 +113,11 @@ public abstract class Character : MonoBehaviour
         {
             amount = damage.FinalDamage;
 
+            if (damage.IsSourceAttack && IsAfflictedBy(StatusEffectType.Frail))
+            {
+                amount = (int)(amount * 1.5f);
+            }
+            
             if (_currentBlock >= amount)
             {
                 _currentBlock -= amount;
@@ -131,10 +136,8 @@ public abstract class Character : MonoBehaviour
                 {
                     _currentHp = 0;
                 }
-
             }           
-        }
-        
+        }        
     }
 
     private void StartOfTurnReset()

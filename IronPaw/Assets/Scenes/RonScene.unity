@@ -10124,11 +10124,11 @@ PrefabInstance:
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: f99f41e02d8e4f141a4c6e9fceca4334, type: 2}
+      objectReference: {fileID: 11400000, guid: 89bd50c53c161d748a53042f66e34a01, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 3c4a043ef71e9ca47a2f59f9846653ef, type: 2}
+      objectReference: {fileID: 11400000, guid: 89bd50c53c161d748a53042f66e34a01, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[2]
       value: 
