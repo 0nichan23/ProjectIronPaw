@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Duckislav : Hero
 {
-    [SerializeField] private int _numberOfCardsToProcc;
-    [SerializeField] private int _passiveDamage;
+    [SerializeField] private int _numberOfCardsToProcc = 4;
+    [SerializeField] private int _passiveDamage = 6;
 
-    public void Passive(CardSO card)
+    public void DuckislavPassive(CardSO card)
     {
         Debug.Log(Controller.TurnTracker.NumberOfCardsPlayed);
         if(Controller.TurnTracker.NumberOfCardsPlayed == _numberOfCardsToProcc)
@@ -22,12 +22,12 @@ public class Duckislav : Hero
 
     public override void SubscribePassive()
     {
-        Controller.OnPlayCard += Passive;
+        Controller.OnPlayCard += DuckislavPassive;
     }
 
     public override void UnSubscribePassive()
     {
-        Controller.OnPlayCard -= Passive;
+        Controller.OnPlayCard -= DuckislavPassive;
     }
 
     public override void Ultimate()

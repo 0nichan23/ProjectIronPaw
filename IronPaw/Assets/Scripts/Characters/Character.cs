@@ -28,12 +28,14 @@ public abstract class Character : MonoBehaviour
 
     public Action OnStartTurn;
     public Action OnEndTurn;
+    public Action OnDeath;
     public Action<Damage> OnTakeDamage;
 
     public Button Button;
 
     [SerializeField] private Controller _controller;
 
+    public int MaxHP { get => _maxHp; }
     public int CurrentHP { get => _currentHp; }
     public List<Color> Colors { get => colors; set => colors = value; }
     public int CurrentAp { get => _currentAp; set => _currentAp = value; }
@@ -56,6 +58,7 @@ public abstract class Character : MonoBehaviour
         }
     }
 
+
     //List<Card> PersonalDeck;
 
     private void Start()
@@ -68,7 +71,7 @@ public abstract class Character : MonoBehaviour
     {
         Button = GetComponentInChildren<Button>();
         RefSlot = GetComponent<CharacterSlot>();
-        _currentHp = _maxHp;
+        _currentHp = MaxHP;
         OnStartTurn += StartOfTurnReset;
         DetermineController();
     }
@@ -109,9 +112,9 @@ public abstract class Character : MonoBehaviour
     public void Heal(int amount, Character source)
     {
         _currentHp += amount + source.Stats.Faith;
-        if (_currentHp >= _maxHp)
+        if (_currentHp >= MaxHP)
         {
-            _currentHp = _maxHp;
+            _currentHp = MaxHP;
         }
     }
 
@@ -149,9 +152,16 @@ public abstract class Character : MonoBehaviour
                 if (_currentHp <= 0)
                 {
                     _currentHp = 0;
+                    Die();
                 }
             }           
         }        
+    }
+
+    private void Die()
+    {
+        OnDeath?.Invoke();
+        UnSubscribe();
     }
 
     private void StartOfTurnReset()

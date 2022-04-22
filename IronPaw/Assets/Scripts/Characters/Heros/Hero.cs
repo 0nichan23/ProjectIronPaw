@@ -24,6 +24,12 @@ public abstract class Hero : Character
     public abstract void SubscribePassive();
     public abstract void UnSubscribePassive();
 
+    public void PerformUltimate()
+    {
+        PlayerWrapper.Instance.PlayerController.ResetUltimateCharge();
+        Ultimate();
+    }
+
     public abstract void Ultimate();
 
     protected override void DetermineController()

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Vikinguin : Hero
 {
-    [SerializeField] private int _numberOfTurnsToProccPassive;
+    [SerializeField] private int _numberOfTurnsToProccPassive = 3;
     private int _numberOfTurnsRemainingToPassiveProcc;
-    [SerializeField] private int _amountOfBlockToGain;
+    [SerializeField] private int _amountOfBlockToGainFromPassive = 3;
+    [SerializeField] private int _amountOfBlockToGainFromUltimate = 30;
 
     protected override void TheBetterStart()
     {
@@ -27,7 +28,7 @@ public class Vikinguin : Hero
     {
         if (_numberOfTurnsRemainingToPassiveProcc == 0)
         {
-            GainBlock(_amountOfBlockToGain);
+            GainBlock(_amountOfBlockToGainFromPassive);
             AddStatusEffect(new Taunt(this, 1));
             _numberOfTurnsRemainingToPassiveProcc = _numberOfTurnsToProccPassive;
         }
@@ -37,7 +38,7 @@ public class Vikinguin : Hero
 
     public override void Ultimate()
     {
-        GainBlock(30);
+        GainBlock(_amountOfBlockToGainFromUltimate);
         AddStatusEffect(new Taunt(this, 3));
         AmountOfBlockToLose = 10;
     }

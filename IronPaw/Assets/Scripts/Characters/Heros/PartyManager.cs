@@ -37,7 +37,7 @@ public class PartyManager : Singleton<PartyManager>
 
         yield return new WaitUntil(() => SelectedCharacter != null);
         ToggleSelectionCanvas(false);
-        ((Hero)SelectedCharacter).Ultimate();
+        ((Hero)SelectedCharacter).PerformUltimate();
     }
 
     public IEnumerator WaitUntilHeroIsClickedPlayCard(CardSO card)

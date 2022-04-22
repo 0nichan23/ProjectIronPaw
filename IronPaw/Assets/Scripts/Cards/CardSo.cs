@@ -71,7 +71,7 @@ public class CardSO : ScriptableObject
 
         if (IsUsable)
         {
-            playingCharacter.ExiledPile.Cards.Push(this);
+            playingCharacter.ExiledPile.ExileCard(this);
         }
         else
         {
