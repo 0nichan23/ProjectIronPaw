@@ -11,7 +11,37 @@ public struct CharacterStats
     public int Dexterity;
     public int Intelligence;
     public int Faith;
+
+    public CharacterStats(int strength, int dexterity, int intelligence, int faith)
+    {
+        Strength = strength;
+        Dexterity = dexterity;
+        Intelligence = intelligence;
+        Faith = faith;
+    }
+
+    public static CharacterStats operator -(CharacterStats first, CharacterStats second)
+    {
+        return new CharacterStats(
+            first.Strength - second.Strength,
+            first.Dexterity - second.Dexterity,
+            first.Intelligence - second.Intelligence,
+            first.Faith - second.Faith
+            );
+    }
+
+    public static CharacterStats operator +(CharacterStats first, CharacterStats second)
+    {
+        return new CharacterStats(
+            first.Strength + second.Strength,
+            first.Dexterity + second.Dexterity,
+            first.Intelligence + second.Intelligence,
+            first.Faith + second.Faith
+            );
+    }
 }
+
+
 
 [CustomPropertyDrawer(typeof(CharacterStats))]
 public class CharacterStatsDrawer : PropertyDrawer

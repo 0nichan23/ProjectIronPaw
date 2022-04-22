@@ -58,7 +58,6 @@ public abstract class Character : MonoBehaviour
         }
     }
 
-
     //List<Card> PersonalDeck;
 
     private void Start()
