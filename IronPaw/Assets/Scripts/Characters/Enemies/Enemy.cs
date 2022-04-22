@@ -13,6 +13,7 @@ public class Enemy : Character
         OnDeath += ChargePlayerUltBar;
 
     }
+
     public override void UnSubscribe()
     {
         TurnManager.Instance.OnStartEnemyTurn -= InvokeStartTurn;

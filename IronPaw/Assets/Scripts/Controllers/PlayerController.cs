@@ -39,8 +39,6 @@ public class PlayerController : Controller
         StartOfTurnEnergyRegen();
     }
 
-
-
     private void StartOfTurnDraw()
     {
         for (int i = 0; i < Hand.DrawAmount; i++)
@@ -90,6 +88,5 @@ public class PlayerController : Controller
             ToggleUltButton(true);
         }
     }
-
 
 }

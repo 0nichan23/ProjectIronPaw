@@ -2547,6 +2547,11 @@ MonoBehaviour:
   RefSlot: {fileID: 0}
   Button: {fileID: 0}
   _controller: {fileID: 0}
+  _stats:
+    Strength: 0
+    Dexterity: 0
+    Intelligence: 0
+    Faith: 0
   _numberOfTurnsToProccPassive: 3
   _amountOfBlockToGainFromPassive: 3
   _amountOfBlockToGainFromUltimate: 30
@@ -3288,6 +3293,11 @@ MonoBehaviour:
   RefSlot: {fileID: 0}
   Button: {fileID: 0}
   _controller: {fileID: 0}
+  _stats:
+    Strength: 0
+    Dexterity: 1
+    Intelligence: 0
+    Faith: 0
   _numberOfCardsToProcc: 4
   _passiveDamage: 6
 --- !u!1001 &611918278
@@ -7867,6 +7877,11 @@ MonoBehaviour:
   RefSlot: {fileID: 0}
   Button: {fileID: 0}
   _controller: {fileID: 0}
+  _stats:
+    Strength: 0
+    Dexterity: 0
+    Intelligence: 0
+    Faith: 0
   _passiveHealAmount: 2
   _ultimateHealAmount: 6
 --- !u!1001 &1475178616

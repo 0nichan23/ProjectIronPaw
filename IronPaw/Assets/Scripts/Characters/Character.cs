@@ -15,7 +15,6 @@ public abstract class Character : MonoBehaviour
     [SerializeField] private int _currentHp;
     [SerializeField] private int _currentBlock;
     [SerializeField] private string _characterName;
-    private CharacterStats _stats;
     private bool _loseAllBlock = true;
     [SerializeField] private int _amountOfBlockToLose;
     [SerializeField] private int _currentAp;
@@ -34,6 +33,7 @@ public abstract class Character : MonoBehaviour
     public Button Button;
 
     [SerializeField] private Controller _controller;
+    [SerializeField] private CharacterStats _stats = new CharacterStats();
 
     public int MaxHP { get => _maxHp; }
     public int CurrentHP { get => _currentHp; }
