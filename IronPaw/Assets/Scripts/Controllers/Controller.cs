@@ -6,9 +6,9 @@ using UnityEngine;
 public abstract class Controller : MonoBehaviour
 {
     public List<Character> ControllerChracters;
-    public DataTracker TurnTracker;
-    public DataTracker CombatTracker;
-    public DataTracker RunTracker;
+    public DataTracker TurnTracker = new DataTracker();
+    public DataTracker CombatTracker = new DataTracker();
+    public DataTracker RunTracker = new DataTracker();
 
 
     public Action<CardSO> OnPlayCard;
@@ -35,17 +35,14 @@ public abstract class Controller : MonoBehaviour
         {
             case CardType.Attack:
                 dataTracker.NumberOfAttacksPlayed++;
-
                     break;
 
             case CardType.Guard:
                 dataTracker.NumberOfGuardsPlayed++;
-
                 break;
 
             case CardType.Utility:
                 dataTracker.NumberOfUtilitiesPlayed++;
-
                 break;
         }
     }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct DataTracker
+public class DataTracker
 {
     private int _numberOfCardsDrawn;
     private int _numberOfCardsExiled;
