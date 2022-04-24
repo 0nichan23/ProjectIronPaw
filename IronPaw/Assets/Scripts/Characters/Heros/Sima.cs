@@ -35,8 +35,6 @@ public class Sima : Hero
 
         Character randomHero = damagedHeroes[new System.Random().Next(0, damagedHeroes.Count)];
         randomHero.Heal(_passiveHealAmount, this);
-
-        Debug.Log(randomHero.CharacterName);
     }
 
     public override void SubscribePassive()

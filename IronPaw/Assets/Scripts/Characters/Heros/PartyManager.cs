@@ -62,7 +62,11 @@ public class PartyManager : Singleton<PartyManager>
         TurnOffAllButtons(); // Turns off the button of playingCharacter
         CardEffect cardEffectRef = card.CardEffect;
         SelectedCharacter = null;
-        CardUI cardUI = card.CardDisplay.GetComponent<CardUI>();
+        CardUI cardUI = null;
+        if (playingCharacter is Hero)
+        {
+            cardUI = card.CardDisplay.GetComponent<CardUI>();
+        }        
 
         switch (cardEffectRef.TargetType)
         {
@@ -241,7 +245,10 @@ public class PartyManager : Singleton<PartyManager>
     {
         cardEffectRef.PlayEffect(playingCharacter, card);
         card.RemoveCard(playingCharacter);
-        cardUI.DestroyTheHeretic();
+        if(cardUI != null)
+        {
+            cardUI.DestroyTheHeretic();
+        }        
         TurnOffAllButtons();
         ToggleSelectionCanvas(false);
     }

@@ -42,7 +42,7 @@ public class TurnManager : Singleton<TurnManager>
             if (firstTurn)
             {
                 firstTurn = false;
-                //EnemyWrapper.Instance.EnemyController.RevealIntentions();
+                EnemyWrapper.Instance.EnemyController.RevealIntentions();
             }
             //onstartplayer
             OnStartPlayerTurn?.Invoke();

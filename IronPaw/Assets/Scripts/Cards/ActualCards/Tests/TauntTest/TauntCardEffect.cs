@@ -9,7 +9,7 @@ public class TauntCardEffect : CardEffect
     protected override void PlayCardEffect(Character playingCharacter, Character target)
     {
 
-        playingCharacter.ActiveStatusEffects.Add(new Taunt(playingCharacter, 2));
+        playingCharacter.AddStatusEffect(new Taunt(playingCharacter, 2));
 
         Debug.Log(target + " has Taunt");
 }

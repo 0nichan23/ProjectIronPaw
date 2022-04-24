@@ -37,7 +37,8 @@ public class EnemyController : Controller
             
             yield return new WaitForSeconds(timeBetweenTurns);
         }
-        //RevealIntentions();
+
+        RevealIntentions();
     }
 
 

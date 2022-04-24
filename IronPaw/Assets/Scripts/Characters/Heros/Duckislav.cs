@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class Duckislav : Hero
 {
-    [SerializeField] private int _numberOfCardsToProcc = 4;
+    [SerializeField] private int _numberOfCardsToProccPassive = 4;
     [SerializeField] private int _passiveDamage = 6;
 
     public void DuckislavPassive(CardSO card)
     {
-        Debug.Log(Controller.TurnTracker.NumberOfCardsPlayed);
-        if(Controller.TurnTracker.NumberOfCardsPlayed == _numberOfCardsToProcc)
+        if(Controller.TurnTracker.NumberOfCardsPlayed == _numberOfCardsToProccPassive)
         {
-            List<Character> enemies = EnemyWrapper.Instance.EnemyController.ControllerChracters;
+            List<Character> enemies = new List<Character>();
+            foreach (var enemy in EnemyWrapper.Instance.EnemyController.ControllerChracters)
+            {
+                if(enemy.CurrentHP > 0)
+                {
+                    enemies.Add(enemy);
+                }
+            }
             Character randomEnemy = enemies[new System.Random().Next(0, enemies.Count)];
-            Debug.Log(randomEnemy.CurrentHP);
             randomEnemy.TakeDmg(new Damage(_passiveDamage, this, false));
-            Debug.Log(randomEnemy.CurrentHP);
         }
     }
 
