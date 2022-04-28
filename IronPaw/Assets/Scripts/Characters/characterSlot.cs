@@ -9,11 +9,23 @@ public class CharacterSlot : MonoBehaviour
     [SerializeField]
     Transform DisplayZone;
 
+    List<StatusEffectSlot> statuses = new List<StatusEffectSlot>();
+
 
     public void DisplayEffect(StatusEffect StatusEffect)
     {
         GameObject NewEffect = Instantiate(PrefabManager.Instance.EffectSlot, DisplayZone.position, Quaternion.identity, DisplayZone);
-        NewEffect.GetComponent<Image>().sprite = PrefabManager.Instance.GetSprite(StatusEffect);
+        StatusEffectSlot newSlot = NewEffect.GetComponent<StatusEffectSlot>();
+        newSlot.SetUp(StatusEffect);
+        statuses.Add(newSlot);
+    }
+
+    public void UpdateStatuses()
+    {
+        foreach (var status in statuses)
+        {
+            status.UpdateStatusEffectUI();
+        }
     }
 
 

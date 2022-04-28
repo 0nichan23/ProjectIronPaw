@@ -13,6 +13,7 @@ public class TurnManager : Singleton<TurnManager>
     //unlock player imputs
 
     List<Enemy> _enemies = new List<Enemy>();
+    List<Hero> _heros = new List<Hero>();
     public bool LockInputs;
     bool _endTurn;
     public GameObject EndTurnButton;
@@ -28,6 +29,12 @@ public class TurnManager : Singleton<TurnManager>
         foreach (Enemy enemy in PartyManager.Instance.Enemies)
         {
             _enemies.Add(enemy);
+            OnEndEnemyTurn += enemy.UpdateUi;
+        }
+        foreach (Hero hero in PartyManager.Instance.Heroes)
+        {
+            _heros.Add(hero);
+            OnEndPlayerTurn += hero.UpdateUi;
         }
         StartCoroutine(TurnLoop());
 

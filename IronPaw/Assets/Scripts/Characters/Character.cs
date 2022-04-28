@@ -95,7 +95,15 @@ public abstract class Character : MonoBehaviour
         {
             ActiveStatusEffects.Add(statusEffect);
         }
-        //RefSlot.DisplayEffect(mod);
+        if (RefSlot != null)
+        {
+            RefSlot.DisplayEffect(statusEffect);
+        }
+    }
+
+    public void UpdateUi()
+    {
+        RefSlot.UpdateStatuses();
     }
 
     public void SelectCharacter()
