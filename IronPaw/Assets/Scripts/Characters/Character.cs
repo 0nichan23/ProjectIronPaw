@@ -21,7 +21,7 @@ public abstract class Character : MonoBehaviour
     [SerializeField] private int _maxAp;
 
 
-    [SerializeField] private CharacterSlot RefSlot;
+    [SerializeField] private CharacterSlot _refSlot;
 
     private List<StatusEffect> _activeStatusEffects = new List<StatusEffect>();
 
@@ -45,6 +45,9 @@ public abstract class Character : MonoBehaviour
     public int MaxAp { get => _maxAp; set => _maxAp = value; }
     public Controller Controller { get => _controller; set => _controller = value; }
     public int CurrentBlock { get => _currentBlock; set => _currentBlock = value; }
+    public CharacterSlot RefSlot { get => _refSlot; set => _refSlot = value; }
+
+
     public int AmountOfBlockToLose
     {
         get => _amountOfBlockToLose;

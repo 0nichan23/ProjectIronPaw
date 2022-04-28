@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2630ed2cf596cfb4f93acbd47012e618, type: 3}
   m_Name: DealDamageSo
   m_EditorClassIdentifier: 
-  CardName: 
-  Description: 
-  Colors: 
+  CardName: attack
+  Description: deal 1 damage
+  Colors: 04000000
   Rarity: 0
   EnergyCost: 0
-  CardEffect: {fileID: 0}
+  CardEffect: {fileID: 11400000, guid: 4a3d36cca24f12d40b48f6dba2abdb99, type: 2}
   IsSwift: 0
-  Artwork: {fileID: 0}
+  IsUsable: 0
+  Artwork: {fileID: 21300000, guid: e1e93c690f87df2419f4ad2b64b7c17f, type: 3}
   CardType: 0
   CardDisplay: {fileID: 0}

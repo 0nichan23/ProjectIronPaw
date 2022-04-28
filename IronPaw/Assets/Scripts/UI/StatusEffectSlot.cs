@@ -11,7 +11,7 @@ public class StatusEffectSlot : MonoBehaviour
     [SerializeField]
     Image image;
 
-    StatusEffect myStatus;
+     public StatusEffect myStatus;
 
 
 

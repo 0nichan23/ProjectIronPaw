@@ -29,6 +29,16 @@ public class CharacterSlot : MonoBehaviour
     }
 
 
+    public void RemoveEffect(StatusEffect effect)
+    {
+        foreach (var item in statuses)
+        {
+            if (effect.StatusEffectType == item.myStatus.StatusEffectType)
+            {
+                statuses.Remove(item);
+            }
+        }
+    }
 
 
 
