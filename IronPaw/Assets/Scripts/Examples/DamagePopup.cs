@@ -6,14 +6,7 @@ public class DamagePopup : MonoBehaviour
     private void Awake()
     {
         textMesh = GetComponent<TextMeshPro>();
-        Invoke("Delete", 1f);
-    }
-    public static DamagePopup Create(Vector3 pos, int amount)
-    {
-        GameObject dmgPopupObject = Instantiate(PrefabManager.Instance.DamagePopup, pos, Quaternion.identity);
-        DamagePopup damagePopup = dmgPopupObject.GetComponent<DamagePopup>();
-        damagePopup.Setup(amount);
-        return damagePopup;
+        Destroy(gameObject, 1);
     }
 
     public void Setup(int amount)
@@ -21,9 +14,6 @@ public class DamagePopup : MonoBehaviour
         textMesh.SetText(amount.ToString());
     }
 
-    void Delete()
-    {
-        Destroy(gameObject);
-    }
+    
 
 }

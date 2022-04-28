@@ -33,4 +33,10 @@ public class PrefabManager : Singleton<PrefabManager>
                 return BleedIcon;
         }
     }
+
+    public void CreateDamagePopup(Vector3 pos, int amount)
+    {
+        DamagePopup popup = Instantiate(DamagePopup, pos, Quaternion.identity).GetComponent<DamagePopup>();
+        popup.Setup(amount);
+    }
 }

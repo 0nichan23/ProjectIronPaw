@@ -162,7 +162,8 @@ public abstract class Character : MonoBehaviour
                     Die();
                 }
             }           
-        }        
+        }
+        PrefabManager.Instance.CreateDamagePopup(transform.parent.position, damage.GivenDamage);
     }
 
     private void Die()
