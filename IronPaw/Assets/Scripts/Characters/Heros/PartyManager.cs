@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -43,7 +44,9 @@ public class PartyManager : Singleton<PartyManager>
     public IEnumerator WaitUntilHeroIsClickedPlayCard(CardScriptableObject card)
     {
         ToggleSelectionCanvas(true);
-        yield return new WaitUntil(() => SelectedCharacter != null);        
+        yield return new WaitUntil(() => SelectedCharacter != null);  
+        // AquireTargets
+        // PlayCard
         PlayCard(SelectedCharacter, card);
     }
 
@@ -56,10 +59,89 @@ public class PartyManager : Singleton<PartyManager>
         SelectedCharacter = null;
     }
 
+    public void EnemyAcquireTargets(Character playingCharacter, CardScriptableObject card)
+    {
+        CardEffect cardEffectRef = card.CardEffect;
+
+        switch (cardEffectRef.TargetType)
+        {
+            case TargetType.Self:
+                cardEffectRef.Targets.Add(playingCharacter);
+                break;
+
+            case TargetType.RandomHero:
+                System.Random rand = new System.Random();
+                FillLegalTargets(playingCharacter, card, Heroes);
+                Character randomHero = _potentialTargets[rand.Next(0, _potentialTargets.Count)];
+                cardEffectRef.Targets.Add(randomHero);
+                break;
+
+            case TargetType.AllHeroes:
+                foreach (Character ally in Heroes)
+                {
+                    cardEffectRef.Targets.Add(ally);
+                }
+                break;
+
+            case TargetType.RandomEnemy:
+                System.Random rand1 = new System.Random();
+                FillLegalTargets(playingCharacter, card, Enemies);
+                Character randomEnemy = _potentialTargets[rand1.Next(0, _potentialTargets.Count)];
+                cardEffectRef.Targets.Add(randomEnemy);
+
+                break;
+
+            case TargetType.AllEnemies:
+                foreach (Character enemy in Enemies)
+                {
+                    cardEffectRef.Targets.Add(enemy);
+                }
+                break;
+
+            case TargetType.AllCharacters:
+                foreach (Character hero in Heroes)
+                {
+                    cardEffectRef.Targets.Add(hero);
+                }
+                foreach (Character enemy in Enemies)
+                {
+                    cardEffectRef.Targets.Add(enemy);
+                }
+                break;
+
+            case TargetType.AllCharactersButMe:
+                foreach (Character hero in Heroes)
+                {
+                    if (hero == playingCharacter)
+                    {
+                        continue;
+                    }
+                    cardEffectRef.Targets.Add(hero);
+                }
+                foreach (Character enemy in Enemies)
+                {
+                    if (enemy == playingCharacter)
+                    {
+                        continue;
+                    }
+                    cardEffectRef.Targets.Add(enemy);
+                }
+                break;
+
+            default:
+                throw new NullReferenceException("Invalid TargetType for!" + card.CardName);
+        }
+    }
+
+    public void EnemyPlayCard(Character playingCharacter, CardScriptableObject card)
+    {
+        PlayEffectAndCleanUp(playingCharacter, card, card.CardEffect, null);
+    }
+
     public void PlayCard(Character playingCharacter, CardScriptableObject card)
     {
         ClearCachedCharacters();
-        TurnOffAllButtons(); // Turns off the button of playingCharacter
+        TurnOffAllButtons();
         CardEffect cardEffectRef = card.CardEffect;
         SelectedCharacter = null;
         CardUI cardUI = null;

@@ -679,12 +679,12 @@ PrefabInstance:
       objectReference: {fileID: 2038440776}
     - target: {fileID: 7395125938555267319, guid: 7e46784fedf644d4db3dd252d6a7361c, type: 3}
       propertyPath: _cardsGiven.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7395125938555267319, guid: 7e46784fedf644d4db3dd252d6a7361c, type: 3}
       propertyPath: _cardsGiven.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 41460824aad3a034d8724fc8f976f4bf, type: 2}
+      objectReference: {fileID: 11400000, guid: 6416ddf8bbdd8f741ab379b234f0acf9, type: 2}
     - target: {fileID: 7395125939831897585, guid: 7e46784fedf644d4db3dd252d6a7361c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2556,7 +2556,7 @@ MonoBehaviour:
   _amountOfBlockToLose: 0
   _currentAp: 0
   _maxAp: 1
-  RefSlot: {fileID: 0}
+  _refSlot: {fileID: 0}
   Button: {fileID: 0}
   _controller: {fileID: 0}
   _stats:
@@ -3277,7 +3277,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4ca46f0a30b9df4494b9d651b5f3a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayZone: {fileID: 0}
 --- !u!114 &599972515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3302,7 +3301,7 @@ MonoBehaviour:
   _amountOfBlockToLose: 0
   _currentAp: 0
   _maxAp: 1
-  RefSlot: {fileID: 0}
+  _refSlot: {fileID: 0}
   Button: {fileID: 0}
   _controller: {fileID: 0}
   _stats:
@@ -7897,7 +7896,7 @@ MonoBehaviour:
   _amountOfBlockToLose: 0
   _currentAp: 0
   _maxAp: 1
-  RefSlot: {fileID: 0}
+  _refSlot: {fileID: 0}
   Button: {fileID: 0}
   _controller: {fileID: 0}
   _stats:
@@ -11311,7 +11310,7 @@ PrefabInstance:
       objectReference: {fileID: 142156202}
     - target: {fileID: 7395125938555267319, guid: 7e46784fedf644d4db3dd252d6a7361c, type: 3}
       propertyPath: _cardsGiven.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7395125938555267319, guid: 7e46784fedf644d4db3dd252d6a7361c, type: 3}
       propertyPath: _cardsGiven.Array.data[0]

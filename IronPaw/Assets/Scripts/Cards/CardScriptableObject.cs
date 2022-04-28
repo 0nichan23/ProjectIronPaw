@@ -48,9 +48,6 @@ public class CardScriptableObject : ScriptableObject
          *  for the player to select
          */
 
-        // Destroy CardDisplay
-        //PrefabManager.Instance.DropZone.Abortion();
-
         // Discard this CardSO to discardpile
 
         SendCardToAppropriatePile(playingCharacter);
@@ -113,7 +110,6 @@ public class CardScriptableObject : ScriptableObject
 
 
     }
-
 
     public void GenerateCard(Character character)
     {

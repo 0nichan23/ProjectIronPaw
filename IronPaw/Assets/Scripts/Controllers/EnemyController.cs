@@ -23,35 +23,50 @@ public class EnemyController : Controller
 
     IEnumerator TurnSpacing()
     {
-        foreach (Enemy item in ControllerChracters)
+        foreach (Enemy enemy in ControllerChracters)
         {
-            if (item.CurrentHP <= 0)
+            if (enemy.CurrentHP > 0)
             {
-                continue;
+                if (enemy.Hand.Cards.Count > 0)
+                {
+                    PartyManager.Instance.EnemyPlayCard(enemy, enemy.Hand.Cards[0]);
+                }
             }
 
-            if(item.Hand.Cards.Count > 0)
-            {
-                PartyManager.Instance.PlayCard(item, item.Hand.Cards[0]);
-            }
-            
             yield return new WaitForSeconds(timeBetweenTurns);
         }
 
         RevealIntentions();
     }
 
-
-
     public void RevealIntentions()
     {
         //shows the player the next played card?
-        foreach (Character item in ControllerChracters)
+        foreach (Character enemy in ControllerChracters)
         {
-            item.Deck.Draw();
-        }
+            if(enemy.CurrentHP > 0)
+            {
+                enemy.Deck.Draw();
+                if(enemy.Hand.Cards.Count > 0)
+                {
+                    PartyManager.Instance.EnemyAcquireTargets(enemy, enemy.Hand.Cards[0]);
+                    ShowTargets(enemy.Hand.Cards[0].CardEffect);
+                }
+                
+                // shows the enemy's intent (symbol (+number if relevant) + Hero Portrait) 
 
-        //show
+                
+            }            
+        }
+    }
+
+    private void ShowTargets(CardEffect cardEffect)
+    {
+        foreach (var target in cardEffect.Targets)
+        {
+            Debug.Log("Target of " + cardEffect.name + ": " + target.CharacterName);
+
+        }
     }
 
 
