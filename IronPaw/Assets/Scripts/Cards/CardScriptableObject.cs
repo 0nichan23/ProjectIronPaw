@@ -3,8 +3,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-[CreateAssetMenu(fileName = "New Card", menuName = "Cards/CardSO")]
-public class CardSO : ScriptableObject
+[CreateAssetMenu(fileName = "New Card", menuName = "Cards/CardScriptableObject")]
+public class CardScriptableObject : ScriptableObject
 {
     public string CardName;
     public string Description;
@@ -138,7 +138,7 @@ public class CardSO : ScriptableObject
 
         GOUI.InitializeDisplay();
 
-        
+
     }
 
 

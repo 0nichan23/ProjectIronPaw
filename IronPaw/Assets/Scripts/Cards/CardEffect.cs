@@ -15,7 +15,7 @@ public abstract class CardEffect : ScriptableObject
     public List<Character> Targets = new List<Character>();
 
 
-    public void PlayEffect(Character playingCharacter, CardSO card)
+    public void PlayEffect(Character playingCharacter, CardScriptableObject card)
     {
         playingCharacter.Controller.OnPlayCard?.Invoke(card);
         foreach (var item in Targets)

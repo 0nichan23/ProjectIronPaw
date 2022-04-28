@@ -7,7 +7,7 @@ public class ExiledPile : CardPile
 {
     public Action OnExileCard;
 
-    public void ExileCard(CardSO card)
+    public void ExileCard(CardScriptableObject card)
     {
         Cards.Push(card);
         OnExileCard?.Invoke();

@@ -7,7 +7,7 @@ public class Duckislav : Hero
     [SerializeField] private int _numberOfCardsToProccPassive = 4;
     [SerializeField] private int _passiveDamage = 6;
 
-    public void DuckislavPassive(CardSO card)
+    public void DuckislavPassive(CardScriptableObject card)
     {
         if(Controller.TurnTracker.NumberOfCardsPlayed == _numberOfCardsToProccPassive)
         {
