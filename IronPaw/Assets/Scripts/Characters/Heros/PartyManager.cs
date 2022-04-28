@@ -133,6 +133,38 @@ public class PartyManager : Singleton<PartyManager>
                 }
                 PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
                 break;
+
+            case TargetType.AllCharacters:
+                foreach (Character hero in Heroes)
+                {
+                    cardEffectRef.Targets.Add(hero);
+                }
+                foreach (Character enemy in Enemies)
+                {
+                    cardEffectRef.Targets.Add(enemy);
+                }
+                PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
+                break;
+
+            case TargetType.AllCharactersButMe:
+                foreach (Character hero in Heroes)
+                {
+                    if(hero == playingCharacter)
+                    {
+                        continue;
+                    }
+                    cardEffectRef.Targets.Add(hero);
+                }
+                foreach (Character enemy in Enemies)
+                {
+                    if (enemy == playingCharacter)
+                    {
+                        continue;
+                    }
+                    cardEffectRef.Targets.Add(enemy);
+                }
+                PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
+                break;
         }
 
         

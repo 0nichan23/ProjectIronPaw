@@ -8,4 +8,6 @@ public enum TargetType
     SingleEnemy,
     RandomEnemy,
     AllEnemies,
+    AllCharacters,
+    AllCharactersButMe,
 }
