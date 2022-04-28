@@ -5,7 +5,7 @@ using UnityEngine;
 public class Hand : MonoBehaviour
 {
     [SerializeField]
-    public List<CardSO> Cards = new List<CardSO>();
+    public List<CardScriptableObject> Cards = new List<CardScriptableObject>();
 
     [SerializeField] public DiscardPile DiscardPile;
 
@@ -14,17 +14,17 @@ public class Hand : MonoBehaviour
 
     public int DrawAmount { get => _drawAmount; set => _drawAmount = value; }
 
-    public void AddCard(CardSO givenCard)
+    public void AddCard(CardScriptableObject givenCard)
     {
         Cards.Add(givenCard);
     }
 
-    public void RemoveCard(CardSO givenCard)
+    public void RemoveCard(CardScriptableObject givenCard)
     {
         Cards.Remove(givenCard);
     }
 
-    public void DiscardCard(CardSO card)
+    public void DiscardCard(CardScriptableObject card)
     {
         Destroy(card.CardDisplay);
         RemoveCard(card);
@@ -43,11 +43,11 @@ public class Hand : MonoBehaviour
             DiscardCard(Cards[0]);
         }
     }
-    void ExileCard(CardSO card)
+    void ExileCard(CardScriptableObject card)
     {
 
     }
-    void ReturnCardToDeck(CardSO card)
+    void ReturnCardToDeck(CardScriptableObject card)
     {
 
     }

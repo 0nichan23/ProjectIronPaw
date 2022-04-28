@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class CardPile : MonoBehaviour
 {
-    Stack<CardSO> _cards = new Stack<CardSO>();
+    Stack<CardScriptableObject> _cards = new Stack<CardScriptableObject>();
 
     [SerializeField]
     protected Hand _hand;
@@ -11,9 +11,9 @@ public abstract class CardPile : MonoBehaviour
 
     // Will be removed/Initialized differently when deck building is a thing
     [SerializeField]
-    private List<CardSO> _cardsGiven = new List<CardSO>();
+    private List<CardScriptableObject> _cardsGiven = new List<CardScriptableObject>();
 
-    public Stack<CardSO> Cards { get => _cards; set => _cards = value; }
+    public Stack<CardScriptableObject> Cards { get => _cards; set => _cards = value; }
 
     private void Awake()
     {
@@ -40,7 +40,7 @@ public abstract class CardPile : MonoBehaviour
             n--;
             int k = Random.Range(0, n + 1);
 
-            CardSO tempCardSlot = _cardsGiven[k];
+            CardScriptableObject tempCardSlot = _cardsGiven[k];
             _cardsGiven[k] = _cardsGiven[n];
             _cardsGiven[n] = tempCardSlot;
         }
@@ -57,7 +57,7 @@ public abstract class CardPile : MonoBehaviour
     {
         if(Cards.Count > 0)
         {
-            CardSO cardDrawn = Cards.Pop();
+            CardScriptableObject cardDrawn = Cards.Pop();
 
             _hand.AddCard(cardDrawn);
 
@@ -70,7 +70,7 @@ public abstract class CardPile : MonoBehaviour
     }
 
     // Not For Build
-    public CardSO[] Search(Filter filter)
+    public CardScriptableObject[] Search(Filter filter)
     {
         return null;
     }

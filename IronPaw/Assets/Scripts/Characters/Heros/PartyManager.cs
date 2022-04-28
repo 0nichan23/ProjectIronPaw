@@ -40,14 +40,14 @@ public class PartyManager : Singleton<PartyManager>
         ((Hero)SelectedCharacter).PerformUltimate();
     }
 
-    public IEnumerator WaitUntilHeroIsClickedPlayCard(CardSO card)
+    public IEnumerator WaitUntilHeroIsClickedPlayCard(CardScriptableObject card)
     {
         ToggleSelectionCanvas(true);
         yield return new WaitUntil(() => SelectedCharacter != null);        
         PlayCard(SelectedCharacter, card);
     }
 
-    public IEnumerator WaitUntilTargetIsSelected (Character playingCharacter, CardSO card, CardEffect cardEffectRef, CardUI cardUI)
+    public IEnumerator WaitUntilTargetIsSelected (Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)
     {
         yield return new WaitUntil(() => SelectedCharacter != null);
         
@@ -56,7 +56,7 @@ public class PartyManager : Singleton<PartyManager>
         SelectedCharacter = null;
     }
 
-    public void PlayCard(Character playingCharacter, CardSO card)
+    public void PlayCard(Character playingCharacter, CardScriptableObject card)
     {
         ClearCachedCharacters();
         TurnOffAllButtons(); // Turns off the button of playingCharacter
@@ -139,7 +139,7 @@ public class PartyManager : Singleton<PartyManager>
         _potentialTargets.Clear();
     }
 
-    private void FillLegalTargets(Character playingCharacter, CardSO card, List<Character> targetList)
+    private void FillLegalTargets(Character playingCharacter, CardScriptableObject card, List<Character> targetList)
     {
         _pointerList = targetList;
 
@@ -237,7 +237,7 @@ public class PartyManager : Singleton<PartyManager>
         _selectionCanvas.SetActive(state);
     }
 
-    private void PlayEffectAndCleanUp(Character playingCharacter, CardSO card, CardEffect cardEffectRef, CardUI cardUI)
+    private void PlayEffectAndCleanUp(Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)
     {
         cardEffectRef.PlayEffect(playingCharacter, card);
         card.RemoveCard(playingCharacter);

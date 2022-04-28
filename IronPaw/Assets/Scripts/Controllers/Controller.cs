@@ -11,7 +11,7 @@ public abstract class Controller : MonoBehaviour
     public DataTracker RunTracker = new DataTracker();
 
 
-    public Action<CardSO> OnPlayCard;
+    public Action<CardScriptableObject> OnPlayCard;
 
     private void Start()
     {
@@ -19,7 +19,7 @@ public abstract class Controller : MonoBehaviour
     }
 
 
-    private void UpdateAllDataTrackers(CardSO card)
+    private void UpdateAllDataTrackers(CardScriptableObject card)
     {
         UpdateDataTracker(card, TurnTracker);
         UpdateDataTracker(card, CombatTracker);
@@ -28,7 +28,7 @@ public abstract class Controller : MonoBehaviour
         Debug.Log("Number of cards played this turn: " + TurnTracker.NumberOfCardsPlayed);
     }
 
-    private void UpdateDataTracker(CardSO card, DataTracker dataTracker)
+    private void UpdateDataTracker(CardScriptableObject card, DataTracker dataTracker)
     {
         dataTracker.NumberOfCardsPlayed++;
         switch(card.CardType)
