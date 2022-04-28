@@ -4,19 +4,39 @@ using UnityEngine;
 
 public class Enemy : Character
 {
-    public override void ClearBlock()
+    private int baseUltChargeGain = 1;
+    //aquire target
+    public override void Subscribe()
     {
+        TurnManager.Instance.OnStartEnemyTurn += InvokeStartTurn;
+        TurnManager.Instance.OnEndEnemyTurn += InvokeEndTurn;
+        OnDeath += ChargePlayerUltBar;
+
     }
 
-    public override void GainBlock(int amount)
+    public override void UnSubscribe()
     {
+        TurnManager.Instance.OnStartEnemyTurn -= InvokeStartTurn;
+        TurnManager.Instance.OnEndEnemyTurn -= InvokeEndTurn;
     }
 
-    public override void Heal(int amount)
+    protected override void DetermineController()
     {
+        Controller = EnemyWrapper.Instance.EnemyController;
     }
 
-    public override void TakeDmg(int amount)
+    private void ChargePlayerUltBar()
     {
+        int totalPartyIntelligence = 0;
+        PlayerController playerController = PlayerWrapper.Instance.PlayerController;
+        foreach (var hero in playerController.ControllerChracters)
+        {
+            if(hero.CurrentHP > 0)
+            {
+                totalPartyIntelligence += hero.Stats.Intelligence;
+            }
+        }
+
+        playerController.GainUltimateCharge(baseUltChargeGain + totalPartyIntelligence);
     }
 }

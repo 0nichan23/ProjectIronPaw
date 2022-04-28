@@ -1,65 +1,256 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PartyManager : Singleton<PartyManager>
 {
-    // an int that is null until it's set
-    int? gogogo; 
+    public List<Character> Heroes;
+    public List<Character> Enemies;
 
-    List<Hero> heros = new List<Hero>();
+    
 
-    public Hero SelectedHero;
+    [SerializeField] private List<Character> _pointerList;
 
-    public IEnumerator WaitUntilHeroIsClicked(CardSO card)
+    private List<Character> _potentialTargets;
+
+    public Character SelectedCharacter;
+
+    [SerializeField] private GameObject _selectionCanvas;
+
+    private void Start()
     {
-        yield return new WaitUntil(() => SelectedHero != null);
-
-        if (CheckCardAndHeroColors(card, SelectedHero))
-        {
-            card.PlayCard(SelectedHero);
-            SelectedHero = null;
-        }
-        else
-        {
-            Debug.Log("Invalid Card / Hero");
-        }    
+        Enemies = EnemyWrapper.Instance.EnemyController.ControllerChracters;
+        Heroes = PlayerWrapper.Instance.PlayerController.ControllerChracters;
+        _potentialTargets = new List<Character>();
+    }
+    
+    public void SelectHeroToUltimate()
+    {
+        StartCoroutine(WaitUntilHeroIsClickedUltimate());
     }
 
-    public IEnumerator WaitUntilHeroIsPicked(CardSO card)
+    private IEnumerator WaitUntilHeroIsClickedUltimate()
     {
-        yield return new WaitUntil(() => gogogo != null);
-        SelectedHero = heros[(int)gogogo];
+        ToggleSelectionCanvas(true);
+        TurnOnAllHeroButtons();
 
-        //if (SelectedHero.Selectable)
-        //{
-        //    card.PlayCard(SelectedHero);
-        //}
-        //else
-        //{
-        //    SelectedHero = null;
-        //    Debug.Log("Invalid hero");
-        //}
+        yield return new WaitUntil(() => SelectedCharacter != null);
+        ToggleSelectionCanvas(false);
+        ((Hero)SelectedCharacter).PerformUltimate();
     }
 
-    public bool CheckCardAndHeroColors(CardSO card, Hero hero)
+    public IEnumerator WaitUntilHeroIsClickedPlayCard(CardSO card)
     {
-        foreach (Color heroColor in hero.Colors)
+        ToggleSelectionCanvas(true);
+        yield return new WaitUntil(() => SelectedCharacter != null);        
+        PlayCard(SelectedCharacter, card);
+    }
+
+    public IEnumerator WaitUntilTargetIsSelected (Character playingCharacter, CardSO card, CardEffect cardEffectRef, CardUI cardUI)
+    {
+        yield return new WaitUntil(() => SelectedCharacter != null);
+        
+        cardEffectRef.Targets.Add(SelectedCharacter);
+        PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
+        SelectedCharacter = null;
+    }
+
+    public void PlayCard(Character playingCharacter, CardSO card)
+    {
+        ClearCachedCharacters();
+        TurnOffAllButtons(); // Turns off the button of playingCharacter
+        CardEffect cardEffectRef = card.CardEffect;
+        SelectedCharacter = null;
+        CardUI cardUI = null;
+        if (playingCharacter is Hero)
         {
-            foreach (var cardColor in card.Colors)
-            {
-                if (heroColor == cardColor)
+            cardUI = card.CardDisplay.GetComponent<CardUI>();
+        }        
+
+        switch (cardEffectRef.TargetType)
+        {
+            case TargetType.Self:
+                cardEffectRef.Targets.Add(playingCharacter);
+                PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
+                break;
+
+            case TargetType.SingleHero:
+                // set active true for all hero allies buttons
+                FillLegalTargets(playingCharacter, card, Heroes);
+                TurnOnAllCachedButtons();
+                StartCoroutine(WaitUntilTargetIsSelected(playingCharacter, card, cardEffectRef, cardUI));
+                break;
+
+            case TargetType.RandomHero:
+                System.Random rand = new System.Random();
+                FillLegalTargets(playingCharacter, card, Heroes);
+                Character randomHero = _potentialTargets[rand.Next(0, _potentialTargets.Count)];
+                cardEffectRef.Targets.Add(randomHero);
+                PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
+                break;
+
+            case TargetType.AllHeroes:
+                foreach (Character ally in Heroes)
                 {
-                    return true;
+                    cardEffectRef.Targets.Add(ally);
+                }
+                PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
+                break;
+
+            case TargetType.AllHeroesButMe:
+                foreach (Character ally in Heroes)
+                {
+                    if(ally != playingCharacter)
+                    {
+                        cardEffectRef.Targets.Add(ally);
+                    }                 
+                }
+                PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
+
+                break;
+
+            case TargetType.SingleEnemy:
+                // set active true for all hero enemies buttons
+                FillLegalTargets(playingCharacter, card, Enemies);
+                TurnOnAllCachedButtons();
+                StartCoroutine(WaitUntilTargetIsSelected(playingCharacter, card, cardEffectRef, cardUI));
+                break;
+
+            case TargetType.RandomEnemy:
+                System.Random rand1 = new System.Random();
+                FillLegalTargets(playingCharacter, card, Enemies);
+                Character randomEnemy = _potentialTargets[rand1.Next(0, _potentialTargets.Count)];
+                cardEffectRef.Targets.Add(randomEnemy);
+                PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
+
+                break;
+
+            case TargetType.AllEnemies:
+                foreach (Character enemy in Enemies)
+                {
+                    cardEffectRef.Targets.Add(enemy);
+                }
+                PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
+                break;
+        }
+
+        
+    }
+
+    private void ClearCachedCharacters()
+    {
+        _potentialTargets.Clear();
+    }
+
+    private void FillLegalTargets(Character playingCharacter, CardSO card, List<Character> targetList)
+    {
+        _pointerList = targetList;
+
+        if (card.CardType == CardType.Attack)
+        {
+            foreach (var character in _pointerList)
+            {
+                foreach (var StatusEffect in character.ActiveStatusEffects)
+                {
+                    if(StatusEffect is Taunt)
+                    {
+                        _potentialTargets.Add(character);
+                        break;
+                    }
                 }
             }
         }
 
-        return false;
+
+        if (_potentialTargets.Count == 0)
+        {
+            foreach (var item in _pointerList)
+            {
+                _potentialTargets.Add(item);
+            }
+        }
+
+        _pointerList = null;
     }
 
-    public void SetHeroIndex(int givenIndex)
+    private void TurnOnAllEnemyButtons()
     {
-        gogogo = givenIndex;
+        foreach (var enemy in Enemies)
+        {
+            if (enemy.CurrentHP > 0)
+            {
+                enemy.Button.enabled = true;
+            }
+           
+        }
     }
+
+    private void TurnOnAllHeroButtons()
+    {
+        // TODO: Filter heros by color, ifAlive, and so on
+
+        foreach (var hero in Heroes)
+        {
+            if (hero.CurrentHP > 0)
+            {
+                hero.Button.enabled = true;
+            }
+            
+        }
+    }
+
+    private void TurnOnAllCachedButtons()
+    {
+        foreach (var character in _potentialTargets)
+        {
+            if (character.CurrentHP > 0)
+            {
+                character.Button.enabled = true;
+            }
+        }
+    }
+
+    private void TurnOffAllButtons()
+    {
+        foreach (var enemy in Enemies)
+        {
+            enemy.Button.enabled = false;
+        }
+
+        foreach (var hero in Heroes)
+        {
+            hero.Button.enabled = false;
+        }
+    }
+
+    public void CancelCard()
+    {
+        StopCoroutine("WaitUntilHeroIsClickedPlayCard");
+        StopCoroutine("WaitUntilHeroIsClickedUltimate");
+        StopCoroutine("WaitUntilTargetIsSelected");
+        SelectedCharacter = null;
+        _pointerList = null;
+        TurnOffAllButtons();
+        ClearCachedCharacters();
+        ToggleSelectionCanvas(false);
+    }
+
+    private void ToggleSelectionCanvas(bool state)
+    {
+        _selectionCanvas.SetActive(state);
+    }
+
+    private void PlayEffectAndCleanUp(Character playingCharacter, CardSO card, CardEffect cardEffectRef, CardUI cardUI)
+    {
+        cardEffectRef.PlayEffect(playingCharacter, card);
+        card.RemoveCard(playingCharacter);
+        if(cardUI != null)
+        {
+            cardUI.DestroyTheHeretic();
+        }        
+        TurnOffAllButtons();
+        ToggleSelectionCanvas(false);
+    }
+
 }

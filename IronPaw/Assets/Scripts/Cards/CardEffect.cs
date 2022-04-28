@@ -1,13 +1,31 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
-public abstract class CardEffect : MonoBehaviour
+/* 
+  Copy this and change when inheriting:
+  [CreateAssetMenu(fileName = "New Card", menuName = "Cards/CardEffect/WhiteCards/Utility/WhiteSingleAllyEffect")]
+*/
+
+public abstract class CardEffect : ScriptableObject
 {
     public TargetType TargetType;
-    public Character[] Targets;
+    public List<Character> Targets = new List<Character>();
 
-    public abstract void Activate();
 
-    public abstract void PickTargets();
+    public void PlayEffect(Character playingCharacter, CardSO card)
+    {
+        playingCharacter.Controller.OnPlayCard?.Invoke(card);
+        foreach (var item in Targets)
+        {
+            PlayCardEffect(playingCharacter, item);
+        }
+        Targets.Clear();
+    }
+
+    protected abstract void PlayCardEffect(Character playingCharacter, Character target);
+
+    
 }

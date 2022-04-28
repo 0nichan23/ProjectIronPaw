@@ -9,6 +9,11 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (TurnManager.Instance.LockInputs)
+        {
+            return;
+        }
+
         ParentToReturnTo = transform.parent;
         transform.SetParent(transform.parent.parent);
         GetComponent<CanvasGroup>().blocksRaycasts = false;
@@ -16,11 +21,19 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (TurnManager.Instance.LockInputs)
+        {
+            return;
+        }
         transform.position = eventData.position;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (TurnManager.Instance.LockInputs)
+        {
+            return;
+        }
         transform.SetParent(ParentToReturnTo);
         GetComponent<CanvasGroup>().blocksRaycasts = true;
     }

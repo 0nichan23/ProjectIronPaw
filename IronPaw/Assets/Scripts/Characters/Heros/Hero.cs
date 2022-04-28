@@ -2,58 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hero : Character
+public abstract class Hero : Character
 {
     private bool _selectable;
 
     public bool Selectable { get => _selectable; set => _selectable = value; }
 
-    public override void GainBlock(int amount)
+    public override void Subscribe()
     {
-        _currentBlock += amount;
+        TurnManager.Instance.OnStartPlayerTurn += InvokeStartTurn;
+        TurnManager.Instance.OnEndPlayerTurn += InvokeEndTurn;
+        SubscribePassive();
     }
-    public override void ClearBlock()
+    public override void UnSubscribe()
     {
-        _currentBlock = 0;
-    }
-
-    public override void Heal(int amount)
-    {
-        _currentHp += amount;
-        if (_currentHp >= _maxHp)
-        {
-            _currentHp = _maxHp;
-        }
+        TurnManager.Instance.OnStartPlayerTurn -= InvokeStartTurn;
+        TurnManager.Instance.OnEndPlayerTurn -= InvokeEndTurn;
+        UnSubscribePassive();
     }
 
-    public override void TakeDmg(int amount)
+    public abstract void SubscribePassive();
+    public abstract void UnSubscribePassive();
+
+    public void PerformUltimate()
     {
-        _currentHp -= amount;
-        if (_currentHp > 0)
-        {
-            _currentHp = 0;
-        }
+        PlayerWrapper.Instance.PlayerController.ResetUltimateCharge();
+        Ultimate();
     }
 
-    public virtual void Passive()
+    public abstract void Ultimate();
+
+    protected override void DetermineController()
     {
-
+        Controller = PlayerWrapper.Instance.PlayerController;
+        Hand = ((PlayerController)Controller).Hand;
+        Deck = ((PlayerController)Controller).Deck;
+        DiscardPile = ((PlayerController)Controller).DiscardPile;
+        ExiledPile = ((PlayerController)Controller).ExiledPile;
     }
-
-    public virtual void SubscribePassive()
-    {
-
-    }
-
-    public virtual void Ultimate()
-    {
-
-    }
-
-    public void SelectHero()
-    {
-        PartyManager.Instance.SelectedHero = this;
-        Debug.Log("Selected Hero" + this);
-    }
-
 }

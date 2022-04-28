@@ -1,10 +1,10 @@
 public enum TargetType
 {
     Self,
-    SingleAlly,
-    RandomAlly,
-    AllAllies,
-    AllAlliesButMe,
+    SingleHero,
+    RandomHero,
+    AllHeroes,
+    AllHeroesButMe,
     SingleEnemy,
     RandomEnemy,
     AllEnemies,

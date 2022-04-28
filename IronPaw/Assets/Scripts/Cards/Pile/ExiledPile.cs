@@ -1,18 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExiledPile : MonoBehaviour
+public class ExiledPile : CardPile
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Action OnExileCard;
 
-    // Update is called once per frame
-    void Update()
+    public void ExileCard(CardSO card)
     {
-        
+        Cards.Push(card);
+        OnExileCard?.Invoke();
     }
 }

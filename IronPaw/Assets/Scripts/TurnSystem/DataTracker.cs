@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct DataTracker
+public class DataTracker
 {
     private int _numberOfCardsDrawn;
     private int _numberOfCardsExiled;
@@ -17,18 +17,29 @@ public struct DataTracker
     private Dictionary<Character, int> _enemiesSlain;
     private Dictionary<Character, int> _damageTaken;
 
+    public int NumberOfCardsDrawn { get => _numberOfCardsDrawn; set => _numberOfCardsDrawn = value; }
+    public int NumberOfCardsExiled { get => _numberOfCardsExiled; set => _numberOfCardsExiled = value; }
+    public int NumberOfCardsDiscarded { get => _numberOfCardsDiscarded; set => _numberOfCardsDiscarded = value; }
+    public int NumberOfCardsPlayed { get => _numberOfCardsPlayed; set => _numberOfCardsPlayed = value; }
+    public int NumberOfAttacksPlayed { get => _numberOfAttacksPlayed; set => _numberOfAttacksPlayed = value; }
+    public int NumberOfGuardsPlayed { get => _numberOfGuardsPlayed; set => _numberOfGuardsPlayed = value; }
+    public int NumberOfUtilitiesPlayed { get => _numberOfUtilitiesPlayed; set => _numberOfUtilitiesPlayed = value; }
+    public int NumberOfBuffsApplied { get => _numberOfBuffsApplied; set => _numberOfBuffsApplied = value; }
+    public int NumberOfUltimatesPerformed { get => _numberOfUltimatesPerformed; set => _numberOfUltimatesPerformed = value; }
+    public int NumberOfTurnsSinceStart { get => _numberOfTurnsSinceStart; set => _numberOfTurnsSinceStart = value; }
+
     public void ResetData()
     {
-        _numberOfCardsDrawn = 0;
-        _numberOfCardsExiled = 0;
-        _numberOfCardsDiscarded = 0;
-        _numberOfCardsPlayed = 0;
-        _numberOfAttacksPlayed = 0;
-        _numberOfGuardsPlayed = 0;
-        _numberOfUtilitiesPlayed = 0;
-        _numberOfBuffsApplied = 0;
-        _numberOfUltimatesPerformed = 0;
-        _numberOfTurnsSinceStart = 0;
+        NumberOfCardsDrawn = 0;
+        NumberOfCardsExiled = 0;
+        NumberOfCardsDiscarded = 0;
+        NumberOfCardsPlayed = 0;
+        NumberOfAttacksPlayed = 0;
+        NumberOfGuardsPlayed = 0;
+        NumberOfUtilitiesPlayed = 0;
+        NumberOfBuffsApplied = 0;
+        NumberOfUltimatesPerformed = 0;
+        NumberOfTurnsSinceStart = 0;
 
         foreach (var key in _enemiesSlain.Keys)
         {

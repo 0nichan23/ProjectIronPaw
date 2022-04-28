@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DiscardPile : MonoBehaviour
+public class DiscardPile : CardPile
 {
     // Start is called before the first frame update
     void Start()

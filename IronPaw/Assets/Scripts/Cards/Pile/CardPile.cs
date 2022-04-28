@@ -6,14 +6,16 @@ public abstract class CardPile : MonoBehaviour
     Stack<CardSO> _cards = new Stack<CardSO>();
 
     [SerializeField]
-    private Hand _hand;
+    protected Hand _hand;
 
 
     // Will be removed/Initialized differently when deck building is a thing
     [SerializeField]
     private List<CardSO> _cardsGiven = new List<CardSO>();
 
-    private void Start()
+    public Stack<CardSO> Cards { get => _cards; set => _cards = value; }
+
+    private void Awake()
     {
         foreach (var card in _cardsGiven)
         {
@@ -25,12 +27,12 @@ public abstract class CardPile : MonoBehaviour
     {
         _cardsGiven.Clear();
 
-        foreach (var card in _cards)
+        foreach (var card in Cards)
         {
             _cardsGiven.Add(card);
         }
 
-        _cards.Clear();
+        Cards.Clear();
 
         int n = _cardsGiven.Count;
         while (n > 1)
@@ -47,28 +49,24 @@ public abstract class CardPile : MonoBehaviour
 
         foreach (var card in _cardsGiven)
         {
-            _cards.Push(card);
+            Cards.Push(card);
         }
     }
 
-    public void Draw(int amount)
+    public virtual void Draw()
     {
-        CardSO cardDrawn = _cards.Pop();
+        if(Cards.Count > 0)
+        {
+            CardSO cardDrawn = Cards.Pop();
 
-        CreateCardDisplay(cardDrawn);
+            _hand.AddCard(cardDrawn);
 
-        _hand.AddCard(cardDrawn);
-    }
-
-    private void CreateCardDisplay(CardSO cardGiven)
-    {
-        GameObject GO = Instantiate(PrefabManager.Instance.PlainCardDispaly);
-
-        CardUI GOUI = GO.GetComponent<CardUI>();
-        GOUI.CardSO = cardGiven;
-        GOUI.InitializeDisplay();
-
-        GO.transform.SetParent(_hand.gameObject.transform);
+            if (!GetComponent<Enemy>())
+            {
+                cardDrawn.CreateCardDisplay();
+            }
+        }
+        
     }
 
     // Not For Build

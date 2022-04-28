@@ -23,7 +23,7 @@ public class CardUI : MonoBehaviour
     public void InitializeDisplay()
     {
         _artWorkDisplay.sprite = CardSO.Artwork;
-        _manaCostDisplay.text = CardSO.ManaCost.ToString();
+        _manaCostDisplay.text = CardSO.EnergyCost.ToString();
         _cardNameDisplay.text = CardSO.CardName;
         _cardDescDisplay.text = CardSO.Description;
         InitType(CardSO.CardType);
@@ -46,5 +46,30 @@ public class CardUI : MonoBehaviour
             break;
 
         }
+    }
+
+    private void OnMouseDown()
+    {
+        if (!CardSO.CheckCardValidity())
+        {
+            return;
+        }
+        StartCoroutine(PartyManager.Instance.WaitUntilHeroIsClickedPlayCard(CardSO));
+    }
+
+    public void AttemptToPressCard()
+    {
+        if (CardSO.CheckCardValidity())
+        {
+            StartCoroutine(PartyManager.Instance.WaitUntilHeroIsClickedPlayCard(CardSO));
+        }        
+    }
+
+
+
+    
+    public void DestroyTheHeretic()
+    {
+        Destroy(gameObject);
     }
 }
