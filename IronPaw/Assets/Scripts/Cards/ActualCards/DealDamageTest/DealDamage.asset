@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95c65fb6ce3e4c145afc7ce4cf2deff3, type: 3}
   m_Name: DealDamage
   m_EditorClassIdentifier: 
-  TargetType: 0
+  TargetType: 5
   Targets: []
