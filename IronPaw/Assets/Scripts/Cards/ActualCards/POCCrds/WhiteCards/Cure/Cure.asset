@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49c1bbb566c17044a844e5c42c123e5, type: 3}
+  m_Name: Cure
+  m_EditorClassIdentifier: 
+  CardName: Cure
+  Description: Heal a Hero for 3 health. If that Hero had any Debuffs, remove them
+    and it gains 3 Block for every debuff removed this way
+  Colors: 03000000
+  Rarity: 0
+  EnergyCost: 1
+  CardEffect: {fileID: 11400000, guid: 2e387a88b38a26749997aed1263cb9d5, type: 2}
+  IsSwift: 0
+  IsUsable: 1
+  Artwork: {fileID: 0}
+  CardType: 1
+  CardDisplay: {fileID: 0}

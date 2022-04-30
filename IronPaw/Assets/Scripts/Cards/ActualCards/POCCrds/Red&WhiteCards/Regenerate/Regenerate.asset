@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49c1bbb566c17044a844e5c42c123e5, type: 3}
+  m_Name: Regenerate
+  m_EditorClassIdentifier: 
+  CardName: Regenerate
+  Description: A Hero gains regenerate 3 (At the start of the turn, Heal for 3, then
+    reduce by 1)
+  Colors: 0000000003000000
+  Rarity: 0
+  EnergyCost: 1
+  CardEffect: {fileID: 11400000, guid: 92f32279ecaeda24d8a4ea65ed41fd00, type: 2}
+  IsSwift: 0
+  IsUsable: 0
+  Artwork: {fileID: 0}
+  CardType: 2
+  CardDisplay: {fileID: 0}

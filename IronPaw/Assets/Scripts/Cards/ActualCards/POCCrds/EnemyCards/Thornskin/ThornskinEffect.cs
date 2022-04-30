@@ -9,7 +9,7 @@ public class ThornskinEffect : CardEffect
     protected override void PlayCardEffect(Character playingCharacter, Character target)
     {
         playingCharacter.GainBlock(5);
-        playingCharacter.AddStatusEffect(new Thorns(playingCharacter, 2, 2));
+        playingCharacter.AddStatusEffect(new Thorns(playingCharacter, 2, 0));
 
     }
 }

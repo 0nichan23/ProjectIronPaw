@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49c1bbb566c17044a844e5c42c123e5, type: 3}
+  m_Name: DvineProtection
+  m_EditorClassIdentifier: 
+  CardName: DvineProtection
+  Description: All allies get 6 Block
+  Colors: 03000000
+  Rarity: 0
+  EnergyCost: 2
+  CardEffect: {fileID: 11400000, guid: 964d364d908ce9749a415e7d0e082d9b, type: 2}
+  IsSwift: 0
+  IsUsable: 0
+  Artwork: {fileID: 0}
+  CardType: 2
+  CardDisplay: {fileID: 0}
