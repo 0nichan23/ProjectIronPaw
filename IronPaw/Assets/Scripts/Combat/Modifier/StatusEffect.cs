@@ -109,7 +109,7 @@ public abstract class StatusEffect
         }
     }
 
-    protected void RemoveStatusEffectFromHost()
+    public void RemoveStatusEffectFromHost()
     {
         _host.ActiveStatusEffects.Remove(this);
         _host.RefSlot.RemoveEffect(this);

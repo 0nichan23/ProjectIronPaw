@@ -11,6 +11,11 @@ public class CleavingStrikeEffect : CardEffect
         target.TakeDmg(new Damage(10, playingCharacter, true));
         if (target.CurrentHP == 0)
         {
+            playingCharacter.CurrentAp++;
+            if (playingCharacter is Hero)
+            {
+                ((playingCharacter.Controller) as PlayerController).CurrentEnergy++;
+            }
             
         }
     }
