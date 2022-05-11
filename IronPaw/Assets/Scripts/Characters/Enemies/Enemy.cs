@@ -6,6 +6,9 @@ public class Enemy : Character
 {
     private int baseUltChargeGain = 1;
     //aquire target
+
+    public List<Character> Targets = new List<Character>();
+
     public override void Subscribe()
     {
         TurnManager.Instance.OnStartEnemyTurn += InvokeStartTurn;

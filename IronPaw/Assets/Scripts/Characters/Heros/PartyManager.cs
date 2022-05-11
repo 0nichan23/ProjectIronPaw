@@ -2,14 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PartyManager : Singleton<PartyManager>
 {
     public List<Character> Heroes;
     public List<Character> Enemies;
 
-    
+    public bool RerolledTargetsForTaunt = false;
 
     [SerializeField] private List<Character> _pointerList;
 
@@ -25,7 +24,7 @@ public class PartyManager : Singleton<PartyManager>
         Heroes = PlayerWrapper.Instance.PlayerController.ControllerChracters;
         _potentialTargets = new List<Character>();
     }
-    
+
     public void SelectHeroToUltimate()
     {
         StartCoroutine(WaitUntilHeroIsClickedUltimate());
@@ -44,98 +43,136 @@ public class PartyManager : Singleton<PartyManager>
     public IEnumerator WaitUntilHeroIsClickedPlayCard(CardScriptableObject card)
     {
         ToggleSelectionCanvas(true);
-        yield return new WaitUntil(() => SelectedCharacter != null);  
+        yield return new WaitUntil(() => SelectedCharacter != null);
         // AquireTargets
         // PlayCard
         PlayCard(SelectedCharacter, card);
     }
 
-    public IEnumerator WaitUntilTargetIsSelected (Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)
+    public IEnumerator WaitUntilTargetIsSelected(Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)
     {
         yield return new WaitUntil(() => SelectedCharacter != null);
-        
+
         cardEffectRef.Targets.Add(SelectedCharacter);
         PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
         SelectedCharacter = null;
     }
 
-    public void EnemyAcquireTargets(Character playingCharacter, CardScriptableObject card)
+    public void EnemyAcquireTargets(Enemy playingEnemy, CardScriptableObject card)
     {
-        CardEffect cardEffectRef = card.CardEffect;
+        playingEnemy.Targets.Clear();
 
-        switch (cardEffectRef.TargetType)
+        switch (card.CardEffect.TargetType)
         {
             case TargetType.Self:
-                cardEffectRef.Targets.Add(playingCharacter);
+                playingEnemy.Targets.Add(playingEnemy);
                 break;
 
             case TargetType.RandomHero:
                 System.Random rand = new System.Random();
-                FillLegalTargets(playingCharacter, card, Heroes);
+                FillLegalTargets(playingEnemy, card, Heroes);
                 Character randomHero = _potentialTargets[rand.Next(0, _potentialTargets.Count)];
-                cardEffectRef.Targets.Add(randomHero);
+                playingEnemy.Targets.Add(randomHero);
                 break;
 
             case TargetType.AllHeroes:
-                foreach (Character ally in Heroes)
+                foreach (Character hero in Heroes)
                 {
-                    cardEffectRef.Targets.Add(ally);
+                    playingEnemy.Targets.Add(hero);
                 }
                 break;
 
             case TargetType.RandomEnemy:
                 System.Random rand1 = new System.Random();
-                FillLegalTargets(playingCharacter, card, Enemies);
+                FillLegalTargets(playingEnemy, card, Enemies);
                 Character randomEnemy = _potentialTargets[rand1.Next(0, _potentialTargets.Count)];
-                cardEffectRef.Targets.Add(randomEnemy);
+                playingEnemy.Targets.Add(randomEnemy);
 
                 break;
 
             case TargetType.AllEnemies:
                 foreach (Character enemy in Enemies)
                 {
-                    cardEffectRef.Targets.Add(enemy);
+                    playingEnemy.Targets.Add(enemy);
                 }
                 break;
 
             case TargetType.AllCharacters:
                 foreach (Character hero in Heroes)
                 {
-                    cardEffectRef.Targets.Add(hero);
+                    playingEnemy.Targets.Add(hero);
                 }
                 foreach (Character enemy in Enemies)
                 {
-                    cardEffectRef.Targets.Add(enemy);
+                    playingEnemy.Targets.Add(enemy);
                 }
                 break;
 
             case TargetType.AllCharactersButMe:
                 foreach (Character hero in Heroes)
                 {
-                    if (hero == playingCharacter)
+                    if (hero == playingEnemy)
                     {
                         continue;
                     }
-                    cardEffectRef.Targets.Add(hero);
+                    playingEnemy.Targets.Add(hero);
                 }
                 foreach (Character enemy in Enemies)
                 {
-                    if (enemy == playingCharacter)
+                    if (enemy == playingEnemy)
                     {
                         continue;
                     }
-                    cardEffectRef.Targets.Add(enemy);
+                    playingEnemy.Targets.Add(enemy);
                 }
                 break;
 
             default:
                 throw new NullReferenceException("Invalid TargetType for!" + card.CardName);
         }
+
+        foreach (var item in playingEnemy.Targets)
+        {
+            Debug.Log(playingEnemy.CharacterName + " is targeting: " + item.CharacterName);
+        }
     }
 
-    public void EnemyPlayCard(Character playingCharacter, CardScriptableObject card)
+    public void EnemiesRerollTargetsForNewTaunts()
     {
-        PlayEffectAndCleanUp(playingCharacter, card, card.CardEffect, null);
+        if (RerolledTargetsForTaunt)
+        {
+            return;
+        }
+
+        foreach (Enemy enemy in Enemies)
+        {
+            if (enemy.Hand.Cards.Count != 0)
+            {
+                EnemyAcquireTargets(enemy, enemy.Hand.Cards[0]);
+            }
+        }
+
+        RerolledTargetsForTaunt = true;
+    }
+
+    public void EnemyAcquireNewTauntTarget(Character playingCharacter, CardScriptableObject card)
+    {
+        // This Func is called when a Hero gets Taunt
+
+        // Checks if old target has taunt
+
+        // if not, change target to new Taunt character
+    }
+
+    public void EnemyPlayCard(Enemy playingEnemy, CardScriptableObject card)
+    {
+        foreach (var target in playingEnemy.Targets)
+        {
+            card.CardEffect.Targets.Add(target);
+        }
+        playingEnemy.Targets.Clear();
+
+        PlayEffectAndCleanUp(playingEnemy, card, card.CardEffect, null);
     }
 
     public void PlayCard(Character playingCharacter, CardScriptableObject card)
@@ -148,7 +185,7 @@ public class PartyManager : Singleton<PartyManager>
         if (playingCharacter is Hero)
         {
             cardUI = card.CardDisplay.GetComponent<CardUI>();
-        }        
+        }
 
         switch (cardEffectRef.TargetType)
         {
@@ -183,10 +220,10 @@ public class PartyManager : Singleton<PartyManager>
             case TargetType.AllHeroesButMe:
                 foreach (Character ally in Heroes)
                 {
-                    if(ally != playingCharacter)
+                    if (ally != playingCharacter)
                     {
                         cardEffectRef.Targets.Add(ally);
-                    }                 
+                    }
                 }
                 PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
 
@@ -231,7 +268,7 @@ public class PartyManager : Singleton<PartyManager>
             case TargetType.AllCharactersButMe:
                 foreach (Character hero in Heroes)
                 {
-                    if(hero == playingCharacter)
+                    if (hero == playingCharacter)
                     {
                         continue;
                     }
@@ -249,7 +286,7 @@ public class PartyManager : Singleton<PartyManager>
                 break;
         }
 
-        
+
     }
 
     private void ClearCachedCharacters()
@@ -265,9 +302,9 @@ public class PartyManager : Singleton<PartyManager>
         {
             foreach (var character in _pointerList)
             {
-                foreach (var StatusEffect in character.ActiveStatusEffects)
+                foreach (var statusEffect in character.ActiveStatusEffects)
                 {
-                    if(StatusEffect is Taunt)
+                    if (statusEffect is Taunt)
                     {
                         _potentialTargets.Add(character);
                         break;
@@ -275,7 +312,6 @@ public class PartyManager : Singleton<PartyManager>
                 }
             }
         }
-
 
         if (_potentialTargets.Count == 0)
         {
@@ -296,7 +332,7 @@ public class PartyManager : Singleton<PartyManager>
             {
                 enemy.Button.enabled = true;
             }
-           
+
         }
     }
 
@@ -310,7 +346,7 @@ public class PartyManager : Singleton<PartyManager>
             {
                 hero.Button.enabled = true;
             }
-            
+
         }
     }
 
@@ -359,12 +395,17 @@ public class PartyManager : Singleton<PartyManager>
     {
         cardEffectRef.PlayEffect(playingCharacter, card);
         card.RemoveCard(playingCharacter);
-        if(cardUI != null)
+        if (cardUI != null)
         {
             cardUI.DestroyTheHeretic();
-        }        
+        }
         TurnOffAllButtons();
         ToggleSelectionCanvas(false);
+    }
+
+    public void ResetRerollForTaunt()
+    {
+        RerolledTargetsForTaunt = false;
     }
 
 }

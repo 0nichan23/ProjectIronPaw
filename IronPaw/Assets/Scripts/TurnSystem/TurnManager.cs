@@ -36,8 +36,9 @@ public class TurnManager : Singleton<TurnManager>
             _heros.Add(hero);
             OnEndPlayerTurn += hero.UpdateUi;
         }
+        OnEndEnemyTurn += PartyManager.Instance.ResetRerollForTaunt;
+        OnEndPlayerTurn += PartyManager.Instance.ResetRerollForTaunt;
         StartCoroutine(TurnLoop());
-
     }
 
 
@@ -49,7 +50,7 @@ public class TurnManager : Singleton<TurnManager>
             if (firstTurn)
             {
                 firstTurn = false;
-                //EnemyWrapper.Instance.EnemyController.RevealIntentions();
+                EnemyWrapper.Instance.EnemyController.RevealIntentions();
             }
             //onstartplayer
             OnStartPlayerTurn?.Invoke();

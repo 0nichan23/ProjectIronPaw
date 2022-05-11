@@ -112,7 +112,10 @@ public abstract class StatusEffect
     public void RemoveStatusEffectFromHost()
     {
         _host.ActiveStatusEffects.Remove(this);
-        _host.RefSlot.RemoveEffect(this);
+        if(_host.RefSlot != null)
+        {
+            _host.RefSlot.RemoveEffect(this);
+        }
         UnSubscribe();
     }
 

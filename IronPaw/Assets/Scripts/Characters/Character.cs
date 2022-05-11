@@ -27,6 +27,7 @@ public abstract class Character : MonoBehaviour
 
     public Action OnStartTurn;
     public Action OnEndTurn;
+    public Action OnRecieveTaunt;
     public Action OnDeath;
     public Action<Damage> OnTakeDamage;
 
@@ -97,6 +98,10 @@ public abstract class Character : MonoBehaviour
         if(statusEffect.NewStatusEffect)
         {
             ActiveStatusEffects.Add(statusEffect);
+            if(statusEffect is Taunt)
+            {
+                OnRecieveTaunt?.Invoke();
+            }
         }
         if (RefSlot != null)
         {
@@ -106,7 +111,10 @@ public abstract class Character : MonoBehaviour
 
     public void UpdateUi()
     {
-        RefSlot.UpdateStatuses();
+        if(RefSlot != null)
+        {
+            RefSlot.UpdateStatuses();
+        }
     }
 
     public void SelectCharacter()
@@ -166,7 +174,7 @@ public abstract class Character : MonoBehaviour
                 }
             }           
         }
-        PrefabManager.Instance.CreateDamagePopup(transform.parent.position, damage.GivenDamage);
+        //PrefabManager.Instance.CreateDamagePopup(transform.parent.position, damage.GivenDamage);
     }
 
     private void Die()
