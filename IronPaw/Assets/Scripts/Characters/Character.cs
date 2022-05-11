@@ -72,6 +72,7 @@ public abstract class Character : MonoBehaviour
     {
         Button = GetComponentInChildren<Button>();
         RefSlot = GetComponent<CharacterSlot>();
+        _maxHp = 10;
         _currentHp = MaxHP;
         OnStartTurn += StartOfTurnReset;
         DetermineController();
@@ -157,14 +158,16 @@ public abstract class Character : MonoBehaviour
                 CurrentBlock = 0;
                 amount = remainder;
 
+                if(_currentHp == 0)
+                {
+                    return;
+                }
+
                 _currentHp -= amount;
 
                 OnTakeDamage?.Invoke(damage);
-                if (RefSlot != null)
-                {
-                    _refSlot.HealthBar.SetUpOrUpdateBar(MaxHP, CurrentHP);
-                }
 
+                _refSlot.HealthBar.SetUpOrUpdateBar(MaxHP, CurrentHP);
 
                 if (_currentHp <= 0)
                 {

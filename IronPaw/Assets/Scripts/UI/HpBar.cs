@@ -16,10 +16,6 @@ public class HpBar : MonoBehaviour
 
     public void SetUpOrUpdateBar(int maxhp, int curhp)
     {
-        /*if (slider  == null)
-        {
-            return;
-        }*/
         slider.maxValue = maxhp;
         slider.value = curhp;
     }

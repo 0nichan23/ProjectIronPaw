@@ -7,7 +7,6 @@ public class Sima : Hero
     [SerializeField] private int _passiveHealAmount = 2;
     [SerializeField] private int _ultimateHealAmount = 6;
 
-
     public override void Ultimate()
     {
         foreach (var hero in Controller.ControllerChracters)

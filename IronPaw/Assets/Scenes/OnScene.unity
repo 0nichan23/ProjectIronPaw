@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44864297, g: 0.49869418, b: 0.57567257, a: 1}
+  m_IndirectSpecularColor: {r: 0.4486426, g: 0.49869394, b: 0.575672, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -504,11 +504,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8903058273634951509, guid: f1fc5bb90ac285e4486771552d63bcb8, type: 3}
   m_PrefabInstance: {fileID: 54504380}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &72937650 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2141444141915108036, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
-  m_PrefabInstance: {fileID: 1130021876}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &87389250
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -643,17 +638,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b71b0f8d2f881c743a85228f3030d1cb, type: 3}
---- !u!114 &127112762 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6901872125508472583, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
-  m_PrefabInstance: {fileID: 1130021876}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c00d715a17009a4bab689edb1727c26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &135520812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1536,7 +1520,11 @@ PrefabInstance:
     - target: {fileID: 1455630966, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 599972515}
+      objectReference: {fileID: 425921341}
+    - target: {fileID: 1455630966, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectCharacter
+      objectReference: {fileID: 0}
     - target: {fileID: 475475700630602601, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
       propertyPath: m_Name
       value: CharacterSlot
@@ -2517,7 +2505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DisplayZone: {fileID: 1044020295}
-  HealthBar: {fileID: 1880748184}
+  HealthBar: {fileID: 0}
 --- !u!1001 &465511820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3228,8 +3216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4ca46f0a30b9df4494b9d651b5f3a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayZone: {fileID: 72937650}
-  HealthBar: {fileID: 127112762}
+  DisplayZone: {fileID: 1044020295}
+  HealthBar: {fileID: 0}
 --- !u!114 &599972515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5886,6 +5874,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 599972513}
     m_Modifications:
     - target: {fileID: 1455630966, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455630966, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 599972515}
@@ -5944,6 +5936,10 @@ PrefabInstance:
     - target: {fileID: 5787051593289446483, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7326604658557500377, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
@@ -6099,17 +6095,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6239969156481072347, guid: b71b0f8d2f881c743a85228f3030d1cb, type: 3}
   m_PrefabInstance: {fileID: 1176873299}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1185706609 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6901872125508472583, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
-  m_PrefabInstance: {fileID: 2037224101}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c00d715a17009a4bab689edb1727c26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1189984294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7611,7 +7596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DisplayZone: {fileID: 986064654}
-  HealthBar: {fileID: 1185706609}
+  HealthBar: {fileID: 0}
 --- !u!1001 &1475178616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9740,17 +9725,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4385080170327957909, guid: ff62b58c5a9ea164fa8ddf8038e10cd1, type: 3}
   m_PrefabInstance: {fileID: 1865921405}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1880748184 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6901872125508472583, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
-  m_PrefabInstance: {fileID: 283340012}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c00d715a17009a4bab689edb1727c26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1899052647
 GameObject:
   m_ObjectHideFlags: 0
@@ -10218,7 +10192,11 @@ PrefabInstance:
     - target: {fileID: 1455630966, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 599972515}
+      objectReference: {fileID: 1474591022}
+    - target: {fileID: 1455630966, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectCharacter
+      objectReference: {fileID: 0}
     - target: {fileID: 475475700630602601, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
       propertyPath: m_Name
       value: CharacterSlot
