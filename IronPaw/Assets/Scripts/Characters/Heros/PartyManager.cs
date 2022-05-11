@@ -297,17 +297,20 @@ public class PartyManager : Singleton<PartyManager>
     private void FillLegalTargets(Character playingCharacter, CardScriptableObject card, List<Character> targetList)
     {
         _pointerList = targetList;
-
+        _potentialTargets.Clear();
         if (card.CardType == CardType.Attack)
         {
             foreach (var character in _pointerList)
             {
-                foreach (var statusEffect in character.ActiveStatusEffects)
+                if(character.IsAlive)
                 {
-                    if (statusEffect is Taunt)
+                    foreach (var statusEffect in character.ActiveStatusEffects)
                     {
-                        _potentialTargets.Add(character);
-                        break;
+                        if (statusEffect is Taunt)
+                        {
+                            _potentialTargets.Add(character);
+                            break;
+                        }
                     }
                 }
             }
@@ -315,9 +318,12 @@ public class PartyManager : Singleton<PartyManager>
 
         if (_potentialTargets.Count == 0)
         {
-            foreach (var item in _pointerList)
+            foreach (var character in _pointerList)
             {
-                _potentialTargets.Add(item);
+                if (character.IsAlive)
+                {
+                    _potentialTargets.Add(character);
+                }
             }
         }
 

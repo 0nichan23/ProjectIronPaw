@@ -48,6 +48,7 @@ public abstract class Character : MonoBehaviour
     public int CurrentBlock { get => _currentBlock; set => _currentBlock = value; }
     public CharacterSlot RefSlot { get => _refSlot; set => _refSlot = value; }
 
+    public bool IsAlive = true;
 
     public int AmountOfBlockToLose
     {
@@ -61,6 +62,8 @@ public abstract class Character : MonoBehaviour
             _amountOfBlockToLose = value;
         }
     }
+
+    
 
     //List<Card> PersonalDeck;
 
@@ -181,6 +184,25 @@ public abstract class Character : MonoBehaviour
     {
         OnDeath?.Invoke();
         UnSubscribe();
+        IsAlive = false;
+        if(this is Hero)
+        {
+            PartyManager.Instance.Heroes.Remove(this);
+            if(PartyManager.Instance.Heroes.Count == 0)
+            {
+                //LOSE
+            }
+        }
+        else if(this is Enemy)
+        {
+            PartyManager.Instance.Enemies.Remove(this);
+            if (PartyManager.Instance.Enemies.Count == 0)
+            {
+                //WIN
+            }
+        }
+        
+        transform.parent.gameObject.SetActive(false);
     }
 
     private void StartOfTurnReset()
