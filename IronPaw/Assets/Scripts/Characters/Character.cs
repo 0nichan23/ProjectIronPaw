@@ -1,6 +1,6 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using UnityEngine.UI;
 
 public abstract class Character : MonoBehaviour
@@ -53,7 +53,7 @@ public abstract class Character : MonoBehaviour
         get => _amountOfBlockToLose;
         set
         {
-            if(_loseAllBlock)
+            if (_loseAllBlock)
             {
                 _loseAllBlock = false;
             }
@@ -61,7 +61,6 @@ public abstract class Character : MonoBehaviour
         }
     }
 
-    //List<Card> PersonalDeck;
 
     private void Start()
     {
@@ -76,6 +75,7 @@ public abstract class Character : MonoBehaviour
         _currentHp = MaxHP;
         OnStartTurn += StartOfTurnReset;
         DetermineController();
+        _refSlot.HealthBar.SetUpOrUpdateBar(MaxHP, CurrentHP);
     }
 
     protected void InvokeStartTurn()
@@ -94,13 +94,13 @@ public abstract class Character : MonoBehaviour
 
     public void AddStatusEffect(StatusEffect statusEffect)
     {
-        if(statusEffect.NewStatusEffect)
+        if (statusEffect.NewStatusEffect)
         {
             ActiveStatusEffects.Add(statusEffect);
         }
         if (RefSlot != null)
         {
-            RefSlot.DisplayEffect(statusEffect);
+            RefSlot.AddEffect(statusEffect);
         }
     }
 
@@ -126,6 +126,8 @@ public abstract class Character : MonoBehaviour
         {
             _currentHp = MaxHP;
         }
+        _refSlot.HealthBar.SetUpOrUpdateBar(MaxHP, CurrentHP);
+
     }
 
     public void TakeDmg(Damage damage)
@@ -144,7 +146,7 @@ public abstract class Character : MonoBehaviour
             {
                 amount = (int)(amount * 1.5f);
             }
-            
+
             if (CurrentBlock >= amount)
             {
                 CurrentBlock -= amount;
@@ -158,15 +160,21 @@ public abstract class Character : MonoBehaviour
                 _currentHp -= amount;
 
                 OnTakeDamage?.Invoke(damage);
+                if (RefSlot != null)
+                {
+                    _refSlot.HealthBar.SetUpOrUpdateBar(MaxHP, CurrentHP);
+                }
+
 
                 if (_currentHp <= 0)
                 {
+                    Debug.Log(name + " died ");
                     _currentHp = 0;
                     Die();
                 }
-            }           
+            }
         }
-        PrefabManager.Instance.CreateDamagePopup(transform.parent.position, damage.GivenDamage);
+        PrefabManager.Instance.CreateDamagePopup(transform, damage.GivenDamage);
     }
 
     private void Die()
@@ -183,7 +191,7 @@ public abstract class Character : MonoBehaviour
 
     public void ClearBlock()
     {
-        if(_loseAllBlock)
+        if (_loseAllBlock)
         {
             CurrentBlock = 0;
         }
