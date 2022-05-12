@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8f3191c41d5b004997a1f2f3201f79b, type: 3}
-  m_Name: CleavingStrikeEffect
+  m_Script: {fileID: 11500000, guid: a83a092b4b2277a4eb873edf36339f7a, type: 3}
+  m_Name: ThirstBlock 1
   m_EditorClassIdentifier: 
-  TargetType: 5
+  TargetType: 9
   Targets: []
-  DamageValue: 10
+  DamageValue: 1

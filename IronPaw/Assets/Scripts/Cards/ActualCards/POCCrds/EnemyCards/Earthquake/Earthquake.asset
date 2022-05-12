@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Earthquake
   m_EditorClassIdentifier: 
   CardName: Earthquake
-  Description: deal 2 damage and 1 frail
+  Description: deal 2 damage and 1 Frail
   Colors: 04000000
   Rarity: 0
   EnergyCost: 1

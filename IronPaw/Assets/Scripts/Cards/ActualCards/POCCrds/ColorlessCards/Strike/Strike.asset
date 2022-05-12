@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Strike
   m_EditorClassIdentifier: 
   CardName: Strike
-  Description: deal 5 damge
+  Description: Deal 5 damage
   Colors: 04000000
   Rarity: 0
   EnergyCost: 0

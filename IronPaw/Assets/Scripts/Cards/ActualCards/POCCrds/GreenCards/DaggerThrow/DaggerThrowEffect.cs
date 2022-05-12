@@ -10,6 +10,7 @@ public class DaggerThrowEffect : CardEffect
 
     protected override void PlayCardEffect(Character playingCharacter, Character target)
     {
+        target.TakeDmg(new Damage(DamageValue, playingCharacter, true));
         cardToCreate.GenerateCard(playingCharacter);
     }
 }

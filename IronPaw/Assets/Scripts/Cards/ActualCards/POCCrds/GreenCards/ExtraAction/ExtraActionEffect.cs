@@ -9,5 +9,6 @@ public class ExtraActionEffect : CardEffect
     protected override void PlayCardEffect(Character playingCharacter, Character target)
     {
         target.MaxAp++;
+        target.CurrentAp++;
     }
 }

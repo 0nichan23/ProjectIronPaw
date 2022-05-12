@@ -8,6 +8,6 @@ public class SecondDaggerEffect : CardEffect
 {
     protected override void PlayCardEffect(Character playingCharacter, Character target)
     {
-        target.TakeDmg(new Damage(3, playingCharacter, true));
+        target.TakeDmg(new Damage(DamageValue, playingCharacter, true));
     }
 }

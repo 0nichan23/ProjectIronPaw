@@ -7,7 +7,7 @@ public class ClawAttackEffect : CardEffect
 {
     protected override void PlayCardEffect(Character playingCharacter, Character target)
     {
-        target.TakeDmg(new Damage(7, playingCharacter, true));
+        target.TakeDmg(new Damage(DamageValue, playingCharacter, true));
     }
 }
 

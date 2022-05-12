@@ -13,7 +13,7 @@ public abstract class CardEffect : ScriptableObject
 {
     public TargetType TargetType;
     public List<Character> Targets = new List<Character>();
-
+    public int DamageValue;
 
     public void PlayEffect(Character playingCharacter, CardScriptableObject card)
     {

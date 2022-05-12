@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ShieldBash
   m_EditorClassIdentifier: 
   CardName: Shield Bash
-  Description: deals damge equal to your block
+  Description: Deals damge equal to your block
   Colors: 00000000
   Rarity: 0
   EnergyCost: 0

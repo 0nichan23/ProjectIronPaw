@@ -25,7 +25,7 @@ public class CardUI : MonoBehaviour
         _artWorkDisplay.sprite = CardSO.Artwork;
         _manaCostDisplay.text = CardSO.EnergyCost.ToString();
         _cardNameDisplay.text = CardSO.CardName;
-        _cardDescDisplay.text = CardSO.Description;
+        _cardDescDisplay.text = $"" + CardSO.Description.ToString();
         InitType(CardSO.CardType);
     }
 
