@@ -1,6 +1,6 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using UnityEngine.UI;
 
 public abstract class Character : MonoBehaviour
@@ -55,7 +55,7 @@ public abstract class Character : MonoBehaviour
         get => _amountOfBlockToLose;
         set
         {
-            if(_loseAllBlock)
+            if (_loseAllBlock)
             {
                 _loseAllBlock = false;
             }
@@ -63,7 +63,7 @@ public abstract class Character : MonoBehaviour
         }
     }
 
-    
+
 
     //List<Card> PersonalDeck;
 
@@ -98,10 +98,10 @@ public abstract class Character : MonoBehaviour
 
     public void AddStatusEffect(StatusEffect statusEffect)
     {
-        if(statusEffect.NewStatusEffect)
+        if (statusEffect.NewStatusEffect)
         {
             ActiveStatusEffects.Add(statusEffect);
-            if(statusEffect is Taunt)
+            if (statusEffect is Taunt)
             {
                 OnRecieveTaunt?.Invoke();
             }
@@ -114,7 +114,7 @@ public abstract class Character : MonoBehaviour
 
     public void UpdateUi()
     {
-        if(RefSlot != null)
+        if (RefSlot != null)
         {
             RefSlot.UpdateStatuses();
         }
@@ -150,33 +150,34 @@ public abstract class Character : MonoBehaviour
         else
         {
             amount = damage.FinalDamage;
-
-            if (damage.IsSourceAttack && IsAfflictedBy(StatusEffectType.Frail))
-            {
-                amount = (int)(amount * 1.5f);
-            }
-            
-            if (CurrentBlock >= amount)
-            {
-                CurrentBlock -= amount;
-            }
-            else
-            {
-                int remainder = amount - CurrentBlock;
-                CurrentBlock = 0;
-                amount = remainder;
-
-                _currentHp -= amount;
-
-                OnTakeDamage?.Invoke(damage);
-
-                if (_currentHp <= 0)
-                {
-                    _currentHp = 0;
-                    Die();
-                }
-            }           
         }
+
+        if (damage.IsSourceAttack && IsAfflictedBy(StatusEffectType.Frail))
+        {
+            amount = (int)(amount * 1.5f);
+        }
+
+        if (CurrentBlock >= amount)
+        {
+            CurrentBlock -= amount;
+        }
+        else
+        {
+            int remainder = amount - CurrentBlock;
+            CurrentBlock = 0;
+            amount = remainder;
+
+            _currentHp -= amount;
+
+            OnTakeDamage?.Invoke(damage);
+
+            if (_currentHp <= 0)
+            {
+                _currentHp = 0;
+                Die();
+            }
+        }
+
         //PrefabManager.Instance.CreateDamagePopup(transform.parent.position, damage.GivenDamage);
     }
 
@@ -185,15 +186,15 @@ public abstract class Character : MonoBehaviour
         OnDeath?.Invoke();
         UnSubscribe();
         IsAlive = false;
-        if(this is Hero)
+        if (this is Hero)
         {
             PartyManager.Instance.Heroes.Remove(this);
-            if(PartyManager.Instance.Heroes.Count == 0)
+            if (PartyManager.Instance.Heroes.Count == 0)
             {
                 //LOSE
             }
         }
-        else if(this is Enemy)
+        else if (this is Enemy)
         {
             PartyManager.Instance.Enemies.Remove(this);
             if (PartyManager.Instance.Enemies.Count == 0)
@@ -201,7 +202,7 @@ public abstract class Character : MonoBehaviour
                 //WIN
             }
         }
-        
+
         transform.parent.gameObject.SetActive(false);
     }
 
@@ -213,7 +214,7 @@ public abstract class Character : MonoBehaviour
 
     public void ClearBlock()
     {
-        if(_loseAllBlock)
+        if (_loseAllBlock)
         {
             CurrentBlock = 0;
         }

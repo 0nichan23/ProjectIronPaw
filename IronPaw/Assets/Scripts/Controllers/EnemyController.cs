@@ -18,7 +18,24 @@ public class EnemyController : Controller
 
     public void PlayTurn()
     {
-        StartCoroutine(TurnSpacing());
+        //StartCoroutine(TurnSpacing());
+        TurnSpacingNotEnum();
+    }
+
+    private void TurnSpacingNotEnum()
+    {
+        foreach (Enemy enemy in ControllerChracters)
+        {
+            if (enemy.CurrentHP > 0)
+            {
+                if (enemy.Hand.Cards.Count > 0)
+                {
+                    PartyManager.Instance.EnemyPlayCard(enemy, enemy.Hand.Cards[0]);
+                }
+            }
+        }
+
+        RevealIntentions();
     }
 
     IEnumerator TurnSpacing()
