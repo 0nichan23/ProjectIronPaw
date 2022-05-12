@@ -11,16 +11,16 @@ public class Enemy : Character
 
     public override void Subscribe()
     {
-        TurnManager.Instance.OnStartEnemyTurn += InvokeStartTurn;
-        TurnManager.Instance.OnEndEnemyTurn += InvokeEndTurn;
+        Controller.OnStartTurn += InvokeStartTurn;
+        Controller.OnEndTurn += InvokeEndTurn;
         OnDeath += ChargePlayerUltBar;
 
     }
 
     public override void UnSubscribe()
     {
-        TurnManager.Instance.OnStartEnemyTurn -= InvokeStartTurn;
-        TurnManager.Instance.OnEndEnemyTurn -= InvokeEndTurn;
+        Controller.OnStartTurn -= InvokeStartTurn;
+        Controller.OnEndTurn -= InvokeEndTurn;
     }
 
     protected override void DetermineController()

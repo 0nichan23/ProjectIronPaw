@@ -15,34 +15,16 @@ public class EnemyController : Controller
 
     }
 
-
     public void PlayTurn()
     {
-        //StartCoroutine(TurnSpacing());
-        TurnSpacingNotEnum();
-    }
-
-    private void TurnSpacingNotEnum()
-    {
-        foreach (Enemy enemy in ControllerChracters)
-        {
-            if (enemy.CurrentHP > 0)
-            {
-                if (enemy.Hand.Cards.Count > 0)
-                {
-                    PartyManager.Instance.EnemyPlayCard(enemy, enemy.Hand.Cards[0]);
-                }
-            }
-        }
-
-        RevealIntentions();
+        StartCoroutine(TurnSpacing());
     }
 
     IEnumerator TurnSpacing()
     {
         foreach (Enemy enemy in ControllerChracters)
         {
-            if (enemy.CurrentHP > 0)
+            if (enemy.IsAlive)
             {
                 if (enemy.Hand.Cards.Count > 0)
                 {
@@ -54,6 +36,7 @@ public class EnemyController : Controller
         }
 
         RevealIntentions();
+        TurnManager.Instance.EndTurn();
     }
 
     public void RevealIntentions()
@@ -71,8 +54,6 @@ public class EnemyController : Controller
                 }
                 
                 // shows the enemy's intent (symbol (+number if relevant) + Hero Portrait) 
-
-                
             }            
         }
     }

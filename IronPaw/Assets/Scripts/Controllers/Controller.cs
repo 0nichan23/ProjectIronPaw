@@ -10,12 +10,15 @@ public abstract class Controller : MonoBehaviour
     public DataTracker CombatTracker = new DataTracker();
     public DataTracker RunTracker = new DataTracker();
 
+    public Action OnStartTurn;
+    public Action OnEndTurn;
 
     public Action<CardScriptableObject> OnPlayCard;
 
     private void Start()
     {
         OnPlayCard += UpdateAllDataTrackers;
+        OnEndTurn += CombatTracker.ResetData;
     }
 
 

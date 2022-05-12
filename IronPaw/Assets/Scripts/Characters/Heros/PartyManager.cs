@@ -25,42 +25,11 @@ public class PartyManager : Singleton<PartyManager>
         _potentialTargets = new List<Character>();
     }
 
-    public void SelectHeroToUltimate()
-    {
-        StartCoroutine(WaitUntilHeroIsClickedUltimate());
-    }
-
-    private IEnumerator WaitUntilHeroIsClickedUltimate()
-    {
-        ToggleSelectionCanvas(true);
-        TurnOnAllHeroButtons();
-
-        yield return new WaitUntil(() => SelectedCharacter != null);
-        ToggleSelectionCanvas(false);
-        ((Hero)SelectedCharacter).PerformUltimate();
-    }
-
-    public IEnumerator WaitUntilHeroIsClickedPlayCard(CardScriptableObject card)
-    {
-        ToggleSelectionCanvas(true);
-        yield return new WaitUntil(() => SelectedCharacter != null);
-        // AquireTargets
-        // PlayCard
-        PlayCard(SelectedCharacter, card);
-    }
-
-    public IEnumerator WaitUntilTargetIsSelected(Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)
-    {
-        yield return new WaitUntil(() => SelectedCharacter != null);
-
-        cardEffectRef.Targets.Add(SelectedCharacter);
-        PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
-        SelectedCharacter = null;
-    }
-
+    #region Enemy Functions
     public void EnemyAcquireTargets(Enemy playingEnemy, CardScriptableObject card)
     {
         playingEnemy.Targets.Clear();
+        ClearCachedCharacters();
 
         switch (card.CardEffect.TargetType)
         {
@@ -155,15 +124,6 @@ public class PartyManager : Singleton<PartyManager>
         RerolledTargetsForTaunt = true;
     }
 
-    public void EnemyAcquireNewTauntTarget(Character playingCharacter, CardScriptableObject card)
-    {
-        // This Func is called when a Hero gets Taunt
-
-        // Checks if old target has taunt
-
-        // if not, change target to new Taunt character
-    }
-
     public void EnemyPlayCard(Enemy playingEnemy, CardScriptableObject card)
     {
         foreach (var target in playingEnemy.Targets)
@@ -175,6 +135,13 @@ public class PartyManager : Singleton<PartyManager>
         PlayEffectAndCleanUp(playingEnemy, card, card.CardEffect, null);
     }
 
+    public void ResetRerollForTaunt()
+    {
+        RerolledTargetsForTaunt = false;
+    }
+    #endregion
+
+    #region Player Functions
     public void PlayCard(Character playingCharacter, CardScriptableObject card)
     {
         ClearCachedCharacters();
@@ -289,20 +256,68 @@ public class PartyManager : Singleton<PartyManager>
 
     }
 
-    private void ClearCachedCharacters()
+    public void SelectHeroToUltimate()
     {
-        _potentialTargets.Clear();
+        StartCoroutine(WaitUntilHeroIsClickedUltimate());
     }
+
+    private IEnumerator WaitUntilHeroIsClickedUltimate()
+    {
+        ToggleSelectionCanvas(true);
+        TurnOnAllHeroButtons();
+
+        yield return new WaitUntil(() => SelectedCharacter != null);
+        ToggleSelectionCanvas(false);
+        ((Hero)SelectedCharacter).PerformUltimate();
+    }
+
+    public IEnumerator WaitUntilHeroIsClickedPlayCard(CardScriptableObject card)
+    {
+        ToggleSelectionCanvas(true);
+        yield return new WaitUntil(() => SelectedCharacter != null);
+        // AquireTargets
+        // PlayCard
+        PlayCard(SelectedCharacter, card);
+    }
+
+    public IEnumerator WaitUntilTargetIsSelected(Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)
+    {
+        yield return new WaitUntil(() => SelectedCharacter != null);
+
+        cardEffectRef.Targets.Add(SelectedCharacter);
+        PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
+        SelectedCharacter = null;
+    }
+
+    public void CancelCard()
+    {
+        StopCoroutine("WaitUntilHeroIsClickedPlayCard");
+        StopCoroutine("WaitUntilHeroIsClickedUltimate");
+        StopCoroutine("WaitUntilTargetIsSelected");
+        SelectedCharacter = null;
+        _pointerList = null;
+        TurnOffAllButtons();
+        ClearCachedCharacters();
+        ToggleSelectionCanvas(false);
+    }
+
+    private void ToggleSelectionCanvas(bool state)
+    {
+        _selectionCanvas.SetActive(state);
+    }
+    #endregion
+
+    #region Universal Functions
 
     private void FillLegalTargets(Character playingCharacter, CardScriptableObject card, List<Character> targetList)
     {
         _pointerList = targetList;
-        _potentialTargets.Clear();
+        ClearCachedCharacters();
         if (card.CardType == CardType.Attack)
         {
             foreach (var character in _pointerList)
             {
-                if(character.IsAlive)
+                if (character.IsAlive)
                 {
                     foreach (var statusEffect in character.ActiveStatusEffects)
                     {
@@ -329,6 +344,23 @@ public class PartyManager : Singleton<PartyManager>
 
         _pointerList = null;
     }
+    
+    private void PlayEffectAndCleanUp(Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)
+    {
+        cardEffectRef.PlayEffect(playingCharacter, card);
+        card.RemoveCard(playingCharacter);
+        if (cardUI != null)
+        {
+            cardUI.DestroyTheHeretic();
+        }
+        TurnOffAllButtons();
+        ToggleSelectionCanvas(false);
+    }
+
+    private void ClearCachedCharacters()
+    {
+        _potentialTargets.Clear();
+    }
 
     private void TurnOnAllEnemyButtons()
     {
@@ -348,7 +380,7 @@ public class PartyManager : Singleton<PartyManager>
 
         foreach (var hero in Heroes)
         {
-            if (hero.CurrentHP > 0)
+            if (hero.IsAlive)
             {
                 hero.Button.enabled = true;
             }
@@ -360,7 +392,7 @@ public class PartyManager : Singleton<PartyManager>
     {
         foreach (var character in _potentialTargets)
         {
-            if (character.CurrentHP > 0)
+            if (character.IsAlive)
             {
                 character.Button.enabled = true;
             }
@@ -380,38 +412,6 @@ public class PartyManager : Singleton<PartyManager>
         }
     }
 
-    public void CancelCard()
-    {
-        StopCoroutine("WaitUntilHeroIsClickedPlayCard");
-        StopCoroutine("WaitUntilHeroIsClickedUltimate");
-        StopCoroutine("WaitUntilTargetIsSelected");
-        SelectedCharacter = null;
-        _pointerList = null;
-        TurnOffAllButtons();
-        ClearCachedCharacters();
-        ToggleSelectionCanvas(false);
-    }
-
-    private void ToggleSelectionCanvas(bool state)
-    {
-        _selectionCanvas.SetActive(state);
-    }
-
-    private void PlayEffectAndCleanUp(Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)
-    {
-        cardEffectRef.PlayEffect(playingCharacter, card);
-        card.RemoveCard(playingCharacter);
-        if (cardUI != null)
-        {
-            cardUI.DestroyTheHeretic();
-        }
-        TurnOffAllButtons();
-        ToggleSelectionCanvas(false);
-    }
-
-    public void ResetRerollForTaunt()
-    {
-        RerolledTargetsForTaunt = false;
-    }
+    #endregion
 
 }

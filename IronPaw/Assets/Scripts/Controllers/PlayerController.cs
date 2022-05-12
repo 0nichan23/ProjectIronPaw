@@ -26,8 +26,8 @@ public class PlayerController : Controller
             ControllerChracters.Add(transform.GetChild(i).GetComponentInChildren<Hero>());
         }
 
-        TurnManager.Instance.OnStartPlayerTurn += BasicStartOfTurnTasks;
-        TurnManager.Instance.OnEndPlayerTurn += BasicEndOfTurnTasks;
+        OnStartTurn += BasicStartOfTurnTasks;
+        OnEndTurn += BasicEndOfTurnTasks;
 
         ToggleUltButton(false);
         TurnOnUltButtonOnSufficientUltCharge();

@@ -10,15 +10,15 @@ public abstract class Hero : Character
 
     public override void Subscribe()
     {
-        TurnManager.Instance.OnStartPlayerTurn += InvokeStartTurn;
-        TurnManager.Instance.OnEndPlayerTurn += InvokeEndTurn;
+        Controller.OnStartTurn += InvokeStartTurn;
+        Controller.OnEndTurn += InvokeEndTurn;
         OnRecieveTaunt += PartyManager.Instance.EnemiesRerollTargetsForNewTaunts;
         SubscribePassive();
     }
     public override void UnSubscribe()
     {
-        TurnManager.Instance.OnStartPlayerTurn -= InvokeStartTurn;
-        TurnManager.Instance.OnEndPlayerTurn -= InvokeEndTurn;
+        Controller.OnStartTurn -= InvokeStartTurn;
+        Controller.OnEndTurn -= InvokeEndTurn;
         UnSubscribePassive();
     }
 

@@ -18,10 +18,9 @@ public class TurnManager : Singleton<TurnManager>
     bool _endTurn;
     public GameObject EndTurnButton;
     bool firstTurn = true;
-    public Action OnStartPlayerTurn;
-    public Action OnEndPlayerTurn;
-    public Action OnStartEnemyTurn;
-    public Action OnEndEnemyTurn;
+
+    private Controller _playerController = PlayerWrapper.Instance.PlayerController;
+    private Controller _enemyController = EnemyWrapper.Instance.EnemyController;
 
 
     private void Start()
@@ -29,15 +28,15 @@ public class TurnManager : Singleton<TurnManager>
         foreach (Enemy enemy in PartyManager.Instance.Enemies)
         {
             _enemies.Add(enemy);
-            OnEndEnemyTurn += enemy.UpdateUi;
+            _enemyController.OnEndTurn += enemy.UpdateUi;
         }
         foreach (Hero hero in PartyManager.Instance.Heroes)
         {
             _heros.Add(hero);
-            OnEndPlayerTurn += hero.UpdateUi;
+            _playerController.OnEndTurn += hero.UpdateUi;
         }
-        OnEndEnemyTurn += PartyManager.Instance.ResetRerollForTaunt;
-        OnEndPlayerTurn += PartyManager.Instance.ResetRerollForTaunt;
+        _enemyController.OnEndTurn += PartyManager.Instance.ResetRerollForTaunt;
+        _playerController.OnEndTurn += PartyManager.Instance.ResetRerollForTaunt;
         StartCoroutine(TurnLoop());
     }
 
@@ -52,32 +51,28 @@ public class TurnManager : Singleton<TurnManager>
                 firstTurn = false;
                 EnemyWrapper.Instance.EnemyController.RevealIntentions();
             }
-            //onstartplayer
-            OnStartPlayerTurn?.Invoke();
+
+            // Player Turn
+            _playerController.OnStartTurn?.Invoke();
             LockInputs = false;
+            _endTurn = false;
             EndTurnButton.SetActive(true);
             yield return new WaitUntil(() => _endTurn);
-            //onendPlayerturn
-            OnEndPlayerTurn?.Invoke();
-            //onstartenemy
-            OnStartEnemyTurn?.Invoke();
-            _endTurn = false;
+            _playerController.OnEndTurn?.Invoke();
+
+            // Enemy Turn
             EndTurnButton.SetActive(false);
+            _enemyController.OnStartTurn?.Invoke();
+            _endTurn = false;
             LockInputs = true;
-            enemyturn();
-            //onendround
-            OnEndEnemyTurn?.Invoke();
+            EnemyWrapper.Instance.EnemyController.PlayTurn();
+            yield return new WaitUntil(() => _endTurn);
+            _enemyController.OnEndTurn?.Invoke();
         }
     }
 
     public void EndTurn()
     {
         _endTurn = true;
-    }
-
-    public void enemyturn()
-    {
-        EnemyWrapper.Instance.EnemyController.PlayTurn();
-        Debug.Log("very cool enemy yes");
     }
 }
