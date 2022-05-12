@@ -19,12 +19,15 @@ public class TurnManager : Singleton<TurnManager>
     public GameObject EndTurnButton;
     bool firstTurn = true;
 
-    private Controller _playerController = PlayerWrapper.Instance.PlayerController;
-    private Controller _enemyController = EnemyWrapper.Instance.EnemyController;
+    private Controller _playerController;
+    private Controller _enemyController;
 
 
     private void Start()
     {
+        _playerController = PlayerWrapper.Instance.PlayerController;
+        _enemyController = EnemyWrapper.Instance.EnemyController;
+
         foreach (Enemy enemy in PartyManager.Instance.Enemies)
         {
             _enemies.Add(enemy);

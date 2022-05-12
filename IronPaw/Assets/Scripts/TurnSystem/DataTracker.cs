@@ -14,8 +14,6 @@ public class DataTracker
     private int _numberOfBuffsApplied;
     private int _numberOfUltimatesPerformed;
     private int _numberOfTurnsSinceStart;
-    private Dictionary<Character, int> _enemiesSlain;
-    private Dictionary<Character, int> _damageTaken;
 
     public int NumberOfCardsDrawn { get => _numberOfCardsDrawn; set => _numberOfCardsDrawn = value; }
     public int NumberOfCardsExiled { get => _numberOfCardsExiled; set => _numberOfCardsExiled = value; }
@@ -40,16 +38,6 @@ public class DataTracker
         NumberOfBuffsApplied = 0;
         NumberOfUltimatesPerformed = 0;
         NumberOfTurnsSinceStart = 0;
-
-        foreach (var key in _enemiesSlain.Keys)
-        {
-            _enemiesSlain[key] = 0;
-        }
-
-        foreach (var key in _damageTaken.Keys)
-        {
-            _damageTaken[key] = 0;
-        }
     }
 
 

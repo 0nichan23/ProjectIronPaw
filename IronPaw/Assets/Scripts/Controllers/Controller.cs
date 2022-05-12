@@ -18,7 +18,7 @@ public abstract class Controller : MonoBehaviour
     private void Start()
     {
         OnPlayCard += UpdateAllDataTrackers;
-        OnEndTurn += CombatTracker.ResetData;
+        OnEndTurn += TurnTracker.ResetData;
     }
 
 

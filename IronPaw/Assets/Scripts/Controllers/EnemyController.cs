@@ -41,7 +41,6 @@ public class EnemyController : Controller
 
     public void RevealIntentions()
     {
-        //shows the player the next played card?
         foreach (Enemy enemy in ControllerChracters)
         {
             if(enemy.CurrentHP > 0)
@@ -50,22 +49,10 @@ public class EnemyController : Controller
                 if(enemy.Hand.Cards.Count > 0)
                 {
                     PartyManager.Instance.EnemyAcquireTargets(enemy, enemy.Hand.Cards[0]);
-                    //ShowTargets(enemy.Hand.Cards[0].CardEffect);
+                    // shows the enemy's intent (symbol (+number if relevant) + Hero Portrait) 
                 }
-                
-                // shows the enemy's intent (symbol (+number if relevant) + Hero Portrait) 
             }            
         }
     }
-
-    private void ShowTargets(CardEffect cardEffect)
-    {
-        foreach (var target in cardEffect.Targets)
-        {
-            Debug.Log("Target of " + cardEffect.name + ": " + target.CharacterName);
-
-        }
-    }
-
 
 }
