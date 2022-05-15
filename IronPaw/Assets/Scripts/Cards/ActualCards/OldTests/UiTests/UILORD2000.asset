@@ -18,7 +18,7 @@ MonoBehaviour:
   Rarity: 0
   EnergyCost: 1
   CardEffect: {fileID: 11400000, guid: ac706e81ef5798649b38c26f7ec72426, type: 2}
-  IsSwift: 1
+  IsSwift: 0
   IsUsable: 0
   Artwork: {fileID: 21300000, guid: e1e93c690f87df2419f4ad2b64b7c17f, type: 3}
   CardType: 0
