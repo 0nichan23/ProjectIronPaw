@@ -18,6 +18,10 @@ public class PrefabManager : Singleton<PrefabManager>
     Dictionary<Type, Sprite> StatusEffectDictionary = new Dictionary<Type, Sprite>();
 
 
+    public List<Sprite> CardTypeIcons = new List<Sprite>(3);
+
+    
+    
     public Sprite GetSprite(StatusEffect StatusEffect)
     {
         switch (StatusEffect.StatusEffectType)
@@ -39,4 +43,26 @@ public class PrefabManager : Singleton<PrefabManager>
         DamagePopup popup = Instantiate(DamagePopup, pos, Quaternion.identity).GetComponent<DamagePopup>();
         popup.Setup(amount);
     }
+
+    public Sprite GetIntentionTypeSprite(CardScriptableObject card)
+    {
+        switch (card.CardType)
+        {
+            case CardType.Attack:
+                return CardTypeIcons[0];
+                
+                
+            case CardType.Guard:
+                return CardTypeIcons[1];
+
+            case CardType.Utility:
+                return CardTypeIcons[2];
+
+            default:
+
+                return null;
+        }
+    }
+
+   
 }

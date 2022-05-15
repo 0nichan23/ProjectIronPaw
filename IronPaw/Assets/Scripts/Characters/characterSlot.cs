@@ -24,10 +24,13 @@ public class CharacterSlot : MonoBehaviour
     [SerializeField]
     Image IntentionIcon;
 
+    
+    public IntentionDisplayer IntentionDisplayer;
 
     private void Awake()
     {
         Hpbar = GetComponentInChildren<HealthBar>();
+        IntentionDisplayer = GetComponentInChildren<IntentionDisplayer>();
     }
 
 

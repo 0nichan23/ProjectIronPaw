@@ -49,6 +49,10 @@ public class EnemyController : Controller
                 if(enemy.Hand.Cards.Count > 0)
                 {
                     PartyManager.Instance.EnemyAcquireTargets(enemy, enemy.Hand.Cards[0]);
+                    if (enemy.RefSlot.IntentionDisplayer != null)
+                    {
+                        enemy.RefSlot.IntentionDisplayer.DisplayIntention(enemy.Targets, enemy.Hand.Cards[0]);
+                    }
                     // shows the enemy's intent (symbol (+number if relevant) + Hero Portrait) 
                 }
             }            

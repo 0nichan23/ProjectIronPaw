@@ -20,7 +20,6 @@ public abstract class Character : MonoBehaviour
     [SerializeField] private int _currentAp;
     [SerializeField] private int _maxAp;
 
-
     [SerializeField] private CharacterSlot _refSlot;
 
 
@@ -33,6 +32,8 @@ public abstract class Character : MonoBehaviour
     public Action<Damage> OnTakeDamage;
 
     public Button Button;
+    public Sprite CharacterSprite;
+
 
     [SerializeField] private Controller _controller;
     [SerializeField] private CharacterStats _stats = new CharacterStats();
