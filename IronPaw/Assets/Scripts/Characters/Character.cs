@@ -30,7 +30,6 @@ public abstract class Character : MonoBehaviour
     public Action OnEndTurn;
     public Action OnRecieveTaunt;
     public Action OnDeath;
-    public Action OnCardPlayed;
     public Action<Damage> OnTakeDamage;
 
     public Button Button;
@@ -79,10 +78,9 @@ public abstract class Character : MonoBehaviour
     {
 
         Button = GetComponentInChildren<Button>();
-        RefSlot = GetComponent<CharacterSlot>();
+        RefSlot = GetComponentInChildren<CharacterSlot>();
         _currentHp = MaxHP;
         OnStartTurn += StartOfTurnReset;
-        OnCardPlayed += UpdateUi;
         DetermineController();
         UpdateUi();
     }
@@ -121,6 +119,7 @@ public abstract class Character : MonoBehaviour
     {
         if (RefSlot != null)
         {
+            RefSlot.SetupCanvas(this);
             RefSlot.UpdateStatuses();
             RefSlot.UpdateHpBar(MaxHP, CurrentHP);
             RefSlot.UpdateBlock(CurrentBlock);

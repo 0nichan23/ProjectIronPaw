@@ -18,10 +18,31 @@ public class CharacterSlot : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI BlockText;
 
+    [SerializeField]
+    Image ActionPointIcon;
+
+    [SerializeField]
+    Image IntentionIcon;
+
+
     private void Awake()
     {
         Hpbar = GetComponentInChildren<HealthBar>();
     }
+
+
+    public void SetupCanvas(Character character)
+    {
+        if (character is Hero)
+        {
+            IntentionIcon.gameObject.SetActive(false);
+        }
+        else if (character is Enemy)
+        {
+            ActionPointIcon.gameObject.SetActive(false);
+        }
+    }
+
     public void AddEffect(StatusEffect status)
     {
 
@@ -62,6 +83,18 @@ public class CharacterSlot : MonoBehaviour
     public void UpdateBlock(int block)
     {
         BlockText.text = block.ToString();
+    }
+
+    public void UpdateIntention()
+    {
+        IntentionIcon.gameObject.SetActive(true);
+       // PrefabManager.Instance.getspriteforintention();??
+
+    }
+
+    public void UpdateActionPoint()
+    {
+        ActionPointIcon.gameObject.SetActive(false);
     }
 
 

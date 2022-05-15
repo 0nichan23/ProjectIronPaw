@@ -60,6 +60,7 @@ public class CardScriptableObject : ScriptableObject
             if (!IsSwift)
             {
                 playingCharacter.CurrentAp--;
+                playingCharacter.RefSlot.UpdateActionPoint();
             }
         }
     }
