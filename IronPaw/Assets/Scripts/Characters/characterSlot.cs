@@ -19,7 +19,7 @@ public class CharacterSlot : MonoBehaviour
     TextMeshProUGUI BlockText;
 
     [SerializeField]
-    Image ActionPointIcon;
+    TextMeshProUGUI ActionPointsText;
 
     [SerializeField]
     Image IntentionIcon;
@@ -36,10 +36,11 @@ public class CharacterSlot : MonoBehaviour
         if (character is Hero)
         {
             IntentionIcon.gameObject.SetActive(false);
+            //UpdateActionPoint(character.MaxAp, character.CurrentAp);
         }
         else if (character is Enemy)
         {
-            ActionPointIcon.gameObject.SetActive(false);
+            ActionPointsText.gameObject.SetActive(false);
         }
     }
 
@@ -92,9 +93,9 @@ public class CharacterSlot : MonoBehaviour
 
     }
 
-    public void UpdateActionPoint()
+    public void UpdateActionPoint(int maxap, int curap)
     {
-        ActionPointIcon.gameObject.SetActive(false);
+        ActionPointsText.text = curap.ToString() + " / " + maxap.ToString();
     }
 
 

@@ -81,6 +81,7 @@ public abstract class Character : MonoBehaviour
         RefSlot = GetComponentInChildren<CharacterSlot>();
         _currentHp = MaxHP;
         OnStartTurn += StartOfTurnReset;
+        StartOfTurnReset();
         DetermineController();
         UpdateUi();
     }
@@ -123,6 +124,7 @@ public abstract class Character : MonoBehaviour
             RefSlot.UpdateStatuses();
             RefSlot.UpdateHpBar(MaxHP, CurrentHP);
             RefSlot.UpdateBlock(CurrentBlock);
+            RefSlot.UpdateActionPoint(_maxAp, _currentAp);
         }
     }
 
