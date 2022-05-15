@@ -23,12 +23,14 @@ public abstract class Character : MonoBehaviour
 
     [SerializeField] private CharacterSlot _refSlot;
 
+
     private List<StatusEffect> _activeStatusEffects = new List<StatusEffect>();
 
     public Action OnStartTurn;
     public Action OnEndTurn;
     public Action OnRecieveTaunt;
     public Action OnDeath;
+    public Action OnCardPlayed;
     public Action<Damage> OnTakeDamage;
 
     public Button Button;
@@ -75,11 +77,14 @@ public abstract class Character : MonoBehaviour
 
     protected virtual void TheBetterStart()
     {
+
         Button = GetComponentInChildren<Button>();
         RefSlot = GetComponent<CharacterSlot>();
         _currentHp = MaxHP;
         OnStartTurn += StartOfTurnReset;
+        OnCardPlayed += UpdateUi;
         DetermineController();
+        UpdateUi();
     }
 
     protected void InvokeStartTurn()
@@ -108,7 +113,7 @@ public abstract class Character : MonoBehaviour
         }
         if (RefSlot != null)
         {
-            RefSlot.DisplayEffect(statusEffect);
+            RefSlot.AddEffect(statusEffect);
         }
     }
 
@@ -117,6 +122,8 @@ public abstract class Character : MonoBehaviour
         if (RefSlot != null)
         {
             RefSlot.UpdateStatuses();
+            RefSlot.UpdateHpBar(MaxHP, CurrentHP);
+            RefSlot.UpdateBlock(CurrentBlock);
         }
     }
 
@@ -128,6 +135,7 @@ public abstract class Character : MonoBehaviour
     public void GainBlock(int amount)
     {
         CurrentBlock += amount + Stats.Dexterity;
+        UpdateUi();
     }
 
     public void Heal(int amount, Character source)
@@ -137,6 +145,7 @@ public abstract class Character : MonoBehaviour
         {
             _currentHp = MaxHP;
         }
+        UpdateUi();
     }
 
     public void TakeDmg(Damage damage)
@@ -178,7 +187,8 @@ public abstract class Character : MonoBehaviour
             }
         }
 
-        //PrefabManager.Instance.CreateDamagePopup(transform.parent.position, damage.GivenDamage);
+        UpdateUi();
+        PrefabManager.Instance.CreateDamagePopup(transform.parent.position, damage.GivenDamage);
     }
 
     private void Die()
@@ -222,6 +232,7 @@ public abstract class Character : MonoBehaviour
         {
             CurrentBlock -= AmountOfBlockToLose;
         }
+        UpdateUi();
     }
 
     private void RegainAP()

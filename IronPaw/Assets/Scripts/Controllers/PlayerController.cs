@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : Controller
 {
@@ -19,6 +20,9 @@ public class PlayerController : Controller
     public int MaxEnergy;
     public int CurrentEnergy;
 
+    [SerializeField]
+    TextMeshProUGUI ManaText;
+
     private void Awake()
     {
         for (int i = 0; i < transform.childCount; i++)
@@ -31,6 +35,10 @@ public class PlayerController : Controller
 
         ToggleUltButton(false);
         TurnOnUltButtonOnSufficientUltCharge();
+    }
+    private void Start()
+    {
+        UpdateManaUi();
     }
 
     private void BasicStartOfTurnTasks()
@@ -88,5 +96,12 @@ public class PlayerController : Controller
             ToggleUltButton(true);
         }
     }
+
+    
+    public void UpdateManaUi()
+    {
+        ManaText.text = CurrentEnergy.ToString() + " / " + MaxEnergy.ToString();
+    }
+
 
 }

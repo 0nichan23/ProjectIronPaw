@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CharacterSlot : MonoBehaviour
 {
@@ -11,9 +12,34 @@ public class CharacterSlot : MonoBehaviour
 
     List<StatusEffectSlot> statuses = new List<StatusEffectSlot>();
 
+    [SerializeField]
+    HealthBar Hpbar;
+
+    [SerializeField]
+    TextMeshProUGUI BlockText;
+
+    private void Awake()
+    {
+        Hpbar = GetComponentInChildren<HealthBar>();
+    }
+    public void AddEffect(StatusEffect status)
+    {
+
+        foreach (var item in statuses)
+        {
+            if (status.StatusEffectType == item.myStatus.StatusEffectType)
+            {
+                UpdateStatuses();
+                return;
+            }
+        }
+
+        DisplayEffect(status);
+    }
 
     public void DisplayEffect(StatusEffect StatusEffect)
     {
+        Debug.Log("Displaying New unique Effec");
         GameObject NewEffect = Instantiate(PrefabManager.Instance.EffectSlot, DisplayZone.position, Quaternion.identity, DisplayZone);
         StatusEffectSlot newSlot = NewEffect.GetComponent<StatusEffectSlot>();
         newSlot.SetUp(StatusEffect);
@@ -28,6 +54,16 @@ public class CharacterSlot : MonoBehaviour
         }
     }
 
+    public void UpdateHpBar(int maxhp ,int curhp)
+    {
+        Hpbar.UpdateHealthBar(maxhp, curhp);
+    }
+
+    public void UpdateBlock(int block)
+    {
+        BlockText.text = block.ToString();
+    }
+
 
     public void RemoveEffect(StatusEffect effect)
     {
@@ -36,11 +72,14 @@ public class CharacterSlot : MonoBehaviour
             if (effect.StatusEffectType == item.myStatus.StatusEffectType)
             {
                 statuses.Remove(item);
+                Destroy(item.gameObject);
+                return;
             }
         }
     }
 
 
 
-    
+
+
 }
