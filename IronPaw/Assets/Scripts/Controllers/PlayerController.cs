@@ -36,15 +36,13 @@ public class PlayerController : Controller
         ToggleUltButton(false);
         TurnOnUltButtonOnSufficientUltCharge();
     }
-    private void Start()
-    {
-        UpdateManaUi();
-    }
+   
 
     private void BasicStartOfTurnTasks()
     {
         StartOfTurnDraw();
         StartOfTurnEnergyRegen();
+        UpdateManaUi();
     }
 
     private void StartOfTurnDraw()

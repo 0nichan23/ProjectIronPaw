@@ -17,6 +17,11 @@ public abstract class Controller : MonoBehaviour
 
     private void Start()
     {
+        TheBetterStart();
+    }
+
+    protected virtual void TheBetterStart()
+    {
         OnPlayCard += UpdateAllDataTrackers;
         OnEndTurn += TurnTracker.ResetData;
     }
