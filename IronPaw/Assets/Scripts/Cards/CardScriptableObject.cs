@@ -40,6 +40,7 @@ public class CardScriptableObject : ScriptableObject
         return false;
     }
 
+   
     public void RemoveCard(Character playingCharacter)
     {
         /*  

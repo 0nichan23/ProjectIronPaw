@@ -360,11 +360,31 @@ public class PartyManager : Singleton<PartyManager>
         card.RemoveCard(playingCharacter);
         if (cardUI != null)
         {
+            
+
             cardUI.DestroyTheHeretic();
+           
         }
+        ReInitHand();
         TurnOffAllButtons();
         ToggleSelectionCanvas(false);
     }
+
+    private void ReInitHand()
+    {
+        GameObject Hand = PlayerWrapper.Instance.PlayerController.Hand.gameObject;
+        for (int i = 0; i < Hand.transform.childCount; i++)
+        {
+           
+            Hand.transform.GetChild(i).GetComponent<CardUI>().DestroyTheHeretic();
+            
+
+        }
+        foreach (var card in PlayerWrapper.Instance.PlayerController.Hand.Cards)
+        {
+            card.CreateCardDisplay();
+        }
+    }    
 
     private void ClearCachedCharacters()
     {
