@@ -2634,7 +2634,7 @@ MonoBehaviour:
   ExiledPile: {fileID: 0}
   Hand: {fileID: 0}
   colors: 00000000
-  _maxHp: 10
+  _maxHp: 100
   _currentHp: 0
   _currentBlock: 0
   _characterName: Vikinguin
@@ -3402,7 +3402,7 @@ MonoBehaviour:
   ExiledPile: {fileID: 0}
   Hand: {fileID: 0}
   colors: 01000000
-  _maxHp: 10
+  _maxHp: 100
   _currentHp: 0
   _currentBlock: 0
   _characterName: Duckislav
@@ -8389,8 +8389,8 @@ MonoBehaviour:
   ExiledPile: {fileID: 0}
   Hand: {fileID: 0}
   colors: 03000000
-  _maxHp: 10
-  _currentHp: 4
+  _maxHp: 100
+  _currentHp: 0
   _currentBlock: 0
   _characterName: Sima
   _amountOfBlockToLose: 0
@@ -10897,15 +10897,15 @@ PrefabInstance:
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 0595f47784b4a654e8c110bcfaab482c, type: 2}
+      objectReference: {fileID: 11400000, guid: 67d75f58921100143ba75873cbc6fed3, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 0595f47784b4a654e8c110bcfaab482c, type: 2}
+      objectReference: {fileID: 11400000, guid: 5a58791b5b62b7143a775932f3b38093, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 0595f47784b4a654e8c110bcfaab482c, type: 2}
+      objectReference: {fileID: 11400000, guid: be968eeadd199ff42ac3af452457bdc9, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[3]
       value: 

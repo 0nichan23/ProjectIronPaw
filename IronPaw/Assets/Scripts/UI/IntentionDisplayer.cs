@@ -21,14 +21,21 @@ public class IntentionDisplayer : MonoBehaviour
 
     public void DisplayIntention(List<Character> targets, CardScriptableObject playedCard)
     {
+        if (targets.Count == 0)
+        {
+            return;
+        }
         if (targets.Count > 1)
         {
             //do something with list? aoe sprite 
         }
         else
         {
+           
             TargetedCharacterImage.sprite = targets[0].CharacterSprite;
+
         }
+
         if (playedCard.CardType == CardType.Attack)
         {
             DamageText.gameObject.SetActive(true);
@@ -40,6 +47,8 @@ public class IntentionDisplayer : MonoBehaviour
         }
         IntentionTypeImage.sprite = PrefabManager.Instance.GetIntentionTypeSprite(playedCard);
     }
-
+    //private bool CheckIfTargetsAreAlive(List<Character> targets)
+    //{ 
+    //}
 
 }

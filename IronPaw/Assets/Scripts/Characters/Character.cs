@@ -203,7 +203,7 @@ public abstract class Character : MonoBehaviour
             PartyManager.Instance.Heroes.Remove(this);
             if (PartyManager.Instance.Heroes.Count == 0)
             {
-                //LOSE
+                TurnManager.Instance.LoseGame();
             }
         }
         else if (this is Enemy)
@@ -211,7 +211,7 @@ public abstract class Character : MonoBehaviour
             PartyManager.Instance.Enemies.Remove(this);
             if (PartyManager.Instance.Enemies.Count == 0)
             {
-                //WIN
+                TurnManager.Instance.WinGame();
             }
         }
 

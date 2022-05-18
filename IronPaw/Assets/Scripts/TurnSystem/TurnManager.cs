@@ -18,11 +18,11 @@ public class TurnManager : Singleton<TurnManager>
     bool _endTurn;
     public GameObject EndTurnButton;
     bool firstTurn = true;
-
+    bool gameOnGoing = true;
     private Controller _playerController;
     private Controller _enemyController;
-
-
+    [SerializeField]
+    private GameOverUI _gameOverPanel;
     private void Start()
     {
         _playerController = PlayerWrapper.Instance.PlayerController;
@@ -47,7 +47,7 @@ public class TurnManager : Singleton<TurnManager>
 
     IEnumerator TurnLoop()
     {
-        while (true /*win condition*/ )
+        while (gameOnGoing /*win condition*/ )
         {
             if (firstTurn)
             {
@@ -78,4 +78,30 @@ public class TurnManager : Singleton<TurnManager>
     {
         _endTurn = true;
     }
+
+    public void LoseGame()
+    {
+        StopTurnLoop();
+        ToggleGameOverUI(true);
+        _gameOverPanel.SetGameOverUI("Defeat!", "Return To Base", UnityEngine.Color.red);
+        //stop turn loop
+        //turn ui window
+        //set ui win/lose
+
+    }
+    public void WinGame()
+    {
+        StopTurnLoop();
+        ToggleGameOverUI(true);
+        _gameOverPanel.SetGameOverUI("Victory!", "Continue", UnityEngine.Color.blue);
+    }
+    private void StopTurnLoop()
+    {
+        gameOnGoing = false;
+    }
+    private void ToggleGameOverUI(bool state)
+    {
+        _gameOverPanel.gameObject.SetActive(state);
+    }
+   
 }

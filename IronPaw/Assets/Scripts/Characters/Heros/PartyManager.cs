@@ -38,6 +38,10 @@ public class PartyManager : Singleton<PartyManager>
                 break;
 
             case TargetType.RandomHero:
+                if (Heroes.Count == 0)
+                {
+                    return;
+                }
                 System.Random rand = new System.Random();
                 FillLegalTargets(playingEnemy, card, Heroes);
                 Character randomHero = _potentialTargets[rand.Next(0, _potentialTargets.Count)];
@@ -128,7 +132,12 @@ public class PartyManager : Singleton<PartyManager>
     {
         foreach (var target in playingEnemy.Targets)
         {
-            card.CardEffect.Targets.Add(target);
+            if (target.IsAlive)
+            {
+                card.CardEffect.Targets.Add(target);
+            }
+           
+
         }
         playingEnemy.Targets.Clear();
 
