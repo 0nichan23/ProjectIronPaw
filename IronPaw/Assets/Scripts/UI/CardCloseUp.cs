@@ -1,9 +1,12 @@
-using TMPro;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
-public class CardUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class CardCloseUp : MonoBehaviour, IPointerDownHandler
 {
     public CardScriptableObject CardSO;
 
@@ -18,18 +21,18 @@ public class CardUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private TextMeshProUGUI _cardDescDisplay;
     [SerializeField]
     private TextMeshProUGUI _cardTypeDisplay;
-    [SerializeField]
-    private float _longPressTime = 1f;
-    private float _mouseDownTime;
-    private float _mouseUpTime;
-    public void InitializeDisplay()
+
+    public void InitializeDisplay(CardScriptableObject givenCard)
     {
+        CardSO = givenCard;
         _artWorkDisplay.sprite = CardSO.Artwork;
         _manaCostDisplay.text = CardSO.EnergyCost.ToString();
         _cardNameDisplay.text = CardSO.CardName;
         _cardDescDisplay.text = $"" + CardSO.Description.ToString();
         InitType(CardSO.CardType);
     }
+
+    
 
     private void InitType(CardType type)
     {
@@ -51,32 +54,11 @@ public class CardUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     }
 
 
-    public void DestroyTheHeretic()
-    {
-        Destroy(gameObject);
-    }
-
     public void OnPointerDown(PointerEventData eventData)
     {
-        _mouseDownTime = Time.time;
-
+        PlayerWrapper.Instance.PlayerController.ToggleCardCloseUpPanel(null, false);
     }
 
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        _mouseUpTime = Time.time;
-        if (_mouseUpTime - _mouseDownTime >= _longPressTime) //longpress 
-        {
-            //display card preview
-            PlayerWrapper.Instance.PlayerController.ToggleCardCloseUpPanel(CardSO, true);
-        }
-        else //shotpress
-        {
-            //play card normally
-            if (CardSO.CheckCardValidity())
-            {
-                StartCoroutine(PartyManager.Instance.WaitUntilHeroIsClickedPlayCard(CardSO));
-            }
-        }
-    }
+
+
 }

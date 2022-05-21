@@ -1,9 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class PlayerController : Controller
 {
@@ -23,6 +20,9 @@ public class PlayerController : Controller
     [SerializeField]
     TextMeshProUGUI ManaText;
 
+    [SerializeField]
+    CardCloseUp CardCloseUpField;
+
     private void Awake()
     {
         for (int i = 0; i < transform.childCount; i++)
@@ -36,7 +36,7 @@ public class PlayerController : Controller
         ToggleUltButton(false);
         TurnOnUltButtonOnSufficientUltCharge();
     }
-   
+
 
     private void BasicStartOfTurnTasks()
     {
@@ -65,7 +65,7 @@ public class PlayerController : Controller
 
     public void GainUltimateCharge(int amountToGain)
     {
-        if(UltimateCharge + amountToGain >= MaximumUltimateCharge)
+        if (UltimateCharge + amountToGain >= MaximumUltimateCharge)
         {
             UltimateCharge = MaximumUltimateCharge;
             ToggleUltButton(true);
@@ -89,13 +89,22 @@ public class PlayerController : Controller
 
     private void TurnOnUltButtonOnSufficientUltCharge()
     {
-        if(UltimateCharge == MaximumUltimateCharge)
+        if (UltimateCharge == MaximumUltimateCharge)
         {
             ToggleUltButton(true);
         }
     }
 
-    
+
+    public void ToggleCardCloseUpPanel(CardScriptableObject givenCard, bool panelState)
+    {
+        CardCloseUpField.gameObject.SetActive(panelState);
+        if (CardCloseUpField.gameObject.activeSelf)
+        {
+            CardCloseUpField.InitializeDisplay(givenCard);
+        }
+    }
+
     public void UpdateManaUi()
     {
         ManaText.text = CurrentEnergy.ToString() + " / " + MaxEnergy.ToString();
