@@ -44,7 +44,7 @@ public class IntentionDisplayer : MonoBehaviour
             {
                 dmg *= 0.67f;
             }
-            DamageText.text =  ((int) dmg).ToString();
+            DamageText.text = ((int)dmg).ToString();
         }
         else
         {
