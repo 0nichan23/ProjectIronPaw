@@ -42,7 +42,7 @@ public class PlayerController : Controller
     {
         StartOfTurnDraw();
         StartOfTurnEnergyRegen();
-        UpdateManaUi();
+        UpdateEnergyUi();
     }
 
     private void StartOfTurnDraw()
@@ -105,9 +105,9 @@ public class PlayerController : Controller
         }
     }
 
-    public void UpdateManaUi()
+    public void UpdateEnergyUi()
     {
-        ManaText.text = CurrentEnergy.ToString() + " / " + MaxEnergy.ToString();
+        ManaText.text = CurrentEnergy.ToString() + "/" + MaxEnergy.ToString();
     }
 
 

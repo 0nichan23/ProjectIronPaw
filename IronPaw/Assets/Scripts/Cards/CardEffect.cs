@@ -14,9 +14,19 @@ public abstract class CardEffect : ScriptableObject
     public TargetType TargetType;
     public List<Character> Targets = new List<Character>();
     public int DamageValue;
+    public Damage CardDamage;
+
+    public void InitializePlayEffect(Character playingCharacter)
+    {
+        CardDamage = new Damage(DamageValue, playingCharacter, true);
+    }
 
     public void PlayEffect(Character playingCharacter, CardScriptableObject card)
     {
+        if (playingCharacter is Hero)
+        {
+            InitializePlayEffect(playingCharacter);
+        }
         playingCharacter.Controller.OnPlayCard?.Invoke(card);
         foreach (var item in Targets)
         {

@@ -71,12 +71,13 @@ public class EnemyController : Controller
             if (enemy.CurrentHP > 0)
             {
                 enemy.Deck.Draw();
+                enemy.Hand.Cards[0].CardEffect.InitializePlayEffect(enemy);
                 if (enemy.Hand.Cards.Count > 0)
                 {
                     PartyManager.Instance.EnemyAcquireTargets(enemy, enemy.Hand.Cards[0]);
                     if (enemy.RefSlot.IntentionDisplayer != null)
                     {
-                        enemy.RefSlot.IntentionDisplayer.DisplayIntention(enemy.Targets, enemy.Hand.Cards[0]);
+                        enemy.RefSlot.IntentionDisplayer.DisplayIntention(enemy.Targets, enemy.Hand.Cards[0], enemy);
                     }
                     // shows the enemy's intent (symbol (+number if relevant) + Hero Portrait) 
                 }

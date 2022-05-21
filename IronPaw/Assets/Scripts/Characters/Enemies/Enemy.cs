@@ -42,4 +42,14 @@ public class Enemy : Character
 
         playerController.GainUltimateCharge(baseUltChargeGain + totalPartyIntelligence);
     }
+
+    public override void UpdateUi()
+    {
+        base.UpdateUi();
+        if (RefSlot != null && Hand.Cards.Count > 0)
+        {
+            RefSlot.IntentionDisplayer.DisplayIntention(Targets, Hand.Cards[0], this);
+        }
+    }
+
 }

@@ -19,7 +19,7 @@ public class IntentionDisplayer : MonoBehaviour
     }
 
 
-    public void DisplayIntention(List<Character> targets, CardScriptableObject playedCard)
+    public void DisplayIntention(List<Character> targets, CardScriptableObject playedCard, Enemy enemy)
     {
         if (targets.Count == 0)
         {
@@ -39,7 +39,12 @@ public class IntentionDisplayer : MonoBehaviour
         if (playedCard.CardType == CardType.Attack)
         {
             DamageText.gameObject.SetActive(true);
-            DamageText.text = playedCard.CardEffect.DamageValue.ToString();
+            float dmg = playedCard.CardEffect.DamageValue;
+            if (enemy.IsAfflictedBy(StatusEffectType.Weak))
+            {
+                dmg *= 0.67f;
+            }
+            DamageText.text =  ((int) dmg).ToString();
         }
         else
         {

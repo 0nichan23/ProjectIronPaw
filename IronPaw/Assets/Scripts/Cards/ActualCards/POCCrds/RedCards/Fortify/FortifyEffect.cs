@@ -8,7 +8,11 @@ public class FortifyEffect : CardEffect
 {
     protected override void PlayCardEffect(Character playingCharacter, Character target)
     {
-        playingCharacter.GainBlock(10);
-        playingCharacter.AddStatusEffect(new Weak(playingCharacter, 1));
+        target.GainBlock(10);
+
+        foreach (var enemy in EnemyWrapper.Instance.EnemyController.ControllerChracters)
+        {
+            enemy.AddStatusEffect(new Weak(enemy, 1));
+        }
     }
 }

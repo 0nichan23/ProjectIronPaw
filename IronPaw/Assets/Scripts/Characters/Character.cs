@@ -115,9 +115,10 @@ public abstract class Character : MonoBehaviour
         {
             RefSlot.AddEffect(statusEffect);
         }
+        UpdateUi();
     }
 
-    public void UpdateUi()
+    public virtual void UpdateUi()
     {
         if (RefSlot != null)
         {

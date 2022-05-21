@@ -56,7 +56,7 @@ public class CardScriptableObject : ScriptableObject
         if (playingCharacter is Hero)
         {
             PlayerWrapper.Instance.PlayerController.CurrentEnergy -= EnergyCost;
-            PlayerWrapper.Instance.PlayerController.UpdateManaUi();
+            PlayerWrapper.Instance.PlayerController.UpdateEnergyUi();
 
             if (!IsSwift)
             {
