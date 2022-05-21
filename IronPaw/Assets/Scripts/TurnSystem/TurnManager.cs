@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -52,9 +51,9 @@ public class TurnManager : Singleton<TurnManager>
             if (firstTurn)
             {
                 firstTurn = false;
-                EnemyWrapper.Instance.EnemyController.RevealIntentions();
+                StartCoroutine(EnemyWrapper.Instance.EnemyController.RevealIntentions());
             }
-
+            yield return new WaitUntil(() => EnemyWrapper.Instance.EnemyController.EnemiesDoneCalculating);
             // Player Turn
             _playerController.OnStartTurn?.Invoke();
             LockInputs = false;

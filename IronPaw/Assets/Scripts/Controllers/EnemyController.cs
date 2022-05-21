@@ -6,6 +6,8 @@ public class EnemyController : Controller
     [SerializeField]
     float timeBetweenTurns;
 
+    public bool EnemiesDoneCalculating = false;
+
     private void Awake()
     {
         for (int i = 0; i < transform.childCount; i++)
@@ -34,12 +36,12 @@ public class EnemyController : Controller
 
             yield return new WaitForSeconds(timeBetweenTurns);
         }
-
-        RevealIntentions();
+        StartCoroutine(RevealIntentions());
+        //RevealIntentions();
         TurnManager.Instance.EndTurn();
     }
 
-    public void RevealIntentions()
+    /*public void RevealIntentions()
     {
         foreach (Enemy enemy in ControllerChracters)
         {
@@ -57,6 +59,32 @@ public class EnemyController : Controller
                 }
             }            
         }
+    }*/
+   
+
+
+    public IEnumerator RevealIntentions()
+    {
+        EnemiesDoneCalculating = false;
+        foreach (Enemy enemy in ControllerChracters)
+        {
+            if (enemy.CurrentHP > 0)
+            {
+                enemy.Deck.Draw();
+                if (enemy.Hand.Cards.Count > 0)
+                {
+                    PartyManager.Instance.EnemyAcquireTargets(enemy, enemy.Hand.Cards[0]);
+                    if (enemy.RefSlot.IntentionDisplayer != null)
+                    {
+                        enemy.RefSlot.IntentionDisplayer.DisplayIntention(enemy.Targets, enemy.Hand.Cards[0]);
+                    }
+                    // shows the enemy's intent (symbol (+number if relevant) + Hero Portrait) 
+                }
+                
+            }
+            yield return new WaitForSeconds(0.3f);
+        }
+        EnemiesDoneCalculating = true;
     }
 
 }

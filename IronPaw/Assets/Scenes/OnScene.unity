@@ -2643,7 +2643,7 @@ MonoBehaviour:
   _maxAp: 1
   _refSlot: {fileID: 0}
   Button: {fileID: 0}
-  CharacterSprite: {fileID: 0}
+  CharacterSprite: {fileID: 21300000, guid: 5f3881ef02966374aa020e08e4d3c381, type: 3}
   _controller: {fileID: 0}
   _stats:
     Strength: 0
@@ -3445,7 +3445,7 @@ MonoBehaviour:
   _maxAp: 1
   _refSlot: {fileID: 0}
   Button: {fileID: 0}
-  CharacterSprite: {fileID: 0}
+  CharacterSprite: {fileID: 21300000, guid: 64e5e1f7f824c884ca9e3a7f59c94134, type: 3}
   _controller: {fileID: 0}
   _stats:
     Strength: 0
@@ -4052,6 +4052,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ControllerChracters: []
   timeBetweenTurns: 0
+  EnemiesDoneCalculating: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -8466,7 +8467,7 @@ MonoBehaviour:
   _maxAp: 1
   _refSlot: {fileID: 0}
   Button: {fileID: 0}
-  CharacterSprite: {fileID: 0}
+  CharacterSprite: {fileID: 21300000, guid: 44130ac591885ef4993c4ee93da6950a, type: 3}
   _controller: {fileID: 0}
   _stats:
     Strength: 0
@@ -10999,11 +11000,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1107705183418863510, guid: a57d6ef6767412b4299ac0efe1f0506b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -13.512
+      value: -13.512024
       objectReference: {fileID: 0}
     - target: {fileID: 1107705183418863510, guid: a57d6ef6767412b4299ac0efe1f0506b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -51.21
+      value: -51.20999
       objectReference: {fileID: 0}
     - target: {fileID: 1107705183517765902, guid: a57d6ef6767412b4299ac0efe1f0506b, type: 3}
       propertyPath: m_SizeDelta.x
