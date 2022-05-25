@@ -15,6 +15,8 @@ public class PrefabManager : Singleton<PrefabManager>
 
     public DropZone DropZone;
 
+    public List<Sprite> SpritesIcons = new List<Sprite>();
+
     Dictionary<Type, Sprite> StatusEffectDictionary = new Dictionary<Type, Sprite>();
 
 
@@ -24,18 +26,11 @@ public class PrefabManager : Singleton<PrefabManager>
     
     public Sprite GetSprite(StatusEffect StatusEffect)
     {
-        switch (StatusEffect.StatusEffectType)
-        {
-            case StatusEffectType.Bleed:
-                //
-                return BleedIcon;
-            case StatusEffectType.Taunt:
-                //
-                return BleedIcon;
+        
+        int index = (int)StatusEffect.StatusEffectType;
 
-            default:
-                return BleedIcon;
-        }
+        
+        return SpritesIcons[index - 1];
     }
 
     public void CreateDamagePopup(Vector3 pos, int amount)

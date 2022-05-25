@@ -21,9 +21,6 @@ public class CharacterPersonalUI : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI ActionPointsText;
 
-    [SerializeField]
-    Image IntentionIcon;
-
 
     public IntentionDisplayer IntentionDisplayer;
 
@@ -36,14 +33,9 @@ public class CharacterPersonalUI : MonoBehaviour
 
     public void SetupCanvas(Character character)
     {
-        if (character is Hero)
+        if (character is Enemy)
         {
-            IntentionIcon.gameObject.SetActive(false);
-            //UpdateActionPoint(character.MaxAp, character.CurrentAp);
-        }
-        else if (character is Enemy)
-        {
-            ActionPointsText.gameObject.SetActive(false);
+            ActionPointsText.transform.parent.gameObject.SetActive(false);
         }
     }
 
@@ -89,16 +81,9 @@ public class CharacterPersonalUI : MonoBehaviour
         BlockText.text = block.ToString();
     }
 
-    public void UpdateIntention()
-    {
-        IntentionIcon.gameObject.SetActive(true);
-        // PrefabManager.Instance.getspriteforintention();??
-
-    }
-
     public void UpdateActionPoint(int maxap, int curap)
     {
-        ActionPointsText.text = curap.ToString() + " / " + maxap.ToString();
+        ActionPointsText.text = curap.ToString();
     }
 
 

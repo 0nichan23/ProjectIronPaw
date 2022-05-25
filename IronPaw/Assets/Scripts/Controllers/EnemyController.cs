@@ -71,9 +71,9 @@ public class EnemyController : Controller
             if (enemy.CurrentHP > 0)
             {
                 enemy.Deck.Draw();
-                enemy.Hand.Cards[0].CardEffect.InitializePlayEffect(enemy);
                 if (enemy.Hand.Cards.Count > 0)
                 {
+                    enemy.Hand.Cards[0].CardEffect.InitializePlayEffect(enemy);
                     PartyManager.Instance.EnemyAcquireTargets(enemy, enemy.Hand.Cards[0]);
                     if (enemy.RefSlot.IntentionDisplayer != null)
                     {

@@ -6,12 +6,9 @@ using TMPro;
 
 public class HealthBar : MonoBehaviour
 {
+    [SerializeField] private Slider slider;
 
-    [SerializeField] Slider slider;
-
-
-    [SerializeField]
-    TextMeshProUGUI HpText;
+    [SerializeField] private TextMeshProUGUI HpText;
 
     void Start()
     {
@@ -22,7 +19,7 @@ public class HealthBar : MonoBehaviour
     {
         slider.maxValue = maxhp;
         slider.value = curhp;
-        HpText.text = curhp.ToString() + " / " + maxhp.ToString();
+        HpText.text = curhp.ToString() + "/" + maxhp.ToString();
     }
 
 }

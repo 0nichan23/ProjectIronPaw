@@ -12,7 +12,8 @@ public enum StatusEffectType
     Thorns,
     Weak,
     Immune,
-    Frail
+    Frail,
+    Stun
 }
 
 public abstract class StatusEffect
