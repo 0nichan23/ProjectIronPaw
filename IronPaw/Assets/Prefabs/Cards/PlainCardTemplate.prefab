@@ -131,7 +131,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardSO: {fileID: 11400000, guid: 8ee725fe699c62745bb66d72dd5055d9, type: 2}
+  _colors: 0000000000000000
   _artWorkDisplay: {fileID: 1107705184101646741}
+  _cardFrame: {fileID: 1107705182304762175}
   _manaCostDisplay: {fileID: 1107705183770872178}
   _cardNameDisplay: {fileID: 1107705182904120792}
   _cardDescDisplay: {fileID: 1107705183418863509}

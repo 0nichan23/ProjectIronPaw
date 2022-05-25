@@ -22,6 +22,8 @@ public class PrefabManager : Singleton<PrefabManager>
 
     public List<Sprite> CardTypeIcons = new List<Sprite>(3);
 
+    [SerializeField] private List<Sprite> _cardFrames = new List<Sprite>();
+
     
     
     public Sprite GetSprite(StatusEffect StatusEffect)
@@ -59,5 +61,26 @@ public class PrefabManager : Singleton<PrefabManager>
         }
     }
 
-   
+    internal Sprite GetCardFrameByColor(List<string> colorID)
+    {
+        foreach (var frame in _cardFrames)
+        {
+            if (colorID.Count == 1)
+            {
+                if (frame.name == colorID[0])
+                {
+                    return frame;
+                }
+            }
+            else if (colorID.Count == 2)
+            {
+                if (frame.name == colorID[0] + colorID[1] || frame.name == colorID[1] + colorID[0])
+                {
+                    return frame;
+                }
+            }            
+        }
+
+        throw new Exception("Invalid number of colors for a card!");
+    }
 }

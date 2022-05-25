@@ -9993,6 +9993,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8415803876436235988, guid: a5ad2bbd762fff246b73fc5dcdb2e10a, type: 3}
     - target: {fileID: 3317774568791796296, guid: 611976528af8cc3439f73994bbffd750, type: 3}
+      propertyPath: _cardFrames.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3317774568791796296, guid: 611976528af8cc3439f73994bbffd750, type: 3}
       propertyPath: SpritesIcons.Array.size
       value: 8
       objectReference: {fileID: 0}
@@ -10000,6 +10004,30 @@ PrefabInstance:
       propertyPath: CardTypeIcons.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3317774568791796296, guid: 611976528af8cc3439f73994bbffd750, type: 3}
+      propertyPath: _cardFrames.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 336b6437814e11541bb1b8fe06dc9bb2, type: 3}
+    - target: {fileID: 3317774568791796296, guid: 611976528af8cc3439f73994bbffd750, type: 3}
+      propertyPath: _cardFrames.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: e69ed0edf755d4048989bf25683c043a, type: 3}
+    - target: {fileID: 3317774568791796296, guid: 611976528af8cc3439f73994bbffd750, type: 3}
+      propertyPath: _cardFrames.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 7200e882bf2571b4392e127a2a8934cc, type: 3}
+    - target: {fileID: 3317774568791796296, guid: 611976528af8cc3439f73994bbffd750, type: 3}
+      propertyPath: _cardFrames.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: b62c67cfb53a3624183c1f347a5f5635, type: 3}
+    - target: {fileID: 3317774568791796296, guid: 611976528af8cc3439f73994bbffd750, type: 3}
+      propertyPath: _cardFrames.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: c8f48dbdd717e0847a51a222f13f7f0a, type: 3}
+    - target: {fileID: 3317774568791796296, guid: 611976528af8cc3439f73994bbffd750, type: 3}
+      propertyPath: _cardFrames.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: a75540cf24b35b64292417133bacf1e1, type: 3}
     - target: {fileID: 3317774568791796296, guid: 611976528af8cc3439f73994bbffd750, type: 3}
       propertyPath: SpritesIcons.Array.data[0]
       value: 
@@ -11076,7 +11104,7 @@ PrefabInstance:
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: be968eeadd199ff42ac3af452457bdc9, type: 2}
+      objectReference: {fileID: 11400000, guid: 52a604842ed3998408b4abebe2b4fdce, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[3]
       value: 
