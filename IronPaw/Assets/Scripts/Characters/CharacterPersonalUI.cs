@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
-public class CharacterSlot : MonoBehaviour
+public class CharacterPersonalUI : MonoBehaviour
 {
     //script to display character effects, hp, level etc.. 
     [SerializeField]
@@ -24,7 +24,7 @@ public class CharacterSlot : MonoBehaviour
     [SerializeField]
     Image IntentionIcon;
 
-    
+
     public IntentionDisplayer IntentionDisplayer;
 
     private void Awake()
@@ -79,7 +79,7 @@ public class CharacterSlot : MonoBehaviour
         }
     }
 
-    public void UpdateHpBar(int maxhp ,int curhp)
+    public void UpdateHpBar(int maxhp, int curhp)
     {
         Hpbar.UpdateHealthBar(maxhp, curhp);
     }
@@ -92,7 +92,7 @@ public class CharacterSlot : MonoBehaviour
     public void UpdateIntention()
     {
         IntentionIcon.gameObject.SetActive(true);
-       // PrefabManager.Instance.getspriteforintention();??
+        // PrefabManager.Instance.getspriteforintention();??
 
     }
 
@@ -114,9 +114,4 @@ public class CharacterSlot : MonoBehaviour
             }
         }
     }
-
-
-
-
-
 }

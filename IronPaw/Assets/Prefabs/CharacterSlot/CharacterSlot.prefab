@@ -116,7 +116,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 475475700630602601}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4ca46f0a30b9df4494b9d651b5f3a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 141ffa300cd7bc54ea70e4b60a4ba239, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DisplayZone: {fileID: 2141444141915108036}
@@ -124,6 +124,7 @@ MonoBehaviour:
   BlockText: {fileID: 3319305886124552259}
   ActionPointsText: {fileID: 8717213064080258396}
   IntentionIcon: {fileID: 8930502272861480940}
+  IntentionDisplayer: {fileID: 0}
 --- !u!1 &557259336056183737
 GameObject:
   m_ObjectHideFlags: 0
