@@ -7,7 +7,7 @@ using TMPro;
 public class HealthBar : MonoBehaviour
 {
 
-    Slider slider;
+    [SerializeField] Slider slider;
 
 
     [SerializeField]
@@ -15,7 +15,7 @@ public class HealthBar : MonoBehaviour
 
     void Start()
     {
-        slider = GetComponentInChildren<Slider>();
+        slider = GetComponent<Slider>();
     }
 
     public void UpdateHealthBar(int maxhp, int curhp)
