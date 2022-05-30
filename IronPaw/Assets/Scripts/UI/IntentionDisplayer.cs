@@ -6,21 +6,21 @@ using TMPro;
 
 public class IntentionDisplayer : MonoBehaviour
 {
-    [SerializeField]
-    Image IntentionTypeImage;
-    [SerializeField]
-    Image TargetedCharacterImage;
-    TextMeshProUGUI DamageText;
+    [SerializeField] private Image _intentionTypeImage;
 
+    [SerializeField] private Image _targetedCharacterImage;
+
+    TextMeshProUGUI DamageText;
 
     private void Start()
     {
         DamageText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
-
-    public void DisplayIntention(List<Character> targets, CardScriptableObject playedCard, Enemy enemy)
+    public void DisplayIntention(List<Character> targets, CardScriptableObject playedCard, Enemy playingEnemy)
     {
+        
+
         if (targets.Count == 0)
         {
             return;
@@ -31,16 +31,22 @@ public class IntentionDisplayer : MonoBehaviour
         }
         else
         {
-           
-            TargetedCharacterImage.sprite = targets[0].CharacterSprite;
-
+            if (targets[0] == playingEnemy)
+            {
+                _targetedCharacterImage.gameObject.SetActive(false);
+            }
+            else
+            {
+                _targetedCharacterImage.gameObject.SetActive(true);        
+                _targetedCharacterImage.sprite = targets[0].CharacterSprite;
+            }
         }
 
         if (playedCard.CardType == CardType.Attack)
         {
             DamageText.gameObject.SetActive(true);
             float dmg = playedCard.CardEffect.DamageValue;
-            if (enemy.IsAfflictedBy(StatusEffectType.Weak))
+            if (playingEnemy.IsAfflictedBy(StatusEffectType.Weak))
             {
                 dmg *= 0.67f;
             }
@@ -50,7 +56,7 @@ public class IntentionDisplayer : MonoBehaviour
         {
             DamageText.gameObject.SetActive(false);
         }
-        IntentionTypeImage.sprite = PrefabManager.Instance.GetIntentionTypeSprite(playedCard);
+        _intentionTypeImage.sprite = PrefabManager.Instance.GetIntentionTypeSprite(playedCard);
     }
     //private bool CheckIfTargetsAreAlive(List<Character> targets)
     //{ 

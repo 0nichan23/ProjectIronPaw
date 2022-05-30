@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public abstract class Character : MonoBehaviour
@@ -22,6 +23,8 @@ public abstract class Character : MonoBehaviour
 
     [SerializeField] private CharacterPersonalUI _refSlot;
 
+    [SerializeField] private Animator _animator;
+
 
     private List<StatusEffect> _activeStatusEffects = new List<StatusEffect>();
 
@@ -33,7 +36,6 @@ public abstract class Character : MonoBehaviour
 
     public Button Button;
     public Sprite CharacterSprite;
-
 
     [SerializeField] private Controller _controller;
     [SerializeField] private CharacterStats _stats = new CharacterStats();
@@ -65,10 +67,6 @@ public abstract class Character : MonoBehaviour
         }
     }
 
-
-
-    //List<Card> PersonalDeck;
-
     private void Start()
     {
         TheBetterStart();
@@ -77,7 +75,7 @@ public abstract class Character : MonoBehaviour
 
     protected virtual void TheBetterStart()
     {
-
+        //_animator = GetComponentInChildren<Animator>();
         Button = GetComponentInChildren<Button>();
         RefSlot = GetComponentInChildren<CharacterPersonalUI>();
         _currentHp = MaxHP;
@@ -255,5 +253,23 @@ public abstract class Character : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void PlayAnimation(CardType cardType)
+    {
+        switch (cardType)
+        {
+            case CardType.Attack:
+                _animator.SetTrigger("Attack");
+                break;
+
+            case CardType.Guard:
+                _animator.SetTrigger("Guard");
+                break;
+
+            case CardType.Utility:
+                _animator.SetTrigger("Utility");
+                break;
+        }
     }
 }

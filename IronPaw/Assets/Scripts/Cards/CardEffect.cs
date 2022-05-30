@@ -23,6 +23,8 @@ public abstract class CardEffect : ScriptableObject
 
     public void PlayEffect(Character playingCharacter, CardScriptableObject card)
     {
+        playingCharacter.PlayAnimation(card.CardType);
+        
         if (playingCharacter is Hero)
         {
             InitializePlayEffect(playingCharacter);
