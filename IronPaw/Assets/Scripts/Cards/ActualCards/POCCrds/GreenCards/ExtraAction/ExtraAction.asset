@@ -15,7 +15,7 @@ MonoBehaviour:
   CardName: ExtraAction
   Description: A Hero gains 1 Action Point (this combat only)
   Colors: 01000000
-  Rarity: 0
+  Rarity: 1
   EnergyCost: 1
   CardEffect: {fileID: 11400000, guid: fe618a9dfcfc4fa49a8280de247fd603, type: 2}
   IsSwift: 0

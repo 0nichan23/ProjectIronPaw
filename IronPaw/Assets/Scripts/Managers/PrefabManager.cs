@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class PrefabManager : Singleton<PrefabManager>
 {
@@ -23,6 +24,9 @@ public class PrefabManager : Singleton<PrefabManager>
     public List<Sprite> CardTypeIcons = new List<Sprite>(3);
 
     [SerializeField] private List<Sprite> _cardFrames = new List<Sprite>();
+    [SerializeField] private List<Sprite> _plateFrames = new List<Sprite>();
+    [SerializeField] private List<Sprite> _rarityFrames = new List<Sprite>();
+    [SerializeField] private List<Sprite> _typeFrames = new List<Sprite>();
 
     
     
@@ -61,7 +65,7 @@ public class PrefabManager : Singleton<PrefabManager>
         }
     }
 
-    internal Sprite GetCardFrameByColor(List<string> colorID)
+    public Sprite GetCardFrameByColor(List<string> colorID)
     {
         foreach (var frame in _cardFrames)
         {
@@ -82,5 +86,38 @@ public class PrefabManager : Singleton<PrefabManager>
         }
 
         throw new Exception("Invalid number of colors for a card!");
+    }
+
+    public Sprite GetCardPlateFrameByColor(List<string> colorID)
+    {
+        foreach (var frame in _plateFrames)
+        {
+            if (colorID.Count == 1)
+            {
+                if (frame.name == colorID[0])
+                {
+                    return frame;
+                }
+            }
+            else if (colorID.Count == 2)
+            {
+                if (frame.name == colorID[0] + colorID[1] || frame.name == colorID[1] + colorID[0])
+                {
+                    return frame;
+                }
+            }
+        }
+
+        throw new Exception("Invalid number of colors for a card!");
+    }
+
+    public Sprite GetCardRarityFrame(Rarity rarity)
+    {
+        return _rarityFrames[(int)rarity];
+    }
+
+    public Sprite GetCardTypeFrame(CardType cardType)
+    {
+        return _typeFrames[(int)cardType];
     }
 }

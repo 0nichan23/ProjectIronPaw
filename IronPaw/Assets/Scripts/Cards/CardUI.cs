@@ -12,18 +12,21 @@ public class CardUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     [SerializeField]
     private Image _artWorkDisplay;
-    [SerializeField] 
-    private Image _cardFrame;
-    [SerializeField]
-    private TextMeshProUGUI _manaCostDisplay;
-    [SerializeField]
-    private TextMeshProUGUI _cardNameDisplay;
-    [SerializeField]
-    private TextMeshProUGUI _cardDescDisplay;
-    [SerializeField]
-    private TextMeshProUGUI _cardTypeDisplay;
-    [SerializeField]
-    private float _longPressTime = 1f;
+    [SerializeField] private Image _cardFrame;
+    [SerializeField] private Image _plateFrame;
+    [SerializeField] private Image _rarityFrame;
+    [SerializeField] private Image _typeFrame;
+
+    [SerializeField] private TextMeshProUGUI _manaCostDisplay;
+
+    [SerializeField] private TextMeshProUGUI _cardNameDisplay;
+
+    [SerializeField] private TextMeshProUGUI _cardDescDisplay;
+
+    [SerializeField] private TextMeshProUGUI _cardTypeDisplay;
+
+    [SerializeField] private float _longPressTime = 1f;
+
     private float _mouseDownTime;
     private float _mouseUpTime;
 
@@ -35,7 +38,7 @@ public class CardUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         _manaCostDisplay.text = CardSO.EnergyCost.ToString();
         _cardNameDisplay.text = CardSO.CardName;
         _cardDescDisplay.text = $"" + CardSO.Description.ToString();
-        InitCardFrameSingleColor();
+        InitCardFrame();
         InitType(CardSO.CardType);
     }
 
@@ -88,7 +91,7 @@ public class CardUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         }
     }
 
-    private void InitCardFrameSingleColor()
+    private void InitCardFrame()
     {
         List<string> colorID = new List<string>();
 
@@ -100,6 +103,11 @@ public class CardUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         }
 
         _cardFrame.sprite = PrefabManager.Instance.GetCardFrameByColor(colorID);
-       
+        _plateFrame.sprite = PrefabManager.Instance.GetCardPlateFrameByColor(colorID);
+
+        
+        _rarityFrame.sprite = PrefabManager.Instance.GetCardRarityFrame(CardSO.Rarity);
+        _typeFrame.sprite = PrefabManager.Instance.GetCardTypeFrame(CardSO.CardType);
+
     }    
 }
