@@ -61,9 +61,4 @@ public class Enemy : Character
         }
     }
 
-    private void OnDestroy()
-    {
-        Debug.Log("I was destroyed");
-    }
-
 }

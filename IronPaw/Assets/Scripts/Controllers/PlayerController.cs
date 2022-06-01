@@ -23,6 +23,8 @@ public class PlayerController : Controller
     [SerializeField]
     CardCloseUp CardCloseUpField;
 
+    [SerializeField] private GameObject _darkFilter;
+
     private void Awake()
     {
         for (int i = 0; i < transform.childCount; i++)
@@ -96,12 +98,14 @@ public class PlayerController : Controller
     }
 
 
-    public void ToggleCardCloseUpPanel(CardScriptableObject givenCard, bool panelState)
+    public void ToggleCardCloseUpPanel(CardScriptableObject givenCard, bool panelState, CardUI self)
     {
         CardCloseUpField.gameObject.SetActive(panelState);
+        _darkFilter.SetActive(panelState);
         if (CardCloseUpField.gameObject.activeSelf)
         {
-            CardCloseUpField.InitializeDisplay(givenCard);
+            
+            CardCloseUpField.InitializeDisplay(givenCard, self);
         }
     }
 
