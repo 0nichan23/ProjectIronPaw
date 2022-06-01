@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,8 +20,16 @@ public class Enemy : Character
 
     public override void UnSubscribe()
     {
-        Controller.OnStartTurn -= InvokeStartTurn;
-        Controller.OnEndTurn -= InvokeEndTurn;
+        try
+        {
+            Controller.OnStartTurn -= InvokeStartTurn;
+            Controller.OnEndTurn -= InvokeEndTurn;
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.Message);
+        }
+        
     }
 
     protected override void DetermineController()
@@ -50,6 +59,11 @@ public class Enemy : Character
         {
             RefSlot.IntentionDisplayer.DisplayIntention(Targets, Hand.Cards[0], this);
         }
+    }
+
+    private void OnDestroy()
+    {
+        Debug.Log("I was destroyed");
     }
 
 }

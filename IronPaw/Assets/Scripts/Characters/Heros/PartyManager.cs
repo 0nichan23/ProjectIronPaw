@@ -20,8 +20,8 @@ public class PartyManager : Singleton<PartyManager>
 
     private void Start()
     {
-        Enemies = EnemyWrapper.Instance.EnemyController.ControllerChracters;
-        Heroes = PlayerWrapper.Instance.PlayerController.ControllerChracters;
+        Enemies = new List<Character> ( EnemyWrapper.Instance.EnemyController.ControllerChracters );
+        Heroes = new List<Character> ( PlayerWrapper.Instance.PlayerController.ControllerChracters );
         _potentialTargets = new List<Character>();
     }
 
