@@ -25,7 +25,6 @@ public abstract class Character : MonoBehaviour
 
     [SerializeField] private Animator _animator;
 
-
     private List<StatusEffect> _activeStatusEffects = new List<StatusEffect>();
 
     public Action OnStartTurn;
@@ -82,7 +81,7 @@ public abstract class Character : MonoBehaviour
         OnStartTurn += StartOfTurnReset;
         StartOfTurnReset();
         DetermineController();
-        UpdateUi();
+        UpdateUI();
     }
 
     protected void InvokeStartTurn()
@@ -113,10 +112,10 @@ public abstract class Character : MonoBehaviour
         {
             RefSlot.AddEffect(statusEffect);
         }
-        UpdateUi();
+        UpdateUI();
     }
 
-    public virtual void UpdateUi()
+    public virtual void UpdateUI()
     {
         if (RefSlot != null)
         {
@@ -136,7 +135,7 @@ public abstract class Character : MonoBehaviour
     public void GainBlock(int amount)
     {
         CurrentBlock += amount + Stats.Dexterity;
-        UpdateUi();
+        UpdateUI();
     }
 
     public void Heal(int amount, Character source)
@@ -146,7 +145,7 @@ public abstract class Character : MonoBehaviour
         {
             _currentHp = MaxHP;
         }
-        UpdateUi();
+        UpdateUI();
     }
 
     public void TakeDmg(Damage damage)
@@ -188,7 +187,7 @@ public abstract class Character : MonoBehaviour
             }
         }
 
-        UpdateUi();
+        UpdateUI();
         PrefabManager.Instance.CreateDamagePopup(transform.parent.position, damage.GivenDamage);
     }
 
@@ -221,6 +220,7 @@ public abstract class Character : MonoBehaviour
     {
         ClearBlock();
         RegainAP();
+        UpdateUI();
     }
 
     public void ClearBlock()
@@ -233,7 +233,7 @@ public abstract class Character : MonoBehaviour
         {
             CurrentBlock -= AmountOfBlockToLose;
         }
-        UpdateUi();
+        UpdateUI();
     }
 
     private void RegainAP()
@@ -257,19 +257,9 @@ public abstract class Character : MonoBehaviour
 
     public void PlayAnimation(CardType cardType)
     {
-        switch (cardType)
+        if(_animator != null)
         {
-            case CardType.Attack:
-                _animator.SetTrigger("Attack");
-                break;
-
-            case CardType.Guard:
-                _animator.SetTrigger("Guard");
-                break;
-
-            case CardType.Utility:
-                _animator.SetTrigger("Utility");
-                break;
-        }
+            _animator.SetTrigger("Attack");
+        }        
     }
 }

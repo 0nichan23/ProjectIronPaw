@@ -11,8 +11,8 @@ public class TurnManager : Singleton<TurnManager>
     //turn goes back to player
     //unlock player imputs
 
-    List<Enemy> _enemies = new List<Enemy>();
-    List<Hero> _heros = new List<Hero>();
+    private List<Enemy> _enemies = new List<Enemy>();
+    private List<Hero> _heroes = new List<Hero>();
     public bool LockInputs;
     bool _endTurn;
     public GameObject EndTurnButton;
@@ -30,12 +30,14 @@ public class TurnManager : Singleton<TurnManager>
         foreach (Enemy enemy in PartyManager.Instance.Enemies)
         {
             _enemies.Add(enemy);
-            _enemyController.OnEndTurn += enemy.UpdateUi;
+            //enemy.OnStartTurn += enemy.UpdateUI;
+            //enemy.OnEndTurn += enemy.UpdateUI;
         }
         foreach (Hero hero in PartyManager.Instance.Heroes)
         {
-            _heros.Add(hero);
-            _playerController.OnEndTurn += hero.UpdateUi;
+            _heroes.Add(hero);
+            //hero.OnStartTurn += hero.UpdateUI;
+            //hero.OnEndTurn += hero.UpdateUI;
         }
         _enemyController.OnEndTurn += PartyManager.Instance.ResetRerollForTaunt;
         _playerController.OnEndTurn += PartyManager.Instance.ResetRerollForTaunt;

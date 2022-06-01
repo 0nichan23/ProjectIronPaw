@@ -108,6 +108,7 @@ public abstract class StatusEffect
         {
             RemoveStatusEffectFromHost();
         }
+        _host.UpdateUI();
     }
 
     public void RemoveStatusEffectFromHost()
