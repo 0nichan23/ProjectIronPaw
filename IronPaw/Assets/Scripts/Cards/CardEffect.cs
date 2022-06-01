@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 /* 
@@ -23,11 +20,6 @@ public abstract class CardEffect : ScriptableObject
 
     public void PlayEffect(Character playingCharacter, CardScriptableObject card)
     {
-        if(card.CardType == CardType.Attack)
-        {
-            playingCharacter.PlayAnimation(card.CardType);
-        }        
-        
         if (playingCharacter is Hero)
         {
             InitializePlayEffect(playingCharacter);
@@ -39,9 +31,11 @@ public abstract class CardEffect : ScriptableObject
             target.UpdateUI();
         }
         Targets.Clear();
+
+
     }
 
     protected abstract void PlayCardEffect(Character playingCharacter, Character target);
 
-    
+
 }

@@ -24,6 +24,8 @@ public abstract class Character : MonoBehaviour
     [SerializeField] private CharacterPersonalUI _refSlot;
 
     [SerializeField] private Animator _animator;
+    [SerializeField] private bool _reachedAnimationSyncFrame;
+    public AnimationEvent AnimationSyncEvent;
 
     private List<StatusEffect> _activeStatusEffects = new List<StatusEffect>();
 
@@ -66,6 +68,8 @@ public abstract class Character : MonoBehaviour
         }
     }
 
+    public bool ReachedAnimationSyncFrame { get => _reachedAnimationSyncFrame; set => _reachedAnimationSyncFrame = value; }
+
     private void Start()
     {
         TheBetterStart();
@@ -75,6 +79,7 @@ public abstract class Character : MonoBehaviour
     protected virtual void TheBetterStart()
     {
         //_animator = GetComponentInChildren<Animator>();
+        //AnimationSyncEvent += SyncCompleted;
         Button = GetComponentInChildren<Button>();
         RefSlot = GetComponentInChildren<CharacterPersonalUI>();
         _currentHp = MaxHP;
@@ -262,4 +267,6 @@ public abstract class Character : MonoBehaviour
             _animator.SetTrigger("Attack");
         }        
     }
+
+
 }
