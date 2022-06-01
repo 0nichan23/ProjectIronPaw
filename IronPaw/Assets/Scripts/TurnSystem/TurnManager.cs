@@ -30,14 +30,10 @@ public class TurnManager : Singleton<TurnManager>
         foreach (Enemy enemy in PartyManager.Instance.Enemies)
         {
             _enemies.Add(enemy);
-            //enemy.OnStartTurn += enemy.UpdateUI;
-            //enemy.OnEndTurn += enemy.UpdateUI;
         }
         foreach (Hero hero in PartyManager.Instance.Heroes)
         {
             _heroes.Add(hero);
-            //hero.OnStartTurn += hero.UpdateUI;
-            //hero.OnEndTurn += hero.UpdateUI;
         }
         _enemyController.OnEndTurn += PartyManager.Instance.ResetRerollForTaunt;
         _playerController.OnEndTurn += PartyManager.Instance.ResetRerollForTaunt;
