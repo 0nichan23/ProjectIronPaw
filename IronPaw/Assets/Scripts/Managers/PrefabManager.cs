@@ -41,7 +41,7 @@ public class PrefabManager : Singleton<PrefabManager>
 
     public void CreateDamagePopup(Vector3 pos, int amount)
     {
-        DamagePopup popup = Instantiate(DamagePopup, pos, Quaternion.identity).GetComponent<DamagePopup>();
+        DamagePopup popup = Instantiate(DamagePopup, pos, Quaternion.identity).GetComponentInChildren<DamagePopup>();
         popup.Setup(amount);
     }
 

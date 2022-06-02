@@ -136,11 +136,17 @@ public class CardScriptableObject : ScriptableObject
         CardUI GOUI = GO.GetComponent<CardUI>();
         GOUI.CardSO = this;
 
-        CardEffect.Targets.Clear();
-
         GOUI.InitializeDisplay();
+    }
 
+    public void ClearTargetsFromCardEffect()
+    {
+        // The Shadow Realm Bug
 
+        if(CardEffect != null)
+        {
+            CardEffect.Targets.Clear();
+        }        
     }
 
 
