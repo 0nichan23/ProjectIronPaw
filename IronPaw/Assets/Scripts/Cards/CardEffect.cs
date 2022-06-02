@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 /* 
@@ -23,21 +20,22 @@ public abstract class CardEffect : ScriptableObject
 
     public void PlayEffect(Character playingCharacter, CardScriptableObject card)
     {
-        playingCharacter.PlayAnimation(card.CardType);
-        
         if (playingCharacter is Hero)
         {
             InitializePlayEffect(playingCharacter);
         }
         playingCharacter.Controller.OnPlayCard?.Invoke(card);
-        foreach (var item in Targets)
+        foreach (var target in Targets)
         {
-            PlayCardEffect(playingCharacter, item);
+            PlayCardEffect(playingCharacter, target);
+            target.UpdateUI();
         }
         Targets.Clear();
+
+
     }
 
     protected abstract void PlayCardEffect(Character playingCharacter, Character target);
 
-    
+
 }

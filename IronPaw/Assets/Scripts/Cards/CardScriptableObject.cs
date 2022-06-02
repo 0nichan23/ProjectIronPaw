@@ -61,7 +61,7 @@ public class CardScriptableObject : ScriptableObject
             if (!IsSwift)
             {
                 playingCharacter.CurrentAp--;
-                playingCharacter.UpdateUi();
+                playingCharacter.UpdateUI();
             }
         }
     }

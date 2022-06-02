@@ -8,28 +8,31 @@ using UnityEngine.Events;
 
 public class CardCloseUp : MonoBehaviour, IPointerDownHandler
 {
-    public CardScriptableObject CardSO;
+    [SerializeField] private TextMeshProUGUI _manaCostDisplay;
+    [SerializeField] private TextMeshProUGUI _cardNameDisplay;
+    [SerializeField] private TextMeshProUGUI _cardDescDisplay;
+    [SerializeField] private TextMeshProUGUI _cardTypeDisplay;
 
-    [SerializeField]
-    private Image _artWorkDisplay;
+    [SerializeField] private Image _artWorkDisplay;
+    [SerializeField] private Image _cardFrame;
+    [SerializeField] private Image _plateFrame;
+    [SerializeField] private Image _rarityFrame;
+    [SerializeField] private Image _typeFrame;
 
-    [SerializeField]
-    private TextMeshProUGUI _manaCostDisplay;
-    [SerializeField]
-    private TextMeshProUGUI _cardNameDisplay;
-    [SerializeField]
-    private TextMeshProUGUI _cardDescDisplay;
-    [SerializeField]
-    private TextMeshProUGUI _cardTypeDisplay;
+    public void InitializeDisplay(CardScriptableObject givenCard, CardUI cardUIRef)
+    { 
 
-    public void InitializeDisplay(CardScriptableObject givenCard)
-    {
-        CardSO = givenCard;
-        _artWorkDisplay.sprite = CardSO.Artwork;
-        _manaCostDisplay.text = CardSO.EnergyCost.ToString();
-        _cardNameDisplay.text = CardSO.CardName;
-        _cardDescDisplay.text = $"" + CardSO.Description.ToString();
-        InitType(CardSO.CardType);
+        _manaCostDisplay.text = givenCard.EnergyCost.ToString();
+        _cardNameDisplay.text = givenCard.CardName;
+        _cardDescDisplay.text = $"" + givenCard.Description.ToString();
+
+        _artWorkDisplay.sprite = cardUIRef.ArtWorkDisplay.sprite;
+        _cardFrame.sprite = cardUIRef.CardFrame.sprite;
+        _plateFrame.sprite = cardUIRef.PlateFrame.sprite;
+        _rarityFrame.sprite = cardUIRef.RarityFrame.sprite;
+        _typeFrame.sprite = cardUIRef.TypeFrame.sprite;
+
+        InitType(givenCard.CardType);
     }
 
     
@@ -56,7 +59,7 @@ public class CardCloseUp : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        PlayerWrapper.Instance.PlayerController.ToggleCardCloseUpPanel(null, false);
+        PlayerWrapper.Instance.PlayerController.ToggleCardCloseUpPanel(null, false, null);
     }
 
 

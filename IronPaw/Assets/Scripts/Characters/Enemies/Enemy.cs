@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,8 +20,16 @@ public class Enemy : Character
 
     public override void UnSubscribe()
     {
-        Controller.OnStartTurn -= InvokeStartTurn;
-        Controller.OnEndTurn -= InvokeEndTurn;
+        try
+        {
+            Controller.OnStartTurn -= InvokeStartTurn;
+            Controller.OnEndTurn -= InvokeEndTurn;
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.Message);
+        }
+        
     }
 
     protected override void DetermineController()
@@ -43,9 +52,9 @@ public class Enemy : Character
         playerController.GainUltimateCharge(baseUltChargeGain + totalPartyIntelligence);
     }
 
-    public override void UpdateUi()
+    public override void UpdateUI()
     {
-        base.UpdateUi();
+        base.UpdateUI();
         if (RefSlot != null && Hand.Cards.Count > 0)
         {
             RefSlot.IntentionDisplayer.DisplayIntention(Targets, Hand.Cards[0], this);

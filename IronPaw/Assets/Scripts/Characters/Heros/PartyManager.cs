@@ -20,8 +20,8 @@ public class PartyManager : Singleton<PartyManager>
 
     private void Start()
     {
-        Enemies = EnemyWrapper.Instance.EnemyController.ControllerChracters;
-        Heroes = PlayerWrapper.Instance.PlayerController.ControllerChracters;
+        Enemies = new List<Character> ( EnemyWrapper.Instance.EnemyController.ControllerChracters );
+        Heroes = new List<Character> ( PlayerWrapper.Instance.PlayerController.ControllerChracters );
         _potentialTargets = new List<Character>();
     }
 
@@ -141,7 +141,7 @@ public class PartyManager : Singleton<PartyManager>
         }
         playingEnemy.Targets.Clear();
 
-        PlayEffectAndCleanUp(playingEnemy, card, card.CardEffect, null);
+        StartCoroutine(PlayCardAnimationSync(playingEnemy, card, card.CardEffect, null));
     }
 
     public void ResetRerollForTaunt()
@@ -167,7 +167,8 @@ public class PartyManager : Singleton<PartyManager>
         {
             case TargetType.Self:
                 cardEffectRef.Targets.Add(playingCharacter);
-                PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
+                StartCoroutine(PlayCardAnimationSync(playingCharacter, card, card.CardEffect, null));
+
                 break;
 
             case TargetType.SingleHero:
@@ -182,7 +183,8 @@ public class PartyManager : Singleton<PartyManager>
                 FillLegalTargets(playingCharacter, card, Heroes);
                 Character randomHero = _potentialTargets[rand.Next(0, _potentialTargets.Count)];
                 cardEffectRef.Targets.Add(randomHero);
-                PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
+                StartCoroutine(PlayCardAnimationSync(playingCharacter, card, card.CardEffect, null));
+
                 break;
 
             case TargetType.AllHeroes:
@@ -190,7 +192,8 @@ public class PartyManager : Singleton<PartyManager>
                 {
                     cardEffectRef.Targets.Add(ally);
                 }
-                PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
+                StartCoroutine(PlayCardAnimationSync(playingCharacter, card, card.CardEffect, null));
+
                 break;
 
             case TargetType.AllHeroesButMe:
@@ -201,7 +204,7 @@ public class PartyManager : Singleton<PartyManager>
                         cardEffectRef.Targets.Add(ally);
                     }
                 }
-                PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
+                StartCoroutine(PlayCardAnimationSync(playingCharacter, card, card.CardEffect, null));
 
                 break;
 
@@ -217,7 +220,7 @@ public class PartyManager : Singleton<PartyManager>
                 FillLegalTargets(playingCharacter, card, Enemies);
                 Character randomEnemy = _potentialTargets[rand1.Next(0, _potentialTargets.Count)];
                 cardEffectRef.Targets.Add(randomEnemy);
-                PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
+                StartCoroutine(PlayCardAnimationSync(playingCharacter, card, card.CardEffect, null));
 
                 break;
 
@@ -226,7 +229,7 @@ public class PartyManager : Singleton<PartyManager>
                 {
                     cardEffectRef.Targets.Add(enemy);
                 }
-                PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
+                StartCoroutine(PlayCardAnimationSync(playingCharacter, card, card.CardEffect, null));
                 break;
 
             case TargetType.AllCharacters:
@@ -238,7 +241,7 @@ public class PartyManager : Singleton<PartyManager>
                 {
                     cardEffectRef.Targets.Add(enemy);
                 }
-                PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
+                StartCoroutine(PlayCardAnimationSync(playingCharacter, card, card.CardEffect, null));
                 break;
 
             case TargetType.AllCharactersButMe:
@@ -258,11 +261,9 @@ public class PartyManager : Singleton<PartyManager>
                     }
                     cardEffectRef.Targets.Add(enemy);
                 }
-                PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
+                StartCoroutine(PlayCardAnimationSync(playingCharacter, card, card.CardEffect, null));
                 break;
         }
-
-
     }
 
     public void SelectHeroToUltimate()
@@ -294,7 +295,7 @@ public class PartyManager : Singleton<PartyManager>
         yield return new WaitUntil(() => SelectedCharacter != null);
 
         cardEffectRef.Targets.Add(SelectedCharacter);
-        PlayEffectAndCleanUp(playingCharacter, card, cardEffectRef, cardUI);
+        StartCoroutine(PlayCardAnimationSync(playingCharacter, card, card.CardEffect, null));
         SelectedCharacter = null;
     }
 
@@ -354,16 +355,24 @@ public class PartyManager : Singleton<PartyManager>
         _pointerList = null;
     }
     
-    private void PlayEffectAndCleanUp(Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)
+    private IEnumerator PlayCardAnimationSync(Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)
     {
+        CardCleanup(playingCharacter, card, cardEffectRef, cardUI);
+        if(card.CardType == CardType.Attack && playingCharacter is Hero)
+        {
+            playingCharacter.PlayAnimation(card.CardType);
+            yield return new WaitUntil(() => playingCharacter.ReachedAnimationSyncFrame);
+        }
+        playingCharacter.ReachedAnimationSyncFrame = false;
         cardEffectRef.PlayEffect(playingCharacter, card);
+    }
+
+    private void CardCleanup(Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)
+    {
         card.RemoveCard(playingCharacter);
         if (cardUI != null)
         {
-            
-
-            cardUI.DestroyTheHeretic();
-           
+            cardUI.DestroyTheHeretic();       
         }
         ReInitHand();
         TurnOffAllButtons();

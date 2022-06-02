@@ -24,7 +24,8 @@ public abstract class Character : MonoBehaviour
     [SerializeField] private CharacterPersonalUI _refSlot;
 
     [SerializeField] private Animator _animator;
-
+    [SerializeField] private bool _reachedAnimationSyncFrame;
+    public AnimationEvent AnimationSyncEvent;
 
     private List<StatusEffect> _activeStatusEffects = new List<StatusEffect>();
 
@@ -67,6 +68,8 @@ public abstract class Character : MonoBehaviour
         }
     }
 
+    public bool ReachedAnimationSyncFrame { get => _reachedAnimationSyncFrame; set => _reachedAnimationSyncFrame = value; }
+
     private void Start()
     {
         TheBetterStart();
@@ -76,13 +79,14 @@ public abstract class Character : MonoBehaviour
     protected virtual void TheBetterStart()
     {
         //_animator = GetComponentInChildren<Animator>();
+        //AnimationSyncEvent += SyncCompleted;
         Button = GetComponentInChildren<Button>();
         RefSlot = GetComponentInChildren<CharacterPersonalUI>();
         _currentHp = MaxHP;
         OnStartTurn += StartOfTurnReset;
         StartOfTurnReset();
         DetermineController();
-        UpdateUi();
+        UpdateUI();
     }
 
     protected void InvokeStartTurn()
@@ -113,10 +117,10 @@ public abstract class Character : MonoBehaviour
         {
             RefSlot.AddEffect(statusEffect);
         }
-        UpdateUi();
+        UpdateUI();
     }
 
-    public virtual void UpdateUi()
+    public virtual void UpdateUI()
     {
         if (RefSlot != null)
         {
@@ -136,7 +140,7 @@ public abstract class Character : MonoBehaviour
     public void GainBlock(int amount)
     {
         CurrentBlock += amount + Stats.Dexterity;
-        UpdateUi();
+        UpdateUI();
     }
 
     public void Heal(int amount, Character source)
@@ -146,7 +150,7 @@ public abstract class Character : MonoBehaviour
         {
             _currentHp = MaxHP;
         }
-        UpdateUi();
+        UpdateUI();
     }
 
     public void TakeDmg(Damage damage)
@@ -188,7 +192,7 @@ public abstract class Character : MonoBehaviour
             }
         }
 
-        UpdateUi();
+        UpdateUI();
         PrefabManager.Instance.CreateDamagePopup(transform.parent.position, damage.GivenDamage);
     }
 
@@ -221,6 +225,7 @@ public abstract class Character : MonoBehaviour
     {
         ClearBlock();
         RegainAP();
+        UpdateUI();
     }
 
     public void ClearBlock()
@@ -233,7 +238,7 @@ public abstract class Character : MonoBehaviour
         {
             CurrentBlock -= AmountOfBlockToLose;
         }
-        UpdateUi();
+        UpdateUI();
     }
 
     private void RegainAP()
@@ -257,19 +262,11 @@ public abstract class Character : MonoBehaviour
 
     public void PlayAnimation(CardType cardType)
     {
-        switch (cardType)
+        if(_animator != null)
         {
-            case CardType.Attack:
-                _animator.SetTrigger("Attack");
-                break;
-
-            case CardType.Guard:
-                _animator.SetTrigger("Guard");
-                break;
-
-            case CardType.Utility:
-                _animator.SetTrigger("Utility");
-                break;
-        }
+            _animator.SetTrigger("Attack");
+        }        
     }
+
+
 }
