@@ -103,8 +103,7 @@ public class PlayerController : Controller
         CardCloseUpField.gameObject.SetActive(panelState);
         _darkFilter.SetActive(panelState);
         if (CardCloseUpField.gameObject.activeSelf)
-        {
-            
+        {   
             CardCloseUpField.InitializeDisplay(givenCard, self);
         }
     }
