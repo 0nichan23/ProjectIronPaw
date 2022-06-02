@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,9 +6,12 @@ public abstract class CardPile : MonoBehaviour
 {
     Stack<CardScriptableObject> _cards = new Stack<CardScriptableObject>();
 
-    [SerializeField]
-    protected Hand _hand;
+    [SerializeField] protected Hand _hand;
 
+    [SerializeField] protected Controller _controller;
+
+    public Action OnDrawCard;
+    public Action OnCardAdded;
 
     // Will be removed/Initialized differently when deck building is a thing
     [SerializeField]
@@ -17,10 +21,18 @@ public abstract class CardPile : MonoBehaviour
 
     private void Awake()
     {
-        foreach (var card in _cardsGiven)
+        if (!GetComponent<Enemy>())
         {
-            _cards.Push(card);
+            _controller = PlayerWrapper.Instance.PlayerController;
+            OnDrawCard += ((PlayerController)_controller).UpdatePlayerUI;
+            OnCardAdded += ((PlayerController)_controller).UpdatePlayerUI;
         }
+        else
+        {
+            _controller = EnemyWrapper.Instance.EnemyController;
+        }
+
+        InitDeck();
     }
 
     public void Shuffle()
@@ -38,14 +50,14 @@ public abstract class CardPile : MonoBehaviour
         while (n > 1)
         {
             n--;
-            int k = Random.Range(0, n + 1);
+            int k = UnityEngine.Random.Range(0, n + 1);
 
             CardScriptableObject tempCardSlot = _cardsGiven[k];
             _cardsGiven[k] = _cardsGiven[n];
             _cardsGiven[n] = tempCardSlot;
         }
 
-        
+
 
         foreach (var card in _cardsGiven)
         {
@@ -55,18 +67,20 @@ public abstract class CardPile : MonoBehaviour
 
     public virtual void Draw()
     {
-        if(Cards.Count > 0)
+        if (Cards.Count > 0)
         {
             CardScriptableObject cardDrawn = Cards.Pop();
 
             _hand.AddCard(cardDrawn);
 
-            if (!GetComponent<Enemy>())
+            if (_controller == PlayerWrapper.Instance.PlayerController)
             {
                 cardDrawn.CreateCardDisplay();
             }
+
+            OnDrawCard?.Invoke();
         }
-        
+
     }
 
     // Not For Build
@@ -75,5 +89,17 @@ public abstract class CardPile : MonoBehaviour
         return null;
     }
 
+    public virtual void AddCardToPile(CardScriptableObject card)
+    {
+        _cards.Push(card);
+        OnCardAdded?.Invoke();
+    }
 
+    private void InitDeck()
+    {
+        foreach (CardScriptableObject card in _cardsGiven)
+        {
+            _cards.Push(card);
+        }
+    }
 }

@@ -24,31 +24,18 @@ public class Hand : MonoBehaviour
         Cards.Remove(givenCard);
     }
 
-    public void DiscardCard(CardScriptableObject card)
+    public void ClearCard(CardScriptableObject card)
     {
         Destroy(card.CardDisplay);
         RemoveCard(card);
-        DiscardPile.Cards.Push(card);
+        DiscardPile.AddCardToPile(card);
     }
 
-    public void DiscardHand()
+    public void ClearHand()
     {
-        //foreach (var card in Cards)
-        //{
-        //    DiscardCard(card);
-        //}
-
         while(Cards.Count > 0)
         {
-            DiscardCard(Cards[0]);
+            ClearCard(Cards[0]);
         }
-    }
-    void ExileCard(CardScriptableObject card)
-    {
-
-    }
-    void ReturnCardToDeck(CardScriptableObject card)
-    {
-
     }
 }

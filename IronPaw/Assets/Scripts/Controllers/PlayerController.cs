@@ -10,6 +10,8 @@ public class PlayerController : Controller
     public DiscardPile DiscardPile;
     public ExiledPile ExiledPile;
 
+    [SerializeField] private TextMeshProUGUI _numberOfCardsInDiscardPile;
+    [SerializeField] private TextMeshProUGUI _numberOfCardsInDrawPile;
     public Button UltimateButton;
 
     public float UltimateCharge;
@@ -22,6 +24,8 @@ public class PlayerController : Controller
 
     [SerializeField]
     CardCloseUp CardCloseUpField;
+
+    
 
     [SerializeField] private GameObject _darkFilter;
 
@@ -44,7 +48,7 @@ public class PlayerController : Controller
     {
         StartOfTurnDraw();
         StartOfTurnEnergyRegen();
-        UpdateEnergyUi();
+        UpdatePlayerUI();
     }
 
     private void StartOfTurnDraw()
@@ -62,7 +66,7 @@ public class PlayerController : Controller
 
     private void BasicEndOfTurnTasks()
     {
-        Hand.DiscardHand();
+        Hand.ClearHand();
     }
 
     public void GainUltimateCharge(int amountToGain)
@@ -108,9 +112,11 @@ public class PlayerController : Controller
         }
     }
 
-    public void UpdateEnergyUi()
+    public void UpdatePlayerUI()
     {
         ManaText.text = CurrentEnergy.ToString() + "/" + MaxEnergy.ToString();
+        _numberOfCardsInDiscardPile.text = DiscardPile.Cards.Count.ToString();
+        _numberOfCardsInDrawPile.text = Deck.Cards.Count.ToString();
     }
 
 

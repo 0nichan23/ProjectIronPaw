@@ -78,8 +78,6 @@ public abstract class Character : MonoBehaviour
 
     protected virtual void TheBetterStart()
     {
-        //_animator = GetComponentInChildren<Animator>();
-        //AnimationSyncEvent += SyncCompleted;
         Button = GetComponentInChildren<Button>();
         RefSlot = GetComponentInChildren<CharacterPersonalUI>();
         _currentHp = MaxHP;

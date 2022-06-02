@@ -56,7 +56,7 @@ public class CardScriptableObject : ScriptableObject
         if (playingCharacter is Hero)
         {
             PlayerWrapper.Instance.PlayerController.CurrentEnergy -= EnergyCost;
-            PlayerWrapper.Instance.PlayerController.UpdateEnergyUi();
+            PlayerWrapper.Instance.PlayerController.UpdatePlayerUI();
 
             if (!IsSwift)
             {
@@ -72,11 +72,11 @@ public class CardScriptableObject : ScriptableObject
 
         if (IsUsable)
         {
-            playingCharacter.ExiledPile.ExileCard(this);
+            playingCharacter.ExiledPile.AddCardToPile(this);
         }
         else
         {
-            playingCharacter.DiscardPile.Cards.Push(this);
+            playingCharacter.DiscardPile.AddCardToPile(this);
         }
     }
 
@@ -135,6 +135,8 @@ public class CardScriptableObject : ScriptableObject
 
         CardUI GOUI = GO.GetComponent<CardUI>();
         GOUI.CardSO = this;
+
+        CardEffect.Targets.Clear();
 
         GOUI.InitializeDisplay();
 

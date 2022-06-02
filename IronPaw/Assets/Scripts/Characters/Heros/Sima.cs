@@ -39,12 +39,12 @@ public class Sima : Hero
 
     public override void SubscribePassive()
     {
-        ExiledPile.OnExileCard += SimaPassive;
+        ExiledPile.OnCardAdded+= SimaPassive;
     }
 
     public override void UnSubscribePassive()
     {
-        ExiledPile.OnExileCard -= SimaPassive;
+        ExiledPile.OnCardAdded -= SimaPassive;
     }
 
     
