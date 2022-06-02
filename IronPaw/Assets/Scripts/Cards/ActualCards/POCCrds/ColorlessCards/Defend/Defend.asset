@@ -20,6 +20,6 @@ MonoBehaviour:
   CardEffect: {fileID: 11400000, guid: 3701d09d6d19f184298bfd4dce6e363b, type: 2}
   IsSwift: 0
   IsUsable: 0
-  Artwork: {fileID: 0}
+  Artwork: {fileID: 21300000, guid: 09818b441169e774287de35b39277c81, type: 3}
   CardType: 1
   CardDisplay: {fileID: 0}

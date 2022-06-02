@@ -21,7 +21,7 @@ public class PrefabManager : Singleton<PrefabManager>
     Dictionary<Type, Sprite> StatusEffectDictionary = new Dictionary<Type, Sprite>();
 
 
-    public List<Sprite> CardTypeIcons = new List<Sprite>(3);
+    public List<Sprite> IntentionIcons = new List<Sprite>(3);
 
     [SerializeField] private List<Sprite> _cardFrames = new List<Sprite>();
     [SerializeField] private List<Sprite> _plateFrames = new List<Sprite>();
@@ -50,14 +50,14 @@ public class PrefabManager : Singleton<PrefabManager>
         switch (card.CardType)
         {
             case CardType.Attack:
-                return CardTypeIcons[0];
+                return IntentionIcons[0];
                 
                 
             case CardType.Guard:
-                return CardTypeIcons[1];
+                return IntentionIcons[1];
 
             case CardType.Utility:
-                return CardTypeIcons[2];
+                return IntentionIcons[2];
 
             default:
 
