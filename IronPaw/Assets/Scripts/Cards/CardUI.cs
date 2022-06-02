@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CardUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class CardUI : MonoBehaviour
 {
     public CardScriptableObject CardSO;
 
@@ -66,12 +66,12 @@ public class CardUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         Destroy(gameObject);
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnPressStart()
     {
         _runningCoroutine = StartCoroutine(CountTimeHeld());
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    public void OnPressRelease()
     {
         StopCoroutine(_runningCoroutine);
         if (_mouseDownTime < _longPressTime) //shotpress
