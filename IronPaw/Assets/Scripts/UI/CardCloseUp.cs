@@ -18,6 +18,8 @@ public class CardCloseUp : MonoBehaviour, IPointerDownHandler
     [SerializeField] private Image _plateFrame;
     [SerializeField] private Image _rarityFrame;
     [SerializeField] private Image _typeFrame;
+    [SerializeField] private GameObject _toolTipScroll;
+
 
     public void InitializeDisplay(CardScriptableObject givenCard, CardUI cardUIRef)
     { 
@@ -32,6 +34,8 @@ public class CardCloseUp : MonoBehaviour, IPointerDownHandler
         _rarityFrame.sprite = cardUIRef.RarityFrame.sprite;
         _typeFrame.sprite = cardUIRef.TypeFrame.sprite;
 
+
+        InitCardToolTips(givenCard);
         InitType(givenCard.CardType);
     }
 
@@ -53,6 +57,18 @@ public class CardCloseUp : MonoBehaviour, IPointerDownHandler
                 _cardTypeDisplay.text = "Utility";
                 break;
 
+        }
+    }
+
+    private void InitCardToolTips(CardScriptableObject givenCard)
+    {
+        for (int i = 0; i < _toolTipScroll.transform.childCount; i++)
+        {
+            _toolTipScroll.transform.GetChild(i).gameObject.SetActive(false);
+        }
+        foreach (var item in givenCard.Keywords)
+        {
+            _toolTipScroll.transform.GetChild(((int)item)).gameObject.SetActive(true);
         }
     }
 

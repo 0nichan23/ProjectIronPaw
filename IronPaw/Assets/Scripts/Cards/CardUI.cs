@@ -22,6 +22,8 @@ public class CardUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _cardDescDisplay;
     [SerializeField] private TextMeshProUGUI _cardTypeDisplay;
 
+
+
     [SerializeField] private float _longPressTime = 1f;
     private float _mouseDownTime;
     private Coroutine _runningCoroutine;

@@ -27,7 +27,9 @@ public class PlayerController : Controller
 
     
 
-    [SerializeField] private GameObject _darkFilter;
+
+    [SerializeField] private GameObject _zoomInCanvas;
+
 
     private void Awake()
     {
@@ -102,11 +104,10 @@ public class PlayerController : Controller
     }
 
 
-    public void ToggleCardCloseUpPanel(CardScriptableObject givenCard, bool panelState, CardUI self)
+    public void ToggleCardCloseUpPanel(CardScriptableObject givenCard, bool state, CardUI self)
     {
-        CardCloseUpField.gameObject.SetActive(panelState);
-        _darkFilter.SetActive(panelState);
-        if (CardCloseUpField.gameObject.activeSelf)
+        _zoomInCanvas.SetActive(state);
+        if (state)
         {   
             CardCloseUpField.InitializeDisplay(givenCard, self);
         }

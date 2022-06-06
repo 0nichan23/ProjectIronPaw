@@ -18,6 +18,7 @@ public class CardScriptableObject : ScriptableObject
     public Sprite Artwork;
     public CardType CardType;
     public GameObject CardDisplay;
+    public List<KeyWords> Keywords = new List<KeyWords>();
 
     private bool CheckCardAndHeroColors(Character playingCharacter)
     {
