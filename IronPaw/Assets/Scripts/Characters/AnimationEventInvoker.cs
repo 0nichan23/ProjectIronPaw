@@ -10,8 +10,16 @@ public class AnimationEventInvoker : MonoBehaviour
         _character = GetComponentInChildren<Character>();
     }
 
-    public void OnAnimationEvent()
+    public void OnAttackDealDmg()
     {
         _character.ReachedAnimationSyncFrame = true;
+    }
+
+    public void OnAttackAnimationFinished()
+    {
+        if (_character is Enemy)
+        {
+            ((EnemyController)_character.Controller).CurrentEnemyDonePlaying = true;
+        }
     }
 }

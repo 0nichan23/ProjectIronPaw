@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class CardUI : MonoBehaviour
@@ -70,11 +69,18 @@ public class CardUI : MonoBehaviour
 
     public void OnPressStart()
     {
-        _runningCoroutine = StartCoroutine(CountTimeHeld());
+        if (!TurnManager.Instance.LockInputs)
+        {
+            _runningCoroutine = StartCoroutine(CountTimeHeld());
+        }
     }
 
     public void OnPressRelease()
     {
+        if (TurnManager.Instance.LockInputs)
+        {
+            return;
+        }
         StopCoroutine(_runningCoroutine);
         if (_mouseDownTime < _longPressTime) //shotpress
         {
@@ -96,7 +102,7 @@ public class CardUI : MonoBehaviour
         }
         // LongPress
         PlayerWrapper.Instance.PlayerController.ToggleCardCloseUpPanel(CardSO, true, this);
-        
+
     }
 
     private void InitCardFrame()
@@ -104,8 +110,8 @@ public class CardUI : MonoBehaviour
         List<string> colorID = new List<string>();
 
         colorID.Add(CardSO.Colors[0].ToString());
-        
-        if(CardSO.Colors.Length > 1)
+
+        if (CardSO.Colors.Length > 1)
         {
             colorID.Add(CardSO.Colors[1].ToString());
         }
@@ -113,9 +119,9 @@ public class CardUI : MonoBehaviour
         CardFrame.sprite = PrefabManager.Instance.GetCardFrameByColor(colorID);
         PlateFrame.sprite = PrefabManager.Instance.GetCardPlateFrameByColor(colorID);
 
-        
+
         RarityFrame.sprite = PrefabManager.Instance.GetCardRarityFrame(CardSO.Rarity);
         TypeFrame.sprite = PrefabManager.Instance.GetCardTypeFrame(CardSO.CardType);
 
-    }    
+    }
 }

@@ -25,7 +25,7 @@ public class PlayerController : Controller
     [SerializeField]
     CardCloseUp CardCloseUpField;
 
-    
+
 
 
     [SerializeField] private GameObject _zoomInCanvas;
@@ -35,7 +35,10 @@ public class PlayerController : Controller
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            ControllerChracters.Add(transform.GetChild(i).GetComponentInChildren<Hero>());
+            if (transform.GetChild(i).gameObject.activeSelf)
+            {
+                ControllerChracters.Add(transform.GetChild(i).GetComponentInChildren<Hero>());
+            }
         }
 
         OnStartTurn += BasicStartOfTurnTasks;
@@ -108,7 +111,7 @@ public class PlayerController : Controller
     {
         _zoomInCanvas.SetActive(state);
         if (state)
-        {   
+        {
             CardCloseUpField.InitializeDisplay(givenCard, self);
         }
     }

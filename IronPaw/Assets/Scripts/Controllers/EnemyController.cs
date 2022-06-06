@@ -8,11 +8,19 @@ public class EnemyController : Controller
 
     public bool EnemiesDoneCalculating = false;
 
+    private bool _currentEnemyDonePlaying = false;
+
+    public bool CurrentEnemyDonePlaying { get => _currentEnemyDonePlaying; set => _currentEnemyDonePlaying = value; }
+
     private void Awake()
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            ControllerChracters.Add(transform.GetChild(i).GetComponentInChildren<Enemy>());
+            if (transform.GetChild(i).gameObject.activeSelf)
+            {
+                ControllerChracters.Add(transform.GetChild(i).GetComponentInChildren<Enemy>());
+
+            }
         }
 
     }
@@ -26,15 +34,22 @@ public class EnemyController : Controller
     {
         foreach (Enemy enemy in ControllerChracters)
         {
+            CurrentEnemyDonePlaying = false;
+            CardScriptableObject playedCard = null;
+
             if (enemy.IsAlive)
             {
                 if (enemy.Hand.Cards.Count > 0)
                 {
+                    playedCard = enemy.Hand.Cards[0];
                     PartyManager.Instance.EnemyPlayCard(enemy, enemy.Hand.Cards[0]);
+
                 }
             }
-
-            yield return new WaitForSeconds(timeBetweenTurns);
+            if (playedCard != null && playedCard.CardType == CardType.Attack)
+            {
+                yield return new WaitUntil(() => CurrentEnemyDonePlaying);
+            }
         }
         StartCoroutine(RevealIntentions());
         //RevealIntentions();
@@ -60,7 +75,7 @@ public class EnemyController : Controller
             }            
         }
     }*/
-   
+
 
 
     public IEnumerator RevealIntentions()
@@ -81,7 +96,7 @@ public class EnemyController : Controller
                     }
                     // shows the enemy's intent (symbol (+number if relevant) + Hero Portrait) 
                 }
-                
+
             }
             yield return new WaitForSeconds(0.3f);
         }

@@ -37,13 +37,14 @@ public class TurnManager : Singleton<TurnManager>
         }
         _enemyController.OnEndTurn += PartyManager.Instance.ResetRerollForTaunt;
         _playerController.OnEndTurn += PartyManager.Instance.ResetRerollForTaunt;
-        StartCoroutine(TurnLoop());
+         StartCoroutine(TurnLoop());
     }
 
 
 
     IEnumerator TurnLoop()
     {
+        yield return new WaitForEndOfFrame();
         while (gameOnGoing /*win condition*/ )
         {
             if (firstTurn)
