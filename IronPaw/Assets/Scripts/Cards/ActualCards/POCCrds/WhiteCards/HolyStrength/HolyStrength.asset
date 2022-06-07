@@ -15,7 +15,7 @@ MonoBehaviour:
   CardName: Holy Strength
   Description: A Hero gains 3 temporary Strength
   Colors: 03000000
-  Rarity: 0
+  Rarity: 2
   EnergyCost: 0
   CardEffect: {fileID: 11400000, guid: aa9cc29d703d4d14bbb304030497a140, type: 2}
   IsSwift: 0

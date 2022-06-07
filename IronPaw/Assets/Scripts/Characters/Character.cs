@@ -40,6 +40,7 @@ public abstract class Character : MonoBehaviour
 
     [SerializeField] private Controller _controller;
     [SerializeField] private CharacterStats _stats = new CharacterStats();
+   
 
     public int MaxHP { get => _maxHp; }
     public int CurrentHP { get => _currentHp; }
@@ -78,7 +79,6 @@ public abstract class Character : MonoBehaviour
 
     protected virtual void TheBetterStart()
     {
-        Button = GetComponentInChildren<Button>();
         RefSlot = GetComponentInChildren<CharacterPersonalUI>();
         _currentHp = MaxHP;
         OnStartTurn += StartOfTurnReset;

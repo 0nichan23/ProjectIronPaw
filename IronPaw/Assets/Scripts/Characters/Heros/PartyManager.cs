@@ -285,8 +285,7 @@ public class PartyManager : Singleton<PartyManager>
     {
         ToggleSelectionCanvas(true);
         yield return new WaitUntil(() => SelectedCharacter != null);
-        // AquireTargets
-        // PlayCard
+        TurnOffAllButtons();
         PlayCard(SelectedCharacter, card);
     }
 
