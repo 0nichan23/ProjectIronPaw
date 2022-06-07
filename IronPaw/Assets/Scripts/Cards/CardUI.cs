@@ -84,9 +84,9 @@ public class CardUI : MonoBehaviour
                         _cardDescDisplay.text += TurnStringToCapitalString(keywordInCard);
 
                     }
-                    else
+                    else // Used for AP edge-case (and maybe for future 2-word Keywords
                     {
-                        _cardDescDisplay.text += keywordInCard.ToString();
+                        _cardDescDisplay.text += keywordInCard.ToString(); 
 
                     }
                     numberOfKeyWordsAdded++;
@@ -95,31 +95,34 @@ public class CardUI : MonoBehaviour
                 }
             }
         }
-        if (_cardDescDisplay.text.Length > 0)
+
+        if (numberOfKeyWordsAdded > 0)
         {
             for (int i = 0; i < 2; i++)
             {
-                _cardDescDisplay.text = _cardDescDisplay.text.Remove(_cardDescDisplay.text.Length - 1);
+                _cardDescDisplay.text = _cardDescDisplay.text.Remove(_cardDescDisplay.text.Length - 1); // Remove the last coma + space that were added
             }
-            _cardDescDisplay.text += "\n";
+            _cardDescDisplay.text += "\n"; // Goind down one line
         }
 
-        _cardDescDisplay.text += CardSO.Description.ToString();
+        _cardDescDisplay.text += CardSO.Description.ToString(); // Adding the card description text from the CardSO (from the inspector)
 
 
 
         foreach (var keywordInCard in CardSO.Keywords)
         {
             string cappedKeyWord = "";
+
             if (keywordInCard.ToString().Length > 2)
             {
                  cappedKeyWord = TurnStringToCapitalString(keywordInCard);
             }
-            else
+            else // Used for AP edge-case (and maybe for future 2-word Keywords
             {
                 cappedKeyWord = keywordInCard.ToString();
             }
-            if (_cardDescDisplay.text.Contains(cappedKeyWord))
+
+            if (_cardDescDisplay.text.Contains(cappedKeyWord)) 
             {
                 string sentence = _cardDescDisplay.text;
                 _cardDescDisplay.text = "";
@@ -142,22 +145,16 @@ public class CardUI : MonoBehaviour
                     {
                         _cardDescDisplay.text += words[i] + " ";
                     }
-                    if (numberOfKeyWordsAdded != 0 && i == numberOfKeyWordsAdded-1)
+
+                    if (numberOfKeyWordsAdded != 0 && i == numberOfKeyWordsAdded-1) // In the event where at least 1 keyword was added, go down one line
                     {
                         _cardDescDisplay.text += "\n";
                     }
                 }
-
-
             }
-
-
         }
 
     }
-
-
-
 
     private void InitType(CardType type)
     {
