@@ -29,6 +29,7 @@ public class PrefabManager : Singleton<PrefabManager>
     [SerializeField] private List<Sprite> _typeFrames = new List<Sprite>();
 
     
+   [SerializeField] public KeywordDisplayManager _keywordManager;
     
     public Sprite GetSprite(StatusEffect StatusEffect)
     {

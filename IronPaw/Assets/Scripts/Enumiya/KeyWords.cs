@@ -11,7 +11,7 @@ public enum KeyWords
     FRAIL,
     STRENGTH,
     BLEED,
-    ACTION_POINT,
+    AP,
     USABLE,
     EXILE,
     SWIFT,

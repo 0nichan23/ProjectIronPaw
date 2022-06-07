@@ -38,10 +38,126 @@ public class CardUI : MonoBehaviour
         ArtWorkDisplay.sprite = CardSO.Artwork;
         _manaCostDisplay.text = CardSO.EnergyCost.ToString();
         _cardNameDisplay.text = CardSO.CardName;
-        _cardDescDisplay.text = $"" + CardSO.Description.ToString();
         InitCardFrame();
+        InitDescription();
         InitType(CardSO.CardType);
     }
+
+
+    private string TurnStringToCapitalString(string allCapped)
+    {
+        string capital = allCapped.ToLower();
+        char[] letters = capital.ToCharArray();
+        capital = letters[0].ToString().ToUpper();
+        for (int i = 1; i < letters.Length; i++)
+        {
+            if (letters[i] == '_')
+            {
+                capital += " ";
+            }
+            else
+            {
+                capital += letters[i];
+
+            }
+        }
+        return capital;
+
+    }
+    private string TurnStringToCapitalString(KeyWords allCapped)
+    {
+        return TurnStringToCapitalString(allCapped.ToString());
+    }
+
+    private void InitDescription()
+    {
+        int numberOfKeyWordsAdded = 0;
+        _cardDescDisplay.text = "";
+        foreach (var keywordInCard in CardSO.Keywords)
+        {
+            foreach (var keywordToAdd in PrefabManager.Instance._keywordManager.KeywordsToAddToCardDescription)
+            {
+                if (keywordInCard == keywordToAdd)
+                {
+                    if (keywordInCard.ToString().Length > 2)
+                    {
+                        _cardDescDisplay.text += TurnStringToCapitalString(keywordInCard);
+
+                    }
+                    else
+                    {
+                        _cardDescDisplay.text += keywordInCard.ToString();
+
+                    }
+                    numberOfKeyWordsAdded++;
+                    _cardDescDisplay.text += ", ";
+
+                }
+            }
+        }
+        if (_cardDescDisplay.text.Length > 0)
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                _cardDescDisplay.text = _cardDescDisplay.text.Remove(_cardDescDisplay.text.Length - 1);
+            }
+            _cardDescDisplay.text += "\n";
+        }
+
+        _cardDescDisplay.text += CardSO.Description.ToString();
+
+
+
+        foreach (var keywordInCard in CardSO.Keywords)
+        {
+            string cappedKeyWord = "";
+            if (keywordInCard.ToString().Length > 2)
+            {
+                 cappedKeyWord = TurnStringToCapitalString(keywordInCard);
+            }
+            else
+            {
+                cappedKeyWord = keywordInCard.ToString();
+            }
+            if (_cardDescDisplay.text.Contains(cappedKeyWord))
+            {
+                string sentence = _cardDescDisplay.text;
+                _cardDescDisplay.text = "";
+                string[] words = sentence.Split();
+                string temp = "";
+                for (int i = 0; i < words.Length; i++)
+                {
+                    if (words[i] == cappedKeyWord)
+                    {
+                        temp = "<b>" + cappedKeyWord + "</b>";
+                        _cardDescDisplay.text += temp + " ";
+                    }
+                    else if (words[i] == cappedKeyWord + ",")
+                    {
+                        string trimmedWord = cappedKeyWord.TrimEnd(new char[] { ',' });
+                        temp = "<b>" + trimmedWord + "</b>,";
+                        _cardDescDisplay.text += temp + " ";
+                    }
+                    else
+                    {
+                        _cardDescDisplay.text += words[i] + " ";
+                    }
+                    if (numberOfKeyWordsAdded != 0 && i == numberOfKeyWordsAdded-1)
+                    {
+                        _cardDescDisplay.text += "\n";
+                    }
+                }
+
+
+            }
+
+
+        }
+
+    }
+
+
+
 
     private void InitType(CardType type)
     {
