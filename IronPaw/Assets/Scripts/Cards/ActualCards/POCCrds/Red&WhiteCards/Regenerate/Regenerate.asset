@@ -13,15 +13,14 @@ MonoBehaviour:
   m_Name: Regenerate
   m_EditorClassIdentifier: 
   CardName: Regenerate
-  Description: A Hero gains regenerate 3 (At the start of the turn, Heal for 3, then
-    reduce by 1)
+  Description: A Hero gains Regenerate 3, Usable
   Colors: 0000000003000000
   Rarity: 0
   EnergyCost: 1
   CardEffect: {fileID: 11400000, guid: 92f32279ecaeda24d8a4ea65ed41fd00, type: 2}
   IsSwift: 0
-  IsUsable: 0
+  IsUsable: 1
   Artwork: {fileID: 21300000, guid: 7ada1a9f01c5f5e44a382d35c404acb9, type: 3}
   CardType: 2
   CardDisplay: {fileID: 0}
-  Keywords: 0000000008000000
+  Keywords: 000000000800000009000000

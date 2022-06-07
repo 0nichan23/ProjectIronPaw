@@ -13,6 +13,7 @@ public enum KeyWords
     BLEED,
     ACTION_POINT,
     USABLE,
+    EXILE,
     SWIFT,
     THORNS,
     ENERGY

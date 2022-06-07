@@ -23,3 +23,4 @@ MonoBehaviour:
   Artwork: {fileID: 21300000, guid: 7b820b8835b2ea641a83b95f53daa763, type: 3}
   CardType: 0
   CardDisplay: {fileID: 0}
+  Keywords: 0a000000

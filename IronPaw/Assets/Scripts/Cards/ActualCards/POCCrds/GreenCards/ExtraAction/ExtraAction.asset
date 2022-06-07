@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ExtraAction
   m_EditorClassIdentifier: 
   CardName: ExtraAction
-  Description: A Hero gains 1 Action Point (this combat only)
+  Description: A Hero gains 1 Action Point, Usable
   Colors: 01000000
   Rarity: 1
   EnergyCost: 1
