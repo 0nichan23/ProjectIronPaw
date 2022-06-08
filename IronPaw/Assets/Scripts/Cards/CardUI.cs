@@ -73,6 +73,8 @@ public class CardUI : MonoBehaviour
     {
         int numberOfKeyWordsAdded = 0;
         _cardDescDisplay.text = "";
+
+        // 1) ---------------  Adding Keywords that need to be added at start of card ------
         foreach (var keywordInCard in CardSO.Keywords)
         {
             foreach (var keywordToAdd in PrefabManager.Instance._keywordManager.KeywordsToAddToCardDescription)
@@ -96,19 +98,25 @@ public class CardUI : MonoBehaviour
             }
         }
 
+        // 1.1) ---------------  Removing excess coma + space, going down 1 line -----------
         if (numberOfKeyWordsAdded > 0)
         {
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 2; i++) // Remove the last coma + space that were added (line 95)
             {
-                _cardDescDisplay.text = _cardDescDisplay.text.Remove(_cardDescDisplay.text.Length - 1); // Remove the last coma + space that were added
+                _cardDescDisplay.text = _cardDescDisplay.text.Remove(_cardDescDisplay.text.Length - 1); 
             }
-            _cardDescDisplay.text += "\n"; // Goind down one line
+
+            /* Goind down one line. This will be deleted before the keywords are bolded (when the description is split to individual words),
+             * but is still necessary, sine the string needs some space to diffrnitiate between the last Keyword added and the rest of the inspector-
+             * fed description (added at line 116) */
+            _cardDescDisplay.text += "\n"; 
+            
         }
 
-        _cardDescDisplay.text += CardSO.Description.ToString(); // Adding the card description text from the CardSO (from the inspector)
+        // 2) -----  Adding the card description text from the CardSO (from the inspector)--
+        _cardDescDisplay.text += CardSO.Description.ToString();
 
-
-
+        // 3) -----------------------  Making Keywords Bold --------------------------------
         foreach (var keywordInCard in CardSO.Keywords)
         {
             string cappedKeyWord = "";
@@ -117,7 +125,7 @@ public class CardUI : MonoBehaviour
             {
                  cappedKeyWord = TurnStringToCapitalString(keywordInCard);
             }
-            else // Used for AP edge-case (and maybe for future 2-word Keywords
+            else // Used for AP edge-case (and maybe for future 2-word Keywords)
             {
                 cappedKeyWord = keywordInCard.ToString();
             }
@@ -148,7 +156,7 @@ public class CardUI : MonoBehaviour
 
                     if (numberOfKeyWordsAdded != 0 && i == numberOfKeyWordsAdded-1) // In the event where at least 1 keyword was added, go down one line
                     {
-                        _cardDescDisplay.text += "\n";
+                        _cardDescDisplay.text += "\n"; // Going down 1 line
                     }
                 }
             }
