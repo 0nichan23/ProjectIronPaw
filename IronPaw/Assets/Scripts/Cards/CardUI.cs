@@ -203,7 +203,7 @@ public class CardUI : MonoBehaviour
             return;
         }
         StopCoroutine(_runningCoroutine);
-        if (_mouseDownTime < _longPressTime) //shotpress
+        if (_mouseDownTime < _longPressTime) //shortpress
         {
             //play card normally
             if (CardSO.CheckCardValidity())
