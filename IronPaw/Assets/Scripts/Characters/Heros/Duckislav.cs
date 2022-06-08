@@ -44,4 +44,5 @@ public class Duckislav : Hero
     {
         Deck.Draw();
     }
+    
 }

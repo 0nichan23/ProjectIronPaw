@@ -180,7 +180,7 @@ public abstract class Character : MonoBehaviour
             amount = remainder;
 
             _currentHp -= amount;
-
+            _animator.SetTrigger("Hit");
             OnTakeDamage?.Invoke(damage);
 
             if (_currentHp <= 0)
