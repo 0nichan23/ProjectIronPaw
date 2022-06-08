@@ -5,6 +5,7 @@ using UnityEngine;
 public class AnimationEventInvoker : MonoBehaviour
 {
     [SerializeField] private Character _character;
+
     void Start()
     {
         _character = GetComponentInChildren<Character>();
@@ -21,5 +22,9 @@ public class AnimationEventInvoker : MonoBehaviour
         {
             ((EnemyController)_character.Controller).CurrentEnemyDonePlaying = true;
         }
+    }
+    public void DoneDying()
+    {
+        _character.DoneDying = true;
     }
 }

@@ -18,11 +18,41 @@ ModelImporter:
   - first:
       74: -1304387373167265313
     second: Hit
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rat_Texture
+    second: {fileID: 2100000, guid: 6163391d4ee56d6428a041bb4a91b881, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rat_Texture1
+    second: {fileID: 2100000, guid: 4e845ea2cb3e3414fa4aeeb7d076654a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
+    second: {fileID: 2100000, guid: 3623d4c489027244ba93a7505634948b, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Rat Final 02_aiStandardSurface1_BaseColor
+    second: {fileID: 2800000, guid: de83712e325f09a4094f82d20911cfde, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Rat Final 02_aiStandardSurface1_Normal
+    second: {fileID: 2800000, guid: 0c5becfe728d24e44bba3737591b48b5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Rat Final 02_aiStandardSurface1_Roughness
+    second: {fileID: 2800000, guid: 6e4e691aab244784fb02073a36f929c5, type: 3}
   materials:
     materialImportMode: 2
-    materialName: 0
-    materialSearch: 1
+    materialName: 2
+    materialSearch: 0
     materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
@@ -216,7 +246,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.035
+    globalScale: 3.5
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

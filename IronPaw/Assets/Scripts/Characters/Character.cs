@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -26,6 +27,8 @@ public abstract class Character : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private bool _reachedAnimationSyncFrame;
     public AnimationEvent AnimationSyncEvent;
+
+    public bool DoneDying;
 
     private List<StatusEffect> _activeStatusEffects = new List<StatusEffect>();
 
@@ -199,6 +202,7 @@ public abstract class Character : MonoBehaviour
         OnDeath?.Invoke();
         UnSubscribe();
         IsAlive = false;
+        _animator.SetTrigger("Die");
         if (this is Hero)
         {
             PartyManager.Instance.Heroes.Remove(this);
@@ -216,7 +220,7 @@ public abstract class Character : MonoBehaviour
             }
         }
 
-        transform.parent.gameObject.SetActive(false);
+        StartCoroutine(WaitUntillDeathAnimationEnd());
     }
 
     private void StartOfTurnReset()
@@ -265,6 +269,11 @@ public abstract class Character : MonoBehaviour
             _animator.SetTrigger("Attack");
         }        
     }
+   public IEnumerator WaitUntillDeathAnimationEnd()
+    {
+        yield return new WaitUntil(() => DoneDying);
+        transform.parent.gameObject.SetActive(false);
 
+    }
 
 }
