@@ -26,7 +26,7 @@ public class CardCloseUp : MonoBehaviour, IPointerDownHandler
 
         _manaCostDisplay.text = givenCard.EnergyCost.ToString();
         _cardNameDisplay.text = givenCard.CardName;
-        _cardDescDisplay.text = $"" + givenCard.Description.ToString();
+        _cardDescDisplay.text = cardUIRef.CardDescDisplay.text;
 
         _artWorkDisplay.sprite = cardUIRef.ArtWorkDisplay.sprite;
         _cardFrame.sprite = cardUIRef.CardFrame.sprite;
