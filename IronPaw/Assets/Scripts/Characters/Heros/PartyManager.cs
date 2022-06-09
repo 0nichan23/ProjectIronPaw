@@ -405,7 +405,7 @@ public class PartyManager : Singleton<PartyManager>
         {
             if (enemy.CurrentHP > 0)
             {
-                enemy.Button.enabled = true;
+                enemy.Button.gameObject.SetActive(true);
             }
 
         }
@@ -419,19 +419,20 @@ public class PartyManager : Singleton<PartyManager>
         {
             if (hero.IsAlive)
             {
-                hero.Button.enabled = true;
+                hero.Button.gameObject.SetActive(true);
             }
 
         }
     }
-
+    
     private void TurnOnAllCachedButtons()
     {
         foreach (var character in _potentialTargets)
         {
             if (character.IsAlive)
             {
-                character.Button.enabled = true;
+                
+                character.Button.gameObject.SetActive(true);
             }
         }
     }
@@ -440,12 +441,12 @@ public class PartyManager : Singleton<PartyManager>
     {
         foreach (var enemy in Enemies)
         {
-            enemy.Button.enabled = false;
+            enemy.Button.gameObject.SetActive(false);
         }
 
         foreach (var hero in Heroes)
         {
-            hero.Button.enabled = false;
+            hero.Button.gameObject.SetActive(false);
         }
     }
 

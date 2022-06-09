@@ -97,7 +97,7 @@ public class CardScriptableObject : ScriptableObject
                 if (hero.CurrentAp >= 1 || IsSwift)
                 {
                     cachedHeroes.Add(hero);
-                    hero.Button.enabled = true;
+                    hero.Button.gameObject.SetActive(true);
                 }
             }
         }
