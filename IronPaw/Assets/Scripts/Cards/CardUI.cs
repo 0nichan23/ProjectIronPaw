@@ -32,6 +32,7 @@ public class CardUI : MonoBehaviour
     public Image PlateFrame { get => _plateFrame; set => _plateFrame = value; }
     public Image RarityFrame { get => _rarityFrame; set => _rarityFrame = value; }
     public Image TypeFrame { get => _typeFrame; set => _typeFrame = value; }
+    public TextMeshProUGUI CardDescDisplay { get => _cardDescDisplay; set => _cardDescDisplay = value; }
 
     public void InitializeDisplay()
     {
@@ -72,7 +73,7 @@ public class CardUI : MonoBehaviour
     private void InitDescription()
     {
         int numberOfKeyWordsAdded = 0;
-        _cardDescDisplay.text = "";
+        CardDescDisplay.text = "";
 
         // 1) ---------------  Adding Keywords that need to be added at start of card ------
         foreach (var keywordInCard in CardSO.Keywords)
@@ -83,16 +84,16 @@ public class CardUI : MonoBehaviour
                 {
                     if (keywordInCard.ToString().Length > 2)
                     {
-                        _cardDescDisplay.text += TurnStringToCapitalString(keywordInCard);
+                        CardDescDisplay.text += TurnStringToCapitalString(keywordInCard);
 
                     }
                     else // Used for AP edge-case (and maybe for future 2-word Keywords
                     {
-                        _cardDescDisplay.text += keywordInCard.ToString(); 
+                        CardDescDisplay.text += keywordInCard.ToString(); 
 
                     }
                     numberOfKeyWordsAdded++;
-                    _cardDescDisplay.text += ", ";
+                    CardDescDisplay.text += ", ";
 
                 }
             }
@@ -103,18 +104,18 @@ public class CardUI : MonoBehaviour
         {
             for (int i = 0; i < 2; i++) // Remove the last coma + space that were added (line 95)
             {
-                _cardDescDisplay.text = _cardDescDisplay.text.Remove(_cardDescDisplay.text.Length - 1); 
+                CardDescDisplay.text = CardDescDisplay.text.Remove(CardDescDisplay.text.Length - 1); 
             }
 
             /* Goind down one line. This will be deleted before the keywords are bolded (when the description is split to individual words),
              * but is still necessary, sine the string needs some space to diffrnitiate between the last Keyword added and the rest of the inspector-
              * fed description (added at line 116) */
-            _cardDescDisplay.text += "\n"; 
+            CardDescDisplay.text += "\n"; 
             
         }
 
         // 2) -----  Adding the card description text from the CardSO (from the inspector)--
-        _cardDescDisplay.text += CardSO.Description.ToString();
+        CardDescDisplay.text += CardSO.Description.ToString();
 
         // 3) -----------------------  Making Keywords Bold --------------------------------
         foreach (var keywordInCard in CardSO.Keywords)
@@ -130,10 +131,10 @@ public class CardUI : MonoBehaviour
                 cappedKeyWord = keywordInCard.ToString();
             }
 
-            if (_cardDescDisplay.text.Contains(cappedKeyWord)) 
+            if (CardDescDisplay.text.Contains(cappedKeyWord)) 
             {
-                string sentence = _cardDescDisplay.text;
-                _cardDescDisplay.text = "";
+                string sentence = CardDescDisplay.text;
+                CardDescDisplay.text = "";
                 string[] words = sentence.Split();
                 string temp = "";
                 for (int i = 0; i < words.Length; i++)
@@ -141,22 +142,22 @@ public class CardUI : MonoBehaviour
                     if (words[i] == cappedKeyWord)
                     {
                         temp = "<b>" + cappedKeyWord + "</b>";
-                        _cardDescDisplay.text += temp + " ";
+                        CardDescDisplay.text += temp + " ";
                     }
                     else if (words[i] == cappedKeyWord + ",")
                     {
                         string trimmedWord = cappedKeyWord.TrimEnd(new char[] { ',' });
                         temp = "<b>" + trimmedWord + "</b>,";
-                        _cardDescDisplay.text += temp + " ";
+                        CardDescDisplay.text += temp + " ";
                     }
                     else
                     {
-                        _cardDescDisplay.text += words[i] + " ";
+                        CardDescDisplay.text += words[i] + " ";
                     }
 
                     if (numberOfKeyWordsAdded != 0 && i == numberOfKeyWordsAdded-1) // In the event where at least 1 keyword was added, go down one line
                     {
-                        _cardDescDisplay.text += "\n"; // Going down 1 line
+                        CardDescDisplay.text += "\n"; // Going down 1 line
                     }
                 }
             }
