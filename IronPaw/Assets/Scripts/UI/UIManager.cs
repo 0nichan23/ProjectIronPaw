@@ -7,6 +7,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] public Canvas HUDCanvas;
     [SerializeField] public CharacterHighlightCanvas CharacterHighlightCanvas;
     [SerializeField] public CardZoomCanvas CardZoomCanvas;
+    [SerializeField] public SelectionCanvas SelectionCanvas;
     public void ToggleHUDCanvas(bool state)
     {
         HUDCanvas.gameObject.SetActive(state);
@@ -15,6 +16,12 @@ public class UIManager : Singleton<UIManager>
     public void ToggleCharacterHighlightCanvas(bool state)
     {
         CharacterHighlightCanvas.gameObject.SetActive(state);
+    }
+
+    public void ToggleSelectionCanvas(bool state, string titleText)
+    {
+        SelectionCanvas.gameObject.SetActive(state);
+        SelectionCanvas.Title.text = titleText;
     }
 
     public void ToggleCanvasas(bool state)
