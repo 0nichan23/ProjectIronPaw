@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
-public class CardCloseUp : MonoBehaviour, IPointerDownHandler
+public class CardCloseUp : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _manaCostDisplay;
     [SerializeField] private TextMeshProUGUI _cardNameDisplay;
@@ -70,12 +70,6 @@ public class CardCloseUp : MonoBehaviour, IPointerDownHandler
         {
             _toolTipScroll.transform.GetChild(((int)item)).gameObject.SetActive(true);
         }
-    }
-
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        UIManager.Instance.ToggleCardZoomCanvas(null, false, null);
     }
 
 
