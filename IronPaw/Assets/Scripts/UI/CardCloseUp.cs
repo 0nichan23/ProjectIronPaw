@@ -75,7 +75,7 @@ public class CardCloseUp : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        PlayerWrapper.Instance.PlayerController.ToggleCardCloseUpPanel(null, false, null);
+        UIManager.Instance.ToggleCardZoomCanvas(null, false, null);
     }
 
 

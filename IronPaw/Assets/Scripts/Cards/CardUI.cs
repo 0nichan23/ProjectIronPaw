@@ -223,7 +223,7 @@ public class CardUI : MonoBehaviour
             yield return null;
         }
         // LongPress
-        PlayerWrapper.Instance.PlayerController.ToggleCardCloseUpPanel(CardSO, true, this);
+        UIManager.Instance.ToggleCardZoomCanvas(CardSO, true, this);
 
     }
 
