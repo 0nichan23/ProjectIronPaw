@@ -11,14 +11,7 @@ public class Enemy : Character
 
 
 
-    protected override void TheBetterStart()
-    {
-        base.TheBetterStart();
-        AddStatusEffect(new Taunt(this, 2));
-        AddStatusEffect(new Weak(this, 1));
-        AddStatusEffect(new Frail(this, 2));
-
-    }
+    
     public override void Subscribe()
     {
         Controller.OnStartTurn += InvokeStartTurn;

@@ -8,13 +8,7 @@ public class Duckislav : Hero
     [SerializeField] private int _passiveDamage = 6;
 
 
-    protected override void TheBetterStart()
-    {
-        base.TheBetterStart();
-        AddStatusEffect(new Taunt(this, 2));
-        AddStatusEffect(new Weak(this, 1));
-        AddStatusEffect(new Frail(this, 2));
-    }
+    
 
     public void DuckislavPassive(CardScriptableObject card)
     {
