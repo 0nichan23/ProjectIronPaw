@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class UIManager : Singleton<UIManager>
 {
+    [SerializeField] public Camera MainCamera;
+
     [SerializeField] public Canvas HUDCanvas;
     [SerializeField] public CharacterHighlightCanvas CharacterHighlightCanvas;
     [SerializeField] public CardZoomCanvas CardZoomCanvas;

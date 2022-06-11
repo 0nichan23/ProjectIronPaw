@@ -181,7 +181,7 @@ RectTransform:
   m_GameObject: {fileID: 1266391758335838155}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.00000011920929}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children:
   - {fileID: 1459768569293820606}
   m_Father: {fileID: 5247022082493911052}
@@ -189,7 +189,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.074, y: -0.049999952}
+  m_AnchoredPosition: {x: 0.074, y: -0.17}
   m_SizeDelta: {x: 0.5037999, y: 0.5905001}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &941665272550785189
@@ -222,7 +222,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: -2906203513720773286, guid: 5c8242b66f2c0754c9cfcceec628f16a, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -452,7 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 925b00b10189b0345bee7546ec15ccee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _longPressTime: 1
+  _longPressTime: 0.7
   _character: {fileID: 0}
 --- !u!1 &4051039046034293481
 GameObject:
@@ -684,7 +684,7 @@ RectTransform:
   m_GameObject: {fileID: 5562645804380287395}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.00000011920929}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_Children:
   - {fileID: 7219747880092001941}
   m_Father: {fileID: 5247022082493911052}
@@ -692,7 +692,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.09, y: -0.37585}
+  m_AnchoredPosition: {x: 0.297, y: -0.37585}
   m_SizeDelta: {x: 0.6425, y: 0.6425}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &7673442981233362233
@@ -1111,11 +1111,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.4
+  m_fontSize: 0.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 0.4
+  m_fontSizeMin: 0.6
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2

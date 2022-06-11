@@ -233,7 +233,7 @@ MonoBehaviour:
   _cardNameDisplay: {fileID: 1107705182904120792}
   _cardDescDisplay: {fileID: 1107705183418863509}
   _cardTypeDisplay: {fileID: 1107705183517765901}
-  _longPressTime: 1
+  _longPressTime: 0.7
 --- !u!225 &6578652678727766426
 CanvasGroup:
   m_ObjectHideFlags: 0

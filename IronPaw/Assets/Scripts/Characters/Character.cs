@@ -185,9 +185,9 @@ public abstract class Character : MonoBehaviour
         {
             int remainder = amount - CurrentBlock;
             CurrentBlock = 0;
-            amount = remainder;
+            int hpToLose = remainder;
 
-            _currentHp -= amount;
+            _currentHp -= hpToLose;
             _animator.SetTrigger("Hit");
             OnTakeDamage?.Invoke(damage);
 
@@ -199,7 +199,7 @@ public abstract class Character : MonoBehaviour
         }
 
         UpdateUI();
-        PrefabManager.Instance.CreateDamagePopup(transform.position, damage.GivenDamage);
+        PrefabManager.Instance.CreateDamagePopup(transform.position, amount);
     }
 
     private void Die()
