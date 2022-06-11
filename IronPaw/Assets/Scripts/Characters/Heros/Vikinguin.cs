@@ -13,6 +13,7 @@ public class Vikinguin : Hero
     {
         base.TheBetterStart();
         _numberOfTurnsRemainingToPassiveProcc = _numberOfTurnsToProccPassive;
+
     }
 
     public override void SubscribePassive()

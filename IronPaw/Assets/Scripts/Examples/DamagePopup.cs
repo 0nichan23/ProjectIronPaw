@@ -6,7 +6,7 @@ public class DamagePopup : MonoBehaviour
     private void Awake()
     {
         textMesh = GetComponent<TextMeshPro>();
-        Destroy(gameObject, 1);
+        Destroy(transform.parent.gameObject, 1);
     }
 
     public void Setup(int amount)
