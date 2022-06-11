@@ -13,7 +13,9 @@ public class Vikinguin : Hero
     {
         base.TheBetterStart();
         _numberOfTurnsRemainingToPassiveProcc = _numberOfTurnsToProccPassive;
-
+        AddStatusEffect(new Taunt(this, 2));
+        AddStatusEffect(new Weak(this, 1));
+        AddStatusEffect(new Frail(this, 2));
     }
 
     public override void SubscribePassive()

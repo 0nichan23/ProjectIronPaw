@@ -8,6 +8,14 @@ public class Sima : Hero
     [SerializeField] private int _ultimateHealAmount = 6;
 
 
+    protected override void TheBetterStart()
+    {
+        base.TheBetterStart();
+        AddStatusEffect(new Taunt(this, 2));
+        AddStatusEffect(new Weak(this, 1));
+        AddStatusEffect(new Frail(this, 2));
+    }
+
     public override void Ultimate()
     {
         foreach (var hero in Controller.ControllerChracters)
