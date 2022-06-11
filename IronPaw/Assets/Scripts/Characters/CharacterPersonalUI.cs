@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class CharacterPersonalUI : MonoBehaviour
 {
+    private Camera _mainCamera;
+
     //script to display character effects, hp, level etc.. 
     [SerializeField]
     Transform DisplayZone;
@@ -28,6 +30,13 @@ public class CharacterPersonalUI : MonoBehaviour
     {
         Hpbar = GetComponentInChildren<HealthBar>();
         IntentionDisplayer = GetComponentInChildren<IntentionDisplayer>();
+    }
+
+    private void Start()
+    {
+        //_mainCamera = UIManager.Instance.MainCamera;
+        //Vector3 lookTarget = new Vector3(_mainCamera.transform.position.x, _mainCamera.transform.position.y, -_mainCamera.transform.position.z);
+        //gameObject.transform.LookAt(2 * transform.position - _mainCamera.transform.position);
     }
 
 

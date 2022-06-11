@@ -28,6 +28,9 @@ public abstract class Character : MonoBehaviour
     [SerializeField] private bool _reachedAnimationSyncFrame;
     public AnimationEvent AnimationSyncEvent;
 
+    [SerializeField] private string _passiveDescription;
+    [SerializeField] private string _ultimateDescription;
+
     public bool DoneDying;
 
     private List<StatusEffect> _activeStatusEffects = new List<StatusEffect>();
@@ -73,6 +76,8 @@ public abstract class Character : MonoBehaviour
     }
 
     public bool ReachedAnimationSyncFrame { get => _reachedAnimationSyncFrame; set => _reachedAnimationSyncFrame = value; }
+    public string PassiveDescription { get => _passiveDescription; set => _passiveDescription = value; }
+    public string UltimateDescription { get => _ultimateDescription; set => _ultimateDescription = value; }
 
     private void Start()
     {
@@ -180,9 +185,9 @@ public abstract class Character : MonoBehaviour
         {
             int remainder = amount - CurrentBlock;
             CurrentBlock = 0;
-            amount = remainder;
+            int hpToLose = remainder;
 
-            _currentHp -= amount;
+            _currentHp -= hpToLose;
             _animator.SetTrigger("Hit");
             OnTakeDamage?.Invoke(damage);
 
@@ -194,7 +199,7 @@ public abstract class Character : MonoBehaviour
         }
 
         UpdateUI();
-        PrefabManager.Instance.CreateDamagePopup(transform.position, damage.GivenDamage);
+        PrefabManager.Instance.CreateDamagePopup(transform.position, amount);
     }
 
     private void Die()

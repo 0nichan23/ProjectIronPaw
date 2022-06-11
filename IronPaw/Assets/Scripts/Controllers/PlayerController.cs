@@ -22,13 +22,10 @@ public class PlayerController : Controller
     [SerializeField]
     TextMeshProUGUI ManaText;
 
-    [SerializeField]
-    CardCloseUp CardCloseUpField;
 
 
 
 
-    [SerializeField] private GameObject _zoomInCanvas;
 
 
     private void Awake()
@@ -107,14 +104,7 @@ public class PlayerController : Controller
     }
 
 
-    public void ToggleCardCloseUpPanel(CardScriptableObject givenCard, bool state, CardUI self)
-    {
-        _zoomInCanvas.SetActive(state);
-        if (state)
-        {
-            CardCloseUpField.InitializeDisplay(givenCard, self);
-        }
-    }
+    
 
     public void UpdatePlayerUI()
     {

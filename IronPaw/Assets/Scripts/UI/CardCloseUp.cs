@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
-public class CardCloseUp : MonoBehaviour, IPointerDownHandler
+public class CardCloseUp : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _manaCostDisplay;
     [SerializeField] private TextMeshProUGUI _cardNameDisplay;
@@ -26,7 +26,7 @@ public class CardCloseUp : MonoBehaviour, IPointerDownHandler
 
         _manaCostDisplay.text = givenCard.EnergyCost.ToString();
         _cardNameDisplay.text = givenCard.CardName;
-        _cardDescDisplay.text = $"" + givenCard.Description.ToString();
+        _cardDescDisplay.text = cardUIRef.CardDescDisplay.text;
 
         _artWorkDisplay.sprite = cardUIRef.ArtWorkDisplay.sprite;
         _cardFrame.sprite = cardUIRef.CardFrame.sprite;
@@ -70,12 +70,6 @@ public class CardCloseUp : MonoBehaviour, IPointerDownHandler
         {
             _toolTipScroll.transform.GetChild(((int)item)).gameObject.SetActive(true);
         }
-    }
-
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        PlayerWrapper.Instance.PlayerController.ToggleCardCloseUpPanel(null, false, null);
     }
 
 

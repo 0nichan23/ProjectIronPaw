@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HolyStrength
   m_EditorClassIdentifier: 
   CardName: Holy Strength
-  Description: A Hero gains 3 temporary Strength
+  Description: An ally of your choosing gets 3 Strength
   Colors: 03000000
   Rarity: 2
   EnergyCost: 0

@@ -16,8 +16,6 @@ public class PartyManager : Singleton<PartyManager>
 
     public Character SelectedCharacter;
 
-    [SerializeField] private GameObject _selectionCanvas;
-
     private void Start()
     {
         Enemies = new List<Character> ( EnemyWrapper.Instance.EnemyController.ControllerChracters );
@@ -273,17 +271,17 @@ public class PartyManager : Singleton<PartyManager>
 
     private IEnumerator WaitUntilHeroIsClickedUltimate()
     {
-        ToggleSelectionCanvas(true);
+        UIManager.Instance.ToggleSelectionCanvas(true, "Select a Hero");
         TurnOnAllHeroButtons();
 
         yield return new WaitUntil(() => SelectedCharacter != null);
-        ToggleSelectionCanvas(false);
+        UIManager.Instance.ToggleSelectionCanvas(false, null);
         ((Hero)SelectedCharacter).PerformUltimate();
     }
 
     public IEnumerator WaitUntilHeroIsClickedPlayCard(CardScriptableObject card)
     {
-        ToggleSelectionCanvas(true);
+        UIManager.Instance.ToggleSelectionCanvas(true, "Select a Hero");
         yield return new WaitUntil(() => SelectedCharacter != null);
         TurnOffAllButtons();
         PlayCard(SelectedCharacter, card);
@@ -291,6 +289,7 @@ public class PartyManager : Singleton<PartyManager>
 
     public IEnumerator WaitUntilTargetIsSelected(Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)
     {
+        UIManager.Instance.SelectionCanvas.Title.text = "Select a target";
         yield return new WaitUntil(() => SelectedCharacter != null);
 
         cardEffectRef.Targets.Add(SelectedCharacter);
@@ -307,12 +306,7 @@ public class PartyManager : Singleton<PartyManager>
         _pointerList = null;
         TurnOffAllButtons();
         ClearCachedCharacters();
-        ToggleSelectionCanvas(false);
-    }
-
-    private void ToggleSelectionCanvas(bool state)
-    {
-        _selectionCanvas.SetActive(state);
+        UIManager.Instance.ToggleSelectionCanvas(false, null);
     }
     #endregion
 
@@ -375,7 +369,7 @@ public class PartyManager : Singleton<PartyManager>
         }
         ReInitHand();
         TurnOffAllButtons();
-        ToggleSelectionCanvas(false);
+        UIManager.Instance.ToggleSelectionCanvas(false, null);
     }
 
     private void ReInitHand()
@@ -405,7 +399,7 @@ public class PartyManager : Singleton<PartyManager>
         {
             if (enemy.CurrentHP > 0)
             {
-                enemy.Button.enabled = true;
+                enemy.Button.gameObject.SetActive(true);
             }
 
         }
@@ -419,19 +413,20 @@ public class PartyManager : Singleton<PartyManager>
         {
             if (hero.IsAlive)
             {
-                hero.Button.enabled = true;
+                hero.Button.gameObject.SetActive(true);
             }
 
         }
     }
-
+    
     private void TurnOnAllCachedButtons()
     {
         foreach (var character in _potentialTargets)
         {
             if (character.IsAlive)
             {
-                character.Button.enabled = true;
+                
+                character.Button.gameObject.SetActive(true);
             }
         }
     }
@@ -440,12 +435,12 @@ public class PartyManager : Singleton<PartyManager>
     {
         foreach (var enemy in Enemies)
         {
-            enemy.Button.enabled = false;
+            enemy.Button.gameObject.SetActive(false);
         }
 
         foreach (var hero in Heroes)
         {
-            hero.Button.enabled = false;
+            hero.Button.gameObject.SetActive(false);
         }
     }
 
