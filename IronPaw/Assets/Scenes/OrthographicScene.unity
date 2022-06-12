@@ -9472,9 +9472,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: eb849607453f326408ab1897a73f1b19, type: 3}
     - target: {fileID: 3317774568791796296, guid: 611976528af8cc3439f73994bbffd750, type: 3}
+      propertyPath: SpritesIcons.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3317774568791796296, guid: 611976528af8cc3439f73994bbffd750, type: 3}
       propertyPath: IntentionIcons.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3317774568791796296, guid: 611976528af8cc3439f73994bbffd750, type: 3}
+      propertyPath: SpritesIcons.Array.data[8]
+      value: 
+      objectReference: {fileID: 21300000, guid: d4a60ac003892804789509e78beff20f, type: 3}
     - target: {fileID: 3317774568791796296, guid: 611976528af8cc3439f73994bbffd750, type: 3}
       propertyPath: IntentionIcons.Array.data[0]
       value: 

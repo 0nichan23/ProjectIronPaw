@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a49c1bbb566c17044a844e5c42c123e5, type: 3}
   m_Name: SecondDagger
   m_EditorClassIdentifier: 
-  CardName: SecondDagger
-  Description: Deals 3 Damage, Usable, Swift
+  CardName: Second Dagger
+  Description: Deals 3 Damage
   Colors: 01000000
   Rarity: 0
   EnergyCost: 0

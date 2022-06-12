@@ -20,7 +20,13 @@ public class StatusEffectSlot : MonoBehaviour
     {
         myStatus = effect;
         text.text = myStatus.TurnCounter.ToString();
-        image.sprite = PrefabManager.Instance.GetSprite(myStatus);
+        Sprite sprite = PrefabManager.Instance.GetSprite(myStatus);
+
+        if(sprite != null)
+        {
+            image.sprite = sprite;
+        }
+        
     }
 
 

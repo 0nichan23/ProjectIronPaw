@@ -13,7 +13,8 @@ public enum StatusEffectType
     Weak,
     Immune,
     Frail,
-    Stun
+    Stun,
+    AddSecondDaggerBuff
 }
 
 public abstract class StatusEffect
