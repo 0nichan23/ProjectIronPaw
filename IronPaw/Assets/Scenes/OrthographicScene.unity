@@ -2029,6 +2029,7 @@ MonoBehaviour:
   _hand: {fileID: 755477122}
   _controller: {fileID: 0}
   _cardsGiven: []
+  _decksGiven: []
 --- !u!4 &295505964 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5489739295222752918, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
@@ -10285,12 +10286,16 @@ PrefabInstance:
       objectReference: {fileID: 1085283461}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.size
-      value: 5
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
+      propertyPath: _decksGiven.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 12041fc1ef479924882be36225d29f0f, type: 2}
+      objectReference: {fileID: 11400000, guid: 450d9a2f6c303974c8384f0cce321791, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[1]
       value: 
@@ -10327,6 +10332,10 @@ PrefabInstance:
       propertyPath: _cardsGiven.Array.data[9]
       value: 
       objectReference: {fileID: 11400000, guid: 14d9f01ae7fb4cc4fac8cace7df06348, type: 2}
+    - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
+      propertyPath: _decksGiven.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: cb571bc155bc7e44ba4f51f26a381c2c, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[10]
       value: 
@@ -15921,6 +15930,7 @@ MonoBehaviour:
   _controller: {fileID: 0}
   _cardsGiven:
   - {fileID: 11400000, guid: 00695503527b1f944a62c9941ae0c2e4, type: 2}
+  _decksGiven: []
   _discardPile: {fileID: 7395125938354459217}
 --- !u!114 &7395125938354459183
 MonoBehaviour:
@@ -15952,6 +15962,7 @@ MonoBehaviour:
   _hand: {fileID: 7395125938354459183}
   _controller: {fileID: 0}
   _cardsGiven: []
+  _decksGiven: []
 --- !u!114 &7395125938354459217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15967,6 +15978,7 @@ MonoBehaviour:
   _hand: {fileID: 7395125938354459183}
   _controller: {fileID: 0}
   _cardsGiven: []
+  _decksGiven: []
 --- !u!1 &7395125938354459218
 GameObject:
   m_ObjectHideFlags: 0
@@ -16019,6 +16031,7 @@ MonoBehaviour:
   _controller: {fileID: 0}
   _cardsGiven:
   - {fileID: 11400000, guid: 00695503527b1f944a62c9941ae0c2e4, type: 2}
+  _decksGiven: []
   _discardPile: {fileID: 7395125938883939191}
 --- !u!114 &7395125938883939081
 MonoBehaviour:
@@ -16126,6 +16139,7 @@ MonoBehaviour:
   _hand: {fileID: 7395125938883939081}
   _controller: {fileID: 0}
   _cardsGiven: []
+  _decksGiven: []
 --- !u!114 &7395125938883939191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16141,6 +16155,7 @@ MonoBehaviour:
   _hand: {fileID: 7395125938883939081}
   _controller: {fileID: 0}
   _cardsGiven: []
+  _decksGiven: []
 --- !u!114 &7395125939126887988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16156,6 +16171,7 @@ MonoBehaviour:
   _hand: {fileID: 7395125939126888010}
   _controller: {fileID: 0}
   _cardsGiven: []
+  _decksGiven: []
 --- !u!114 &7395125939126887989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16171,6 +16187,7 @@ MonoBehaviour:
   _hand: {fileID: 7395125939126888010}
   _controller: {fileID: 0}
   _cardsGiven: []
+  _decksGiven: []
 --- !u!4 &7395125939126887990
 Transform:
   m_ObjectHideFlags: 0
@@ -16278,6 +16295,7 @@ MonoBehaviour:
   _controller: {fileID: 0}
   _cardsGiven:
   - {fileID: 11400000, guid: 78accdfa171f72e40b588588665e1067, type: 2}
+  _decksGiven: []
   _discardPile: {fileID: 7395125939126887988}
 --- !u!4 &7395125939762153256
 Transform:

@@ -15,4 +15,4 @@ MonoBehaviour:
   TargetType: 5
   Targets: []
   DamageValue: 3
-  cardToCreate: {fileID: 11400000, guid: 51fc68708e5e48d4cba51dc5ab5ff3fe, type: 2}
+  cardToCreate: {fileID: 11400000, guid: fa33752748e09284da5f1644cf6ac546, type: 2}
