@@ -10,6 +10,8 @@ public class CardUI : MonoBehaviour
 
     [SerializeField] Color[] _colors = new Color[2];
 
+    [SerializeField] private RectTransform _container;
+    [SerializeField] private float _cardSelectedOffset;
     [SerializeField] private Image _artWorkDisplay;
     [SerializeField] private Image _cardFrame;
     [SerializeField] private Image _plateFrame;
@@ -209,6 +211,7 @@ public class CardUI : MonoBehaviour
             //play card normally
             if (CardSO.CheckCardValidity())
             {
+                SelectCard();
                 StartCoroutine(PartyManager.Instance.WaitUntilHeroIsClickedPlayCard(CardSO));
             }
         }
@@ -245,5 +248,33 @@ public class CardUI : MonoBehaviour
         RarityFrame.sprite = PrefabManager.Instance.GetCardRarityFrame(CardSO.Rarity);
         TypeFrame.sprite = PrefabManager.Instance.GetCardTypeFrame(CardSO.CardType);
 
+    }
+
+    public void SelectCard()
+    {
+        DeselectCard();
+        
+        PartyManager.Instance.SelectedCardUI = this;
+        HighlightSelectedCard();
+    }
+
+    public void DeselectCard()
+    {
+        if (PartyManager.Instance.SelectedCardUI)
+        {
+            PartyManager.Instance.SelectedCardUI.DehighlightSelectedCard();
+            PartyManager.Instance.SelectedCardUI = null;
+        }
+    }
+
+    public void HighlightSelectedCard()
+    {
+        _container.localPosition += new Vector3(0, _cardSelectedOffset, 0);
+
+    }
+
+    public void DehighlightSelectedCard()
+    {
+        _container.localPosition -= new Vector3(0, _cardSelectedOffset, 0);
     }
 }
