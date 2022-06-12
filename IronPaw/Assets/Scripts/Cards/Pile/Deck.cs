@@ -5,6 +5,11 @@ public class Deck : CardPile
     [SerializeField]
     private DiscardPile _discardPile;
 
+    private void Start()
+    {
+        Shuffle();
+    }
+
     public override void Draw()
     {
         if (Cards.Count == 0 && _discardPile.Cards.Count > 0)

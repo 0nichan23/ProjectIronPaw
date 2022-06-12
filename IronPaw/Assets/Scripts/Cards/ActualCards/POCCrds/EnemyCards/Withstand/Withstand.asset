@@ -21,5 +21,6 @@ MonoBehaviour:
   IsSwift: 0
   IsUsable: 0
   Artwork: {fileID: 0}
-  CardType: 0
+  CardType: 1
   CardDisplay: {fileID: 0}
+  Keywords: 
