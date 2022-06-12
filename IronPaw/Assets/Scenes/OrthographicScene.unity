@@ -1911,7 +1911,7 @@ PrefabInstance:
       objectReference: {fileID: 1740459025}
     - target: {fileID: 7511463129820267780, guid: 538b701821c60aa4db8b613ceb494886, type: 3}
       propertyPath: _maxHp
-      value: 5
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7511463129820267780, guid: 538b701821c60aa4db8b613ceb494886, type: 3}
       propertyPath: _passiveDescription
@@ -10285,28 +10285,28 @@ PrefabInstance:
       objectReference: {fileID: 1085283461}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.size
-      value: 30
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 8823a42d6de9ec144b2899207867826c, type: 2}
+      objectReference: {fileID: 11400000, guid: 12041fc1ef479924882be36225d29f0f, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 8823a42d6de9ec144b2899207867826c, type: 2}
+      objectReference: {fileID: 11400000, guid: 12041fc1ef479924882be36225d29f0f, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 78accdfa171f72e40b588588665e1067, type: 2}
+      objectReference: {fileID: 11400000, guid: 12041fc1ef479924882be36225d29f0f, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: 78accdfa171f72e40b588588665e1067, type: 2}
+      objectReference: {fileID: 11400000, guid: 67d75f58921100143ba75873cbc6fed3, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: 450d9a2f6c303974c8384f0cce321791, type: 2}
+      objectReference: {fileID: 11400000, guid: 67d75f58921100143ba75873cbc6fed3, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[5]
       value: 
