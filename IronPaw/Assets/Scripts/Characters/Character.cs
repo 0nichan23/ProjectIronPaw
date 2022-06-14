@@ -197,7 +197,10 @@ public abstract class Character : MonoBehaviour
                 Die();
             }
         }
-
+        if(damage.IsSourceAttack)
+        {
+            VFXManager.Instance.CameraShake.ShakeCameraForSeconds(0.7f);
+        }
         UpdateUI();
         PrefabManager.Instance.CreateDamagePopup(transform.position, amount);
     }
