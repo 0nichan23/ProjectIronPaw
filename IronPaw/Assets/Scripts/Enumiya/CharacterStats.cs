@@ -41,7 +41,7 @@ public struct CharacterStats
     }
 }
 
-
+#if UNITY_EDITOR
 
 [CustomPropertyDrawer(typeof(CharacterStats))]
 public class CharacterStatsDrawer : PropertyDrawer
@@ -118,3 +118,4 @@ public class CharacterStatsDrawer : PropertyDrawer
         return EditorGUIUtility.singleLineHeight * totalLines + EditorGUIUtility.standardVerticalSpacing * (totalLines - 1);
     }
 }
+#endif

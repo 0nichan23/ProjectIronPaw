@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a49c1bbb566c17044a844e5c42c123e5, type: 3}
-  m_Name: DvineProtection
+  m_Name: DivineProtection
   m_EditorClassIdentifier: 
   CardName: DvineProtection
   Description: All allies get 6 Block
@@ -21,5 +21,6 @@ MonoBehaviour:
   IsSwift: 0
   IsUsable: 0
   Artwork: {fileID: 21300000, guid: eb849607453f326408ab1897a73f1b19, type: 3}
-  CardType: 2
+  CardType: 1
   CardDisplay: {fileID: 0}
+  Keywords: 

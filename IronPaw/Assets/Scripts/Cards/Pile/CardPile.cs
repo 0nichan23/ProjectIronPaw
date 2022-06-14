@@ -14,8 +14,8 @@ public abstract class CardPile : MonoBehaviour
     public Action OnCardAdded;
 
     // Will be removed/Initialized differently when deck building is a thing
-    [SerializeField]
-    private List<CardScriptableObject> _cardsGiven = new List<CardScriptableObject>();
+    [SerializeField] private List<CardScriptableObject> _cardsGiven = new List<CardScriptableObject>();
+    [SerializeField] private List<DeckSO> _decksGiven = new List<DeckSO>();
 
     public Stack<CardScriptableObject> Cards { get => _cards; set => _cards = value; }
 
@@ -100,6 +100,14 @@ public abstract class CardPile : MonoBehaviour
         foreach (CardScriptableObject card in _cardsGiven)
         {
             _cards.Push(card);
+        }
+
+        foreach (DeckSO deck in _decksGiven)
+        {
+            foreach (CardScriptableObject card in deck.Cards)
+            {
+                _cards.Push(card);
+            }
         }
     }
 }

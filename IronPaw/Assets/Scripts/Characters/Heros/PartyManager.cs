@@ -15,6 +15,7 @@ public class PartyManager : Singleton<PartyManager>
     private List<Character> _potentialTargets;
 
     public Character SelectedCharacter;
+    public CardUI SelectedCardUI;
 
     private void Start()
     {
@@ -306,6 +307,10 @@ public class PartyManager : Singleton<PartyManager>
         _pointerList = null;
         TurnOffAllButtons();
         ClearCachedCharacters();
+        if(SelectedCardUI)
+        {
+            SelectedCardUI.DeselectCard();
+        }        
         UIManager.Instance.ToggleSelectionCanvas(false, null);
     }
     #endregion

@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +9,9 @@ public class Enemy : Character
 
     public List<Character> Targets = new List<Character>();
 
+
+
+    
     public override void Subscribe()
     {
         Controller.OnStartTurn += InvokeStartTurn;
@@ -29,7 +31,7 @@ public class Enemy : Character
         {
             Debug.Log(e.Message);
         }
-        
+
     }
 
     protected override void DetermineController()
@@ -43,7 +45,7 @@ public class Enemy : Character
         PlayerController playerController = PlayerWrapper.Instance.PlayerController;
         foreach (var hero in playerController.ControllerChracters)
         {
-            if(hero.CurrentHP > 0)
+            if (hero.CurrentHP > 0)
             {
                 totalPartyIntelligence += hero.Stats.Intelligence;
             }

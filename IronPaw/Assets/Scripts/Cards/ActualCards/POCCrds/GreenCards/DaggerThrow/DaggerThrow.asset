@@ -17,10 +17,11 @@ MonoBehaviour:
     card to your hand
   Colors: 01000000
   Rarity: 0
-  EnergyCost: 0
+  EnergyCost: 1
   CardEffect: {fileID: 11400000, guid: 635fc14d6978ef8488486da4a16095ab, type: 2}
   IsSwift: 0
   IsUsable: 0
   Artwork: {fileID: 21300000, guid: f7904aa92540fd146b25a03716a3c18d, type: 3}
   CardType: 0
   CardDisplay: {fileID: 0}
+  Keywords: 
