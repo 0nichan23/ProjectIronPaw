@@ -18,6 +18,7 @@ public abstract class CardPile : MonoBehaviour
     [SerializeField] private List<DeckSO> _decksGiven = new List<DeckSO>();
 
     public Stack<CardScriptableObject> Cards { get => _cards; set => _cards = value; }
+    public Controller Controller { get => _controller; }
 
     private void Awake()
     {
@@ -72,11 +73,6 @@ public abstract class CardPile : MonoBehaviour
             CardScriptableObject cardDrawn = Cards.Pop();
 
             _hand.AddCard(cardDrawn);
-
-            if (_controller == PlayerWrapper.Instance.PlayerController)
-            {
-                cardDrawn.CreateCardDisplay();
-            }
 
             OnDrawCard?.Invoke();
         }

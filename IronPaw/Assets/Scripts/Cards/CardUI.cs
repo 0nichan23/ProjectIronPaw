@@ -11,6 +11,7 @@ public class CardUI : MonoBehaviour
     [SerializeField] Color[] _colors = new Color[2];
 
     [SerializeField] private RectTransform _container;
+    private RectTransform _originalTransform;
     [SerializeField] private float _cardSelectedOffset;
     [SerializeField] private Image _artWorkDisplay;
     [SerializeField] private Image _cardFrame;
@@ -35,9 +36,12 @@ public class CardUI : MonoBehaviour
     public Image RarityFrame { get => _rarityFrame; set => _rarityFrame = value; }
     public Image TypeFrame { get => _typeFrame; set => _typeFrame = value; }
     public TextMeshProUGUI CardDescDisplay { get => _cardDescDisplay; set => _cardDescDisplay = value; }
+    public RectTransform Container { get => _container; set => _container = value; }
+    public RectTransform OriginalTransform { get => _originalTransform; set => _originalTransform = value; }
 
     public void InitializeDisplay()
     {
+        _originalTransform = Container;
         ArtWorkDisplay.sprite = CardSO.Artwork;
         _manaCostDisplay.text = CardSO.EnergyCost.ToString();
         _cardNameDisplay.text = CardSO.CardName;
@@ -269,12 +273,12 @@ public class CardUI : MonoBehaviour
 
     public void HighlightSelectedCard()
     {
-        _container.localPosition += new Vector3(0, _cardSelectedOffset, 0);
+        Container.localPosition += new Vector3(0, _cardSelectedOffset, 0);
 
     }
 
     public void DehighlightSelectedCard()
     {
-        _container.localPosition -= new Vector3(0, _cardSelectedOffset, 0);
+        Container.localPosition -= new Vector3(0, _cardSelectedOffset, 0);
     }
 }

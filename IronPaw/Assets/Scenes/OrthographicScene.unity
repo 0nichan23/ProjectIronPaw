@@ -975,7 +975,6 @@ GameObject:
   m_Component:
   - component: {fileID: 155476129}
   - component: {fileID: 155476128}
-  - component: {fileID: 155476127}
   m_Layer: 0
   m_Name: Character Highlight Camera
   m_TagString: Untagged
@@ -983,14 +982,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &155476127
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 155476126}
-  m_Enabled: 1
 --- !u!20 &155476128
 Camera:
   m_ObjectHideFlags: 0
@@ -15954,6 +15945,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cards: []
   DiscardPile: {fileID: 7395125938354459217}
+  _controller: {fileID: 0}
   _drawAmount: 0
 --- !u!114 &7395125938354459216
 MonoBehaviour:
@@ -16055,6 +16047,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cards: []
   DiscardPile: {fileID: 7395125938883939191}
+  _controller: {fileID: 0}
   _drawAmount: 0
 --- !u!114 &7395125938883939082
 MonoBehaviour:
@@ -16286,6 +16279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cards: []
   DiscardPile: {fileID: 7395125939126887988}
+  _controller: {fileID: 0}
   _drawAmount: 0
 --- !u!114 &7395125939126888011
 MonoBehaviour:
