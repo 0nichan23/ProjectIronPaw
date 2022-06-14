@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Cure
   m_EditorClassIdentifier: 
   CardName: Cure
-  Description: Heal a Hero for 3 health. If that Hero had any Debuffs, remove them
-    and it gains 3 Block for every debuff removed this way
+  Description: Heal a Hero for 3 HP & remove all Debuffs. It gains 3 Block for every
+    debuff removed.
   Colors: 03000000
   Rarity: 0
   EnergyCost: 1
@@ -24,3 +24,4 @@ MonoBehaviour:
   Artwork: {fileID: 21300000, guid: 54097a9fec0b86d4d96abdd62177e04c, type: 3}
   CardType: 1
   CardDisplay: {fileID: 0}
+  Keywords: 

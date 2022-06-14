@@ -7224,7 +7224,7 @@ GameObject:
   - component: {fileID: 1291998985}
   - component: {fileID: 1291998984}
   m_Layer: 5
-  m_Name: ManaText
+  m_Name: EnergyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9208,6 +9208,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1291998984}
     - target: {fileID: 2796265857363522211, guid: e8a8d9f042ca4bc4099634048b90d501, type: 3}
+      propertyPath: EnergyText
+      value: 
+      objectReference: {fileID: 1291998984}
+    - target: {fileID: 2796265857363522211, guid: e8a8d9f042ca4bc4099634048b90d501, type: 3}
       propertyPath: ExiledPile
       value: 
       objectReference: {fileID: 292856698}
@@ -10277,16 +10281,16 @@ PrefabInstance:
       objectReference: {fileID: 1085283461}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _decksGiven.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 450d9a2f6c303974c8384f0cce321791, type: 2}
+      objectReference: {fileID: 11400000, guid: 5a58791b5b62b7143a775932f3b38093, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[1]
       value: 

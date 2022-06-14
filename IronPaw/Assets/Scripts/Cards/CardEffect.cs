@@ -30,6 +30,7 @@ public abstract class CardEffect : ScriptableObject
             PlayCardEffect(playingCharacter, target);
             target.UpdateUI();
         }
+        playingCharacter.UpdateUI();
         Targets.Clear();
 
 
