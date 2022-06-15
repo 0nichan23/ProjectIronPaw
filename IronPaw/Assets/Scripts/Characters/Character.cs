@@ -157,6 +157,7 @@ public abstract class Character : MonoBehaviour
             _currentHp = MaxHP;
         }
         UpdateUI();
+        VFXManager.Instance.CreateHealingPopup(transform.position, amount);
         VFXManager.Instance.CreateHealingParticle(transform.position);
 
     }

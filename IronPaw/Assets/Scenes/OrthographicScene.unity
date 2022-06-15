@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4486426, g: 0.49869394, b: 0.575672, a: 1}
+  m_IndirectSpecularColor: {r: 0.44864297, g: 0.49869418, b: 0.57567257, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2857,6 +2857,7 @@ MonoBehaviour:
   CameraShake: {fileID: 963194231}
   HitParticle: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   HealingParticle: {fileID: 1859198099107891301, guid: 108436ed6156c2149bcdd4ed13452bdc, type: 3}
+  HealingPopup: {fileID: 2444338576443565361, guid: 1f9b2019438376d4a9755195195aebe3, type: 3}
   DamagePopup: {fileID: 2444338576443565361, guid: 69cfc3574c78f2e4da924ef517564894, type: 3}
 --- !u!1 &472691268
 GameObject:
