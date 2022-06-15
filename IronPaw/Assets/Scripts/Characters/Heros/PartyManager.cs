@@ -121,6 +121,7 @@ public class PartyManager : Singleton<PartyManager>
             if (enemy.Hand.Cards.Count != 0)
             {
                 EnemyAcquireTargets(enemy, enemy.Hand.Cards[0]);
+                enemy.UpdateUI();
             }
         }
 

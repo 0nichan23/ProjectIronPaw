@@ -17,10 +17,19 @@ public class PlayerController : Controller
     public float UltimateCharge;
     public float MaximumUltimateCharge = 10;
     public int MaxEnergy;
-    public int CurrentEnergy;
+    private int _currentEnergy;
+    public int CurrentEnergy
+    {
+        get => _currentEnergy;
+        set
+        {
+            _currentEnergy = value;
+            UpdatePlayerUI();
+        }
+    }
 
     [SerializeField]
-    TextMeshProUGUI ManaText;
+    TextMeshProUGUI EnergyText;
 
 
 
@@ -108,7 +117,7 @@ public class PlayerController : Controller
 
     public void UpdatePlayerUI()
     {
-        ManaText.text = CurrentEnergy.ToString() + "/" + MaxEnergy.ToString();
+        EnergyText.text = CurrentEnergy.ToString() + "/" + MaxEnergy.ToString();
         _numberOfCardsInDiscardPile.text = DiscardPile.Cards.Count.ToString();
         _numberOfCardsInDrawPile.text = Deck.Cards.Count.ToString();
     }
