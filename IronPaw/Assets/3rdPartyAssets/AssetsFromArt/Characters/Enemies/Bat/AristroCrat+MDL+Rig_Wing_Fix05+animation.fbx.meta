@@ -48,7 +48,7 @@ ModelImporter:
       takeName: Take 001
       internalID: 0
       firstFrame: 0
-      lastFrame: 48
+      lastFrame: 44
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -77,7 +77,7 @@ ModelImporter:
       takeName: Take 001
       internalID: 0
       firstFrame: 50
-      lastFrame: 90
+      lastFrame: 86
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -105,8 +105,8 @@ ModelImporter:
       name: Attack
       takeName: Take 001
       internalID: 0
-      firstFrame: 90
-      lastFrame: 150
+      firstFrame: 93
+      lastFrame: 196
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -135,7 +135,7 @@ ModelImporter:
       takeName: Take 001
       internalID: 0
       firstFrame: 200
-      lastFrame: 294
+      lastFrame: 288
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
