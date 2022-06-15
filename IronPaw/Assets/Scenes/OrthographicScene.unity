@@ -1902,7 +1902,7 @@ PrefabInstance:
       objectReference: {fileID: 1740459025}
     - target: {fileID: 7511463129820267780, guid: 538b701821c60aa4db8b613ceb494886, type: 3}
       propertyPath: _maxHp
-      value: 100
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 7511463129820267780, guid: 538b701821c60aa4db8b613ceb494886, type: 3}
       propertyPath: CharacterSprite
@@ -2632,7 +2632,7 @@ PrefabInstance:
       objectReference: {fileID: 1663735423}
     - target: {fileID: 8875172326352620945, guid: 50dbe404b9a61c04e98b32ac59d08db1, type: 3}
       propertyPath: _maxHp
-      value: 5
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 8875172326352620945, guid: 50dbe404b9a61c04e98b32ac59d08db1, type: 3}
       propertyPath: _stats.Faith
@@ -10817,7 +10817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _decksGiven.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[0]
@@ -10862,15 +10862,15 @@ PrefabInstance:
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _decksGiven.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: cb571bc155bc7e44ba4f51f26a381c2c, type: 2}
+      objectReference: {fileID: 11400000, guid: 567ebdd0d7558a04d855b26c62f54cd4, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _decksGiven.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: aeef610c410b6984ba119b05fc36cd8d, type: 2}
+      objectReference: {fileID: 11400000, guid: 904b843a94b0c35498d61486c2c6a1cc, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _decksGiven.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 904b843a94b0c35498d61486c2c6a1cc, type: 2}
+      objectReference: {fileID: 11400000, guid: aeef610c410b6984ba119b05fc36cd8d, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[10]
       value: 
@@ -16423,7 +16423,7 @@ MonoBehaviour:
   ExiledPile: {fileID: 7395125938354459216}
   Hand: {fileID: 7395125938354459183}
   colors: 00000000
-  _maxHp: 15
+  _maxHp: 33
   _currentHp: 0
   _currentBlock: 0
   _characterName: Bull
@@ -16599,7 +16599,7 @@ MonoBehaviour:
   ExiledPile: {fileID: 7395125938883939190}
   Hand: {fileID: 7395125938883939081}
   colors: 00000000
-  _maxHp: 10
+  _maxHp: 17
   _currentHp: 0
   _currentBlock: 0
   _characterName: Bat
@@ -16775,7 +16775,7 @@ MonoBehaviour:
   ExiledPile: {fileID: 7395125939126887989}
   Hand: {fileID: 7395125939126888010}
   colors: 00000000
-  _maxHp: 10
+  _maxHp: 22
   _currentHp: 0
   _currentBlock: 0
   _characterName: Rat
@@ -17054,6 +17054,10 @@ PrefabInstance:
     - target: {fileID: 7593398143680790781, guid: 1ce7230ea03663242a314938028cc37c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593398144345049080, guid: 1ce7230ea03663242a314938028cc37c, type: 3}
+      propertyPath: _maxHp
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 7593398144345049080, guid: 1ce7230ea03663242a314938028cc37c, type: 3}
       propertyPath: CharacterSprite

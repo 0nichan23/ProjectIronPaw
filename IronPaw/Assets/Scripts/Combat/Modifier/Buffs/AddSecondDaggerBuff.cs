@@ -1,8 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.PackageManager;
-using UnityEngine;
 
 public class AddSecondDaggerBuff : Buff
 {
@@ -15,7 +11,9 @@ public class AddSecondDaggerBuff : Buff
         _cardToAddToHand = cardToAddToHand;
         if(_cardToAddToHand.CardName != "Second Dagger")
         {
+#if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
+#endif
             throw new NullReferenceException("Card Generated Isn't Valid!");
         }
     }

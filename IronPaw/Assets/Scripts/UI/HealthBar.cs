@@ -10,11 +10,6 @@ public class HealthBar : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI HpText;
 
-    void Start()
-    {
-        slider = GetComponent<Slider>();
-    }
-
     public void UpdateHealthBar(int maxhp, int curhp)
     {
         slider.maxValue = maxhp;
