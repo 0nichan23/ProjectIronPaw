@@ -209,17 +209,25 @@ public class CardUI : MonoBehaviour
         {
             return;
         }
-        StopCoroutine(_runningCoroutine);
-        if (_mouseDownTime < _longPressTime) //shortpress
-        {
-            //play card normally
-            if (CardSO.CheckCardValidity())
-            {
-                SelectCard();
-                StartCoroutine(PartyManager.Instance.WaitUntilHeroIsClickedPlayCard(CardSO));
-            }
-        }
+        StopHoldingMouse();
+
         _mouseDownTime = 0;
+    }
+
+    public void OnClick()
+    {
+        //play card normally
+        if (CardSO.CheckCardValidity())
+        {
+            SelectCard();
+            Debug.Log("Released");
+            StartCoroutine(PartyManager.Instance.WaitUntilHeroIsClickedPlayCard(CardSO));
+        }
+    }
+
+    public void StopHoldingMouse()
+    {
+        StopCoroutine(_runningCoroutine);
     }
 
     private IEnumerator CountTimeHeld()

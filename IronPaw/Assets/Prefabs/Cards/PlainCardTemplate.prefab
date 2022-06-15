@@ -943,6 +943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cardUI: {fileID: 1107705182379805953}
+  _canvasGroup: {fileID: 6578652678727766426}
 --- !u!1 &2553206651657091114
 GameObject:
   m_ObjectHideFlags: 0
