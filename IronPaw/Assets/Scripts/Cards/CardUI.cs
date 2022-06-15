@@ -8,7 +8,7 @@ public class CardUI : MonoBehaviour
 {
     public CardScriptableObject CardSO;
 
-    [SerializeField] Color[] _colors = new Color[2];
+    [SerializeField] ColorIdentity[] _colors = new ColorIdentity[2];
 
     [SerializeField] private RectTransform _container;
     private RectTransform _originalTransform;

@@ -12,7 +12,7 @@ public abstract class Character : MonoBehaviour
     public ExiledPile ExiledPile;
     public Hand Hand;
 
-    [SerializeField] private List<Color> colors;
+    [SerializeField] private List<ColorIdentity> colors;
     [SerializeField] private int _maxHp;
     [SerializeField] private int _currentHp;
     [SerializeField] private int _currentBlock;
@@ -50,7 +50,7 @@ public abstract class Character : MonoBehaviour
 
     public int MaxHP { get => _maxHp; }
     public int CurrentHP { get => _currentHp; }
-    public List<Color> Colors { get => colors; set => colors = value; }
+    public List<ColorIdentity> Colors { get => colors; set => colors = value; }
     public int CurrentAp { get => _currentAp; set => _currentAp = value; }
     public string CharacterName { get => _characterName; set => _characterName = value; }
     public CharacterStats Stats { get => _stats; set => _stats = value; }
@@ -157,6 +157,8 @@ public abstract class Character : MonoBehaviour
             _currentHp = MaxHP;
         }
         UpdateUI();
+        VFXManager.Instance.CreateHealingParticle(transform.position);
+
     }
 
     public void TakeDmg(Damage damage)
@@ -202,7 +204,8 @@ public abstract class Character : MonoBehaviour
             VFXManager.Instance.CameraShake.ShakeCameraForSeconds(0.7f);
         }
         UpdateUI();
-        PrefabManager.Instance.CreateDamagePopup(transform.position, amount);
+        VFXManager.Instance.CreateDamagePopup(transform.position, amount);
+        VFXManager.Instance.CreateHitParticle(transform.position);
     }
 
     private void Die()

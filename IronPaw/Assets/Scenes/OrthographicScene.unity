@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4486426, g: 0.49869394, b: 0.575672, a: 1}
+  m_IndirectSpecularColor: {r: 0.44864297, g: 0.49869418, b: 0.57567257, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1902,7 +1902,7 @@ PrefabInstance:
       objectReference: {fileID: 1740459025}
     - target: {fileID: 7511463129820267780, guid: 538b701821c60aa4db8b613ceb494886, type: 3}
       propertyPath: _maxHp
-      value: 5
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7511463129820267780, guid: 538b701821c60aa4db8b613ceb494886, type: 3}
       propertyPath: _passiveDescription
@@ -2628,7 +2628,7 @@ PrefabInstance:
       objectReference: {fileID: 1663735423}
     - target: {fileID: 8875172326352620945, guid: 50dbe404b9a61c04e98b32ac59d08db1, type: 3}
       propertyPath: _maxHp
-      value: 5
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8875172326352620945, guid: 50dbe404b9a61c04e98b32ac59d08db1, type: 3}
       propertyPath: _stats.Faith
@@ -2847,6 +2847,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainCamera: {fileID: 963194227}
   CameraShake: {fileID: 0}
+  HitParticle: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
+  HealingParticle: {fileID: 100000, guid: ada5d62ffe762ce4fbccc70dcdbc9022, type: 3}
+  DamagePopup: {fileID: 2444338576443565361, guid: 69cfc3574c78f2e4da924ef517564894, type: 3}
 --- !u!1 &472691268
 GameObject:
   m_ObjectHideFlags: 0
@@ -9553,6 +9556,14 @@ PrefabInstance:
       propertyPath: DamagePopup
       value: 
       objectReference: {fileID: 2444338576443565361, guid: 69cfc3574c78f2e4da924ef517564894, type: 3}
+    - target: {fileID: 3317774568791796296, guid: 611976528af8cc3439f73994bbffd750, type: 3}
+      propertyPath: HitParticle
+      value: 
+      objectReference: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
+    - target: {fileID: 3317774568791796296, guid: 611976528af8cc3439f73994bbffd750, type: 3}
+      propertyPath: HealingParticle
+      value: 
+      objectReference: {fileID: 100000, guid: ada5d62ffe762ce4fbccc70dcdbc9022, type: 3}
     - target: {fileID: 3317774568791796296, guid: 611976528af8cc3439f73994bbffd750, type: 3}
       propertyPath: _keywordManager
       value: 
@@ -16663,6 +16674,10 @@ PrefabInstance:
     - target: {fileID: 7593398143680790781, guid: 1ce7230ea03663242a314938028cc37c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593398144345049080, guid: 1ce7230ea03663242a314938028cc37c, type: 3}
+      propertyPath: _maxHp
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7593398144345049080, guid: 1ce7230ea03663242a314938028cc37c, type: 3}
       propertyPath: _passiveDescription

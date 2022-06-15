@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class PrefabManager : Singleton<PrefabManager>
 {
     public GameObject PlainCardDispaly;
-    public GameObject DamagePopup;
 
     public GameObject EffectSlot;
     
@@ -28,6 +27,7 @@ public class PrefabManager : Singleton<PrefabManager>
     [SerializeField] private List<Sprite> _rarityFrames = new List<Sprite>();
     [SerializeField] private List<Sprite> _typeFrames = new List<Sprite>();
 
+
     
    [SerializeField] public KeywordDisplayManager _keywordManager;
     
@@ -40,12 +40,7 @@ public class PrefabManager : Singleton<PrefabManager>
         return SpritesIcons[index - 1];
     }
 
-    public void CreateDamagePopup(Vector3 pos, int amount)
-    {
-        pos = new Vector3(pos.x, pos.y + 1, pos.z - 4);
-        DamagePopup popup = Instantiate(DamagePopup, pos, Quaternion.identity).GetComponentInChildren<DamagePopup>();
-        popup.Setup(amount);
-    }
+    
 
     public Sprite GetIntentionTypeSprite(CardScriptableObject card)
     {
