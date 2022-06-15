@@ -32,8 +32,6 @@ public abstract class Controller : MonoBehaviour
         UpdateDataTracker(card, TurnTracker);
         UpdateDataTracker(card, CombatTracker);
         UpdateDataTracker(card, RunTracker);
-
-        Debug.Log("Number of cards played this turn: " + TurnTracker.NumberOfCardsPlayed);
     }
 
     private void UpdateDataTracker(CardScriptableObject card, DataTracker dataTracker)

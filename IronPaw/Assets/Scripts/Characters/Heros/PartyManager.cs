@@ -103,10 +103,7 @@ public class PartyManager : Singleton<PartyManager>
                 throw new NullReferenceException("Invalid TargetType for!" + card.CardName);
         }
 
-        //foreach (var item in playingEnemy.Targets)
-        //{
-        //    Debug.Log(playingEnemy.CharacterName + " is targeting: " + item.CharacterName);
-        //}
+
     }
 
     public void EnemiesRerollTargetsForNewTaunts()

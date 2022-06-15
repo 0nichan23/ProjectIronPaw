@@ -124,7 +124,6 @@ public class CardScriptableObject : ScriptableObject
          */
 
         character.Hand.AddCard(this);
-        CreateCardDisplay();
     }
 
     public void CreateCardDisplay()

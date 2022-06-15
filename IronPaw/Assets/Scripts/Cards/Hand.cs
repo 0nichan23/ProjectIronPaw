@@ -108,10 +108,6 @@ public class Hand : MonoBehaviour
             _cardUIsInHand[i].Container.localPosition = new Vector3(_cardUIsInHand[i].Container.localPosition.x, totalRaise - nextRaise, _cardUIsInHand[i].Container.localPosition.z);
             _cardUIsInHand[_cardUIsInHand.Length-1-i].Container.localPosition = new Vector3(_cardUIsInHand[i].Container.localPosition.x, totalRaise - nextRaise, _cardUIsInHand[i].Container.localPosition.z);
             nextRaise += raisePerCard;
-
-            //int middleElementIndex = _cardUIsInHand.Length / 2;
-            //int rotationMultiplier = Math.Abs(middleElementIndex - i);
-            //_cardUIsInHand[i].Container.localPosition -= new Vector3(0, (rotationMultiplier) * 5, 0);
         }
     }
 
