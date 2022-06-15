@@ -39,6 +39,7 @@ public class Vikinguin : Hero
 
     public override void Ultimate()
     {
+        _animator.SetTrigger("Ult");
         GainBlock(_amountOfBlockToGainFromUltimate);
         AddStatusEffect(new Taunt(this, 3));
         AmountOfBlockToLose = 10;

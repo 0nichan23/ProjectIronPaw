@@ -12,9 +12,11 @@ public class Sima : Hero
 
     public override void Ultimate()
     {
+        _animator.SetTrigger("Ult");
         foreach (var hero in Controller.ControllerChracters)
         {
             hero.Heal(_ultimateHealAmount, this);
+
         }
     }
 

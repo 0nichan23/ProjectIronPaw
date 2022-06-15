@@ -24,7 +24,7 @@ public abstract class Character : MonoBehaviour
 
     [SerializeField] private CharacterPersonalUI _refSlot;
 
-    [SerializeField] private Animator _animator;
+    [SerializeField] protected Animator _animator;
     [SerializeField] private bool _reachedAnimationSyncFrame;
     public AnimationEvent AnimationSyncEvent;
 
