@@ -26,7 +26,7 @@ public class Sima : Hero
 
         foreach (var hero in Controller.ControllerChracters)
         {
-            if (hero.CurrentHP < hero.MaxHP)
+            if (hero.IsAlive && hero.CurrentHP < hero.MaxHP)
             {
                 damagedHeroes.Add(hero);
             }

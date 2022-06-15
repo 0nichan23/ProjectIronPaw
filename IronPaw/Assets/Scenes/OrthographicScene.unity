@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44864297, g: 0.49869418, b: 0.57567257, a: 1}
+  m_IndirectSpecularColor: {r: 0.4486426, g: 0.49869394, b: 0.575672, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -439,15 +439,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 775396206858156215, guid: 2e2a5641c480ebf4a8e6df1e38f7baad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 660.1379
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 775396206858156215, guid: 2e2a5641c480ebf4a8e6df1e38f7baad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 234.17792
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 775396206858156215, guid: 2e2a5641c480ebf4a8e6df1e38f7baad, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -91.4175
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 775396206858156215, guid: 2e2a5641c480ebf4a8e6df1e38f7baad, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2856,7 +2856,7 @@ MonoBehaviour:
   _mainCamera: {fileID: 963194227}
   CameraShake: {fileID: 963194231}
   HitParticle: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
-  HealingParticle: {fileID: 100000, guid: ada5d62ffe762ce4fbccc70dcdbc9022, type: 3}
+  HealingParticle: {fileID: 1859198099107891301, guid: 108436ed6156c2149bcdd4ed13452bdc, type: 3}
   DamagePopup: {fileID: 2444338576443565361, guid: 69cfc3574c78f2e4da924ef517564894, type: 3}
 --- !u!1 &472691268
 GameObject:
@@ -5871,15 +5871,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1830302492347618396, guid: a163c727bb015f646b3aacc77ba5a92b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 660.74677
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1830302492347618396, guid: a163c727bb015f646b3aacc77ba5a92b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 251.82973
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1830302492347618396, guid: a163c727bb015f646b3aacc77ba5a92b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -689.2851
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1830302492347618396, guid: a163c727bb015f646b3aacc77ba5a92b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8703,7 +8703,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579456993}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 355.1214, y: 31.587784, z: -60.244827}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1027434981}
@@ -9740,15 +9740,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3317774568791796297, guid: 611976528af8cc3439f73994bbffd750, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 604.12286
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3317774568791796297, guid: 611976528af8cc3439f73994bbffd750, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 236.92805
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3317774568791796297, guid: 611976528af8cc3439f73994bbffd750, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -54.89283
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3317774568791796297, guid: 611976528af8cc3439f73994bbffd750, type: 3}
       propertyPath: m_LocalRotation.w
