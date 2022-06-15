@@ -7,10 +7,37 @@ public class VFXManager : Singleton<VFXManager>
     public Camera _mainCamera;
     public CameraShake CameraShake;
 
+
+    [SerializeField] private GameObject HitParticle;
+    [SerializeField] private GameObject HealingParticle;
+    public GameObject DamagePopup;
+
+
     void Start()
     {
         CameraShake = _mainCamera.GetComponent<CameraShake>();
     }
 
+
+    public void CreateDamagePopup(Vector3 pos, int amount)
+    {
+        pos = new Vector3(pos.x, pos.y + 1, pos.z - 4);
+        DamagePopup popup = Instantiate(DamagePopup, pos, Quaternion.identity).GetComponentInChildren<DamagePopup>();
+        popup.Setup(amount);
+    }
+
+    public void CreateHitParticle(Vector3 pos)
+    {
+        pos = new Vector3(pos.x, pos.y + 1, pos.z);
+        GameObject Particle = Instantiate(HitParticle, pos, Quaternion.identity);
+        Destroy(Particle, 2f);
+    }
+
+    public void CreateHealingParticle(Vector3 pos)
+    {
+        pos = new Vector3(pos.x, pos.y + 1, pos.z);
+        GameObject Particle = Instantiate(HealingParticle, pos, Quaternion.identity);
+        Destroy(Particle, 2f);
+    }
 
 }

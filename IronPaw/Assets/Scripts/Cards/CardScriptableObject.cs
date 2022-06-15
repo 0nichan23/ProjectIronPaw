@@ -8,7 +8,7 @@ public class CardScriptableObject : ScriptableObject
 {
     public string CardName;
     public string Description;
-    public Color[] Colors;
+    public ColorIdentity[] Colors;
     public Rarity Rarity;
     public int EnergyCost;
     [SerializeField]
@@ -22,12 +22,12 @@ public class CardScriptableObject : ScriptableObject
 
     private bool CheckCardAndHeroColors(Character playingCharacter)
     {
-        if (Colors[0] == Color.Colorless)
+        if (Colors[0] == ColorIdentity.Colorless)
         {
             return true;
         }
 
-        foreach (Color heroColor in playingCharacter.Colors)
+        foreach (ColorIdentity heroColor in playingCharacter.Colors)
         {
             foreach (var cardColor in Colors)
             {
