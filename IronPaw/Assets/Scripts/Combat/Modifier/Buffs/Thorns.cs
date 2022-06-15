@@ -5,9 +5,8 @@ using UnityEngine;
 public class Thorns : Buff
 {
     private int _givenDamage;
-    public Thorns(Character host, int numberOfTurns, int givenDamage) : base(host, numberOfTurns)
+    public Thorns(Character host, int numberOfTurns) : base(host, numberOfTurns)
     {
-        _givenDamage = givenDamage;
         StatusEffectType = StatusEffectType.Thorns;
         CustomConstructor(host, numberOfTurns);
     }
@@ -29,7 +28,7 @@ public class Thorns : Buff
     {
         if(damage.IsSourceAttack)
         {
-            damage.SourceCharacter.TakeDmg(new Damage(_givenDamage, _host, false));
+            damage.SourceCharacter.TakeDmg(new Damage(TurnCounter, _host, false));
         }
     }
 

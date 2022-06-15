@@ -41,6 +41,7 @@ public class Duckislav : Hero
     {
         _animator.SetTrigger("Ult");
         MaxAp++;
+        CurrentAp++;
         OnStartTurn += DuckislavBuff;
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Roar", menuName = "Cards/CardEffect/ColorlessCards/Guard/RoarEffect")]
 
-public class RoarEffectEffect : CardEffect
+public class RoarEffect: CardEffect
 {
     protected override void PlayCardEffect(Character playingCharacter, Character target)
     {

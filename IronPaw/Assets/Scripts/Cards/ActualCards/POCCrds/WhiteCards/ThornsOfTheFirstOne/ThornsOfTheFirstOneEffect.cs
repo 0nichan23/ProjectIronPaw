@@ -8,6 +8,6 @@ public class ThornsOfTheFirstOneEffect : CardEffect
 {
     protected override void PlayCardEffect(Character playingCharacter, Character target)
     {
-        target.AddStatusEffect(new Thorns(target, 3, 0));
+        target.AddStatusEffect(new Thorns(target, 3));
     }
 }

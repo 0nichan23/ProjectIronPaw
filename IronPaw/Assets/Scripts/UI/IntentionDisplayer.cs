@@ -12,6 +12,8 @@ public class IntentionDisplayer : MonoBehaviour
 
     TextMeshProUGUI DamageText;
 
+    [SerializeField] private Sprite _multipleTargetsSprite;
+
     private void Start()
     {
         DamageText = GetComponentInChildren<TextMeshProUGUI>();
@@ -27,7 +29,8 @@ public class IntentionDisplayer : MonoBehaviour
         }
         if (targets.Count > 1)
         {
-            //do something with list? aoe sprite 
+            _targetedCharacterImage.gameObject.SetActive(true);
+            _targetedCharacterImage.sprite = _multipleTargetsSprite;
         }
         else
         {

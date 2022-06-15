@@ -120,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _intentionTypeImage: {fileID: 4561648717150593212}
   _targetedCharacterImage: {fileID: 4561648716363201572}
+  _multipleTargetsSprite: {fileID: 21300000, guid: 4e13f0f16a438024cbb038ebee3383c3, type: 3}
 --- !u!1 &4561648715992052704
 GameObject:
   m_ObjectHideFlags: 0

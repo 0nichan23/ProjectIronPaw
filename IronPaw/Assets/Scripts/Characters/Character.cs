@@ -51,7 +51,15 @@ public abstract class Character : MonoBehaviour
     public int MaxHP { get => _maxHp; }
     public int CurrentHP { get => _currentHp; }
     public List<ColorIdentity> Colors { get => colors; set => colors = value; }
-    public int CurrentAp { get => _currentAp; set => _currentAp = value; }
+    public int CurrentAp
+    {
+        get => _currentAp;
+        set
+        { 
+            _currentAp = value;
+            UpdateUI();
+        }
+    }
     public string CharacterName { get => _characterName; set => _characterName = value; }
     public CharacterStats Stats { get => _stats; set => _stats = value; }
     public List<StatusEffect> ActiveStatusEffects { get => _activeStatusEffects; set => _activeStatusEffects = value; }

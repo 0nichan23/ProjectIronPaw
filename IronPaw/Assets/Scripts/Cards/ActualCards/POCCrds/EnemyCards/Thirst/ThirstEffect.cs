@@ -11,6 +11,6 @@ public class ThirstEffect : CardEffect
     {
         int targetsHit = Targets.Count;
         target.TakeDmg(new Damage(DamageValue, playingCharacter, true));
-        target.Heal(targetsHit, playingCharacter);
+        playingCharacter.Heal(targetsHit, playingCharacter);
     }
 }
