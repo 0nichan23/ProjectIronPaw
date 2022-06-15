@@ -39,6 +39,7 @@ public class Duckislav : Hero
 
     public override void Ultimate()
     {
+        _animator.SetTrigger("Ult");
         MaxAp++;
         OnStartTurn += DuckislavBuff;
     }
