@@ -99,7 +99,7 @@ ModelImporter:
       name: Die
       takeName: Take 001
       internalID: 0
-      firstFrame: 38
+      firstFrame: 61
       lastFrame: 122
       wrapMode: 0
       orientationOffsetY: 0
@@ -157,7 +157,7 @@ ModelImporter:
       name: Hit
       takeName: Take 001
       internalID: 0
-      firstFrame: 262
+      firstFrame: 266
       lastFrame: 317
       wrapMode: 0
       orientationOffsetY: 0

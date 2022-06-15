@@ -127,7 +127,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: eeef38fcb4a9d8e41a9dd29742e76c62, type: 2}
+  m_Motion: {fileID: 7400000, guid: ec91961aa8cb2ac43adb8f74ee21b002, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -140,7 +140,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Die 0
+  m_Name: Die
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -154,7 +154,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 5f83a542e5f9dee47ab8d97cb6ee76da, type: 2}
+  m_Motion: {fileID: 7400000, guid: ac45c8805640e524d9dc1baa1d308f71, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -222,7 +222,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -1304387373167265313, guid: 9c0de15521f531d4ababb3e7ae4505a2, type: 3}
+  m_Motion: {fileID: 1827226128182048838, guid: 4b5bd84e2a7d5ca4abc873c54611e2b1, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
