@@ -16460,9 +16460,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hand: {fileID: 7395125938354459183}
   _controller: {fileID: 0}
-  _cardsGiven:
-  - {fileID: 11400000, guid: 00695503527b1f944a62c9941ae0c2e4, type: 2}
-  _decksGiven: []
+  _cardsGiven: []
+  _decksGiven:
+  - {fileID: 11400000, guid: 3740f78cf2a984c4b84bcc463e86b07c, type: 2}
   _discardPile: {fileID: 7395125938354459217}
 --- !u!114 &7395125938354459183
 MonoBehaviour:
@@ -16562,9 +16562,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hand: {fileID: 7395125938883939081}
   _controller: {fileID: 0}
-  _cardsGiven:
-  - {fileID: 11400000, guid: 00695503527b1f944a62c9941ae0c2e4, type: 2}
-  _decksGiven: []
+  _cardsGiven: []
+  _decksGiven:
+  - {fileID: 11400000, guid: 0aac8f347ab49194d86c79f0a19407c8, type: 2}
   _discardPile: {fileID: 7395125938883939191}
 --- !u!114 &7395125938883939081
 MonoBehaviour:
@@ -16828,9 +16828,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hand: {fileID: 7395125939126888010}
   _controller: {fileID: 0}
-  _cardsGiven:
-  - {fileID: 11400000, guid: 00695503527b1f944a62c9941ae0c2e4, type: 2}
-  _decksGiven: []
+  _cardsGiven: []
+  _decksGiven:
+  - {fileID: 11400000, guid: c3b8815b36c3ef842aac726494b7d5db, type: 2}
   _discardPile: {fileID: 7395125939126887988}
 --- !u!4 &7395125939762153256
 Transform:
