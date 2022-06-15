@@ -73,7 +73,7 @@ ModelImporter:
       takeName: Take 001
       internalID: 0
       firstFrame: 0
-      lastFrame: 47
+      lastFrame: 157
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -102,7 +102,7 @@ ModelImporter:
       takeName: Take 001
       internalID: 0
       firstFrame: 167
-      lastFrame: 248
+      lastFrame: 239
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -130,8 +130,8 @@ ModelImporter:
       name: Die
       takeName: Take 001
       internalID: 0
-      firstFrame: 248
-      lastFrame: 375
+      firstFrame: 249
+      lastFrame: 367
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -159,8 +159,8 @@ ModelImporter:
       name: Idle
       takeName: Take 001
       internalID: 0
-      firstFrame: 380
-      lastFrame: 730
+      firstFrame: 377
+      lastFrame: 715
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -238,7 +238,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.47
+    globalScale: 47
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

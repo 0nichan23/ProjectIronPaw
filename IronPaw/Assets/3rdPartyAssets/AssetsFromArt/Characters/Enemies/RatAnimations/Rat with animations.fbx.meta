@@ -5,7 +5,7 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Take 001
+    second: Shoot
   - first:
       74: 6720303635017113406
     second: Attack
@@ -164,7 +164,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Hit
+      name: Shoot
       takeName: Take 001
       internalID: 0
       firstFrame: 200

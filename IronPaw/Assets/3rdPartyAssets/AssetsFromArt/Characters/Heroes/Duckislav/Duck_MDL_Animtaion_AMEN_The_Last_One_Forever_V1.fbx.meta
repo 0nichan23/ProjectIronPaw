@@ -160,8 +160,8 @@ ModelImporter:
       name: Idle
       takeName: Take 001
       internalID: 0
-      firstFrame: 50
-      lastFrame: 260
+      firstFrame: 0
+      lastFrame: 275
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -189,8 +189,8 @@ ModelImporter:
       name: Die
       takeName: Take 001
       internalID: 0
-      firstFrame: 290
-      lastFrame: 381
+      firstFrame: 280
+      lastFrame: 357
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -219,7 +219,7 @@ ModelImporter:
       takeName: Take 001
       internalID: 0
       firstFrame: 383
-      lastFrame: 440
+      lastFrame: 422
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -247,7 +247,7 @@ ModelImporter:
       name: Hit
       takeName: Take 001
       internalID: 0
-      firstFrame: 450
+      firstFrame: 456
       lastFrame: 484
       wrapMode: 0
       orientationOffsetY: 0
