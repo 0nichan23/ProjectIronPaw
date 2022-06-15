@@ -10,7 +10,8 @@ public class VFXManager : Singleton<VFXManager>
 
     [SerializeField] private GameObject HitParticle;
     [SerializeField] private GameObject HealingParticle;
-    public GameObject DamagePopup;
+    [SerializeField] private GameObject HealingPopup;
+    [SerializeField] private GameObject DamagePopup;
 
 
     void Start()
@@ -25,6 +26,14 @@ public class VFXManager : Singleton<VFXManager>
         DamagePopup popup = Instantiate(DamagePopup, pos, Quaternion.identity).GetComponentInChildren<DamagePopup>();
         popup.Setup(amount);
     }
+
+    public void CreateHealingPopup(Vector3 pos, int amount)
+    {
+        pos = new Vector3(pos.x, pos.y + 1, pos.z - 4);
+        DamagePopup popup = Instantiate(HealingPopup, pos, Quaternion.identity).GetComponentInChildren<DamagePopup>();
+        popup.Setup(amount);
+    }
+
 
     public void CreateHitParticle(Vector3 pos)
     {
