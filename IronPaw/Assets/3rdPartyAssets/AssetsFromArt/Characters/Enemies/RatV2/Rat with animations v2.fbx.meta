@@ -128,7 +128,7 @@ ModelImporter:
       name: Idle
       takeName: Take 001
       internalID: 0
-      firstFrame: 132
+      firstFrame: 133
       lastFrame: 252
       wrapMode: 0
       orientationOffsetY: 0
@@ -185,7 +185,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 3
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -236,7 +236,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 3
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
