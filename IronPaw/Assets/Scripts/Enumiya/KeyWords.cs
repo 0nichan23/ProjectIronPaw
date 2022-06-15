@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum KeyWords
 {
-    REGENRATE,
+    REGENERATE,
     TAUNT,
     IMMUNE,
     WEAK,
@@ -17,7 +17,4 @@ public enum KeyWords
     SWIFT,
     THORNS,
     ENERGY
-
-
-
 }

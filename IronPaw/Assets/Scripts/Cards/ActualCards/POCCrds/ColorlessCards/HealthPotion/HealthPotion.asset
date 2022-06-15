@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HealthPotion
   m_EditorClassIdentifier: 
   CardName: HealthPotion
-  Description: Gain 5 health
+  Description: Heal 5 HP
   Colors: 04000000
   Rarity: 0
   EnergyCost: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SecondDagger
   m_EditorClassIdentifier: 
   CardName: Second Dagger
-  Description: Deals 3 Damage
+  Description: Deal 3 Damage
   Colors: 01000000
   Rarity: 0
   EnergyCost: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Regenerate
   m_EditorClassIdentifier: 
   CardName: Regenerate
-  Description: A Hero gains Regenerate 3, Usable
+  Description: A Hero gains Regenerate 3
   Colors: 0000000003000000
   Rarity: 0
   EnergyCost: 1

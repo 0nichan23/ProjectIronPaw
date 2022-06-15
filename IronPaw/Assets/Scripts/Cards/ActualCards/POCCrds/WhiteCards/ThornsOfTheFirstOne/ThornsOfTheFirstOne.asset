@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a49c1bbb566c17044a844e5c42c123e5, type: 3}
   m_Name: ThornsOfTheFirstOne
   m_EditorClassIdentifier: 
-  CardName: ' Thorns Of The First One'
+  CardName: Thorns of Faith
   Description: Another Hero gains 3 Thorns
   Colors: 03000000
   Rarity: 0
