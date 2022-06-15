@@ -63,4 +63,19 @@ public class Enemy : Character
         }
     }
 
+    public bool AreTargetsStillAlive()
+    {
+        bool isAtLeastOneTargetStillAlive = false;
+
+        foreach (Character target in Targets)
+        {
+            if(target.IsAlive)
+            {
+                isAtLeastOneTargetStillAlive = true;
+            }
+        }
+
+        return isAtLeastOneTargetStillAlive;
+    }
+
 }

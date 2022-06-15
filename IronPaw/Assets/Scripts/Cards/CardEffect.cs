@@ -13,6 +13,7 @@ public abstract class CardEffect : ScriptableObject
     public int DamageValue;
     public Damage CardDamage;
 
+    
     public void InitializePlayEffect(Character playingCharacter)
     {
         CardDamage = new Damage(DamageValue, playingCharacter, true);

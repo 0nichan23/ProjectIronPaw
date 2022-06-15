@@ -42,8 +42,15 @@ public class EnemyController : Controller
                 if (enemy.Hand.Cards.Count > 0)
                 {
                     playedCard = enemy.Hand.Cards[0];
-                    PartyManager.Instance.EnemyPlayCard(enemy, enemy.Hand.Cards[0]);
-
+                    // if(targets still legal) => 
+                    if(enemy.AreTargetsStillAlive()) // Skip current enemy turn if  no legal targets
+                    {
+                        PartyManager.Instance.EnemyPlayCard(enemy, playedCard);
+                    }
+                    else
+                    {
+                        CurrentEnemyDonePlaying = true;
+                    }
                 }
             }
             if (playedCard != null && playedCard.CardType == CardType.Attack)
