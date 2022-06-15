@@ -2854,7 +2854,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainCamera: {fileID: 963194227}
-  CameraShake: {fileID: 0}
+  CameraShake: {fileID: 963194231}
+  HitParticle: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
+  HealingParticle: {fileID: 100000, guid: ada5d62ffe762ce4fbccc70dcdbc9022, type: 3}
+  DamagePopup: {fileID: 2444338576443565361, guid: 69cfc3574c78f2e4da924ef517564894, type: 3}
 --- !u!1 &472691268
 GameObject:
   m_ObjectHideFlags: 0
