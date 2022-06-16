@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Hand : MonoBehaviour
@@ -23,7 +20,7 @@ public class Hand : MonoBehaviour
     private void Start()
     {
         _controller = DiscardPile.Controller;
-        
+
     }
 
     public void AddCard(CardScriptableObject givenCard)
@@ -33,15 +30,20 @@ public class Hand : MonoBehaviour
         if (_controller == PlayerWrapper.Instance.PlayerController)
         {
             givenCard.CreateCardDisplay();
-            //ToggleScrollableHand();
+            ToggleScrollableHand();
             //UpdateHandFanShape();
-        }  
+        }
     }
 
     public void RemoveCard(CardScriptableObject givenCard)
     {
         Cards.Remove(givenCard);
-        //ToggleScrollableHand();
+        if (_controller == PlayerWrapper.Instance.PlayerController)
+        {
+            ToggleScrollableHand();
+            //UpdateHandFanShape();
+        }
+
     }
 
     private void ToggleScrollableHand()
@@ -72,7 +74,7 @@ public class Hand : MonoBehaviour
         for (int i = 0; i < numberOfCardsOnEachSide; i++)
         {
             int multiplier = numberOfCardsOnEachSide - i;
-            children[i].Container.localEulerAngles =  new Vector3(0, 0, multiplier * degreeToRotate);
+            children[i].Container.localEulerAngles = new Vector3(0, 0, multiplier * degreeToRotate);
             children[i].Container.localPosition -= new Vector3(0, (multiplier) * 3, 0);
         }
 
@@ -85,12 +87,12 @@ public class Hand : MonoBehaviour
             //}
 
 
-                for (int i = Cards.Count-1; i > numberOfCardsOnEachSide; i--)
-                {
-                    int multiplier = numberOfCardsOnEachSide - i;   // multiplier will be negative here
-                    children[i].Container.localEulerAngles = new Vector3(0, 0, multiplier * degreeToRotate);
-                    children[i].Container.localPosition -= new Vector3(0, (-multiplier) * 3, 0);
-                }        
+            for (int i = Cards.Count - 1; i > numberOfCardsOnEachSide; i--)
+            {
+                int multiplier = numberOfCardsOnEachSide - i;   // multiplier will be negative here
+                children[i].Container.localEulerAngles = new Vector3(0, 0, multiplier * degreeToRotate);
+                children[i].Container.localPosition -= new Vector3(0, (-multiplier) * 3, 0);
+            }
         }
 
         //foreach (var child in children)
@@ -103,11 +105,11 @@ public class Hand : MonoBehaviour
     {
         float totalTwist = 60f;
         int numberOfCardsInHand = Cards.Count;
-        float twistPerCard = totalTwist / (numberOfCardsInHand-1);
+        float twistPerCard = totalTwist / (numberOfCardsInHand - 1);
 
         float startTwist = 1f * (totalTwist / 2f);
 
-        
+
         float totalRaise = 70f;
         float raisePerCard = totalRaise / numberOfCardsInHand;
         Debug.Log(raisePerCard);
@@ -129,7 +131,7 @@ public class Hand : MonoBehaviour
 
             float raiseForThisCard = i * raisePerCard;
             _cardUIsInHand[i].Container.localPosition = new Vector3(_cardUIsInHand[i].Container.localPosition.x, totalRaise - nextRaise, _cardUIsInHand[i].Container.localPosition.z);
-            _cardUIsInHand[_cardUIsInHand.Length-1-i].Container.localPosition = new Vector3(_cardUIsInHand[i].Container.localPosition.x, totalRaise - nextRaise, _cardUIsInHand[i].Container.localPosition.z);
+            _cardUIsInHand[_cardUIsInHand.Length - 1 - i].Container.localPosition = new Vector3(_cardUIsInHand[i].Container.localPosition.x, totalRaise - nextRaise, _cardUIsInHand[i].Container.localPosition.z);
             nextRaise += raisePerCard;
         }
     }
@@ -143,7 +145,7 @@ public class Hand : MonoBehaviour
 
     public void ClearHand()
     {
-        while(Cards.Count > 0)
+        while (Cards.Count > 0)
         {
             ClearCard(Cards[0]);
         }
