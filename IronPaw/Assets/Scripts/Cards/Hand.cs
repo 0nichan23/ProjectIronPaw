@@ -15,6 +15,9 @@ public class Hand : MonoBehaviour
     bool DiscardAtTurnEnd;
     [SerializeField] private int _drawAmount;
 
+    [SerializeField] private ScrollRect _parentScrollRect;
+
+    private int _cardScrollThreshold = 5;
     public int DrawAmount { get => _drawAmount; set => _drawAmount = value; }
 
     private void Start()
@@ -29,10 +32,27 @@ public class Hand : MonoBehaviour
         if (_controller == PlayerWrapper.Instance.PlayerController)
         {
             givenCard.CreateCardDisplay();
+            ToggleScrollableHand();
             //UpdateHandFanShape();
-        }
+        }  
+    }
 
-        
+    public void RemoveCard(CardScriptableObject givenCard)
+    {
+        Cards.Remove(givenCard);
+        ToggleScrollableHand();
+    }
+
+    private void ToggleScrollableHand()
+    {
+        if (Cards.Count > _cardScrollThreshold)
+        {
+            _parentScrollRect.enabled = true;
+        }
+        else
+        {
+            _parentScrollRect.enabled = false;
+        }
     }
 
     private void UpdateHandFan()
@@ -111,11 +131,6 @@ public class Hand : MonoBehaviour
             _cardUIsInHand[_cardUIsInHand.Length-1-i].Container.localPosition = new Vector3(_cardUIsInHand[i].Container.localPosition.x, totalRaise - nextRaise, _cardUIsInHand[i].Container.localPosition.z);
             nextRaise += raisePerCard;
         }
-    }
-
-    public void RemoveCard(CardScriptableObject givenCard)
-    {
-        Cards.Remove(givenCard);
     }
 
     public void ClearCard(CardScriptableObject card)

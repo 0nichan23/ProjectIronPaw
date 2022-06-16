@@ -544,7 +544,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136925024}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
   m_Name: 
@@ -13303,6 +13303,7 @@ MonoBehaviour:
   DiscardPile: {fileID: 1085283461}
   _controller: {fileID: 0}
   _drawAmount: 5
+  _parentScrollRect: {fileID: 136925026}
 --- !u!114 &718048169714736184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13358,7 +13359,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &718048169714736187
 MonoBehaviour:
@@ -13419,8 +13420,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalFit: 0
-  m_VerticalFit: 1
+  m_HorizontalFit: 1
+  m_VerticalFit: 0
 --- !u!4 &929170854212826044
 Transform:
   m_ObjectHideFlags: 0
@@ -17171,8 +17172,7 @@ MonoBehaviour:
   _hand: {fileID: 7395125938354459183}
   _controller: {fileID: 0}
   _cardsGiven: []
-  _decksGiven:
-  - {fileID: 11400000, guid: 3740f78cf2a984c4b84bcc463e86b07c, type: 2}
+  _decksGiven: []
   _discardPile: {fileID: 7395125938354459217}
 --- !u!114 &7395125938354459183
 MonoBehaviour:
@@ -17190,6 +17190,7 @@ MonoBehaviour:
   DiscardPile: {fileID: 7395125938354459217}
   _controller: {fileID: 0}
   _drawAmount: 0
+  _parentScrollRect: {fileID: 0}
 --- !u!114 &7395125938354459216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17273,8 +17274,7 @@ MonoBehaviour:
   _hand: {fileID: 7395125938883939081}
   _controller: {fileID: 0}
   _cardsGiven: []
-  _decksGiven:
-  - {fileID: 11400000, guid: 0aac8f347ab49194d86c79f0a19407c8, type: 2}
+  _decksGiven: []
   _discardPile: {fileID: 7395125938883939191}
 --- !u!114 &7395125938883939081
 MonoBehaviour:
@@ -17292,6 +17292,7 @@ MonoBehaviour:
   DiscardPile: {fileID: 7395125938883939191}
   _controller: {fileID: 0}
   _drawAmount: 0
+  _parentScrollRect: {fileID: 0}
 --- !u!114 &7395125938883939082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17526,6 +17527,7 @@ MonoBehaviour:
   DiscardPile: {fileID: 7395125939126887988}
   _controller: {fileID: 0}
   _drawAmount: 0
+  _parentScrollRect: {fileID: 0}
 --- !u!114 &7395125939126888011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17541,8 +17543,7 @@ MonoBehaviour:
   _hand: {fileID: 7395125939126888010}
   _controller: {fileID: 0}
   _cardsGiven: []
-  _decksGiven:
-  - {fileID: 11400000, guid: c3b8815b36c3ef842aac726494b7d5db, type: 2}
+  _decksGiven: []
   _discardPile: {fileID: 7395125939126887988}
 --- !u!4 &7395125939762153256
 Transform:
