@@ -8,6 +8,8 @@ public abstract class Hero : Character
 
     public bool Selectable { get => _selectable; set => _selectable = value; }
 
+    [SerializeField] GameObject ElectricityEffect;
+
     public override void Subscribe()
     {
         Controller.OnStartTurn += InvokeStartTurn;
@@ -28,6 +30,7 @@ public abstract class Hero : Character
     public void PerformUltimate()
     {
         PlayerWrapper.Instance.PlayerController.ResetUltimateCharge();
+        ElectricityEffect.SetActive(true);
         Ultimate();
     }
 
