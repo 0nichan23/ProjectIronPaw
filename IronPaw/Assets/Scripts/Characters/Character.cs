@@ -170,6 +170,7 @@ public abstract class Character : MonoBehaviour
         UpdateUI();
         VFXManager.Instance.CreateHealingPopup(transform.position, amount);
         VFXManager.Instance.CreateHealingParticle(transform.position);
+        AudioManager.Instance.Play(AudioManager.Instance.SfxClips[2]);
 
     }
 
