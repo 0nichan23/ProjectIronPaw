@@ -81,7 +81,7 @@ public class TurnManager : Singleton<TurnManager>
     {
         StopTurnLoop();
         ToggleGameOverUI(true);
-        _gameOverPanel.SetGameOverUI("Defeat!", "Return To Base", UnityEngine.Color.red);
+        _gameOverPanel.SetGameOverUI("DEFEAT", "Return To Base");
         //stop turn loop
         //turn ui window
         //set ui win/lose
@@ -91,7 +91,7 @@ public class TurnManager : Singleton<TurnManager>
     {
         StopTurnLoop();
         ToggleGameOverUI(true);
-        _gameOverPanel.SetGameOverUI("Victory!", "Continue", UnityEngine.Color.blue);
+        _gameOverPanel.SetGameOverUI("GLORIOUS VICTORY", "Continue");
     }
     private void StopTurnLoop()
     {

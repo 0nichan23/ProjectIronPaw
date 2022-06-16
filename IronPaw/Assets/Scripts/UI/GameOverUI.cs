@@ -12,11 +12,10 @@ public class GameOverUI : MonoBehaviour
     private Text _buttonText;
     [SerializeField]
     private Image _buttonImage;
-    public void SetGameOverUI(string title, string buttonText, UnityEngine.Color buttonColor)
+    public void SetGameOverUI(string title, string buttonText)
     {
         _title.text = title;
         _buttonText.text = buttonText;
-        _buttonImage.color = buttonColor;
 
     }
 }
