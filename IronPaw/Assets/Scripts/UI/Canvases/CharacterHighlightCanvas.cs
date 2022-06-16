@@ -29,8 +29,7 @@ public class CharacterHighlightCanvas : MonoBehaviour
     }
 
     private void TurnOnModel(Character givenCharacter)
-    {
-       
+    {  
         List<Character> pointerList = null;
 
         if(givenCharacter is Hero)
