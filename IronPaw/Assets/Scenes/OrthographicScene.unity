@@ -3017,7 +3017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86bb6d9b8af31da42ab82f3a2759ebae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _outlineWidth: 3.5
+  _outlineWidth: 5
   _characterOutlines: []
   _red: {r: 0.9245283, g: 0.25729796, b: 0.25729796, a: 1}
   _green: {r: 0.12437701, g: 0.4056604, b: 0.15337527, a: 1}
