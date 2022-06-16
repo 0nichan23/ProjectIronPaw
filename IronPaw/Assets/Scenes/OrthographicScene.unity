@@ -1074,6 +1074,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c79c0869ba7fbb347a63e98b31a910df, type: 3}
+--- !u!1 &146493081 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6087952794450331886, guid: dc92138ffc5ca59409c56793de6d53aa, type: 3}
+  m_PrefabInstance: {fileID: 6087952794396130392}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &155476126
 GameObject:
   m_ObjectHideFlags: 0
@@ -14995,6 +15000,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ToolTip Panel
       objectReference: {fileID: 0}
+    - target: {fileID: 6087952794450331886, guid: dc92138ffc5ca59409c56793de6d53aa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6087952794450331887, guid: dc92138ffc5ca59409c56793de6d53aa, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -15078,6 +15087,10 @@ PrefabInstance:
     - target: {fileID: 6087952794450331887, guid: dc92138ffc5ca59409c56793de6d53aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087952795140892434, guid: dc92138ffc5ca59409c56793de6d53aa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6087952795140892435, guid: dc92138ffc5ca59409c56793de6d53aa, type: 3}
       propertyPath: m_SizeDelta.y
@@ -17361,6 +17374,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1599366957}
     m_Modifications:
+    - target: {fileID: 7400345289727289690, guid: 536ea243a55716e4889388a8f637c4e5, type: 3}
+      propertyPath: _toolTipPanel
+      value: 
+      objectReference: {fileID: 146493081}
+    - target: {fileID: 7400345289727289690, guid: 536ea243a55716e4889388a8f637c4e5, type: 3}
+      propertyPath: _toolTipHolder
+      value: 
+      objectReference: {fileID: 146493081}
     - target: {fileID: 7400345289727289690, guid: 536ea243a55716e4889388a8f637c4e5, type: 3}
       propertyPath: _toolTipScroll
       value: 
