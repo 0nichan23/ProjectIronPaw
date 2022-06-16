@@ -22,7 +22,6 @@ public class IntentionDisplayer : MonoBehaviour
     public void DisplayIntention(List<Character> targets, CardScriptableObject playedCard, Enemy playingEnemy)
     {
         
-
         if (targets.Count == 0)
         {
             return;
@@ -45,19 +44,26 @@ public class IntentionDisplayer : MonoBehaviour
             }
         }
 
-        if (playedCard.CardType == CardType.Attack)
+
+        switch (playedCard.CardType)
         {
-            DamageText.gameObject.SetActive(true);
-            float dmg = playedCard.CardEffect.DamageValue;
-            if (playingEnemy.IsAfflictedBy(StatusEffectType.Weak))
-            {
-                dmg *= 0.67f;
-            }
-            DamageText.text = ((int)dmg).ToString();
-        }
-        else
-        {
-            DamageText.gameObject.SetActive(false);
+            case CardType.Attack:
+                DamageText.gameObject.SetActive(true);
+                float dmg = playedCard.CardEffect.DamageValue;
+                if (playingEnemy.IsAfflictedBy(StatusEffectType.Weak))
+                {
+                    dmg *= 0.67f;
+                }
+                DamageText.text = ((int)dmg).ToString();
+                break;
+            case CardType.Guard:
+                DamageText.gameObject.SetActive(false);
+                break;
+            case CardType.Utility:
+                DamageText.gameObject.SetActive(false);
+                break;
+            default:
+                break;
         }
         _intentionTypeImage.sprite = PrefabManager.Instance.GetIntentionTypeSprite(playedCard);
     }

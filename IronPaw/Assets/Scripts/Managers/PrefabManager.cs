@@ -1,15 +1,14 @@
-using UnityEngine;
 using System;
 using System.Collections.Generic;
-using UnityEngine.UI;
+using UnityEngine;
 
 public class PrefabManager : Singleton<PrefabManager>
 {
     public GameObject PlainCardDispaly;
 
     public GameObject EffectSlot;
-    
-    
+
+
     public Sprite BleedIcon;
 
 
@@ -28,19 +27,19 @@ public class PrefabManager : Singleton<PrefabManager>
     [SerializeField] private List<Sprite> _typeFrames = new List<Sprite>();
 
 
-    
-   [SerializeField] public KeywordDisplayManager _keywordManager;
-    
+
+    [SerializeField] public KeywordDisplayManager _keywordManager;
+
     public Sprite GetSprite(StatusEffect StatusEffect)
     {
-        
+
         int index = (int)StatusEffect.StatusEffectType;
 
-        
+
         return SpritesIcons[index - 1];
     }
 
-    
+
 
     public Sprite GetIntentionTypeSprite(CardScriptableObject card)
     {
@@ -48,13 +47,21 @@ public class PrefabManager : Singleton<PrefabManager>
         {
             case CardType.Attack:
                 return IntentionIcons[0];
-                
-                
+
+
             case CardType.Guard:
                 return IntentionIcons[1];
 
             case CardType.Utility:
-                return IntentionIcons[2];
+                if (card.BuffType == UtilityBuffType.BUFF)
+                {
+                    return IntentionIcons[2];
+                }
+                else if(card.BuffType == UtilityBuffType.DEBUFF)
+                {
+                    return IntentionIcons[3];
+                }
+                return null;
 
             default:
 
@@ -79,7 +86,7 @@ public class PrefabManager : Singleton<PrefabManager>
                 {
                     return frame;
                 }
-            }            
+            }
         }
 
         throw new Exception("Invalid number of colors for a card!");

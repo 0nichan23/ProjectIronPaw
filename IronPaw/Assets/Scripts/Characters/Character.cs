@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 public abstract class Character : MonoBehaviour
@@ -54,7 +53,7 @@ public abstract class Character : MonoBehaviour
     {
         get => _currentAp;
         set
-        { 
+        {
             _currentAp = value;
             UpdateUI();
         }
@@ -133,6 +132,15 @@ public abstract class Character : MonoBehaviour
         {
             RefSlot.AddEffect(statusEffect);
         }
+        if (statusEffect is Buff)
+        {
+            AudioManager.Instance.Play(AudioManager.Instance.SfxClips[0]);
+        }
+        else if (statusEffect is Debuff)
+        {
+            AudioManager.Instance.Play(AudioManager.Instance.SfxClips[1]);
+
+        }
         UpdateUI();
     }
 
@@ -161,7 +169,7 @@ public abstract class Character : MonoBehaviour
 
     public void Heal(int amount, Character source)
     {
-        
+
         _currentHp += amount + source.Stats.Faith;
         if (_currentHp >= MaxHP)
         {
@@ -212,7 +220,7 @@ public abstract class Character : MonoBehaviour
                 Die();
             }
         }
-        if(damage.IsSourceAttack)
+        if (damage.IsSourceAttack)
         {
             VFXManager.Instance.CameraShake.ShakeCameraForSeconds(0.7f);
         }
@@ -280,12 +288,12 @@ public abstract class Character : MonoBehaviour
 
     public void PlayAnimation(CardType cardType)
     {
-        if(_animator != null)
+        if (_animator != null)
         {
             _animator.SetTrigger("Attack");
-        }        
+        }
     }
-   public IEnumerator WaitUntillDeathAnimationEnd()
+    public IEnumerator WaitUntillDeathAnimationEnd()
     {
         yield return new WaitUntil(() => DoneDying);
         transform.parent.gameObject.SetActive(false);

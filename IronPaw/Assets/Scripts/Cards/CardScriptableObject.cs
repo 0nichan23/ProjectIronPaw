@@ -19,6 +19,9 @@ public class CardScriptableObject : ScriptableObject
     public CardType CardType;
     public GameObject CardDisplay;
     public List<KeyWords> Keywords = new List<KeyWords>();
+    public UtilityBuffType BuffType;
+
+
 
     private bool CheckCardAndHeroColors(Character playingCharacter)
     {
