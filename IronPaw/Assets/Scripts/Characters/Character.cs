@@ -229,18 +229,10 @@ public abstract class Character : MonoBehaviour
         if (this is Hero)
         {
             PartyManager.Instance.Heroes.Remove(this);
-            if (PartyManager.Instance.Heroes.Count == 0)
-            {
-                TurnManager.Instance.LoseGame();
-            }
         }
         else if (this is Enemy)
         {
             PartyManager.Instance.Enemies.Remove(this);
-            if (PartyManager.Instance.Enemies.Count == 0)
-            {
-                TurnManager.Instance.WinGame();
-            }
         }
 
         StartCoroutine(WaitUntillDeathAnimationEnd());
@@ -296,6 +288,22 @@ public abstract class Character : MonoBehaviour
     {
         yield return new WaitUntil(() => DoneDying);
         transform.parent.gameObject.SetActive(false);
+
+        if (this is Hero)
+        {
+            if (PartyManager.Instance.Heroes.Count == 0)
+            {
+                TurnManager.Instance.LoseGame();
+            }
+        }
+        else if (this is Enemy)
+        {
+            if (PartyManager.Instance.Enemies.Count == 0)
+            {
+                TurnManager.Instance.WinGame();
+            }
+        }
+
 
     }
 
