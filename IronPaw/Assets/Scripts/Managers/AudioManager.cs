@@ -9,11 +9,11 @@ public class AudioManager : Singleton<AudioManager>
 		public AudioSource EffectsSource;
 		public AudioSource MusicSource;
 		public AudioSource PlayerSource;
-		
 
-
-		// Random pitch adjustment range.
-		public float LowPitchRange = .95f;
+		public List<AudioClip> SfxClips = new List<AudioClip>();
+	
+	// Random pitch adjustment range.
+	public float LowPitchRange = .95f;
 		public float HighPitchRange = 1.05f;
 
 		public AudioClip BgMusic;

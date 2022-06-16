@@ -162,6 +162,7 @@ public abstract class Character : MonoBehaviour
 
     public void Heal(int amount, Character source)
     {
+        
         _currentHp += amount + source.Stats.Faith;
         if (_currentHp >= MaxHP)
         {
