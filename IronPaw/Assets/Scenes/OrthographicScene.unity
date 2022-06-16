@@ -3017,12 +3017,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86bb6d9b8af31da42ab82f3a2759ebae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _outlineWidth: 5
+  _outlineWidth: 6
   _characterOutlines: []
-  _red: {r: 0.9245283, g: 0.25729796, b: 0.25729796, a: 1}
-  _green: {r: 0.12437701, g: 0.4056604, b: 0.15337527, a: 1}
+  _red: {r: 1, g: 0.2783019, b: 0.2783019, a: 1}
+  _green: {r: 0.25380507, g: 0.8584906, b: 0.22272164, a: 1}
   _blue: {r: 0.32872015, g: 0.46760625, b: 0.8396226, a: 1}
-  _white: {r: 0.80753607, g: 0.8207547, b: 0.5458793, a: 1}
+  _white: {r: 0.9146153, g: 1, b: 0.41037738, a: 1}
   _colorless: {r: 0.7735849, g: 0.762638, b: 0.762638, a: 1}
 --- !u!1 &472691268
 GameObject:
