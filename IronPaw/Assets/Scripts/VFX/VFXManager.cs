@@ -10,6 +10,7 @@ public class VFXManager : Singleton<VFXManager>
 
     [SerializeField] private GameObject HitParticle;
     [SerializeField] private GameObject HealingParticle;
+    [SerializeField] private GameObject DeathParticle;
     [SerializeField] private GameObject HealingPopup;
     [SerializeField] private GameObject DamagePopup;
 
@@ -39,6 +40,13 @@ public class VFXManager : Singleton<VFXManager>
     {
         pos = new Vector3(pos.x, pos.y + 1, pos.z);
         GameObject Particle = Instantiate(HitParticle, pos, Quaternion.Euler(new Vector3(-90, 0, 0)));
+        Destroy(Particle, 2f);
+    }
+
+    public void CreateDeathParticle(Vector3 pos)
+    {
+        pos = new Vector3(pos.x, pos.y + 1, pos.z);
+        GameObject Particle = Instantiate(DeathParticle, pos, Quaternion.Euler(new Vector3(-90, 0, 0)));
         Destroy(Particle, 2f);
     }
 

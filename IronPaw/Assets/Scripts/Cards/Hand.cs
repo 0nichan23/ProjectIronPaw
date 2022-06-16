@@ -23,6 +23,7 @@ public class Hand : MonoBehaviour
     private void Start()
     {
         _controller = DiscardPile.Controller;
+        
     }
 
     public void AddCard(CardScriptableObject givenCard)
@@ -32,7 +33,7 @@ public class Hand : MonoBehaviour
         if (_controller == PlayerWrapper.Instance.PlayerController)
         {
             givenCard.CreateCardDisplay();
-            ToggleScrollableHand();
+            //ToggleScrollableHand();
             //UpdateHandFanShape();
         }  
     }
@@ -40,7 +41,7 @@ public class Hand : MonoBehaviour
     public void RemoveCard(CardScriptableObject givenCard)
     {
         Cards.Remove(givenCard);
-        ToggleScrollableHand();
+        //ToggleScrollableHand();
     }
 
     private void ToggleScrollableHand()

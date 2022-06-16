@@ -289,7 +289,7 @@ public abstract class Character : MonoBehaviour
     {
         yield return new WaitUntil(() => DoneDying);
         transform.parent.gameObject.SetActive(false);
-
+        VFXManager.Instance.CreateDeathParticle(transform.position);
         if (this is Hero)
         {
             if (PartyManager.Instance.Heroes.Count == 0)
