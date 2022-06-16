@@ -317,9 +317,8 @@ public class Outline : MonoBehaviour {
 
     public void ChangeOutlineColor(ColorIdentity color)
     {
-        this.enabled = !this.enabled;
         outlineColor = _colorDictionary[color];
-        this.enabled = !this.enabled;
+        needsUpdate = true;
     }
 
     
