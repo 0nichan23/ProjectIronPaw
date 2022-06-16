@@ -23,3 +23,5 @@ MonoBehaviour:
   Artwork: {fileID: 0}
   CardType: 2
   CardDisplay: {fileID: 0}
+  Keywords: 
+  BuffType: 2

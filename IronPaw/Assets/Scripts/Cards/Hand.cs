@@ -54,6 +54,8 @@ public class Hand : MonoBehaviour
         }
         else
         {
+            
+            _parentScrollRect.horizontalNormalizedPosition = 1; //reset scroller position
             _parentScrollRect.enabled = false;
         }
     }

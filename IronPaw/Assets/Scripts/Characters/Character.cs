@@ -139,7 +139,6 @@ public abstract class Character : MonoBehaviour
         else if (statusEffect is Debuff)
         {
             AudioManager.Instance.Play(AudioManager.Instance.SfxClips[1]);
-
         }
         UpdateUI();
     }
