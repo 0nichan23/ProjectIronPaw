@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4486426, g: 0.49869394, b: 0.575672, a: 1}
+  m_IndirectSpecularColor: {r: 0.44864297, g: 0.49869418, b: 0.57567257, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3017,13 +3017,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86bb6d9b8af31da42ab82f3a2759ebae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _outlineWidth: 3
+  _outlineWidth: 2.5
   _characterOutlines: []
-  _red: {r: 0.6698113, g: 0.10426309, b: 0.10426309, a: 1}
-  _green: {r: 0.055268783, g: 0.4339623, b: 0.092917256, a: 1}
-  _blue: {r: 0.39716092, g: 0.50476176, b: 0.8018868, a: 1}
-  _white: {r: 0.8584906, g: 0.8189628, b: 0.41709685, a: 1}
-  _colorless: {r: 0.4528302, g: 0.39943042, b: 0.39943042, a: 1}
+  _red: {r: 0.9245283, g: 0.25729796, b: 0.25729796, a: 1}
+  _green: {r: 0.12437701, g: 0.4056604, b: 0.15337527, a: 1}
+  _blue: {r: 0.32872015, g: 0.46760625, b: 0.8396226, a: 1}
+  _white: {r: 0.80753607, g: 0.8207547, b: 0.5458793, a: 1}
+  _colorless: {r: 0.7735849, g: 0.762638, b: 0.762638, a: 1}
 --- !u!1 &472691268
 GameObject:
   m_ObjectHideFlags: 0
