@@ -18,7 +18,10 @@ public class CardCloseUp : MonoBehaviour
     [SerializeField] private Image _plateFrame;
     [SerializeField] private Image _rarityFrame;
     [SerializeField] private Image _typeFrame;
+
+    [SerializeField] private GameObject _toolTipPanel;
     [SerializeField] private GameObject _toolTipScroll;
+
 
 
     public void InitializeDisplay(CardScriptableObject givenCard, CardUI cardUIRef)
@@ -62,14 +65,24 @@ public class CardCloseUp : MonoBehaviour
 
     private void InitCardToolTips(CardScriptableObject givenCard)
     {
-        for (int i = 0; i < _toolTipScroll.transform.childCount; i++)
+        if(givenCard.Keywords.Count > 0)
         {
-            _toolTipScroll.transform.GetChild(i).gameObject.SetActive(false);
+            _toolTipPanel.gameObject.SetActive(true);
+            for (int i = 0; i < _toolTipScroll.transform.childCount; i++)
+            {
+                _toolTipScroll.transform.GetChild(i).gameObject.SetActive(false);
+            }
+
+            foreach (KeyWords keyword in givenCard.Keywords)
+            {
+                _toolTipScroll.transform.GetChild(((int)keyword)).gameObject.SetActive(true);
+            }
         }
-        foreach (var item in givenCard.Keywords)
+        else
         {
-            _toolTipScroll.transform.GetChild(((int)item)).gameObject.SetActive(true);
+            _toolTipPanel.gameObject.SetActive(false);
         }
+        
     }
 
 

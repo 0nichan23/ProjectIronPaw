@@ -8,9 +8,8 @@ public class ThirstEffect : CardEffect
 {
     
     protected override void PlayCardEffect(Character playingCharacter, Character target)
-    {
-        int targetsHit = Targets.Count;
+    { 
         target.TakeDmg(new Damage(DamageValue, playingCharacter, true));
-        playingCharacter.Heal(targetsHit, playingCharacter);
+        playingCharacter.Heal(1, playingCharacter);
     }
 }
