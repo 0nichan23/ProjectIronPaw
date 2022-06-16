@@ -85,6 +85,8 @@ public class CardScriptableObject : ScriptableObject
     {
         List<Character> cachedHeroes = new List<Character>();
 
+        PartyManager.Instance.TurnOffAllButtons();
+
         if (PlayerWrapper.Instance.PlayerController.CurrentEnergy < EnergyCost)
         {
             return false;
@@ -98,6 +100,8 @@ public class CardScriptableObject : ScriptableObject
                 {
                     cachedHeroes.Add(hero);
                     hero.Button.gameObject.SetActive(true);
+                    hero.Outline.enabled = true;
+                    hero.Outline.ChangeOutlineColor(hero.Colors[0]);
                 }
             }
         }

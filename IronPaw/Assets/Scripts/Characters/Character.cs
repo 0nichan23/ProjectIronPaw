@@ -70,6 +70,8 @@ public abstract class Character : MonoBehaviour
 
     public bool IsAlive = true;
 
+    public Outline Outline;
+
     public int AmountOfBlockToLose
     {
         get => _amountOfBlockToLose;
@@ -95,6 +97,7 @@ public abstract class Character : MonoBehaviour
 
     protected virtual void TheBetterStart()
     {
+        Outline = GetComponentInParent<Outline>();
         RefSlot = GetComponentInChildren<CharacterPersonalUI>();
         _currentHp = MaxHP;
         OnStartTurn += StartOfTurnReset;

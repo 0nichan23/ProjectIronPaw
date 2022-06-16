@@ -171,7 +171,7 @@ public class PartyManager : Singleton<PartyManager>
             case TargetType.SingleHero:
                 // set active true for all hero allies buttons
                 FillLegalTargets(playingCharacter, card, Heroes);
-                TurnOnAllCachedButtons();
+                TurnOnAllCachedButtons(card.Colors[0]);
                 StartCoroutine(WaitUntilTargetIsSelected(playingCharacter, card, cardEffectRef, cardUI));
                 break;
 
@@ -208,7 +208,7 @@ public class PartyManager : Singleton<PartyManager>
             case TargetType.SingleEnemy:
                 // set active true for all hero enemies buttons
                 FillLegalTargets(playingCharacter, card, Enemies);
-                TurnOnAllCachedButtons();
+                TurnOnAllCachedButtons(card.Colors[0]);
                 StartCoroutine(WaitUntilTargetIsSelected(playingCharacter, card, cardEffectRef, cardUI));
                 break;
 
@@ -422,7 +422,7 @@ public class PartyManager : Singleton<PartyManager>
         }
     }
     
-    private void TurnOnAllCachedButtons()
+    private void TurnOnAllCachedButtons(ColorIdentity color)
     {
         foreach (var character in _potentialTargets)
         {
@@ -430,20 +430,24 @@ public class PartyManager : Singleton<PartyManager>
             {
                 
                 character.Button.gameObject.SetActive(true);
+                character.Outline.enabled = true;
+                character.Outline.ChangeOutlineColor(color);
             }
         }
     }
 
-    private void TurnOffAllButtons()
+    public void TurnOffAllButtons()
     {
         foreach (var enemy in Enemies)
         {
             enemy.Button.gameObject.SetActive(false);
+            enemy.Outline.enabled = false;
         }
 
         foreach (var hero in Heroes)
         {
             hero.Button.gameObject.SetActive(false);
+            hero.Outline.enabled = false;
         }
     }
 
