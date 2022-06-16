@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class CharacterCanvasViewer : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
@@ -53,8 +54,8 @@ public class CharacterCanvasViewer : MonoBehaviour, IPointerDownHandler, IPointe
 
     private void LongPress()
     {
-        UIManager.Instance.CharacterHighlightCanvas.InitInfo(_character);
-        UIManager.Instance.ToggleCanvasas(false);
+        UIManager.Instance.CharacterCanvas.ToggleScreens(_character, true);
+        UIManager.Instance.ToggleCanvases(false);
     }
 
     private void ShortPress()

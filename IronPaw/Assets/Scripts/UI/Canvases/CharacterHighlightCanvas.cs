@@ -30,7 +30,7 @@ public class CharacterHighlightCanvas : MonoBehaviour
 
     private void TurnOnModel(Character givenCharacter)
     {
-        int index = 0;
+       
         List<Character> pointerList = null;
 
         if(givenCharacter is Hero)

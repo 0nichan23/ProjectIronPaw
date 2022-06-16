@@ -8,9 +8,9 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] public Camera MainCamera;
 
     [SerializeField] public Canvas HUDCanvas;
-    [SerializeField] public CharacterHighlightCanvas CharacterHighlightCanvas;
     [SerializeField] public CardZoomCanvas CardZoomCanvas;
     [SerializeField] public SelectionCanvas SelectionCanvas;
+    [SerializeField] public CharacterCanvas CharacterCanvas;
     [SerializeField] public TextMeshProUGUI _fpsCounter;
     public void ToggleHUDCanvas(bool state)
     {
@@ -19,7 +19,7 @@ public class UIManager : Singleton<UIManager>
 
     public void ToggleCharacterHighlightCanvas(bool state)
     {
-        CharacterHighlightCanvas.gameObject.SetActive(state);
+        CharacterCanvas.gameObject.SetActive(state);
     }
 
     public void ToggleSelectionCanvas(bool state, string titleText)
@@ -28,7 +28,7 @@ public class UIManager : Singleton<UIManager>
         SelectionCanvas.Title.text = titleText;
     }
 
-    public void ToggleCanvasas(bool state)
+    public void ToggleCanvases(bool state)
     {
         ToggleHUDCanvas(state);
         ToggleCharacterHighlightCanvas(!state);

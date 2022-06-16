@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -35,10 +34,10 @@ public class CustomButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
         {
             return;
         }
-        StopCoroutine(_runningCoroutine);
-        if (_mouseDownTime < _longPressTime) // Longpress
+        if (_runningCoroutine != null)
         {
-            ShortPress();
+            StopCoroutine(_runningCoroutine);
+
         }
         _mouseDownTime = 0;
     }
