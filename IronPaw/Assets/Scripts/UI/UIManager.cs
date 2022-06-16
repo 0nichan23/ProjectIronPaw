@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UIManager : Singleton<UIManager>
@@ -10,6 +11,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] public CharacterHighlightCanvas CharacterHighlightCanvas;
     [SerializeField] public CardZoomCanvas CardZoomCanvas;
     [SerializeField] public SelectionCanvas SelectionCanvas;
+    [SerializeField] public TextMeshProUGUI _fpsCounter;
     public void ToggleHUDCanvas(bool state)
     {
         HUDCanvas.gameObject.SetActive(state);
@@ -39,5 +41,10 @@ public class UIManager : Singleton<UIManager>
         {
             CardZoomCanvas.CardCloseUp.InitializeDisplay(givenCard, self);
         }
+    }
+
+    public void UpdateFPSCounter(int fps)
+    {
+        _fpsCounter.text = fps.ToString() + " FPS";
     }
 }
