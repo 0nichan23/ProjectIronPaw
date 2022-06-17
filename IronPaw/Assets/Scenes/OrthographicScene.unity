@@ -13896,9 +13896,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: eebd22bc25078fb4aa088319e07d8df0, type: 3}
     - target: {fileID: 4054370515128626527, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
+      propertyPath: SfxClips.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054370515128626527, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
       propertyPath: SfxClips.Array.data[7]
       value: 
       objectReference: {fileID: 8300000, guid: 571a6d106669e5443bba8adc8ea90077, type: 3}
+    - target: {fileID: 4054370515128626527, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
+      propertyPath: SfxClips.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7400391d8fde74b468678f26a145b6b9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
 --- !u!114 &1655063110 stripped
@@ -22399,7 +22407,7 @@ MonoBehaviour:
   ExiledPile: {fileID: 7395125938354459216}
   Hand: {fileID: 7395125938354459183}
   colors: 00000000
-  _maxHp: 5
+  _maxHp: 33
   _currentHp: 0
   _currentBlock: 0
   _characterName: Bull
@@ -22578,7 +22586,7 @@ MonoBehaviour:
   ExiledPile: {fileID: 7395125938883939190}
   Hand: {fileID: 7395125938883939081}
   colors: 00000000
-  _maxHp: 5
+  _maxHp: 22
   _currentHp: 0
   _currentBlock: 0
   _characterName: Bat
@@ -22755,7 +22763,7 @@ MonoBehaviour:
   ExiledPile: {fileID: 7395125939126887989}
   Hand: {fileID: 7395125939126888010}
   colors: 00000000
-  _maxHp: 5
+  _maxHp: 17
   _currentHp: 0
   _currentBlock: 0
   _characterName: Rat

@@ -150,7 +150,7 @@ public class PartyManager : Singleton<PartyManager>
     #region Player Functions
     public void PlayCard(Character playingCharacter, CardScriptableObject card)
     {
-        AudioManager.Instance.Play(AudioManager.Instance.SfxClips[4]);
+        
         ClearCachedCharacters();
         TurnOffAllButtons();
         CardEffect cardEffectRef = card.CardEffect;

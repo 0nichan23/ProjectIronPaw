@@ -268,6 +268,7 @@ public class CardUI : MonoBehaviour
 
     public void SelectCard()
     {
+        AudioManager.Instance.Play(AudioManager.Instance.SfxClips[4]);
         DeselectCard();
         
         PartyManager.Instance.SelectedCardUI = this;
