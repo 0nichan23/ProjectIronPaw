@@ -77,6 +77,7 @@ public class CardScriptableObject : ScriptableObject
         if (IsUsable)
         {
             playingCharacter.ExiledPile.AddCardToPile(this);
+            AudioManager.Instance.Play(AudioManager.Instance.SfxClips[5]);
         }
         else
         {

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4486426, g: 0.49869394, b: 0.575672, a: 1}
+  m_IndirectSpecularColor: {r: 0.44864297, g: 0.49869418, b: 0.57567257, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13819,10 +13819,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1579456994}
     m_Modifications:
+    - target: {fileID: 1956391306, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8025715465113356337, guid: 70841d8d27600ca4aa6feb780381e09d, type: 2}
     - target: {fileID: 1956391308, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
       propertyPath: m_Volume
-      value: 0.249
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1956391308, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 9085683109642458132, guid: 70841d8d27600ca4aa6feb780381e09d, type: 2}
+    - target: {fileID: 1956391309, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -9213013926087087990, guid: 70841d8d27600ca4aa6feb780381e09d, type: 2}
     - target: {fileID: 3688633064367536785, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -13875,6 +13887,18 @@ PrefabInstance:
       propertyPath: BgMusic
       value: 
       objectReference: {fileID: 8300000, guid: a5b29d615e0ae3243b63e2638eb677e3, type: 3}
+    - target: {fileID: 4054370515128626527, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
+      propertyPath: WinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 4e52100bbb445a146839ffa7ef39e82d, type: 3}
+    - target: {fileID: 4054370515128626527, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
+      propertyPath: LoseSound
+      value: 
+      objectReference: {fileID: 8300000, guid: eebd22bc25078fb4aa088319e07d8df0, type: 3}
+    - target: {fileID: 4054370515128626527, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
+      propertyPath: SfxClips.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 571a6d106669e5443bba8adc8ea90077, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
 --- !u!114 &1655063110 stripped
@@ -22375,7 +22399,7 @@ MonoBehaviour:
   ExiledPile: {fileID: 7395125938354459216}
   Hand: {fileID: 7395125938354459183}
   colors: 00000000
-  _maxHp: 33
+  _maxHp: 5
   _currentHp: 0
   _currentBlock: 0
   _characterName: Bull
@@ -22554,7 +22578,7 @@ MonoBehaviour:
   ExiledPile: {fileID: 7395125938883939190}
   Hand: {fileID: 7395125938883939081}
   colors: 00000000
-  _maxHp: 22
+  _maxHp: 5
   _currentHp: 0
   _currentBlock: 0
   _characterName: Bat
@@ -22731,7 +22755,7 @@ MonoBehaviour:
   ExiledPile: {fileID: 7395125939126887989}
   Hand: {fileID: 7395125939126888010}
   colors: 00000000
-  _maxHp: 17
+  _maxHp: 5
   _currentHp: 0
   _currentBlock: 0
   _characterName: Rat

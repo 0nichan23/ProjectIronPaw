@@ -79,8 +79,10 @@ public class TurnManager : Singleton<TurnManager>
 
     public void LoseGame()
     {
+        AudioManager.Instance.StopBg(AudioManager.Instance.BgMusic);
         StopTurnLoop();
         ToggleGameOverUI(true);
+        AudioManager.Instance.PlayPlayer(AudioManager.Instance.LoseSound);
         _gameOverPanel.SetGameOverUI("DEFEAT", "Return To Base");
         //stop turn loop
         //turn ui window

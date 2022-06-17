@@ -236,6 +236,7 @@ public abstract class Character : MonoBehaviour
         UnSubscribe();
         IsAlive = false;
         _animator.SetTrigger("Die");
+        
         if (this is Hero)
         {
             PartyManager.Instance.Heroes.Remove(this);
@@ -298,6 +299,7 @@ public abstract class Character : MonoBehaviour
     {
         yield return new WaitUntil(() => DoneDying);
         transform.parent.gameObject.SetActive(false);
+        AudioManager.Instance.Play(AudioManager.Instance.SfxClips[8]);
         VFXManager.Instance.CreateDeathParticle(transform.position);
         if (this is Hero)
         {
