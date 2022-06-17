@@ -22800,6 +22800,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7303848833185989961, guid: 1ce7230ea03663242a314938028cc37c, type: 3}
+      propertyPath: m_Name
+      value: VikiguinMat
+      objectReference: {fileID: 0}
     - target: {fileID: 7593398143680790770, guid: 1ce7230ea03663242a314938028cc37c, type: 3}
       propertyPath: m_Name
       value: Vikinguin
