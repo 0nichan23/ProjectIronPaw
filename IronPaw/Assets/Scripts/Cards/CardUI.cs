@@ -220,8 +220,12 @@ public class CardUI : MonoBehaviour
         if (CardSO.CheckCardValidity())
         {
             SelectCard();
-            Debug.Log("Released");
             StartCoroutine(PartyManager.Instance.WaitUntilHeroIsClickedPlayCard(CardSO));
+        }
+        else
+        {
+            DeselectCard();
+            PartyManager.Instance.CancelCard();
         }
     }
 
