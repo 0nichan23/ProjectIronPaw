@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
 {
@@ -12,6 +13,8 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] public SelectionCanvas SelectionCanvas;
     [SerializeField] public CharacterCanvas CharacterCanvas;
     [SerializeField] public TextMeshProUGUI _fpsCounter;
+
+    [SerializeField] private Image _ultimateFillImage;
     public void ToggleHUDCanvas(bool state)
     {
         HUDCanvas.gameObject.SetActive(state);
@@ -46,5 +49,10 @@ public class UIManager : Singleton<UIManager>
     public void UpdateFPSCounter(int fps)
     {
         _fpsCounter.text = fps.ToString() + " FPS";
+    }
+
+    public void FillUltimateChargeUI(float fill)
+    {
+        _ultimateFillImage.fillAmount = fill;
     }
 }

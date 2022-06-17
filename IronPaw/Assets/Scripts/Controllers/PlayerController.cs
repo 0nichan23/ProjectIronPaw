@@ -31,7 +31,7 @@ public class PlayerController : Controller
     [SerializeField]
     TextMeshProUGUI EnergyText;
 
-
+    
 
 
 
@@ -50,8 +50,9 @@ public class PlayerController : Controller
         OnStartTurn += BasicStartOfTurnTasks;
         OnEndTurn += BasicEndOfTurnTasks;
 
-        ToggleUltButton(false);
         TurnOnUltButtonOnSufficientUltCharge();
+
+        UIManager.Instance.FillUltimateChargeUI(UltimateCharge / MaximumUltimateCharge);
     }
 
 
@@ -85,30 +86,27 @@ public class PlayerController : Controller
         if (UltimateCharge + amountToGain >= MaximumUltimateCharge)
         {
             UltimateCharge = MaximumUltimateCharge;
-            ToggleUltButton(true);
         }
         else
         {
             UltimateCharge += amountToGain;
         }
+
+        UIManager.Instance.FillUltimateChargeUI(UltimateCharge / MaximumUltimateCharge);
     }
+
+    
 
     public void ResetUltimateCharge()
     {
         UltimateCharge = 0;
-        ToggleUltButton(false);
-    }
-
-    private void ToggleUltButton(bool state)
-    {
-        UltimateButton.gameObject.SetActive(state);
     }
 
     private void TurnOnUltButtonOnSufficientUltCharge()
     {
         if (UltimateCharge == MaximumUltimateCharge)
         {
-            ToggleUltButton(true);
+            // TODO: Animation
         }
     }
 
