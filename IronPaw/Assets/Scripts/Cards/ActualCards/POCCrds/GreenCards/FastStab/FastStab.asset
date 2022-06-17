@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a49c1bbb566c17044a844e5c42c123e5, type: 3}
   m_Name: FastStab
   m_EditorClassIdentifier: 
-  CardName: FastStab
+  CardName: Fast Stab
   Description: Deal 4 damage, plus 2 damage for every other card played this turn
   Colors: 01000000
   Rarity: 0
@@ -23,3 +23,5 @@ MonoBehaviour:
   Artwork: {fileID: 21300000, guid: 2df99587500679748a002d6a0a2737b7, type: 3}
   CardType: 0
   CardDisplay: {fileID: 0}
+  Keywords: 
+  BuffType: 0

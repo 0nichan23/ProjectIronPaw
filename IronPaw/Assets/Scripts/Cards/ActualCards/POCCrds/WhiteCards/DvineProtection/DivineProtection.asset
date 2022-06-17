@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a49c1bbb566c17044a844e5c42c123e5, type: 3}
   m_Name: DivineProtection
   m_EditorClassIdentifier: 
-  CardName: DvineProtection
+  CardName: Divine Protection
   Description: All allies get 6 Block
   Colors: 03000000
   Rarity: 0
@@ -24,3 +24,4 @@ MonoBehaviour:
   CardType: 1
   CardDisplay: {fileID: 0}
   Keywords: 
+  BuffType: 0

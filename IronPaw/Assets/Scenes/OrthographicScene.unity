@@ -2499,13 +2499,13 @@ PrefabInstance:
       objectReference: {fileID: 2009974330}
     - target: {fileID: 7511463129820267780, guid: 538b701821c60aa4db8b613ceb494886, type: 3}
       propertyPath: _passiveDescription
-      value: Whenever the fourth card is played on my turn, I deal 6 damage a random
-        enemy
+      value: Whenever the fourth card is played on my turn, Duckislav deals 6 damage
+        a random enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7511463129820267780, guid: 538b701821c60aa4db8b613ceb494886, type: 3}
       propertyPath: _ultimateDescription
-      value: "I gain an <b>Action</b> Point and \u201CAt the start of the turn, draw
-        a card\u201D"
+      value: "Duckislav gains an <b>Action Point</b> and \u201CAt the start of the
+        turn, draw a card\u201D"
       objectReference: {fileID: 0}
     - target: {fileID: 7622436926459114884, guid: 538b701821c60aa4db8b613ceb494886, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3338,11 +3338,11 @@ PrefabInstance:
       objectReference: {fileID: 303453307}
     - target: {fileID: 8875172326352620945, guid: 50dbe404b9a61c04e98b32ac59d08db1, type: 3}
       propertyPath: _passiveDescription
-      value: Whenever a card is Exiled, heal a random damaged Hero for 2 (+Faith)
+      value: Whenever a card is Exiled, Sima heals a random damaged Hero for 2 (+Faith)
       objectReference: {fileID: 0}
     - target: {fileID: 8875172326352620945, guid: 50dbe404b9a61c04e98b32ac59d08db1, type: 3}
       propertyPath: _ultimateDescription
-      value: Heal all Heroes for 6
+      value: Sima heals all Heroes for 6 (+Faith)
       objectReference: {fileID: 0}
     - target: {fileID: 9116483659387204179, guid: 50dbe404b9a61c04e98b32ac59d08db1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9038,7 +9038,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: -98.163475}
+  m_AnchoredPosition: {x: 0.000030517578, y: -98.16348}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &993640551
@@ -23019,12 +23019,12 @@ PrefabInstance:
       objectReference: {fileID: 872892275}
     - target: {fileID: 7593398144345049080, guid: 1ce7230ea03663242a314938028cc37c, type: 3}
       propertyPath: _passiveDescription
-      value: Every three turns, I gain 1 <b>Taunt</b> and 3 Block.
+      value: Every three turns, Vikinguin gains 1 <b>Taunt</b> and 3 Block.
       objectReference: {fileID: 0}
     - target: {fileID: 7593398144345049080, guid: 1ce7230ea03663242a314938028cc37c, type: 3}
       propertyPath: _ultimateDescription
-      value: " I Gain 30 Block, 3 <b>Taunt</b> and \u201CInstead of losing all Block
-        at the start of the turn, I lose 10 Block\u201D."
+      value: "Vikinguin gains 30 Block, 3 <b>Taunt</b> and \u201CInstead of losing
+        all Block at the start of the turn, Vikinguin loses 10 Block\u201D."
       objectReference: {fileID: 0}
     - target: {fileID: 8536136366721027350, guid: 1ce7230ea03663242a314938028cc37c, type: 3}
       propertyPath: m_LocalPosition.x

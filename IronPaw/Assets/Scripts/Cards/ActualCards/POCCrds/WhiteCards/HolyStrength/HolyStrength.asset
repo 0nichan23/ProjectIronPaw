@@ -24,3 +24,4 @@ MonoBehaviour:
   CardType: 2
   CardDisplay: {fileID: 0}
   Keywords: 05000000
+  BuffType: 1
