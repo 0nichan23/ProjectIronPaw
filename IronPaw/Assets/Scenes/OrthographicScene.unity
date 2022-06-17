@@ -1997,7 +1997,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3205887679407434759, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 220.83498
+      value: 220.83504
       objectReference: {fileID: 0}
     - target: {fileID: 3205887679407434759, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2714,7 +2714,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &335242493
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3823,7 +3823,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1327107556946846252, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_Name
-      value: StatusEffect info Holder (7)
+      value: STUNNED StatusEffect info Holder
       objectReference: {fileID: 0}
     - target: {fileID: 1327107556946846252, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_IsActive
@@ -3895,7 +3895,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3205887679407434759, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 220.83498
+      value: 220.83504
       objectReference: {fileID: 0}
     - target: {fileID: 3205887679407434759, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3929,6 +3929,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -50
       objectReference: {fileID: 0}
+    - target: {fileID: 5296371948235024069, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_text
+      value: This character cannot play any card while this effect is active.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5296371948235024069, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_fontSize
+      value: 16.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5529909980434919087, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7997396682134867387, guid: 5c8242b66f2c0754c9cfcceec628f16a, type: 3}
     - target: {fileID: 6691981862716563532, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -5464,7 +5476,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1327107556946846252, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_Name
-      value: StatusEffect info Holder (2)
+      value: REGEN StatusEffect info Holder
       objectReference: {fileID: 0}
     - target: {fileID: 1327107556946846252, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_IsActive
@@ -5536,7 +5548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3205887679407434759, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 220.83498
+      value: 220.83504
       objectReference: {fileID: 0}
     - target: {fileID: 3205887679407434759, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5570,6 +5582,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -50
       objectReference: {fileID: 0}
+    - target: {fileID: 5296371948235024069, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_text
+      value: Heal at the start of turn based on the counter's value.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5296371948235024069, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_fontSize
+      value: 18.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 5529909980434919087, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -462466937998599627, guid: 5c8242b66f2c0754c9cfcceec628f16a, type: 3}
     - target: {fileID: 6691981862716563532, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -6610,7 +6634,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1327107556946846252, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_Name
-      value: StatusEffect info Holder (8)
+      value: 2ND DAGGER StatusEffect info Holder
       objectReference: {fileID: 0}
     - target: {fileID: 3205887679407434759, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_Pivot.x
@@ -6678,7 +6702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3205887679407434759, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 220.83498
+      value: 220.83504
       objectReference: {fileID: 0}
     - target: {fileID: 3205887679407434759, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -6712,6 +6736,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -50
       objectReference: {fileID: 0}
+    - target: {fileID: 5296371948235024069, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_text
+      value: A Second Dagger card will be drawn next turn.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5296371948235024069, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_fontSize
+      value: 18.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 5529909980434919087, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d4a60ac003892804789509e78beff20f, type: 3}
     - target: {fileID: 6691981862716563532, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -7428,7 +7464,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1327107556946846252, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_Name
-      value: StatusEffect info Holder (4)
+      value: WEAK StatusEffect info Holder
       objectReference: {fileID: 0}
     - target: {fileID: 1327107556946846252, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_IsActive
@@ -7500,7 +7536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3205887679407434759, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 220.83498
+      value: 220.83504
       objectReference: {fileID: 0}
     - target: {fileID: 3205887679407434759, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -7534,6 +7570,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -50
       objectReference: {fileID: 0}
+    - target: {fileID: 5296371948235024069, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_text
+      value: A character with this effect deals 33% less damage with attacks.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5296371948235024069, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_fontSize
+      value: 17.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5529909980434919087, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5792423179205867691, guid: 5c8242b66f2c0754c9cfcceec628f16a, type: 3}
     - target: {fileID: 6691981862716563532, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -8880,7 +8928,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0}
+  m_AnchoredPosition: {x: 0.000030517578, y: -98.163475}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &993640551
@@ -9286,12 +9334,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1327107556946846252, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_Name
-      value: StatusEffect info Holder (1)
+      value: TAUNT StatusEffect info Holder
       objectReference: {fileID: 0}
     - target: {fileID: 1327107556946846252, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2866894981332029601, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866894981332029601, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 3205887679407434759, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -9358,7 +9414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3205887679407434759, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 220.83498
+      value: 220.83504
       objectReference: {fileID: 0}
     - target: {fileID: 3205887679407434759, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -9392,6 +9448,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -50
       objectReference: {fileID: 0}
+    - target: {fileID: 5296371948235024069, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_text
+      value: Opponents must attack a character with this effect.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5296371948235024069, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_fontSize
+      value: 18.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 5529909980434919087, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1575159352736387845, guid: 5c8242b66f2c0754c9cfcceec628f16a, type: 3}
     - target: {fileID: 6691981862716563532, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -11154,7 +11222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1327107556946846252, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_Name
-      value: StatusEffect info Holder (6)
+      value: FRAIL StatusEffect info Holder
       objectReference: {fileID: 0}
     - target: {fileID: 1327107556946846252, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_IsActive
@@ -11226,7 +11294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3205887679407434759, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 220.83498
+      value: 220.83504
       objectReference: {fileID: 0}
     - target: {fileID: 3205887679407434759, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -11260,6 +11328,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -50
       objectReference: {fileID: 0}
+    - target: {fileID: 5296371948235024069, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_text
+      value: A character with this effect takes 50% more damage from attacks.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5296371948235024069, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_fontSize
+      value: 16.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5529909980434919087, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 9097076552385637842, guid: 5c8242b66f2c0754c9cfcceec628f16a, type: 3}
     - target: {fileID: 6691981862716563532, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -12670,7 +12750,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1327107556946846252, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_Name
-      value: StatusEffect info Holder (3)
+      value: THORNS StatusEffect info Holder
       objectReference: {fileID: 0}
     - target: {fileID: 1327107556946846252, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_IsActive
@@ -12742,7 +12822,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3205887679407434759, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 220.83498
+      value: 220.83504
       objectReference: {fileID: 0}
     - target: {fileID: 3205887679407434759, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -12776,6 +12856,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -50
       objectReference: {fileID: 0}
+    - target: {fileID: 5296371948235024069, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_text
+      value: When attacked, the attacker takes damage based on the counter's value.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5296371948235024069, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_fontSize
+      value: 14.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5529909980434919087, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9021710533849938375, guid: 5c8242b66f2c0754c9cfcceec628f16a, type: 3}
     - target: {fileID: 6691981862716563532, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -17149,7 +17241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1327107556946846252, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_Name
-      value: StatusEffect info Holder (5)
+      value: IMMUNE StatusEffect info Holder
       objectReference: {fileID: 0}
     - target: {fileID: 1327107556946846252, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_IsActive
@@ -17221,7 +17313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3205887679407434759, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 220.83498
+      value: 220.83504
       objectReference: {fileID: 0}
     - target: {fileID: 3205887679407434759, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -17255,6 +17347,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -50
       objectReference: {fileID: 0}
+    - target: {fileID: 5296371948235024069, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_text
+      value: A character with this effect can not take damage.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5296371948235024069, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_fontSize
+      value: 18.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 5529909980434919087, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4226872718049967284, guid: 5c8242b66f2c0754c9cfcceec628f16a, type: 3}
     - target: {fileID: 6691981862716563532, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -19298,7 +19402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1327107556946846252, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_Name
-      value: StatusEffect info Holder
+      value: BLEED StatusEffect info Holder
       objectReference: {fileID: 0}
     - target: {fileID: 1327107556946846252, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_IsActive
@@ -19370,7 +19474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3205887679407434759, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 220.83498
+      value: 220.83504
       objectReference: {fileID: 0}
     - target: {fileID: 3205887679407434759, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -19404,6 +19508,19 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -50
       objectReference: {fileID: 0}
+    - target: {fileID: 5296371948235024069, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_text
+      value: At the start of turn, a character afflicted by this effect takes damage
+        based on the counter's value.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5296371948235024069, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_fontSize
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5529909980434919087, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4714650523311372786, guid: 5c8242b66f2c0754c9cfcceec628f16a, type: 3}
     - target: {fileID: 6691981862716563532, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
