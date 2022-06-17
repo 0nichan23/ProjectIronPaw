@@ -13638,10 +13638,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1579456994}
     m_Modifications:
+    - target: {fileID: 1956391306, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
+      propertyPath: Priority
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956391306, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: b689d6c79a0d4ca44b608f5c4d3e6b60, type: 2}
     - target: {fileID: 1956391308, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
       propertyPath: m_Volume
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1956391308, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 8d5b97038f8ce374f9821eeacf54d9fb, type: 2}
     - target: {fileID: 3688633064367536785, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -13701,11 +13713,11 @@ PrefabInstance:
     - target: {fileID: 4054370515128626527, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
       propertyPath: SfxClips.Array.data[5]
       value: 
-      objectReference: {fileID: 8300000, guid: b84fed082bf06b94195d7c9d9ec0dd0b, type: 3}
+      objectReference: {fileID: 8300000, guid: b0b26104711e3fd4d819ad486fe31513, type: 3}
     - target: {fileID: 4054370515128626527, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
       propertyPath: SfxClips.Array.data[6]
       value: 
-      objectReference: {fileID: 8300000, guid: ad0b286c4d81f4e4c832e0f5cb856df5, type: 3}
+      objectReference: {fileID: 8300000, guid: cba17f1ea1f019d48b4081f3be9069b4, type: 3}
     - target: {fileID: 4054370515128626527, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
       propertyPath: SfxClips.Array.data[7]
       value: 

@@ -222,6 +222,7 @@ public abstract class Character : MonoBehaviour
         }
         if (damage.IsSourceAttack)
         {
+            AudioManager.Instance.Play(AudioManager.Instance.SfxClips[7]);
             VFXManager.Instance.CameraShake.ShakeCameraForSeconds(0.7f);
         }
         UpdateUI();

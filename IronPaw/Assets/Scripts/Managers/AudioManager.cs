@@ -17,8 +17,9 @@ public class AudioManager : Singleton<AudioManager>
 		public float HighPitchRange = 1.05f;
 
 		public AudioClip BgMusic;
-	
-		private void Start()
+		public AudioClip WinSound;
+		public AudioClip LoseSound;
+	private void Start()
 		{
 			PlayMusic(BgMusic);
 
@@ -31,9 +32,13 @@ public class AudioManager : Singleton<AudioManager>
 			EffectsSource.clip = clip;
 			EffectsSource.Play();
 		}
-
-		// Play a single clip through the music source.
-		public void PlayMusic(AudioClip clip)
+	public void StopBg(AudioClip clip)
+	{
+		MusicSource.clip = clip;
+		MusicSource.Pause();
+	}
+	// Play a single clip through the music source.
+	public void PlayMusic(AudioClip clip)
 		{
 			MusicSource.clip = clip;
 			MusicSource.Play();
