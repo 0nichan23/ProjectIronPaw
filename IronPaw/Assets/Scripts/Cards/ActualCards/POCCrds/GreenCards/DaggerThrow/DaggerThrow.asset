@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a49c1bbb566c17044a844e5c42c123e5, type: 3}
   m_Name: DaggerThrow
   m_EditorClassIdentifier: 
-  CardName: DaggerThrow
+  CardName: Dagger Throw
   Description: Deals 3 Damage. At the start of the next turn, add a Second Dagger
     card to your hand
   Colors: 01000000
@@ -25,3 +25,4 @@ MonoBehaviour:
   CardType: 0
   CardDisplay: {fileID: 0}
   Keywords: 
+  BuffType: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a49c1bbb566c17044a844e5c42c123e5, type: 3}
   m_Name: HealthPotion
   m_EditorClassIdentifier: 
-  CardName: HealthPotion
+  CardName: Health Potion
   Description: Heal 5 HP
   Colors: 04000000
   Rarity: 0
@@ -24,3 +24,4 @@ MonoBehaviour:
   CardType: 2
   CardDisplay: {fileID: 0}
   Keywords: 0a0000000800000009000000
+  BuffType: 0
