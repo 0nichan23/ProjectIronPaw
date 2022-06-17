@@ -8,13 +8,12 @@ public class UIManager : Singleton<UIManager>
 {
     [SerializeField] public Camera MainCamera;
 
-    [SerializeField] public Canvas HUDCanvas;
+    [SerializeField] public HUDCanvas HUDCanvas;
     [SerializeField] public CardZoomCanvas CardZoomCanvas;
     [SerializeField] public SelectionCanvas SelectionCanvas;
     [SerializeField] public CharacterCanvas CharacterCanvas;
     [SerializeField] public TextMeshProUGUI _fpsCounter;
 
-    [SerializeField] private Image _ultimateFillImage;
     public void ToggleHUDCanvas(bool state)
     {
         HUDCanvas.gameObject.SetActive(state);
@@ -51,8 +50,5 @@ public class UIManager : Singleton<UIManager>
         _fpsCounter.text = fps.ToString() + " FPS";
     }
 
-    public void FillUltimateChargeUI(float fill)
-    {
-        _ultimateFillImage.fillAmount = fill;
-    }
+    
 }
