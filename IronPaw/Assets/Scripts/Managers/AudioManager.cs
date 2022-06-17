@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Audio;
 public class AudioManager : Singleton<AudioManager>
 {
 	
@@ -17,7 +17,7 @@ public class AudioManager : Singleton<AudioManager>
 		public float HighPitchRange = 1.05f;
 
 		public AudioClip BgMusic;
-
+	
 		private void Start()
 		{
 			PlayMusic(BgMusic);

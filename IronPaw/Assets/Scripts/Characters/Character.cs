@@ -162,6 +162,7 @@ public abstract class Character : MonoBehaviour
 
     public void GainBlock(int amount)
     {
+        AudioManager.Instance.Play(AudioManager.Instance.SfxClips[6]);
         CurrentBlock += amount + Stats.Dexterity;
         UpdateUI();
     }
