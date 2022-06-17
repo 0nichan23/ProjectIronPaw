@@ -13,5 +13,10 @@ public class CharacterCanvas : MonoBehaviour
         _characterHighlightCanvas.InitInfo(character);
         _characterStatusEffectsInfoScreen.gameObject.SetActive(!state);
         _characterStatusEffectsInfoScreen.InitInfo(character);
+
+        if(UIManager.Instance.SelectionCanvas)
+        {
+            PartyManager.Instance.CancelCard();
+        }
     }
 }
