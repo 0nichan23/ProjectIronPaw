@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44864297, g: 0.49869418, b: 0.57567257, a: 1}
+  m_IndirectSpecularColor: {r: 0.4486426, g: 0.49869394, b: 0.575672, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -418,6 +418,37 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5247022082493911052, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
   m_PrefabInstance: {fileID: 6107674133260596377}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &85080227
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 85080228}
+  m_Layer: 0
+  m_Name: UIToWorld
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &85080228
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85080227}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1051182547}
+  m_Father: {fileID: 258605806}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &87389250
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2211,6 +2242,7 @@ Transform:
   - {fileID: 256850371}
   - {fileID: 123054083}
   - {fileID: 1856193642}
+  - {fileID: 85080228}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2467,13 +2499,13 @@ PrefabInstance:
       objectReference: {fileID: 2009974330}
     - target: {fileID: 7511463129820267780, guid: 538b701821c60aa4db8b613ceb494886, type: 3}
       propertyPath: _passiveDescription
-      value: Whenever the fourth card is played on my turn, Duckislav deals 6 damage
-        a random enemy
+      value: Whenever the fourth card is played on my turn, I deal 6 damage a random
+        enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7511463129820267780, guid: 538b701821c60aa4db8b613ceb494886, type: 3}
       propertyPath: _ultimateDescription
-      value: "Duckislav gains an <b>Action Point</b> and \u201CAt the start of the
-        turn, draw a card\u201D"
+      value: "I gain an <b>Action</b> Point and \u201CAt the start of the turn, draw
+        a card\u201D"
       objectReference: {fileID: 0}
     - target: {fileID: 7622436926459114884, guid: 538b701821c60aa4db8b613ceb494886, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3306,11 +3338,11 @@ PrefabInstance:
       objectReference: {fileID: 303453307}
     - target: {fileID: 8875172326352620945, guid: 50dbe404b9a61c04e98b32ac59d08db1, type: 3}
       propertyPath: _passiveDescription
-      value: Whenever a card is Exiled, Sima heals a random damaged Hero for 2 (+Faith)
+      value: Whenever a card is Exiled, heal a random damaged Hero for 2 (+Faith)
       objectReference: {fileID: 0}
     - target: {fileID: 8875172326352620945, guid: 50dbe404b9a61c04e98b32ac59d08db1, type: 3}
       propertyPath: _ultimateDescription
-      value: Sima heals all Heroes for 6 (+Faith)
+      value: Heal all Heroes for 6
       objectReference: {fileID: 0}
     - target: {fileID: 9116483659387204179, guid: 50dbe404b9a61c04e98b32ac59d08db1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5392,12 +5424,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainCamera: {fileID: 963194227}
-  HUDCanvas: {fileID: 1278321744}
+  HUDCanvas: {fileID: 1278321746}
   CardZoomCanvas: {fileID: 1599366958}
   SelectionCanvas: {fileID: 335242494}
   CharacterCanvas: {fileID: 346166713}
   _fpsCounter: {fileID: 1880344173}
-  _ultimateFillImage: {fileID: 0}
 --- !u!1001 &612005937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9007,7 +9038,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: -98.16348}
+  m_AnchoredPosition: {x: 0.000030517578, y: -98.163475}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &993640551
@@ -9160,6 +9191,141 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5049b63b3903454b9dc1ef487851a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1051182546
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 85080228}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: m_Name
+      value: CFX_ElectricityBall
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: OnlyDeactivate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: simulationSpeed
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: startDelay.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+      propertyPath: simulationSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+--- !u!4 &1051182547 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+  m_PrefabInstance: {fileID: 1051182546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1051182548 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19800000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+  m_PrefabInstance: {fileID: 1051182546}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1054981407 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2796265857363522210, guid: e8a8d9f042ca4bc4099634048b90d501, type: 3}
@@ -10940,6 +11106,7 @@ GameObject:
   - component: {fileID: 1278321744}
   - component: {fileID: 1278321743}
   - component: {fileID: 1278321742}
+  - component: {fileID: 1278321746}
   m_Layer: 5
   m_Name: HUD Canvas
   m_TagString: Untagged
@@ -11037,6 +11204,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1278321746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278321741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b73cd43876ba345942f106ce0483c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ultimateFillImage: {fileID: 1255053686}
+  UltLightingParticleSystem: {fileID: 1051182548}
 --- !u!4 &1291581227 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3688633064367536814, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
@@ -13638,22 +13819,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1579456994}
     m_Modifications:
-    - target: {fileID: 1956391306, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
-      propertyPath: Priority
-      value: 128
-      objectReference: {fileID: 0}
-    - target: {fileID: 1956391306, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: 24300002, guid: b689d6c79a0d4ca44b608f5c4d3e6b60, type: 2}
     - target: {fileID: 1956391308, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
       propertyPath: m_Volume
-      value: 1
+      value: 0.249
       objectReference: {fileID: 0}
-    - target: {fileID: 1956391308, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: 24300002, guid: 8d5b97038f8ce374f9821eeacf54d9fb, type: 2}
     - target: {fileID: 3688633064367536785, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -13706,22 +13875,6 @@ PrefabInstance:
       propertyPath: BgMusic
       value: 
       objectReference: {fileID: 8300000, guid: a5b29d615e0ae3243b63e2638eb677e3, type: 3}
-    - target: {fileID: 4054370515128626527, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
-      propertyPath: SfxClips.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054370515128626527, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
-      propertyPath: SfxClips.Array.data[5]
-      value: 
-      objectReference: {fileID: 8300000, guid: b0b26104711e3fd4d819ad486fe31513, type: 3}
-    - target: {fileID: 4054370515128626527, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
-      propertyPath: SfxClips.Array.data[6]
-      value: 
-      objectReference: {fileID: 8300000, guid: cba17f1ea1f019d48b4081f3be9069b4, type: 3}
-    - target: {fileID: 4054370515128626527, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
-      propertyPath: SfxClips.Array.data[7]
-      value: 
-      objectReference: {fileID: 8300000, guid: e0546e0f7eb39ba4a8470f598513dd21, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
 --- !u!114 &1655063110 stripped
@@ -22222,7 +22375,7 @@ MonoBehaviour:
   ExiledPile: {fileID: 7395125938354459216}
   Hand: {fileID: 7395125938354459183}
   colors: 00000000
-  _maxHp: 5
+  _maxHp: 33
   _currentHp: 0
   _currentBlock: 0
   _characterName: Bull
@@ -22800,10 +22953,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7303848833185989961, guid: 1ce7230ea03663242a314938028cc37c, type: 3}
-      propertyPath: m_Name
-      value: VikiguinMat
-      objectReference: {fileID: 0}
     - target: {fileID: 7593398143680790770, guid: 1ce7230ea03663242a314938028cc37c, type: 3}
       propertyPath: m_Name
       value: Vikinguin
@@ -22870,12 +23019,12 @@ PrefabInstance:
       objectReference: {fileID: 872892275}
     - target: {fileID: 7593398144345049080, guid: 1ce7230ea03663242a314938028cc37c, type: 3}
       propertyPath: _passiveDescription
-      value: Every three turns, Vikinguin gains 1 <b>Taunt</b> and 3 Block.
+      value: Every three turns, I gain 1 <b>Taunt</b> and 3 Block.
       objectReference: {fileID: 0}
     - target: {fileID: 7593398144345049080, guid: 1ce7230ea03663242a314938028cc37c, type: 3}
       propertyPath: _ultimateDescription
-      value: "Vikinguin gains 30 Block, 3 <b>Taunt</b> and \u201CInstead of losing
-        all Block at the start of the turn, Vikinguin loses 10 Block\u201D."
+      value: " I Gain 30 Block, 3 <b>Taunt</b> and \u201CInstead of losing all Block
+        at the start of the turn, I lose 10 Block\u201D."
       objectReference: {fileID: 0}
     - target: {fileID: 8536136366721027350, guid: 1ce7230ea03663242a314938028cc37c, type: 3}
       propertyPath: m_LocalPosition.x
