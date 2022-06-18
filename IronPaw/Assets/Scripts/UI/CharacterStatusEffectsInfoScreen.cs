@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class CharacterStatusEffectsInfoScreen : MonoBehaviour
 {
-
+    [SerializeField] private ScrollRect _scrollRect;
     [SerializeField] private GameObject _statusEffectsContainer;
     [SerializeField] private List<StatusEffectToolTip> _children = new List<StatusEffectToolTip>();
 
@@ -91,6 +91,8 @@ public class CharacterStatusEffectsInfoScreen : MonoBehaviour
             child.gameObject.SetActive(true);
             child.InitTurnCounter(stat.MyStatAmount);
         }
+
+        _scrollRect.horizontalNormalizedPosition = 1; //reset scroller position
     }
 
     private void InitStatusEffectsToolTips(Character character)
@@ -104,7 +106,8 @@ public class CharacterStatusEffectsInfoScreen : MonoBehaviour
             int childIndex = typeCast + _numberOfStatsBuffer;
             _children[childIndex].gameObject.SetActive(true);
             _children[childIndex].InitTurnCounter(character.ActiveStatusEffects[i].TurnCounter);
-
         }
+
+        _scrollRect.horizontalNormalizedPosition = 1; //reset scroller position
     }
 }

@@ -6293,6 +6293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3403d98d0b4452d418080fe0c1ed3cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _scrollRect: {fileID: 1839297652}
   _statusEffectsContainer: {fileID: 993640549}
   _children:
   - {fileID: 851349239}
