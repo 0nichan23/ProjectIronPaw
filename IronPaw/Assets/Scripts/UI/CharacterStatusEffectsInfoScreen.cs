@@ -47,6 +47,8 @@ public class CharacterStatusEffectsInfoScreen : MonoBehaviour
 
     private void TurnOnModel(Character givenCharacter)
     {
+        //RON BANDEL
+
         List<Character> pointerList = null;
         GameObject pointerContainer = null;
 
@@ -61,16 +63,24 @@ public class CharacterStatusEffectsInfoScreen : MonoBehaviour
             pointerContainer = _enemiesContainer;
         }
 
+        for (int i = 0; i < PartyManager.Instance.Heroes.Count; i++)
+        {
+            _heroesContainer.transform.GetChild(i).gameObject.SetActive(false);
+        }
+
+        for (int i = 0; i < PartyManager.Instance.Enemies.Count; i++)
+        {
+            _enemiesContainer.transform.GetChild(i).gameObject.SetActive(false);
+        }
+
         for (int i = 0; i < pointerList.Count; i++)
         {
             if (pointerList[i] == givenCharacter)
             {
                 pointerContainer.transform.GetChild(i).gameObject.SetActive(true);
             }
-            else
-            {
-                pointerContainer.transform.GetChild(i).gameObject.SetActive(false);
-            }
         }
+
+        // ARUR TIYE
     }
 }
