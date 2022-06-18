@@ -17432,7 +17432,7 @@ PrefabInstance:
     - target: {fileID: 4054370515128626527, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
       propertyPath: LoseSound
       value: 
-      objectReference: {fileID: 8300000, guid: eebd22bc25078fb4aa088319e07d8df0, type: 3}
+      objectReference: {fileID: 8300000, guid: 53f68e4d70ebe664c8d0e4144306aedd, type: 3}
     - target: {fileID: 4054370515128626527, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
       propertyPath: SfxClips.Array.size
       value: 9
