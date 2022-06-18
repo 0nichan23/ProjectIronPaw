@@ -6,9 +6,8 @@ using UnityEngine;
 
 public class HolyStrengthEffect : CardEffect
 {
-   
     protected override void PlayCardEffect(Character playingCharacter, Character target)
     {
-        target.Stats += new CharacterStats(3, 0, 0, 0);
+        target.AddStat(StatType.STRENGTH, 3);
     }
 }

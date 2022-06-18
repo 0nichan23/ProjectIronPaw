@@ -15,6 +15,7 @@ public class PrefabManager : Singleton<PrefabManager>
     public DropZone DropZone;
 
     public List<Sprite> SpritesIcons = new List<Sprite>();
+    public List<Sprite> StatSpritesIcons = new List<Sprite>();
 
     Dictionary<Type, Sprite> StatusEffectDictionary = new Dictionary<Type, Sprite>();
 
@@ -37,6 +38,15 @@ public class PrefabManager : Singleton<PrefabManager>
 
 
         return SpritesIcons[index - 1];
+    }
+
+    public Sprite GetSprite(StatType stat)
+    {
+
+        int index = (int)stat;
+
+
+        return StatSpritesIcons[index];
     }
 
 

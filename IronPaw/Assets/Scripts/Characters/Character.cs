@@ -59,7 +59,7 @@ public abstract class Character : MonoBehaviour
         }
     }
     public string CharacterName { get => _characterName; set => _characterName = value; }
-    public CharacterStats Stats { get => _stats; set => _stats = value; }
+    public CharacterStats Stats { get => _stats; }
     public List<StatusEffect> ActiveStatusEffects { get => _activeStatusEffects; set => _activeStatusEffects = value; }
     public int MaxAp { get => _maxAp; set => _maxAp = value; }
     public Controller Controller { get => _controller; set => _controller = value; }
@@ -143,12 +143,40 @@ public abstract class Character : MonoBehaviour
         UpdateUI();
     }
 
+    public void AddStat(StatType statType, int amount)
+    {
+        switch(statType)
+        {
+            case StatType.STRENGTH:
+                _stats += new CharacterStats(amount, 0, 0, 0);
+                break;
+
+            case StatType.DEXTERITY:
+                _stats += new CharacterStats(0, amount, 0, 0);
+                break;
+
+            case StatType.INTELLIGENCE:
+                _stats += new CharacterStats(0, 0, amount, 0);
+                break;
+
+            case StatType.FAITH:
+                _stats += new CharacterStats(0, 0, 0, amount);
+                break;
+        }
+
+        RefSlot.AddStat(this, statType);
+    }
+
+
+
+
     public virtual void UpdateUI()
     {
         if (RefSlot != null)
         {
             RefSlot.SetupCanvas(this);
             RefSlot.UpdateStatuses();
+            RefSlot.UpdateStats();
             RefSlot.UpdateHpBar(MaxHP, CurrentHP);
             RefSlot.UpdateBlock(CurrentBlock);
             RefSlot.UpdateActionPoint(_maxAp, _currentAp);

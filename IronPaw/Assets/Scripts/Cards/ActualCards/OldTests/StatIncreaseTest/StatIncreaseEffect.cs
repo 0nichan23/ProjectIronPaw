@@ -7,7 +7,7 @@ public class StatIncreaseEffect : CardEffect
 {
     protected override void PlayCardEffect(Character playingCharacter, Character target)
     {
-        target.Stats += new CharacterStats(0, 1, 0, 0);
+        target.AddStat(StatType.DEXTERITY, 1);
         target.GainBlock(1);
     }
 }

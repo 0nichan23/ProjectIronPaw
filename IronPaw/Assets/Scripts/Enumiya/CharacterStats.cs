@@ -4,6 +4,14 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+public enum StatType
+{
+    STRENGTH,
+    DEXTERITY,
+    INTELLIGENCE,
+    FAITH
+}
+
 [Serializable]
 public struct CharacterStats
 {
