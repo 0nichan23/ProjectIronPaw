@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44864297, g: 0.49869418, b: 0.57567257, a: 1}
+  m_IndirectSpecularColor: {r: 0.4486426, g: 0.49869394, b: 0.575672, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -16134,32 +16134,32 @@ PrefabInstance:
       objectReference: {fileID: 1085283461}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.size
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _decksGiven.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 5a58791b5b62b7143a775932f3b38093, type: 2}
+      objectReference: {fileID: 11400000, guid: 2b5d32ceb1cc8bf4ca6f25eec8b6fe1f, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 5a58791b5b62b7143a775932f3b38093, type: 2}
+      objectReference: {fileID: 11400000, guid: 2b5d32ceb1cc8bf4ca6f25eec8b6fe1f, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 5a58791b5b62b7143a775932f3b38093, type: 2}
+      objectReference: {fileID: 11400000, guid: 2b5d32ceb1cc8bf4ca6f25eec8b6fe1f, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: 5a58791b5b62b7143a775932f3b38093, type: 2}
+      objectReference: {fileID: 11400000, guid: 2b5d32ceb1cc8bf4ca6f25eec8b6fe1f, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: 5a58791b5b62b7143a775932f3b38093, type: 2}
+      objectReference: {fileID: 11400000, guid: 2b5d32ceb1cc8bf4ca6f25eec8b6fe1f, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[5]
       value: 
@@ -16183,11 +16183,11 @@ PrefabInstance:
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _decksGiven.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 567ebdd0d7558a04d855b26c62f54cd4, type: 2}
+      objectReference: {fileID: 11400000, guid: aeef610c410b6984ba119b05fc36cd8d, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _decksGiven.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 904b843a94b0c35498d61486c2c6a1cc, type: 2}
+      objectReference: {fileID: 11400000, guid: aeef610c410b6984ba119b05fc36cd8d, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _decksGiven.Array.data[2]
       value: 

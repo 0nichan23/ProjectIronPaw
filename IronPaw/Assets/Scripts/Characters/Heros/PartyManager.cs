@@ -355,7 +355,6 @@ public class PartyManager : Singleton<PartyManager>
     
     private IEnumerator PlayCardAnimationSync(Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)
     {
-        CardCleanup(playingCharacter, card, cardEffectRef, cardUI);
         if(card.CardType == CardType.Attack)
         {
             playingCharacter.PlayAnimation(card.CardType);
@@ -363,6 +362,7 @@ public class PartyManager : Singleton<PartyManager>
         }
         playingCharacter.ReachedAnimationSyncFrame = false;
         cardEffectRef.PlayEffect(playingCharacter, card);
+        CardCleanup(playingCharacter, card, cardEffectRef, cardUI);
     }
 
     private void CardCleanup(Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)

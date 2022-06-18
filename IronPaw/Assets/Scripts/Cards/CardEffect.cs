@@ -25,12 +25,13 @@ public abstract class CardEffect : ScriptableObject
         {
             InitializePlayEffect(playingCharacter);
         }
-        playingCharacter.Controller.OnPlayCard?.Invoke(card);
+
         foreach (var target in Targets)
         {
             PlayCardEffect(playingCharacter, target);
             target.UpdateUI();
         }
+        playingCharacter.Controller.OnPlayCard?.Invoke(card);
         playingCharacter.UpdateUI();
         Targets.Clear();
 
