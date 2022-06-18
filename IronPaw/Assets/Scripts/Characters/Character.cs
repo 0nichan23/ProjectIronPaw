@@ -101,6 +101,7 @@ public abstract class Character : MonoBehaviour
         OnStartTurn += StartOfTurnReset;
         StartOfTurnReset();
         DetermineController();
+        InitStats();
         UpdateUI();
     }
 
@@ -167,7 +168,25 @@ public abstract class Character : MonoBehaviour
         RefSlot.AddStat(this, statType);
     }
 
-
+    private void InitStats()
+    {
+        if(Stats.Strength > 0)
+        {
+            RefSlot.AddStat(this, StatType.STRENGTH);
+        }
+        if (Stats.Dexterity > 0)
+        {
+            RefSlot.AddStat(this, StatType.DEXTERITY);
+        }
+        if (Stats.Intelligence > 0)
+        {
+            RefSlot.AddStat(this, StatType.INTELLIGENCE);
+        }
+        if (Stats.Faith > 0)
+        {
+            RefSlot.AddStat(this, StatType.FAITH);
+        }
+    }
 
 
     public virtual void UpdateUI()

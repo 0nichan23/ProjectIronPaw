@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44864297, g: 0.49869418, b: 0.57567257, a: 1}
+  m_IndirectSpecularColor: {r: 0.4486426, g: 0.49869394, b: 0.575672, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -403,7 +403,7 @@ Transform:
   m_Children:
   - {fileID: 1051182547}
   m_Father: {fileID: 258605806}
-  m_RootOrder: 13
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &87389250
 PrefabInstance:
@@ -2117,6 +2117,7 @@ Transform:
   - {fileID: 596546625}
   - {fileID: 1249275987}
   - {fileID: 705507995}
+  - {fileID: 85080228}
   - {fileID: 12632854}
   - {fileID: 977192123}
   - {fileID: 106365732}
@@ -2127,7 +2128,6 @@ Transform:
   - {fileID: 256850371}
   - {fileID: 123054083}
   - {fileID: 1856193642}
-  - {fileID: 85080228}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18399,6 +18399,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: d4a60ac003892804789509e78beff20f, type: 3}
     - target: {fileID: 3317774568791796296, guid: 611976528af8cc3439f73994bbffd750, type: 3}
+      propertyPath: StatSpritesIcons.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3317774568791796296, guid: 611976528af8cc3439f73994bbffd750, type: 3}
       propertyPath: IntentionIcons.Array.data[0]
       value: 
       objectReference: {fileID: 21300000, guid: 661bee89533e9fd4a943d2203475e8ae, type: 3}
@@ -18414,6 +18418,22 @@ PrefabInstance:
       propertyPath: IntentionIcons.Array.data[3]
       value: 
       objectReference: {fileID: 21300000, guid: 302da54f4fd8fd243b4dac052d0549bf, type: 3}
+    - target: {fileID: 3317774568791796296, guid: 611976528af8cc3439f73994bbffd750, type: 3}
+      propertyPath: StatSpritesIcons.Array.data[0]
+      value: 
+      objectReference: {fileID: -8901249104346196927, guid: 3c12a968614de8744a8ed8e38505a873, type: 3}
+    - target: {fileID: 3317774568791796296, guid: 611976528af8cc3439f73994bbffd750, type: 3}
+      propertyPath: StatSpritesIcons.Array.data[1]
+      value: 
+      objectReference: {fileID: 8325482557025903494, guid: 3c12a968614de8744a8ed8e38505a873, type: 3}
+    - target: {fileID: 3317774568791796296, guid: 611976528af8cc3439f73994bbffd750, type: 3}
+      propertyPath: StatSpritesIcons.Array.data[2]
+      value: 
+      objectReference: {fileID: 726160441105213338, guid: 3c12a968614de8744a8ed8e38505a873, type: 3}
+    - target: {fileID: 3317774568791796296, guid: 611976528af8cc3439f73994bbffd750, type: 3}
+      propertyPath: StatSpritesIcons.Array.data[3]
+      value: 
+      objectReference: {fileID: 3033176505278425951, guid: 3c12a968614de8744a8ed8e38505a873, type: 3}
     - target: {fileID: 3317774568791796297, guid: 611976528af8cc3439f73994bbffd750, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -21100,15 +21120,15 @@ PrefabInstance:
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 2b5d32ceb1cc8bf4ca6f25eec8b6fe1f, type: 2}
+      objectReference: {fileID: 11400000, guid: 52a604842ed3998408b4abebe2b4fdce, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: 2b5d32ceb1cc8bf4ca6f25eec8b6fe1f, type: 2}
+      objectReference: {fileID: 11400000, guid: efb97a0f5c4019648b255e3e13abf206, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: 8823a42d6de9ec144b2899207867826c, type: 2}
+      objectReference: {fileID: 11400000, guid: efb97a0f5c4019648b255e3e13abf206, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[5]
       value: 
