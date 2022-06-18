@@ -312,6 +312,10 @@ public abstract class Character : MonoBehaviour
         else
         {
             CurrentBlock -= AmountOfBlockToLose;
+            if(CurrentBlock < 0)
+            {
+                CurrentBlock = 0;
+            }
         }
         UpdateUI();
     }
