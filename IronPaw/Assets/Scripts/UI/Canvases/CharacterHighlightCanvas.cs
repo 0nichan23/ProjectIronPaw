@@ -13,7 +13,8 @@ public class CharacterHighlightCanvas : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _dexterityText;
     [SerializeField] private TextMeshProUGUI _faithText;
 
-    [SerializeField] private List<GameObject> _characterModels;
+    [SerializeField] private GameObject _heroesContainer;
+    [SerializeField] private GameObject _enemiesContainer;
     public void InitInfo(Character character)
     {
         _characterName.text = character.CharacterName;
@@ -31,25 +32,28 @@ public class CharacterHighlightCanvas : MonoBehaviour
     private void TurnOnModel(Character givenCharacter)
     {  
         List<Character> pointerList = null;
+        GameObject pointerContainer = null;
 
         if(givenCharacter is Hero)
         {
             pointerList = PartyManager.Instance.Heroes;
+            pointerContainer = _heroesContainer;
         }
         else if (givenCharacter is Enemy)
         {
             pointerList = PartyManager.Instance.Enemies;
+            pointerContainer = _enemiesContainer;
         }
 
         for (int i = 0; i < pointerList.Count; i++)
         {
             if (pointerList[i] == givenCharacter)
             {
-                _characterModels[i].SetActive(true);
+                pointerContainer.transform.GetChild(i).gameObject.SetActive(true);
             }
             else
             {
-                _characterModels[i].SetActive(false);
+                pointerContainer.transform.GetChild(i).gameObject.SetActive(false);
             }
         }
     }
