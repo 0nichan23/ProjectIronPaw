@@ -271,13 +271,16 @@ public class PartyManager : Singleton<PartyManager>
 
     private IEnumerator WaitUntilHeroIsClickedUltimate()
     {
-        UIManager.Instance.ToggleSelectionCanvas(true, "Select a Hero");
-        TurnOnAllHeroButtons();
+        if(PlayerWrapper.Instance.PlayerController.UltimateReady)
+        {
+            UIManager.Instance.ToggleSelectionCanvas(true, "Select a Hero");
+            TurnOnAllHeroButtons();
 
-        yield return new WaitUntil(() => SelectedCharacter != null);
-        UIManager.Instance.ToggleSelectionCanvas(false, null);
-        ((Hero)SelectedCharacter).PerformUltimate();
-        SelectedCharacter = null;
+            yield return new WaitUntil(() => SelectedCharacter != null);
+            UIManager.Instance.ToggleSelectionCanvas(false, null);
+            ((Hero)SelectedCharacter).PerformUltimate();
+            SelectedCharacter = null;
+        }        
     }
 
     public IEnumerator WaitUntilHeroIsClickedPlayCard(CardScriptableObject card)

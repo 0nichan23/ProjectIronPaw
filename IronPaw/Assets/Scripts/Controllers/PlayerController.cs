@@ -28,6 +28,14 @@ public class PlayerController : Controller
         }
     }
 
+    public bool UltimateReady 
+    { 
+        get
+        {
+            return UltimateCharge == MaximumUltimateCharge;
+        }
+    }
+
     [SerializeField]
     TextMeshProUGUI EnergyText;
 
@@ -100,6 +108,7 @@ public class PlayerController : Controller
     public void ResetUltimateCharge()
     {
         UltimateCharge = 0;
+        UIManager.Instance.HUDCanvas.FillUltimateChargeUI(UltimateCharge / MaximumUltimateCharge);
     }
 
     private void TurnOnUltButtonOnSufficientUltCharge()
