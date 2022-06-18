@@ -315,8 +315,6 @@ public abstract class Character : MonoBehaviour
                 TurnManager.Instance.WinGame();
             }
         }
-
-
     }
 
 }

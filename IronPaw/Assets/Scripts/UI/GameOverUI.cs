@@ -9,7 +9,7 @@ public class GameOverUI : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _title;
     [SerializeField]
-    private Text _buttonText;
+    private TextMeshProUGUI _buttonText;
     [SerializeField]
     private Image _buttonImage;
     public void SetGameOverUI(string title, string buttonText)
