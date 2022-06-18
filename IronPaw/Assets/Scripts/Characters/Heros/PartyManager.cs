@@ -358,19 +358,32 @@ public class PartyManager : Singleton<PartyManager>
     
     private IEnumerator PlayCardAnimationSync(Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)
     {
-        if(card.CardType == CardType.Attack)
+        /* 1. */ CardCleanup(playingCharacter, card, cardEffectRef, cardUI);
+        /* 2. */ // CardUICleanup(playingCharacter, card, cardEffectRef, cardUI);
+        if (card.CardType == CardType.Attack)
         {
             playingCharacter.PlayAnimation(card.CardType);
             yield return new WaitUntil(() => playingCharacter.ReachedAnimationSyncFrame);
         }
         playingCharacter.ReachedAnimationSyncFrame = false;
         cardEffectRef.PlayEffect(playingCharacter, card);
-        CardCleanup(playingCharacter, card, cardEffectRef, cardUI);
+        /* 2. */ // CardSOCleanup(playingCharacter, card);
     }
 
     private void CardCleanup(Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)
     {
         card.RemoveCard(playingCharacter);
+        if (cardUI != null)
+        {
+            cardUI.DestroyTheHeretic();
+        }
+        ReInitHand();
+        TurnOffAllButtons();
+        UIManager.Instance.ToggleSelectionCanvas(false, null);
+    }
+
+    private void CardUICleanup(Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)
+    {
         if (cardUI != null)
         {
             cardUI.DestroyTheHeretic();       
@@ -380,16 +393,19 @@ public class PartyManager : Singleton<PartyManager>
         UIManager.Instance.ToggleSelectionCanvas(false, null);
     }
 
+    private void CardSOCleanup(Character playingCharacter, CardScriptableObject card)
+    {
+        card.RemoveCard(playingCharacter);
+    }
+
     private void ReInitHand()
     {
         GameObject Hand = PlayerWrapper.Instance.PlayerController.Hand.gameObject;
         for (int i = 0; i < Hand.transform.childCount; i++)
-        {
-           
+        {           
             Hand.transform.GetChild(i).GetComponent<CardUI>().DestroyTheHeretic();
-            
-
         }
+
         foreach (var card in PlayerWrapper.Instance.PlayerController.Hand.Cards)
         {
             card.CreateCardDisplay();
