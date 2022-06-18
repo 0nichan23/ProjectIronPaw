@@ -217,7 +217,7 @@ public class CardUI : MonoBehaviour
     public void OnClick()
     {
         //play card normally
-        if (CardSO.CheckCardValidity())
+        if (CardSO.CheckCardValidity() && this != PartyManager.Instance.SelectedCardUI)
         {
             SelectCard();
             StartCoroutine(PartyManager.Instance.WaitUntilHeroIsClickedPlayCard(CardSO));
@@ -225,6 +225,9 @@ public class CardUI : MonoBehaviour
         else
         {
             DeselectCard();
+            // We dont want to play this sound inside of DeselectCard because SelectCard also invokes DeselectCard,
+            // which will make the soundclip play twice
+            AudioManager.Instance.Play(AudioManager.Instance.SfxClips[4]); 
             PartyManager.Instance.CancelCard();
         }
     }

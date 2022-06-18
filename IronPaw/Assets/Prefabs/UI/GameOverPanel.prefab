@@ -303,8 +303,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
-  m_fontSizeBase: 48
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -437,6 +437,9 @@ MonoBehaviour:
   _title: {fileID: 3640900455500588900}
   _buttonText: {fileID: 9045759923949242217}
   _buttonImage: {fileID: 3640900456055761117}
+  _titleGraphic: {fileID: 3640900455458633112}
+  _winSprite: {fileID: 21300000, guid: 19a271760f00a224697737a5d5d63603, type: 3}
+  _loseSprite: {fileID: 21300000, guid: e7b11d09f3b7fe1448e40f755f87fa90, type: 3}
 --- !u!1 &3640900456055761122
 GameObject:
   m_ObjectHideFlags: 0

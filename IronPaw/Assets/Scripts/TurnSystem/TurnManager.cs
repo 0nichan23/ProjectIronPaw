@@ -83,7 +83,7 @@ public class TurnManager : Singleton<TurnManager>
         StopTurnLoop();
         ToggleGameOverUI(true);
         AudioManager.Instance.PlayPlayer(AudioManager.Instance.LoseSound);
-        _gameOverPanel.SetGameOverUI("DEFEAT", "Return To Base");
+        _gameOverPanel.SetGameOverUI("DEFEAT", "Return To Base", false);
         //stop turn loop
         //turn ui window
         //set ui win/lose
@@ -94,7 +94,7 @@ public class TurnManager : Singleton<TurnManager>
         //AudioManager.Instance.StopBg(AudioManager.Instance.BgMusic);
         StopTurnLoop();
         ToggleGameOverUI(true);       
-        _gameOverPanel.SetGameOverUI("GLORIOUS VICTORY", "Continue");
+        _gameOverPanel.SetGameOverUI("GLORIOUS VICTORY", "Continue", true);
         //AudioManager.Instance.PlayPlayer(AudioManager.Instance.WinSound);
     }
     private void StopTurnLoop()
