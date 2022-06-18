@@ -359,7 +359,7 @@ public class PartyManager : Singleton<PartyManager>
     private IEnumerator PlayCardAnimationSync(Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)
     {
         /* 1. */ CardCleanup(playingCharacter, card, cardEffectRef, cardUI);
-        /* 2. */ // CardUICleanup(playingCharacter, card, cardEffectRef, cardUI);
+        /* 2. */ //CardUICleanup(playingCharacter, card, cardEffectRef, cardUI);
         if (card.CardType == CardType.Attack)
         {
             playingCharacter.PlayAnimation(card.CardType);
@@ -367,7 +367,7 @@ public class PartyManager : Singleton<PartyManager>
         }
         playingCharacter.ReachedAnimationSyncFrame = false;
         cardEffectRef.PlayEffect(playingCharacter, card);
-        /* 2. */ // CardSOCleanup(playingCharacter, card);
+        /* 2. */ //CardSOCleanup(playingCharacter, card);
     }
 
     private void CardCleanup(Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)
@@ -388,7 +388,6 @@ public class PartyManager : Singleton<PartyManager>
         {
             cardUI.DestroyTheHeretic();       
         }
-        ReInitHand();
         TurnOffAllButtons();
         UIManager.Instance.ToggleSelectionCanvas(false, null);
     }
@@ -396,6 +395,7 @@ public class PartyManager : Singleton<PartyManager>
     private void CardSOCleanup(Character playingCharacter, CardScriptableObject card)
     {
         card.RemoveCard(playingCharacter);
+        ReInitHand();
     }
 
     private void ReInitHand()

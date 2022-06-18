@@ -10,7 +10,8 @@ public class CharacterStatusEffectsInfoScreen : MonoBehaviour
     [SerializeField] private GameObject _statusEffectsContainer;
     [SerializeField] private List<StatusEffectToolTip> _children = new List<StatusEffectToolTip>();
 
-    [SerializeField] private List<GameObject> _characterModels;
+    [SerializeField] private GameObject _heroesContainer;
+    [SerializeField] private GameObject _enemiesContainer;
 
     public void InitInfo(Character character)
     {
@@ -47,25 +48,28 @@ public class CharacterStatusEffectsInfoScreen : MonoBehaviour
     private void TurnOnModel(Character givenCharacter)
     {
         List<Character> pointerList = null;
+        GameObject pointerContainer = null;
 
         if (givenCharacter is Hero)
         {
             pointerList = PartyManager.Instance.Heroes;
+            pointerContainer = _heroesContainer;
         }
         else if (givenCharacter is Enemy)
         {
             pointerList = PartyManager.Instance.Enemies;
+            pointerContainer = _enemiesContainer;
         }
 
         for (int i = 0; i < pointerList.Count; i++)
         {
             if (pointerList[i] == givenCharacter)
             {
-                _characterModels[i].SetActive(true);
+                pointerContainer.transform.GetChild(i).gameObject.SetActive(true);
             }
             else
             {
-                _characterModels[i].SetActive(false);
+                pointerContainer.transform.GetChild(i).gameObject.SetActive(false);
             }
         }
     }
