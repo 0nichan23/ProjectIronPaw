@@ -13,8 +13,8 @@ public class CharacterPersonalUI : MonoBehaviour
     [SerializeField]
     Transform DisplayZone;
 
-    List<StatusEffectSlot> statuses = new List<StatusEffectSlot>();
-    List<StatusEffectSlot> stats = new List<StatusEffectSlot>();
+    private List<StatusEffectSlot> statuses = new List<StatusEffectSlot>();
+    private List<StatusEffectSlot> stats = new List<StatusEffectSlot>();
 
     [SerializeField]
     HealthBar Hpbar;
@@ -27,6 +27,8 @@ public class CharacterPersonalUI : MonoBehaviour
 
 
     public IntentionDisplayer IntentionDisplayer;
+
+    public List<StatusEffectSlot> Stats { get => stats; }
 
     private void Awake()
     {
@@ -86,7 +88,7 @@ public class CharacterPersonalUI : MonoBehaviour
     // Stats
     public void AddStat(Character character, StatType stat)
     {
-        foreach (var item in stats)
+        foreach (var item in Stats)
         {
             if (stat == item.MyStat)
             {
@@ -100,16 +102,15 @@ public class CharacterPersonalUI : MonoBehaviour
 
     private void DisplayStat(Character character, StatType stat)
     {
-        Debug.Log("Displaying New unique Effec");
         GameObject NewEffect = Instantiate(PrefabManager.Instance.EffectSlot, DisplayZone.position, Quaternion.identity, DisplayZone);
         StatusEffectSlot newSlot = NewEffect.GetComponent<StatusEffectSlot>();
         newSlot.SetUp(character, stat);
-        stats.Add(newSlot);
+        Stats.Add(newSlot);
     }
 
     public void UpdateStats()
     {
-        foreach (var stat in stats)
+        foreach (var stat in Stats)
         {
             stat.UpdateStatUI();
         }

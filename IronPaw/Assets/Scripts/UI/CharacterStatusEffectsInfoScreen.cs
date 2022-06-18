@@ -1,7 +1,6 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 
 public class CharacterStatusEffectsInfoScreen : MonoBehaviour
@@ -13,36 +12,25 @@ public class CharacterStatusEffectsInfoScreen : MonoBehaviour
     [SerializeField] private GameObject _heroesContainer;
     [SerializeField] private GameObject _enemiesContainer;
 
+    // 
+    private int _numberOfStatsBuffer = 4;
+
     public void InitInfo(Character character)
     {
-        InitStatusEffectsToolTips(character);
         TurnOnModel(character);
-    }
 
-    private void InitStatusEffectsToolTips(Character character)
-    {
+        _statusEffectsContainer.gameObject.SetActive(false);
+        TurnOffAllTooltips();
+
+        if (character.RefSlot.Stats.Count > 0)
+        {
+            InitStatsToolTips(character);
+        }
+
         if (character.ActiveStatusEffects.Count > 0)
         {
-            _statusEffectsContainer.gameObject.SetActive(true);
-            for (int i = 0; i < _statusEffectsContainer.transform.childCount; i++)
-            {
-                _statusEffectsContainer.transform.GetChild(i).gameObject.SetActive(false);
-            }
-
-            for (int i = 0; i < character.ActiveStatusEffects.Count; i++)
-            {
-                int typeCast = ((int)character.ActiveStatusEffects[i].StatusEffectType);
-                _children[typeCast].gameObject.SetActive(true);
-                _children[typeCast].InitTurnCounter(character.ActiveStatusEffects[i].TurnCounter);
-
-            }
+            InitStatusEffectsToolTips(character);
         }
-        else
-        {
-            _statusEffectsContainer.gameObject.SetActive(false);
-        }
-
-
     }
 
     private void TurnOnModel(Character givenCharacter)
@@ -82,5 +70,41 @@ public class CharacterStatusEffectsInfoScreen : MonoBehaviour
         }
 
         // ARUR TIYE
+    }
+
+    private void TurnOffAllTooltips()
+    {
+        for (int i = 0; i < _children.Count; i++)
+        {
+            _children[i].gameObject.SetActive(false);
+        }
+    }
+
+    private void InitStatsToolTips(Character character)
+    {
+        // only goes over the first 4 children (stats)
+        _statusEffectsContainer.gameObject.SetActive(true);
+
+        foreach (var stat in character.RefSlot.Stats)
+        {
+            var child = _children[((int)stat.MyStat)];
+            child.gameObject.SetActive(true);
+            child.InitTurnCounter(stat.MyStatAmount);
+        }
+    }
+
+    private void InitStatusEffectsToolTips(Character character)
+    {
+        _statusEffectsContainer.gameObject.SetActive(true);
+
+        // Goes over all children but the first four (status effects)
+        for (int i = 0; i < character.ActiveStatusEffects.Count; i++)
+        {
+            int typeCast = ((int)character.ActiveStatusEffects[i].StatusEffectType);
+            int childIndex = typeCast + _numberOfStatsBuffer;
+            _children[childIndex].gameObject.SetActive(true);
+            _children[childIndex].InitTurnCounter(character.ActiveStatusEffects[i].TurnCounter);
+
+        }
     }
 }

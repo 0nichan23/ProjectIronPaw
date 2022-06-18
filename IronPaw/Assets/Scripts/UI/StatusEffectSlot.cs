@@ -16,9 +16,13 @@ public class StatusEffectSlot : MonoBehaviour
 
     private Character _myCaracter;
 
-    public StatType MyStat;
+    private StatType _myStat;
 
     private int _myStatAmount;
+
+    public StatType MyStat { get => _myStat; }
+    public int MyStatAmount { get => _myStatAmount; }
+
     public void SetUp(StatusEffect effect)
     {
         myStatus = effect;
@@ -34,9 +38,9 @@ public class StatusEffectSlot : MonoBehaviour
     public void SetUp(Character character, StatType stat)
     {
         _myCaracter = character;
-         MyStat = stat;
+        _myStat = stat;
         _myStatAmount = DetermineAmountOfStat(character, stat);
-        _counter.text = _myStatAmount.ToString();
+        _counter.text = MyStatAmount.ToString();
 
         Sprite sprite = PrefabManager.Instance.GetSprite(MyStat);
 
@@ -79,8 +83,8 @@ public class StatusEffectSlot : MonoBehaviour
     public void UpdateStatUI()
     {
         _myStatAmount = DetermineAmountOfStat(_myCaracter, MyStat);
-        _counter.text = _myStatAmount.ToString();
-        if (_myStatAmount == 0)
+        _counter.text = MyStatAmount.ToString();
+        if (MyStatAmount == 0)
         {
             Destroy(gameObject);
         }
