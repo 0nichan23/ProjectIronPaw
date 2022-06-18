@@ -7,7 +7,13 @@ public class HUDCanvas : MonoBehaviour
 {
     [SerializeField] private Image _ultimateFillImage;
     [SerializeField] public ParticleSystem UltLightingParticleSystem;
+    private Camera _mainCamera;
 
+    private void Start()
+    {
+        _mainCamera = UIManager.Instance.MainCamera;
+        UltLightingParticleSystem.transform.position = _mainCamera.ScreenToWorldPoint(_ultimateFillImage.transform.position);
+    }
     public void FillUltimateChargeUI(float fill)
     {
 
