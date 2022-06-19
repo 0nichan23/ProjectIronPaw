@@ -277,6 +277,7 @@ public class PartyManager : Singleton<PartyManager>
             TurnOnAllHeroButtons();
 
             yield return new WaitUntil(() => SelectedCharacter != null);
+            TurnOffAllButtons();
             UIManager.Instance.ToggleSelectionCanvas(false, null);
             ((Hero)SelectedCharacter).PerformUltimate();
             SelectedCharacter = null;
@@ -431,13 +432,15 @@ public class PartyManager : Singleton<PartyManager>
 
     private void TurnOnAllHeroButtons()
     {
-        // TODO: Filter heros by color, ifAlive, and so on
+        // TODO: Filter heros by color, and so on
 
         foreach (var hero in Heroes)
         {
             if (hero.IsAlive)
             {
                 hero.Button.gameObject.SetActive(true);
+                hero.Outline.enabled = true;
+                hero.Outline.ChangeOutlineColor(hero.Colors[0]);
             }
 
         }
