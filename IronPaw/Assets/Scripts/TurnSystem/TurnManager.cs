@@ -91,11 +91,11 @@ public class TurnManager : Singleton<TurnManager>
     }
     public void WinGame()
     {
-        //AudioManager.Instance.StopBg(AudioManager.Instance.BgMusic);
+        AudioManager.Instance.StopBg(AudioManager.Instance.BgMusic);
         StopTurnLoop();
-        ToggleGameOverUI(true);       
+        ToggleGameOverUI(true);
+        AudioManager.Instance.PlayPlayer(AudioManager.Instance.WinSound);
         _gameOverPanel.SetGameOverUI("GLORIOUS VICTORY", "Continue", true);
-        //AudioManager.Instance.PlayPlayer(AudioManager.Instance.WinSound);
     }
     private void StopTurnLoop()
     {
