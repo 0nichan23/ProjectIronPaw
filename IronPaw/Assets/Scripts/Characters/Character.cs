@@ -216,14 +216,14 @@ public abstract class Character : MonoBehaviour
 
     public void Heal(int amount, Character source)
     {
-
-        _currentHp += amount + source.Stats.Faith;
+        int amountWithFaith = amount + source.Stats.Faith;
+        _currentHp += amountWithFaith;
         if (_currentHp >= MaxHP)
         {
             _currentHp = MaxHP;
         }
         UpdateUI();
-        VFXManager.Instance.CreateHealingPopup(transform.position, amount);
+        VFXManager.Instance.CreateHealingPopup(transform.position, amountWithFaith);
         VFXManager.Instance.CreateHealingParticle(transform.position);
         AudioManager.Instance.Play(AudioManager.Instance.SfxClips[2]);
 
