@@ -9,10 +9,6 @@ public class GameManager : Singleton<GameManager>
     {
         Application.targetFrameRate = 60;
     }
-    private void Update()
-    {
-        
-    }
 
     public void RestartGame()
     {
