@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-    private void Update()
+    private void Start()
     {
         Application.targetFrameRate = 60;
+    }
+    private void Update()
+    {
+        
     }
 
     public void RestartGame()
