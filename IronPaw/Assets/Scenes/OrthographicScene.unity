@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4486426, g: 0.49869394, b: 0.575672, a: 1}
+  m_IndirectSpecularColor: {r: 0.44864297, g: 0.49869418, b: 0.57567257, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -27424,6 +27424,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6090990002215155633, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -1.4335
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090990002215155633, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.9459
+      objectReference: {fileID: 0}
     - target: {fileID: 6408954795615932774, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
       propertyPath: m_Color.a
       value: 0
@@ -29848,6 +29856,10 @@ PrefabInstance:
       propertyPath: _ultimateDescription
       value: " I Gain 30 Block, 3 <b>Taunt</b> and \u201CInstead of losing all Block
         at the start of the turn, I lose 10 Block\u201D."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419157865095849036, guid: 1ce7230ea03663242a314938028cc37c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.632
       objectReference: {fileID: 0}
     - target: {fileID: 8536136366721027350, guid: 1ce7230ea03663242a314938028cc37c, type: 3}
       propertyPath: m_LocalPosition.x
