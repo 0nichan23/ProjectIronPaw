@@ -70,7 +70,6 @@ public class CharacterPersonalUI : MonoBehaviour
 
     public void DisplayEffect(StatusEffect StatusEffect)
     {
-        Debug.Log("Displaying New unique Effec");
         GameObject NewEffect = Instantiate(PrefabManager.Instance.EffectSlot, DisplayZone.position, Quaternion.identity, DisplayZone);
         StatusEffectSlot newSlot = NewEffect.GetComponent<StatusEffectSlot>();
         newSlot.SetUp(StatusEffect);

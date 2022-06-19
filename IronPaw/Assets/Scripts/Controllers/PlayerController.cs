@@ -60,7 +60,7 @@ public class PlayerController : Controller
 
         TurnOnUltButtonOnSufficientUltCharge();
 
-        UIManager.Instance.HUDCanvas.FillUltimateChargeUI(UltimateCharge / MaximumUltimateCharge);
+        UIManager.Instance.HUDCanvas.UltButton.FillUltimateChargeUI(UltimateCharge / MaximumUltimateCharge);
     }
 
 
@@ -100,7 +100,7 @@ public class PlayerController : Controller
             UltimateCharge += amountToGain;
         }
 
-        UIManager.Instance.HUDCanvas.FillUltimateChargeUI(UltimateCharge / MaximumUltimateCharge);
+        UIManager.Instance.HUDCanvas.UltButton.FillUltimateChargeUI(UltimateCharge / MaximumUltimateCharge);
     }
 
     
@@ -108,7 +108,7 @@ public class PlayerController : Controller
     public void ResetUltimateCharge()
     {
         UltimateCharge = 0;
-        UIManager.Instance.HUDCanvas.FillUltimateChargeUI(UltimateCharge / MaximumUltimateCharge);
+        UIManager.Instance.HUDCanvas.UltButton.FillUltimateChargeUI(UltimateCharge / MaximumUltimateCharge);
     }
 
     private void TurnOnUltButtonOnSufficientUltCharge()
