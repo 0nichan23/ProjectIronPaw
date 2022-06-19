@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: CleavingStrike
   m_EditorClassIdentifier: 
   CardName: Cleaving Strike
-  Description: Deals 10 Damage. If this kills a unit, refresh 1 Action Point and
-    1 more Energy
+  Description: Deal 10 Damage. If this kills an enemy, refresh 1 Action Point and
+    1 Energy
   Colors: 00000000
   Rarity: 0
   EnergyCost: 2
@@ -25,3 +25,4 @@ MonoBehaviour:
   CardType: 0
   CardDisplay: {fileID: 0}
   Keywords: 070000000c000000
+  BuffType: 0

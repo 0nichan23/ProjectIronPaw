@@ -7,7 +7,7 @@ public class Deck : CardPile
 
     private void Start()
     {
-        Shuffle();
+        //Shuffle();
     }
 
     public override void Draw()

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44864297, g: 0.49869418, b: 0.57567257, a: 1}
+  m_IndirectSpecularColor: {r: 0.4486426, g: 0.49869394, b: 0.575672, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2803,13 +2803,13 @@ PrefabInstance:
       objectReference: {fileID: 2009974330}
     - target: {fileID: 7511463129820267780, guid: 538b701821c60aa4db8b613ceb494886, type: 3}
       propertyPath: _passiveDescription
-      value: Whenever the fourth card is played on my turn, I deal 6 damage a random
-        enemy
+      value: Whenever the fourth card is played on my turn, Duckislav deals 6 damage
+        a random enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7511463129820267780, guid: 538b701821c60aa4db8b613ceb494886, type: 3}
       propertyPath: _ultimateDescription
-      value: "I gain an <b>Action</b> Point and \u201CAt the start of the turn, draw
-        a card\u201D"
+      value: "Duckislav gains an <b>Action</b> Point and \u201CAt the start of your
+        turn, draw a card\u201D"
       objectReference: {fileID: 0}
     - target: {fileID: 7622436926459114884, guid: 538b701821c60aa4db8b613ceb494886, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3676,11 +3676,15 @@ PrefabInstance:
       objectReference: {fileID: 303453307}
     - target: {fileID: 8875172326352620945, guid: 50dbe404b9a61c04e98b32ac59d08db1, type: 3}
       propertyPath: _passiveDescription
-      value: Whenever a card is Exiled, heal a random damaged Hero for 2 (+Faith)
+      value: Whenever a card is Exiled, Sima heals a random damaged Hero for 2 (+Faith)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875172326352620945, guid: 50dbe404b9a61c04e98b32ac59d08db1, type: 3}
+      propertyPath: _ultimateHealAmount
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8875172326352620945, guid: 50dbe404b9a61c04e98b32ac59d08db1, type: 3}
       propertyPath: _ultimateDescription
-      value: Heal all Heroes for 6
+      value: Sima heals all Heroes for 5 (+Faith)
       objectReference: {fileID: 0}
     - target: {fileID: 9116483659387204179, guid: 50dbe404b9a61c04e98b32ac59d08db1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -21695,7 +21699,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _decksGiven.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[0]
@@ -21740,7 +21744,7 @@ PrefabInstance:
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _decksGiven.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 567ebdd0d7558a04d855b26c62f54cd4, type: 2}
+      objectReference: {fileID: 11400000, guid: efe8be7e016006a47b29b2c12ac0c687, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _decksGiven.Array.data[1]
       value: 
@@ -29246,7 +29250,7 @@ MonoBehaviour:
   _controller: {fileID: 0}
   _cardsGiven: []
   _decksGiven:
-  - {fileID: 11400000, guid: 3740f78cf2a984c4b84bcc463e86b07c, type: 2}
+  - {fileID: 11400000, guid: 301b5514bb0632d4ebc9dc6c7008fc49, type: 2}
   _discardPile: {fileID: 7395125938354459217}
 --- !u!114 &7395125938354459183
 MonoBehaviour:
@@ -29349,7 +29353,7 @@ MonoBehaviour:
   _controller: {fileID: 0}
   _cardsGiven: []
   _decksGiven:
-  - {fileID: 11400000, guid: 0aac8f347ab49194d86c79f0a19407c8, type: 2}
+  - {fileID: 11400000, guid: 13d00bd3f146d8349b16ee3b32a6cbe4, type: 2}
   _discardPile: {fileID: 7395125938883939191}
 --- !u!114 &7395125938883939081
 MonoBehaviour:
@@ -29619,7 +29623,7 @@ MonoBehaviour:
   _controller: {fileID: 0}
   _cardsGiven: []
   _decksGiven:
-  - {fileID: 11400000, guid: c3b8815b36c3ef842aac726494b7d5db, type: 2}
+  - {fileID: 11400000, guid: f9330902b302bed41b657190093129ac, type: 2}
   _discardPile: {fileID: 7395125939126887988}
 --- !u!4 &7395125939762153256
 Transform:
@@ -29850,12 +29854,12 @@ PrefabInstance:
       objectReference: {fileID: 872892275}
     - target: {fileID: 7593398144345049080, guid: 1ce7230ea03663242a314938028cc37c, type: 3}
       propertyPath: _passiveDescription
-      value: Every three turns, I gain 1 <b>Taunt</b> and 3 Block.
+      value: Every three turns, Vikinguin gains 1 <b>Taunt</b> and 3 Block.
       objectReference: {fileID: 0}
     - target: {fileID: 7593398144345049080, guid: 1ce7230ea03663242a314938028cc37c, type: 3}
       propertyPath: _ultimateDescription
-      value: " I Gain 30 Block, 3 <b>Taunt</b> and \u201CInstead of losing all Block
-        at the start of the turn, I lose 10 Block\u201D."
+      value: "Vikinguin gains 30 Block, 3 <b>Taunt</b> and \u201CInstead of losing
+        all Block at the start of the turn, Vikinguin loses 10 Block\u201D."
       objectReference: {fileID: 0}
     - target: {fileID: 8419157865095849036, guid: 1ce7230ea03663242a314938028cc37c, type: 3}
       propertyPath: m_AnchoredPosition.y
