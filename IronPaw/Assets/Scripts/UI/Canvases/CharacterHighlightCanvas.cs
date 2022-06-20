@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CharacterHighlightCanvas : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _characterName;
+    
     [SerializeField] private TextMeshProUGUI _passiveDesscription;
     [SerializeField] private TextMeshProUGUI _ultimateDesscription;
     [SerializeField] private TextMeshProUGUI _strengthText;
@@ -17,7 +17,6 @@ public class CharacterHighlightCanvas : MonoBehaviour
     [SerializeField] private GameObject _enemiesContainer;
     public void InitInfo(Character character)
     {
-        _characterName.text = character.CharacterName;
         _passiveDesscription.text = character.PassiveDescription;
         _ultimateDesscription.text = character.UltimateDescription;
 
