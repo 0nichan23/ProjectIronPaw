@@ -22,6 +22,8 @@ public class TurnManager : Singleton<TurnManager>
     private Controller _enemyController;
     [SerializeField]
     private GameOverUI _gameOverPanel;
+    private Coroutine _runningTurnLoop;
+
     private void Start()
     {
         _playerController = PlayerWrapper.Instance.PlayerController;
@@ -37,7 +39,7 @@ public class TurnManager : Singleton<TurnManager>
         }
         _enemyController.OnEndTurn += PartyManager.Instance.ResetRerollForTaunt;
         _playerController.OnEndTurn += PartyManager.Instance.ResetRerollForTaunt;
-         StartCoroutine(TurnLoop());
+        _runningTurnLoop = StartCoroutine(TurnLoop());
     }
 
 
@@ -100,6 +102,7 @@ public class TurnManager : Singleton<TurnManager>
     private void StopTurnLoop()
     {
         gameOnGoing = false;
+        StopCoroutine(_runningTurnLoop);
     }
     private void ToggleGameOverUI(bool state)
     {
