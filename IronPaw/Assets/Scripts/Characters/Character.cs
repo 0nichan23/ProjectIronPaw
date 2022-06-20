@@ -40,7 +40,8 @@ public abstract class Character : MonoBehaviour
     public Action OnDeath;
     public Action<Damage> OnTakeDamage;
 
-    public Button Button;
+    [SerializeField] private Button _button;
+
     public Sprite CharacterSprite;
 
     [SerializeField] private Controller _controller;
@@ -68,7 +69,7 @@ public abstract class Character : MonoBehaviour
 
     public bool IsAlive = true;
 
-    public Outline Outline;
+    public Outline _outline;
 
     public int AmountOfBlockToLose
     {
@@ -95,7 +96,7 @@ public abstract class Character : MonoBehaviour
 
     protected virtual void TheBetterStart()
     {
-        Outline = GetComponentInParent<Outline>();
+        _outline = GetComponentInParent<Outline>();
         RefSlot = GetComponentInChildren<CharacterPersonalUI>();
         _currentHp = MaxHP;
         OnStartTurn += StartOfTurnReset;
@@ -366,6 +367,22 @@ public abstract class Character : MonoBehaviour
                 TurnManager.Instance.WinGame();
             }
         }
+    }
+
+    public void ToggleCharacterSelectability(bool state, ColorIdentity outlineColor)
+    {
+        _button.gameObject.SetActive(state);
+        _outline.enabled = state;
+        if (state)
+        {
+            _outline.ChangeOutlineColor(outlineColor);
+        }
+    }
+
+    public void ToggleCharacterSelectability(bool state)
+    {
+        _button.gameObject.SetActive(state);
+        _outline.enabled = state;
     }
 
 }

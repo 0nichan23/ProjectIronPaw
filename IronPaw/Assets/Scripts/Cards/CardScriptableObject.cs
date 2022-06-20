@@ -103,9 +103,7 @@ public class CardScriptableObject : ScriptableObject
                 if (hero.CurrentAp >= 1 || IsSwift)
                 {
                     cachedHeroes.Add(hero);
-                    hero.Button.gameObject.SetActive(true);
-                    hero.Outline.enabled = true;
-                    hero.Outline.ChangeOutlineColor(hero.Colors[0]);
+                    hero.ToggleCharacterSelectability(true, hero.Colors[0]);
                 }
             }
         }

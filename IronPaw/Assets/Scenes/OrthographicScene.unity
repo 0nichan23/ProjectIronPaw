@@ -2794,6 +2794,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7511463129820267780, guid: 538b701821c60aa4db8b613ceb494886, type: 3}
+      propertyPath: _button
+      value: 
+      objectReference: {fileID: 1740459025}
+    - target: {fileID: 7511463129820267780, guid: 538b701821c60aa4db8b613ceb494886, type: 3}
       propertyPath: CharacterSprite
       value: 
       objectReference: {fileID: 21300000, guid: 69e418e44acc30a4191f87d2ce6e6f33, type: 3}
@@ -3663,6 +3667,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8875172326352620945, guid: 50dbe404b9a61c04e98b32ac59d08db1, type: 3}
+      propertyPath: _button
+      value: 
+      objectReference: {fileID: 1663735423}
+    - target: {fileID: 8875172326352620945, guid: 50dbe404b9a61c04e98b32ac59d08db1, type: 3}
       propertyPath: _stats.Faith
       value: 1
       objectReference: {fileID: 0}
@@ -4080,7 +4088,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _outlineWidth: 6
-  _characterOutlines: []
   _red: {r: 1, g: 0.2783019, b: 0.2783019, a: 1}
   _green: {r: 0.25380507, g: 0.8584906, b: 0.22272164, a: 1}
   _blue: {r: 0.32872015, g: 0.46760625, b: 0.8396226, a: 1}
@@ -23354,6 +23361,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
   m_PrefabInstance: {fileID: 2009974329}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2027902322 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1159011758918041560, guid: 1ce7230ea03663242a314938028cc37c, type: 3}
+  m_PrefabInstance: {fileID: 7593398144192154821}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &2034270761 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3205887679407434759, guid: db2ef5bb433ed1444817ab268fb6d8bf, type: 3}
@@ -29223,7 +29241,7 @@ MonoBehaviour:
   _passiveDescription: 
   _ultimateDescription: 
   DoneDying: 0
-  Button: {fileID: 969662230}
+  _button: {fileID: 969662230}
   CharacterSprite: {fileID: 0}
   _controller: {fileID: 0}
   _stats:
@@ -29232,7 +29250,6 @@ MonoBehaviour:
     Intelligence: 0
     Faith: 0
   IsAlive: 1
-  Outline: {fileID: 0}
   Targets: []
 --- !u!114 &7395125938354459182
 MonoBehaviour:
@@ -29402,7 +29419,7 @@ MonoBehaviour:
   _passiveDescription: 
   _ultimateDescription: 
   DoneDying: 0
-  Button: {fileID: 238428399}
+  _button: {fileID: 238428399}
   CharacterSprite: {fileID: 0}
   _controller: {fileID: 0}
   _stats:
@@ -29411,7 +29428,6 @@ MonoBehaviour:
     Intelligence: 0
     Faith: 0
   IsAlive: 1
-  Outline: {fileID: 0}
   Targets: []
 --- !u!1 &7395125938883939188
 GameObject:
@@ -29579,7 +29595,7 @@ MonoBehaviour:
   _passiveDescription: 
   _ultimateDescription: 
   DoneDying: 0
-  Button: {fileID: 1266306102}
+  _button: {fileID: 1266306102}
   CharacterSprite: {fileID: 0}
   _controller: {fileID: 0}
   _stats:
@@ -29588,7 +29604,6 @@ MonoBehaviour:
     Intelligence: 0
     Faith: 0
   IsAlive: 1
-  Outline: {fileID: 0}
   Targets: []
 --- !u!114 &7395125939126888010
 MonoBehaviour:
@@ -29844,6 +29859,10 @@ PrefabInstance:
       propertyPath: Outline
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7593398144345049080, guid: 1ce7230ea03663242a314938028cc37c, type: 3}
+      propertyPath: _button
+      value: 
+      objectReference: {fileID: 2027902322}
     - target: {fileID: 7593398144345049080, guid: 1ce7230ea03663242a314938028cc37c, type: 3}
       propertyPath: CharacterSprite
       value: 

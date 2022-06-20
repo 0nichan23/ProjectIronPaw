@@ -424,7 +424,7 @@ public class PartyManager : Singleton<PartyManager>
         {
             if (enemy.CurrentHP > 0)
             {
-                enemy.Button.gameObject.SetActive(true);
+                enemy.ToggleCharacterSelectability(true);
             }
 
         }
@@ -438,9 +438,7 @@ public class PartyManager : Singleton<PartyManager>
         {
             if (hero.IsAlive)
             {
-                hero.Button.gameObject.SetActive(true);
-                hero.Outline.enabled = true;
-                hero.Outline.ChangeOutlineColor(hero.Colors[0]);
+                hero.ToggleCharacterSelectability(true, hero.Colors[0]);
             }
 
         }
@@ -452,10 +450,7 @@ public class PartyManager : Singleton<PartyManager>
         {
             if (character.IsAlive)
             {
-                
-                character.Button.gameObject.SetActive(true);
-                character.Outline.enabled = true;
-                character.Outline.ChangeOutlineColor(color);
+                character.ToggleCharacterSelectability(true, color);
             }
         }
     }
@@ -464,14 +459,12 @@ public class PartyManager : Singleton<PartyManager>
     {
         foreach (var enemy in Enemies)
         {
-            enemy.Button.gameObject.SetActive(false);
-            enemy.Outline.enabled = false;
+            enemy.ToggleCharacterSelectability(false);
         }
 
         foreach (var hero in Heroes)
         {
-            hero.Button.gameObject.SetActive(false);
-            hero.Outline.enabled = false;
+            hero.ToggleCharacterSelectability(false);
         }
     }
 
