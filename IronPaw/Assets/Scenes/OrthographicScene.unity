@@ -21706,7 +21706,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _decksGiven.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _cardsGiven.Array.data[0]
@@ -21751,7 +21751,7 @@ PrefabInstance:
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _decksGiven.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 179f3d3edc067384aa161e02ae945fa7, type: 2}
+      objectReference: {fileID: 11400000, guid: 20856a3c99a56b5428c1bb25236d9fe4, type: 2}
     - target: {fileID: 3347411833043022809, guid: 7716eeca84e76f74097f5b3e25053e16, type: 3}
       propertyPath: _decksGiven.Array.data[1]
       value: 
@@ -29250,6 +29250,7 @@ MonoBehaviour:
     Intelligence: 0
     Faith: 0
   IsAlive: 1
+  _outline: {fileID: 0}
   Targets: []
 --- !u!114 &7395125938354459182
 MonoBehaviour:
@@ -29428,6 +29429,7 @@ MonoBehaviour:
     Intelligence: 0
     Faith: 0
   IsAlive: 1
+  _outline: {fileID: 0}
   Targets: []
 --- !u!1 &7395125938883939188
 GameObject:
@@ -29604,6 +29606,7 @@ MonoBehaviour:
     Intelligence: 0
     Faith: 0
   IsAlive: 1
+  _outline: {fileID: 0}
   Targets: []
 --- !u!114 &7395125939126888010
 MonoBehaviour:

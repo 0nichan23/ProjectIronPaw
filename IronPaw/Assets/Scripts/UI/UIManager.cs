@@ -50,5 +50,18 @@ public class UIManager : Singleton<UIManager>
         _fpsCounter.text = fps.ToString() + " FPS";
     }
 
+    public void UpdateAllCharacterUIs()
+    {
+        foreach (var hero in PartyManager.Instance.Heroes)
+        {
+            hero.UpdateUI();
+        }
+
+        foreach (var enemy in PartyManager.Instance.Enemies)
+        {
+            enemy.UpdateUI();
+        }
+    }
+
     
 }
