@@ -54,7 +54,7 @@ public class CharacterCanvasViewer : MonoBehaviour, IPointerDownHandler, IPointe
 
     private void LongPress()
     {
-        UIManager.Instance.CharacterCanvas.ToggleScreens(_character, true);
+        UIManager.Instance.CharacterCanvas.ShowCharacterCanvas(_character, true);
         UIManager.Instance.ToggleCanvases(false);
     }
 

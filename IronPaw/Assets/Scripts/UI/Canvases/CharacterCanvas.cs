@@ -4,6 +4,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+enum CharacterCanvasState
+{
+    CHARACTER_INFO,
+    CHARACTER_STATUS_EFFECTS
+}
+
 public class CharacterCanvas : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _characterName;
@@ -20,7 +27,12 @@ public class CharacterCanvas : MonoBehaviour
 
     [SerializeField] Image _panelBackground;
 
+    [SerializeField] GameObject _toggleButton;
+    [SerializeField] TextMeshProUGUI _toggleCanvasModeButtonText;
+
+    private CharacterCanvasState _currentState;
     private Dictionary<ColorIdentity, Color> _colorDictionary;
+    private Character _cachedCharacter;
 
 
     private void Start()
@@ -28,9 +40,21 @@ public class CharacterCanvas : MonoBehaviour
         InitializeColorDictionary();
     }
 
-    public void ToggleScreens(Character character, bool state)
+    public void ShowCharacterCanvas(Character character, bool state)
     {
         InitInfo(character);
+
+        //determine which canvas state on canvas activation
+        if (state)
+        {
+            _currentState = CharacterCanvasState.CHARACTER_INFO;
+        }
+        else
+        {
+            _currentState = CharacterCanvasState.CHARACTER_STATUS_EFFECTS;
+        }
+
+        SetToggleButton();
 
         _characterHighlightCanvas.gameObject.SetActive(state);
         _characterHighlightCanvas.InitInfo(character);
@@ -43,10 +67,60 @@ public class CharacterCanvas : MonoBehaviour
         }
     }
 
+    // Setting up the toggle button before showing the canvas
+    private void SetToggleButton()
+    {
+        // Show the toggle mode button only on heroes
+        if (_cachedCharacter is Enemy)
+        {
+            _toggleButton.SetActive(false);
+        }
+        else
+        {
+            _toggleButton.SetActive(true);
+        }
+
+        // Change button contents based on canvas state
+        switch (_currentState)
+        {
+            case CharacterCanvasState.CHARACTER_INFO:
+                _toggleCanvasModeButtonText.text = "STATUS EFFECTS";
+                break;
+
+            case CharacterCanvasState.CHARACTER_STATUS_EFFECTS:
+                _toggleCanvasModeButtonText.text = "CHACATER INFO";
+                break;
+        }
+    }
+
+    // toggling canvas state enum
+    private void ToggleCanvasState()
+    {
+        if(_currentState == CharacterCanvasState.CHARACTER_INFO)
+        {
+            _currentState = CharacterCanvasState.CHARACTER_STATUS_EFFECTS;
+        }
+        else
+        {
+            _currentState = CharacterCanvasState.CHARACTER_INFO;
+        }
+    }
+
+    // Swapping the canvas state
+    public void ToggleScreens()
+    {
+        ToggleCanvasState();
+        SetToggleButton();
+        
+        _characterHighlightCanvas.gameObject.SetActive(!_characterHighlightCanvas.gameObject.activeSelf);
+        _characterStatusEffectsInfoScreen.gameObject.SetActive(!_characterStatusEffectsInfoScreen.gameObject.activeSelf);
+    }
+
     private void InitInfo(Character character)
     {
         _characterName.text = character.CharacterName;
         InitColorSprites(character);
+        _cachedCharacter = character;
     }
 
     private void InitColorSprites(Character character)
