@@ -72,8 +72,6 @@ public class CardScriptableObject : ScriptableObject
 
     private void SendCardToAppropriatePile(Character playingCharacter)
     {
-        playingCharacter.Hand.RemoveCard(this);
-
         if (IsUsable)
         {
             playingCharacter.ExiledPile.AddCardToPile(this);

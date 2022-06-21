@@ -17,6 +17,7 @@ public class PartyManager : Singleton<PartyManager>
     public Character SelectedCharacter;
     public CardUI SelectedCardUI;
 
+    private CardScriptableObject _cardToGetRidOfRef;
     private void Start()
     {
         Enemies = new List<Character> ( EnemyWrapper.Instance.EnemyController.ControllerChracters );
@@ -359,8 +360,7 @@ public class PartyManager : Singleton<PartyManager>
     
     private IEnumerator PlayCardAnimationSync(Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)
     {
-        /* 1. */ CardCleanup(playingCharacter, card, cardEffectRef, cardUI);
-        /* 2. */ //CardUICleanup(playingCharacter, card, cardEffectRef, cardUI);
+        /* CardCleanup step 1: */ CardUICleanup(playingCharacter, card, cardEffectRef, cardUI);
         if (card.CardType == CardType.Attack)
         {
             playingCharacter.PlayAnimation(card.CardType);
@@ -368,35 +368,25 @@ public class PartyManager : Singleton<PartyManager>
         }
         playingCharacter.ReachedAnimationSyncFrame = false;
         cardEffectRef.PlayEffect(playingCharacter, card);
-        /* 2. */ //CardSOCleanup(playingCharacter, card);
-    }
-
-    private void CardCleanup(Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)
-    {
-        card.RemoveCard(playingCharacter);
-        if (cardUI != null)
-        {
-            cardUI.DestroyTheHeretic();
-        }
-        ReInitHand();
-        TurnOffAllButtons();
-        UIManager.Instance.ToggleSelectionCanvas(false, null);
+        /* CardCleanup step 2: */ CardSOCleanup(playingCharacter);
     }
 
     private void CardUICleanup(Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)
     {
+        _cardToGetRidOfRef = card;
+        playingCharacter.Hand.RemoveCard(card);
         if (cardUI != null)
         {
             cardUI.DestroyTheHeretic();       
         }
         TurnOffAllButtons();
+        ReInitHand();
         UIManager.Instance.ToggleSelectionCanvas(false, null);
     }
 
-    private void CardSOCleanup(Character playingCharacter, CardScriptableObject card)
+    private void CardSOCleanup(Character playingCharacter)
     {
-        card.RemoveCard(playingCharacter);
-        ReInitHand();
+        _cardToGetRidOfRef.RemoveCard(playingCharacter);
     }
 
     private void ReInitHand()
