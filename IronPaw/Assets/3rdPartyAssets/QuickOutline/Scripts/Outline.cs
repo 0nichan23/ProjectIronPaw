@@ -128,7 +128,6 @@ public class Outline : MonoBehaviour
 
             renderer.materials = materials.ToArray();
         }
-        ResetColor();
     }
 
     void OnValidate()
@@ -159,7 +158,7 @@ public class Outline : MonoBehaviour
             UpdateMaterialProperties();
         }
         
-        //OutlineGlow();
+        OutlineGlow();
     }
 
     private void OutlineGlow()
@@ -167,7 +166,7 @@ public class Outline : MonoBehaviour
 
         if (_isDimming)
         {
-            _currentAlpha -= 1;
+            _currentAlpha -= 2;
             if (_currentAlpha <= 0)
             {
                 _currentAlpha = 0;
@@ -176,7 +175,7 @@ public class Outline : MonoBehaviour
         }
         else
         {
-            _currentAlpha += 1;
+            _currentAlpha += 2;
             if (_currentAlpha >= _maximumAlpha)
             {
                 _currentAlpha = _maximumAlpha;
@@ -184,12 +183,18 @@ public class Outline : MonoBehaviour
             }
         }
 
-        Color colorToChangeTo = new Color(outlineColor.r, outlineColor.g, outlineColor.b, _currentAlpha);
+        Color colorToChangeTo = new Color(outlineColor.r, outlineColor.g, outlineColor.b, _currentAlpha/_maximumAlpha);
         outlineColor = colorToChangeTo;
         
         Debug.Log(_currentAlpha);
         needsUpdate = true;
 
+    }
+
+    public void ResetOutlineAlpha()
+    {
+        // Resets Alpha to sync fade of outlines
+        _currentAlpha = _maximumAlpha;
     }
 
     void OnDisable()
@@ -205,7 +210,6 @@ public class Outline : MonoBehaviour
 
             renderer.materials = materials.ToArray();
         }
-        ResetColor();
     }
 
     void OnDestroy()
@@ -387,7 +391,9 @@ public class Outline : MonoBehaviour
 
     public void ChangeOutlineColor(ColorIdentity color)
     {
-        StartCoroutine(LerpColor(color));
+        Color endColor = OutlineManager.Instance.ColorDictionary[color];
+        needsUpdate = true;
+        ResetOutlineAlpha();
 
     }
 

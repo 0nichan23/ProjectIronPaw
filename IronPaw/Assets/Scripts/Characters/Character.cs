@@ -377,10 +377,6 @@ public abstract class Character : MonoBehaviour
         {
             _outline.ChangeOutlineColor(outlineColor);
         }
-        else 
-        {
-            _outline.ResetColor();
-        }
     }
 
     public void ToggleCharacterSelectability(bool state)

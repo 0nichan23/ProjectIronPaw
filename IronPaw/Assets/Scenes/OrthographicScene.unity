@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44864297, g: 0.49869418, b: 0.57567257, a: 1}
+  m_IndirectSpecularColor: {r: 0.4486426, g: 0.49869394, b: 0.575672, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17816,7 +17816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMode: 0
-  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineColor: {r: 0.108668566, g: 0.6226415, b: 0.13961156, a: 1}
   outlineWidth: 2.53
   precomputeOutline: 0
   bakeKeys: []
