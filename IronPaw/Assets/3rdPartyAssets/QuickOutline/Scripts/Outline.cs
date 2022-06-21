@@ -7,6 +7,7 @@
 //
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -127,6 +128,7 @@ public class Outline : MonoBehaviour
 
             renderer.materials = materials.ToArray();
         }
+        ResetColor();
     }
 
     void OnValidate()
@@ -203,6 +205,7 @@ public class Outline : MonoBehaviour
 
             renderer.materials = materials.ToArray();
         }
+        ResetColor();
     }
 
     void OnDestroy()
@@ -384,7 +387,31 @@ public class Outline : MonoBehaviour
 
     public void ChangeOutlineColor(ColorIdentity color)
     {
-        outlineColor = OutlineManager.Instance.ColorDictionary[color];
+        StartCoroutine(LerpColor(color));
+
+    }
+
+    public IEnumerator LerpColor(ColorIdentity color)
+    {
+        Color endColor = OutlineManager.Instance.ColorDictionary[color];
+        Color currentColor = new Color(endColor.r, endColor.g, endColor.b, 0);
+        outlineColor = currentColor;
+        needsUpdate = true;
+        yield return new WaitForSeconds(0.1f);
+        for (int i = 0; i <= 10; i++)
+        { 
+            currentColor = new Color(endColor.r, endColor.g, endColor.b, (float)i/10);
+            outlineColor = currentColor;
+            needsUpdate = true;
+            Debug.Log(currentColor);
+            yield return new WaitForEndOfFrame();
+        }
+        //outlineColor = endColor;
+    }
+
+    public void ResetColor()
+    {
+        outlineColor = new Color(0, 0, 0, 0);
         needsUpdate = true;
     }
 

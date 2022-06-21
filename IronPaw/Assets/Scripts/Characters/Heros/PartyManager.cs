@@ -440,7 +440,6 @@ public class PartyManager : Singleton<PartyManager>
             {
                 hero.ToggleCharacterSelectability(true, hero.Colors[0]);
             }
-
         }
     }
     
