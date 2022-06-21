@@ -71,6 +71,11 @@ public class Outline : MonoBehaviour
     [SerializeField, Range(0f, 10f)]
     private float outlineWidth = 2f;
 
+    private float _currentAlpha;
+    private float _maximumAlpha = 255;
+
+    private bool _isDimming = true;
+
     [Header("Optional")]
 
     [SerializeField, Tooltip("Precompute enabled: Per-vertex calculations are performed in the editor and serialized with the object. "
@@ -91,7 +96,7 @@ public class Outline : MonoBehaviour
 
     void Awake()
     {
-
+        _currentAlpha = _maximumAlpha;
         // Cache renderers
         renderers = GetComponentsInChildren<Renderer>();
         InitOutlineWithOutlineManager();
@@ -149,9 +154,40 @@ public class Outline : MonoBehaviour
         if (needsUpdate)
         {
             needsUpdate = false;
-
             UpdateMaterialProperties();
         }
+        
+        //OutlineGlow();
+    }
+
+    private void OutlineGlow()
+    {
+
+        if (_isDimming)
+        {
+            _currentAlpha -= 1;
+            if (_currentAlpha <= 0)
+            {
+                _currentAlpha = 0;
+                _isDimming = false;
+            }
+        }
+        else
+        {
+            _currentAlpha += 1;
+            if (_currentAlpha >= _maximumAlpha)
+            {
+                _currentAlpha = _maximumAlpha;
+                _isDimming = true;
+            }
+        }
+
+        Color colorToChangeTo = new Color(outlineColor.r, outlineColor.g, outlineColor.b, _currentAlpha);
+        outlineColor = colorToChangeTo;
+        
+        Debug.Log(_currentAlpha);
+        needsUpdate = true;
+
     }
 
     void OnDisable()
@@ -348,7 +384,6 @@ public class Outline : MonoBehaviour
 
     public void ChangeOutlineColor(ColorIdentity color)
     {
-        //outlineColor = _colorDictionary[color];
         outlineColor = OutlineManager.Instance.ColorDictionary[color];
         needsUpdate = true;
     }
