@@ -12,7 +12,7 @@ public class UltButton : MonoBehaviour
     private void Start()
     {
         _mainCamera = UIManager.Instance.MainCamera;
-        UltLightingParticleSystem.transform.position = _mainCamera.ScreenToWorldPoint(_ultimateFillImage.transform.position);
+        //UltLightingParticleSystem.transform.position = _mainCamera.ScreenToWorldPoint(_ultimateFillImage.transform.position);
     }
     public void FillUltimateChargeUI(float fill)
     {
@@ -51,5 +51,13 @@ public class UltButton : MonoBehaviour
         }
 
         _ultimateFillImage.fillAmount = fill;
+        if (fill == 1)
+        {
+            UltLightingParticleSystem.Play();
+        }
+        else
+        {
+            UltLightingParticleSystem.Stop();
+        }
     }
 }
