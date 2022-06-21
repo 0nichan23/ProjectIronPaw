@@ -75,6 +75,8 @@ public class Outline : MonoBehaviour
     private float _currentAlpha;
     private float _maximumAlpha = 255;
 
+    private float _alphaDelta = 3;
+
     private bool _isDimming = true;
 
     [Header("Optional")]
@@ -166,7 +168,7 @@ public class Outline : MonoBehaviour
 
         if (_isDimming)
         {
-            _currentAlpha -= 2;
+            _currentAlpha -= _alphaDelta;
             if (_currentAlpha <= 0)
             {
                 _currentAlpha = 0;
@@ -175,7 +177,7 @@ public class Outline : MonoBehaviour
         }
         else
         {
-            _currentAlpha += 2;
+            _currentAlpha += _alphaDelta;
             if (_currentAlpha >= _maximumAlpha)
             {
                 _currentAlpha = _maximumAlpha;
@@ -185,8 +187,6 @@ public class Outline : MonoBehaviour
 
         Color colorToChangeTo = new Color(outlineColor.r, outlineColor.g, outlineColor.b, _currentAlpha/_maximumAlpha);
         outlineColor = colorToChangeTo;
-        
-        Debug.Log(_currentAlpha);
         needsUpdate = true;
 
     }

@@ -274,6 +274,7 @@ public abstract class Character : MonoBehaviour
             VFXManager.Instance.CameraShake.ShakeCameraForSeconds(0.7f);
         }
         UpdateUI();
+        //PopupManager.Instance.AddMessage(transform.position, amount.ToString());
         VFXManager.Instance.CreateDamagePopup(transform.position, amount);
         VFXManager.Instance.CreateHitParticle(transform.position);
     }
