@@ -17,6 +17,10 @@ public class UIManager : Singleton<UIManager>
     public void ToggleHUDCanvas(bool state)
     {
         HUDCanvas.gameObject.SetActive(state);
+        if(state)
+        {
+            HUDCanvas.UltButton.PlayLightningEffectIfFull();
+        }
     }
 
     public void ToggleCharacterHighlightCanvas(bool state)

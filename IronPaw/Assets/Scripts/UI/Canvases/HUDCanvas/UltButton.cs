@@ -51,7 +51,12 @@ public class UltButton : MonoBehaviour
         }
 
         _ultimateFillImage.fillAmount = fill;
-        if (fill == 1)
+        PlayLightningEffectIfFull();
+    }
+
+    public void PlayLightningEffectIfFull()
+    {
+        if (_ultimateFillImage.fillAmount == 1)
         {
             UltLightingParticleSystem.Play();
         }
