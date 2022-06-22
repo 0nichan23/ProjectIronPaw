@@ -1199,7 +1199,6 @@ MonoBehaviour:
   outlineMode: 0
   outlineColor: {r: 0.9304634, g: 0.9433962, b: 0.6452474, a: 1}
   outlineWidth: 4
-  _alphaDelta: 0
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -6534,7 +6533,6 @@ MonoBehaviour:
   outlineMode: 0
   outlineColor: {r: 0.62352943, g: 0.078431375, b: 0.078431375, a: 1}
   outlineWidth: 5
-  _alphaDelta: 0
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -9546,7 +9544,6 @@ MonoBehaviour:
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 4
-  _alphaDelta: 0
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -12627,7 +12624,6 @@ MonoBehaviour:
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 4
-  _alphaDelta: 0
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -15541,7 +15537,6 @@ MonoBehaviour:
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 4
-  _alphaDelta: 0
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -17823,7 +17818,6 @@ MonoBehaviour:
   outlineMode: 0
   outlineColor: {r: 0.108668566, g: 0.6226415, b: 0.13961156, a: 1}
   outlineWidth: 2.53
-  _alphaDelta: 0
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -19468,7 +19462,6 @@ MonoBehaviour:
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 4
-  _alphaDelta: 0
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -20200,7 +20193,6 @@ MonoBehaviour:
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 4
-  _alphaDelta: 0
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -21541,7 +21533,6 @@ MonoBehaviour:
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 4
-  _alphaDelta: 0
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -22152,7 +22143,6 @@ MonoBehaviour:
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 4
-  _alphaDelta: 0
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -24866,7 +24856,6 @@ MonoBehaviour:
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 4
-  _alphaDelta: 0
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -25445,7 +25434,6 @@ MonoBehaviour:
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 4
-  _alphaDelta: 0
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
