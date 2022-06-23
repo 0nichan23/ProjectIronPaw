@@ -67,5 +67,22 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
+    public void ChangeTMPROTextColor(TextMeshProUGUI text, Color colorToChangeTo)
+    {
+        text.color = colorToChangeTo;
+    }
+
+    public void DetermineTextColorBasedOnRule(TextMeshProUGUI text, bool rule, Color colorIfTrue, Color colorIfFalse)
+    {
+        if (rule)
+        {
+            text.color = colorIfTrue;
+        }
+        else
+        {
+            text.color = colorIfFalse;
+        }
+    }
+
     
 }
