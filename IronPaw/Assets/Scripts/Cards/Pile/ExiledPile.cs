@@ -8,7 +8,7 @@ public class ExiledPile : CardPile
     public override void AddCardToPile(CardScriptableObject card)
     {
         base.AddCardToPile(card);
-        AudioManager.Instance.Play(AudioManager.Instance.SfxClips[5]);
+        //AudioManager.Instance.Play(AudioManager.Instance.SfxClips[5]);
     }
 
     
