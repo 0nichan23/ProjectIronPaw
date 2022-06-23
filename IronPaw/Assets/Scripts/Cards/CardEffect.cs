@@ -33,8 +33,6 @@ public abstract class CardEffect : ScriptableObject
         playingCharacter.Controller.OnPlayCard?.Invoke(card);
         UIManager.Instance.UpdateAllCharacterUIs();
         Targets.Clear();
-
-
     }
 
     protected abstract void PlayCardEffect(Character playingCharacter, Character target);

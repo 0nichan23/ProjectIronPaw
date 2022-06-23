@@ -375,6 +375,7 @@ public class PartyManager : Singleton<PartyManager>
     {
         _cardToGetRidOfRef = card;
         playingCharacter.Hand.RemoveCard(card);
+        _cardToGetRidOfRef.SpendResources(playingCharacter);
         if (cardUI != null)
         {
             cardUI.DestroyTheHeretic();       
@@ -386,7 +387,7 @@ public class PartyManager : Singleton<PartyManager>
 
     private void CardSOCleanup(Character playingCharacter)
     {
-        _cardToGetRidOfRef.RemoveCard(playingCharacter);
+        _cardToGetRidOfRef.SendCardToAppropriatePile(playingCharacter);
     }
 
     private void ReInitHand()
