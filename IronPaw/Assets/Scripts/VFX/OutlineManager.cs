@@ -6,8 +6,6 @@ public class OutlineManager : Singleton<OutlineManager>
 {
     [SerializeField, Range(0f, 10f)] private float _outlineWidth = 2f;
 
-    [SerializeField] private List<Outline> _characterOutlines;
-
     [SerializeField] private Color _red;
     [SerializeField] private Color _green;
     [SerializeField] private Color _blue;
@@ -22,7 +20,6 @@ public class OutlineManager : Singleton<OutlineManager>
     private void Start()
     {
         InitializeColorDictionary();
-        //InitializeCharacterOutlines();
     }
 
     private void InitializeColorDictionary()
@@ -33,28 +30,5 @@ public class OutlineManager : Singleton<OutlineManager>
         _colorDictionary.Add(ColorIdentity.Blue, _blue);
         _colorDictionary.Add(ColorIdentity.White, _white);
         _colorDictionary.Add(ColorIdentity.Colorless, _colorless);
-    }
-
-    private void InitializeCharacterOutlines()
-    {
-        _characterOutlines = new List<Outline>();
-
-        // Adding all Heroes Outlines
-        foreach (var hero in PartyManager.Instance.Heroes)
-        {
-            _characterOutlines.Add(hero.Outline);
-        }
-
-        // Adding all Enemies Outlines
-        foreach (var enemy in PartyManager.Instance.Enemies)
-        {
-            _characterOutlines.Add(enemy.Outline);
-        }
-
-        // Setting Outlines Width
-        foreach (var outline in _characterOutlines)
-        {
-            outline.OutlineWidth = OutlineWidth;
-        }
     }
 }

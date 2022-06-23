@@ -9,7 +9,7 @@ public class ThirstBlockEffect : CardEffect
     protected override void PlayCardEffect(Character playingCharacter, Character target)
     {
         target.TakeDmg(new Damage(DamageValue, playingCharacter, true));
-        target.GainBlock(1);
+        playingCharacter.GainBlock(1);
     }
 }
 

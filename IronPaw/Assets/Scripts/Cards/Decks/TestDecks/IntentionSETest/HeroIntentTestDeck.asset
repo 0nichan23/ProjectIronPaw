@@ -10,16 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1279b9581cc580e4fb723452c0f17934, type: 3}
-  m_Name: VikinguinBasicDeck
+  m_Name: HeroIntentTestDeck
   m_EditorClassIdentifier: 
   Cards:
-  - {fileID: 11400000, guid: 8823a42d6de9ec144b2899207867826c, type: 2}
-  - {fileID: 11400000, guid: 8823a42d6de9ec144b2899207867826c, type: 2}
-  - {fileID: 11400000, guid: 78accdfa171f72e40b588588665e1067, type: 2}
-  - {fileID: 11400000, guid: 78accdfa171f72e40b588588665e1067, type: 2}
   - {fileID: 11400000, guid: 450d9a2f6c303974c8384f0cce321791, type: 2}
   - {fileID: 11400000, guid: 450d9a2f6c303974c8384f0cce321791, type: 2}
   - {fileID: 11400000, guid: be968eeadd199ff42ac3af452457bdc9, type: 2}
-  - {fileID: 11400000, guid: be968eeadd199ff42ac3af452457bdc9, type: 2}
-  - {fileID: 11400000, guid: 5a58791b5b62b7143a775932f3b38093, type: 2}
-  - {fileID: 11400000, guid: 14d9f01ae7fb4cc4fac8cace7df06348, type: 2}
+  - {fileID: 11400000, guid: 67d75f58921100143ba75873cbc6fed3, type: 2}
+  - {fileID: 11400000, guid: fa22d89c09fa71346b9db7c6098c67a6, type: 2}

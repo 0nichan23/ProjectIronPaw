@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Defend
   m_EditorClassIdentifier: 
   CardName: Defend
-  Description: gain 5 block
+  Description: Gain 5 block
   Colors: 04000000
   Rarity: 0
   EnergyCost: 1
@@ -23,3 +23,5 @@ MonoBehaviour:
   Artwork: {fileID: 21300000, guid: 09818b441169e774287de35b39277c81, type: 3}
   CardType: 1
   CardDisplay: {fileID: 0}
+  Keywords: 
+  BuffType: 0

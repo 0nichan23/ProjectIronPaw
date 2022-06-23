@@ -12,7 +12,7 @@ public class CharacterStatusEffectsViewer : CustomButton
     }
     protected override void LongPress()
     {
-        UIManager.Instance.CharacterCanvas.ToggleScreens(_character, false);
+        UIManager.Instance.CharacterCanvas.ShowCharacterCanvas(_character, false);
         UIManager.Instance.ToggleCanvases(false);
     }
 }

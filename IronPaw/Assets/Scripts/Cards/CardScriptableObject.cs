@@ -45,18 +45,8 @@ public class CardScriptableObject : ScriptableObject
     }
 
    
-    public void RemoveCard(Character playingCharacter)
+    public void SpendResources(Character playingCharacter)
     {
-        /*  
-         *  Removing the CardSO from the relevant places after it is played happens inside PartyManager.Instance.PickTargets(playingCharacter, this),
-         *  because in case target selection is required, the card needs to be removed after the target was selected and not while waiting 
-         *  for the player to select
-         */
-
-        // Discard this CardSO to discardpile
-
-        SendCardToAppropriatePile(playingCharacter);
-
         if (playingCharacter is Hero)
         {
             PlayerWrapper.Instance.PlayerController.CurrentEnergy -= EnergyCost;
@@ -70,16 +60,13 @@ public class CardScriptableObject : ScriptableObject
         }
     }
 
-    private void SendCardToAppropriatePile(Character playingCharacter)
-    {
-        playingCharacter.Hand.RemoveCard(this);
-
+    public void SendCardToAppropriatePile(Character playingCharacter)
+    {       
         if (IsUsable)
         {
-            playingCharacter.ExiledPile.AddCardToPile(this);
-            AudioManager.Instance.Play(AudioManager.Instance.SfxClips[5]);
+            playingCharacter.ExiledPile.AddCardToPile(this);            
         }
-        else
+        else // Discard this CardSO to discardpile
         {
             playingCharacter.DiscardPile.AddCardToPile(this);
         }
@@ -103,9 +90,7 @@ public class CardScriptableObject : ScriptableObject
                 if (hero.CurrentAp >= 1 || IsSwift)
                 {
                     cachedHeroes.Add(hero);
-                    hero.Button.gameObject.SetActive(true);
-                    hero.Outline.enabled = true;
-                    hero.Outline.ChangeOutlineColor(hero.Colors[0]);
+                    hero.ToggleCharacterSelectability(true, hero.Colors[0]);
                 }
             }
         }

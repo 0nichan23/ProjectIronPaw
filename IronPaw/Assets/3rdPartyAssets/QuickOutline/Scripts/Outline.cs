@@ -7,6 +7,7 @@
 //
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -71,6 +72,13 @@ public class Outline : MonoBehaviour
     [SerializeField, Range(0f, 10f)]
     private float outlineWidth = 2f;
 
+    private float _currentAlpha;
+    private float _maximumAlpha = 255;
+
+    private float _alphaDelta = 3;
+
+    private bool _isDimming = true;
+
     [Header("Optional")]
 
     [SerializeField, Tooltip("Precompute enabled: Per-vertex calculations are performed in the editor and serialized with the object. "
@@ -91,7 +99,7 @@ public class Outline : MonoBehaviour
 
     void Awake()
     {
-
+        _currentAlpha = _maximumAlpha;
         // Cache renderers
         renderers = GetComponentsInChildren<Renderer>();
         InitOutlineWithOutlineManager();
@@ -149,9 +157,44 @@ public class Outline : MonoBehaviour
         if (needsUpdate)
         {
             needsUpdate = false;
-
             UpdateMaterialProperties();
         }
+        
+        OutlineGlow();
+    }
+
+    private void OutlineGlow()
+    {
+
+        if (_isDimming)
+        {
+            _currentAlpha -= _alphaDelta;
+            if (_currentAlpha <= 0)
+            {
+                _currentAlpha = 0;
+                _isDimming = false;
+            }
+        }
+        else
+        {
+            _currentAlpha += _alphaDelta;
+            if (_currentAlpha >= _maximumAlpha)
+            {
+                _currentAlpha = _maximumAlpha;
+                _isDimming = true;
+            }
+        }
+
+        Color colorToChangeTo = new Color(outlineColor.r, outlineColor.g, outlineColor.b, _currentAlpha/_maximumAlpha);
+        outlineColor = colorToChangeTo;
+        needsUpdate = true;
+
+    }
+
+    public void ResetOutlineAlpha()
+    {
+        // Resets Alpha to sync fade of outlines
+        _currentAlpha = _maximumAlpha;
     }
 
     void OnDisable()
@@ -348,8 +391,33 @@ public class Outline : MonoBehaviour
 
     public void ChangeOutlineColor(ColorIdentity color)
     {
-        //outlineColor = _colorDictionary[color];
-        outlineColor = OutlineManager.Instance.ColorDictionary[color];
+        Color endColor = OutlineManager.Instance.ColorDictionary[color];
+        needsUpdate = true;
+        ResetOutlineAlpha();
+
+    }
+
+    public IEnumerator LerpColor(ColorIdentity color)
+    {
+        Color endColor = OutlineManager.Instance.ColorDictionary[color];
+        Color currentColor = new Color(endColor.r, endColor.g, endColor.b, 0);
+        outlineColor = currentColor;
+        needsUpdate = true;
+        yield return new WaitForSeconds(0.1f);
+        for (int i = 0; i <= 10; i++)
+        { 
+            currentColor = new Color(endColor.r, endColor.g, endColor.b, (float)i/10);
+            outlineColor = currentColor;
+            needsUpdate = true;
+            Debug.Log(currentColor);
+            yield return new WaitForEndOfFrame();
+        }
+        //outlineColor = endColor;
+    }
+
+    public void ResetColor()
+    {
+        outlineColor = new Color(0, 0, 0, 0);
         needsUpdate = true;
     }
 

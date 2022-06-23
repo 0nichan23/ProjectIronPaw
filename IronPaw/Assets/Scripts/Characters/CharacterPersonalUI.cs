@@ -128,6 +128,7 @@ public class CharacterPersonalUI : MonoBehaviour
     public void UpdateActionPoint(int maxap, int curap)
     {
         ActionPointsText.text = curap.ToString();
+        UIManager.Instance.DetermineTextColorBasedOnRule(ActionPointsText, curap > 0, Color.white, Color.red);
     }
 
 

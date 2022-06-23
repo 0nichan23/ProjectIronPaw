@@ -17,6 +17,10 @@ public class UIManager : Singleton<UIManager>
     public void ToggleHUDCanvas(bool state)
     {
         HUDCanvas.gameObject.SetActive(state);
+        if(state)
+        {
+            HUDCanvas.UltButton.PlayLightningEffectIfFull();
+        }
     }
 
     public void ToggleCharacterHighlightCanvas(bool state)
@@ -48,6 +52,36 @@ public class UIManager : Singleton<UIManager>
     public void UpdateFPSCounter(int fps)
     {
         _fpsCounter.text = fps.ToString() + " FPS";
+    }
+
+    public void UpdateAllCharacterUIs()
+    {
+        foreach (var hero in PartyManager.Instance.Heroes)
+        {
+            hero.UpdateUI();
+        }
+
+        foreach (var enemy in PartyManager.Instance.Enemies)
+        {
+            enemy.UpdateUI();
+        }
+    }
+
+    public void ChangeTMPROTextColor(TextMeshProUGUI text, Color colorToChangeTo)
+    {
+        text.color = colorToChangeTo;
+    }
+
+    public void DetermineTextColorBasedOnRule(TextMeshProUGUI text, bool rule, Color colorIfTrue, Color colorIfFalse)
+    {
+        if (rule)
+        {
+            text.color = colorIfTrue;
+        }
+        else
+        {
+            text.color = colorIfFalse;
+        }
     }
 
     

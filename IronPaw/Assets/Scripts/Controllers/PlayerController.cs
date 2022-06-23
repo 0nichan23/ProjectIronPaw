@@ -124,9 +124,15 @@ public class PlayerController : Controller
 
     public void UpdatePlayerUI()
     {
-        EnergyText.text = CurrentEnergy.ToString() + "/" + MaxEnergy.ToString();
+        UpdateEnergyUI();
         _numberOfCardsInDiscardPile.text = DiscardPile.Cards.Count.ToString();
         _numberOfCardsInDrawPile.text = Deck.Cards.Count.ToString();
+    }
+
+    private void UpdateEnergyUI()
+    {
+        EnergyText.text = CurrentEnergy.ToString() + "/" + MaxEnergy.ToString();
+        UIManager.Instance.DetermineTextColorBasedOnRule(EnergyText, CurrentEnergy > 0, Color.white, Color.red);
     }
 
 

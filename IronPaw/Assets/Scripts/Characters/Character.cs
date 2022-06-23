@@ -40,7 +40,8 @@ public abstract class Character : MonoBehaviour
     public Action OnDeath;
     public Action<Damage> OnTakeDamage;
 
-    public Button Button;
+    [SerializeField] private Button _button;
+
     public Sprite CharacterSprite;
 
     [SerializeField] private Controller _controller;
@@ -68,7 +69,7 @@ public abstract class Character : MonoBehaviour
 
     public bool IsAlive = true;
 
-    public Outline Outline;
+    public Outline _outline;
 
     public int AmountOfBlockToLose
     {
@@ -95,7 +96,7 @@ public abstract class Character : MonoBehaviour
 
     protected virtual void TheBetterStart()
     {
-        Outline = GetComponentInParent<Outline>();
+        _outline = GetComponentInParent<Outline>();
         RefSlot = GetComponentInChildren<CharacterPersonalUI>();
         _currentHp = MaxHP;
         OnStartTurn += StartOfTurnReset;
@@ -247,32 +248,39 @@ public abstract class Character : MonoBehaviour
             amount = (int)(amount * 1.5f);
         }
 
-        if (CurrentBlock >= amount)
+        if(amount > 0)
         {
-            CurrentBlock -= amount;
-        }
-        else
-        {
-            int remainder = amount - CurrentBlock;
-            CurrentBlock = 0;
-            int hpToLose = remainder;
-
-            _currentHp -= hpToLose;
-            _animator.SetTrigger("Hit");
-            OnTakeDamage?.Invoke(damage);
-
-            if (_currentHp <= 0)
+            if (CurrentBlock >= amount)
             {
-                _currentHp = 0;
-                Die();
+                CurrentBlock -= amount;
             }
+            else
+            {
+                int remainder = amount - CurrentBlock;
+                CurrentBlock = 0;
+                int hpToLose = remainder;
+
+                _currentHp -= hpToLose;
+                _animator.SetTrigger("Hit");               
+
+                if (_currentHp <= 0)
+                {
+                    _currentHp = 0;
+                    Die();
+                }
+            }
+
+            OnTakeDamage?.Invoke(damage);
         }
+
+        
         if (damage.IsSourceAttack)
         {
             AudioManager.Instance.Play(AudioManager.Instance.SfxClips[7]);
             VFXManager.Instance.CameraShake.ShakeCameraForSeconds(0.7f);
         }
         UpdateUI();
+        //PopupManager.Instance.AddMessage(transform.position, amount.ToString());
         VFXManager.Instance.CreateDamagePopup(transform.position, amount);
         VFXManager.Instance.CreateHitParticle(transform.position);
     }
@@ -366,6 +374,22 @@ public abstract class Character : MonoBehaviour
                 TurnManager.Instance.WinGame();
             }
         }
+    }
+
+    public void ToggleCharacterSelectability(bool state, ColorIdentity outlineColor)
+    {
+        _button.gameObject.SetActive(state);
+        _outline.enabled = state;
+        if (state)
+        {
+            _outline.ChangeOutlineColor(outlineColor);
+        }
+    }
+
+    public void ToggleCharacterSelectability(bool state)
+    {
+        _button.gameObject.SetActive(state);
+        _outline.enabled = state;
     }
 
 }

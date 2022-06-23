@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class IntentionDisplayer : MonoBehaviour
 {
@@ -50,10 +51,23 @@ public class IntentionDisplayer : MonoBehaviour
             case CardType.Attack:
                 DamageText.gameObject.SetActive(true);
                 float dmg = playedCard.CardEffect.DamageValue;
-                if (playingEnemy.IsAfflictedBy(StatusEffectType.Weak))
+
+                if(AreAllTargetsAfflictedByStatusEffect(StatusEffectType.Immune, targets))
                 {
-                    dmg *= 0.67f;
+                    dmg = 0;
                 }
+                else
+                {
+                    if (playingEnemy.IsAfflictedBy(StatusEffectType.Weak))
+                    {
+                        dmg *= 0.67f;
+                    }
+                    if (AreAllTargetsAfflictedByStatusEffect(StatusEffectType.Frail, targets))
+                    {
+                        dmg *= 1.5f;
+                    }
+                }     
+                
                 DamageText.text = ((int)dmg).ToString();
                 break;
             case CardType.Guard:
@@ -67,8 +81,19 @@ public class IntentionDisplayer : MonoBehaviour
         }
         _intentionTypeImage.sprite = PrefabManager.Instance.GetIntentionTypeSprite(playedCard);
     }
-    //private bool CheckIfTargetsAreAlive(List<Character> targets)
-    //{ 
-    //}
+
+    private bool AreAllTargetsAfflictedByStatusEffect(StatusEffectType statusEffectType, List<Character> targets)
+    {
+        foreach (var character in targets)
+        {
+            if(!character.IsAfflictedBy(statusEffectType))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
 
 }

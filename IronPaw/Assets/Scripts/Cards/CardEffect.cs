@@ -29,13 +29,10 @@ public abstract class CardEffect : ScriptableObject
         foreach (var target in Targets)
         {
             PlayCardEffect(playingCharacter, target);
-            target.UpdateUI();
         }
         playingCharacter.Controller.OnPlayCard?.Invoke(card);
-        playingCharacter.UpdateUI();
+        UIManager.Instance.UpdateAllCharacterUIs();
         Targets.Clear();
-
-
     }
 
     protected abstract void PlayCardEffect(Character playingCharacter, Character target);
