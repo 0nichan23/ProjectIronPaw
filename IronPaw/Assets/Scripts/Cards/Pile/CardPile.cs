@@ -88,6 +88,7 @@ public abstract class CardPile : MonoBehaviour
     public virtual void AddCardToPile(CardScriptableObject card)
     {
         _cards.Push(card);
+        AudioManager.Instance.Play(AudioManager.Instance.SfxClips[5]);
         OnCardAdded?.Invoke();
     }
 
