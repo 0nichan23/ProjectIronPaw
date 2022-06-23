@@ -14,6 +14,7 @@ public class Duckislav : Hero
     {
         if(Controller.TurnTracker.NumberOfCardsPlayed == _numberOfCardsToProccPassive)
         {
+            AudioManager.Instance.Play(AudioManager.Instance.SfxClips[9]);
             List<Character> enemies = new List<Character>();
             foreach (var enemy in EnemyWrapper.Instance.EnemyController.ControllerChracters)
             {

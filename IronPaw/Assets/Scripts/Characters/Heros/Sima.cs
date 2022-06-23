@@ -36,7 +36,7 @@ public class Sima : Hero
         {
             return;
         }
-
+        AudioManager.Instance.Play(AudioManager.Instance.SfxClips[9]);
         Character randomHero = damagedHeroes[new System.Random().Next(0, damagedHeroes.Count)];
         randomHero.Heal(_passiveHealAmount, this);
     }

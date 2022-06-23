@@ -29,6 +29,7 @@ public class Vikinguin : Hero
     {
         if (_numberOfTurnsRemainingToPassiveProcc == 0)
         {
+            AudioManager.Instance.Play(AudioManager.Instance.SfxClips[9]);
             GainBlock(_amountOfBlockToGainFromPassive);
             AddStatusEffect(new Taunt(this, 1));
             _numberOfTurnsRemainingToPassiveProcc = _numberOfTurnsToProccPassive;
