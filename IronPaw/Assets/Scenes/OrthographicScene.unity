@@ -18565,7 +18565,7 @@ PrefabInstance:
     - target: {fileID: 4054370515128626527, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
       propertyPath: SfxClips.Array.data[6]
       value: 
-      objectReference: {fileID: 8300000, guid: ee8813552c9beb34ba4294652a3405b6, type: 3}
+      objectReference: {fileID: 8300000, guid: b0b587d7796a0114b906f0129e7dee60, type: 3}
     - target: {fileID: 4054370515128626527, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
       propertyPath: SfxClips.Array.data[7]
       value: 
@@ -18845,7 +18845,7 @@ PrefabInstance:
       objectReference: {fileID: 589836112}
     - target: {fileID: 2796265857363522211, guid: e8a8d9f042ca4bc4099634048b90d501, type: 3}
       propertyPath: UltimateCharge
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2796265857363522211, guid: e8a8d9f042ca4bc4099634048b90d501, type: 3}
       propertyPath: CardCloseUpField
