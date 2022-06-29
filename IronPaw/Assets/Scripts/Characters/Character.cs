@@ -46,6 +46,7 @@ public abstract class Character : MonoBehaviour
 
     [SerializeField] private Controller _controller;
     [SerializeField] private CharacterStats _stats = new CharacterStats();
+    [SerializeField] protected PopupManager _popupManager;
 
     public int MaxHP { get => _maxHp; }
     public int CurrentHP { get => _currentHp; }
@@ -224,7 +225,7 @@ public abstract class Character : MonoBehaviour
             _currentHp = MaxHP;
         }
         UpdateUI();
-        VFXManager.Instance.CreateHealingPopup(transform.position, amountWithFaith);
+        _popupManager.AddMessage(amount.ToString(), FontMaterialManager.Instance.HealingFontMaterial);
         VFXManager.Instance.CreateHealingParticle(transform.position);
         AudioManager.Instance.Play(AudioManager.Instance.SfxClips[2]);
 
@@ -280,8 +281,8 @@ public abstract class Character : MonoBehaviour
             VFXManager.Instance.CameraShake.ShakeCameraForSeconds(0.7f);
         }
         UpdateUI();
-        //PopupManager.Instance.AddMessage(transform.position, amount.ToString());
-        VFXManager.Instance.CreateDamagePopup(transform.position, amount);
+        _popupManager.AddMessage(amount.ToString(), FontMaterialManager.Instance.DamageFontMaterial);
+       // VFXManager.Instance.CreateDamagePopup(transform.position, amount);
         VFXManager.Instance.CreateHitParticle(transform.position);
     }
 
