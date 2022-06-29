@@ -14,6 +14,7 @@ public class VFXManager : Singleton<VFXManager>
     [SerializeField] private GameObject HealingPopup;
     [SerializeField] private GameObject DamagePopup;
 
+    
 
     void Start()
     {
@@ -56,5 +57,7 @@ public class VFXManager : Singleton<VFXManager>
         GameObject Particle = Instantiate(HealingParticle, pos, Quaternion.Euler(new Vector3(-90, 0, 0)));
         Destroy(Particle, 2f);
     }
+
+
 
 }

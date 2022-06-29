@@ -6,4 +6,6 @@ using UnityEngine.UI;
 public class HUDCanvas : MonoBehaviour
 {
     [SerializeField] public UltButton UltButton;
+    [SerializeField] public EndTurnButton EndTurnButton;
+
 }

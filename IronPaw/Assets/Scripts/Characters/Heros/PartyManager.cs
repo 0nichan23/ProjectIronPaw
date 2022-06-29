@@ -374,7 +374,7 @@ public class PartyManager : Singleton<PartyManager>
         {
             if (IsPlayerOutOfActions(playingCharacter))
             {
-                Debug.Log("Player is out of options");
+                UIManager.Instance.HUDCanvas.EndTurnButton.OnOutOfActions();
             }
 
         }
