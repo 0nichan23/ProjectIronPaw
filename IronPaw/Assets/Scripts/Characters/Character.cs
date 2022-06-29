@@ -277,7 +277,7 @@ public abstract class Character : MonoBehaviour
         
         if (damage.IsSourceAttack)
         {
-            AudioManager.Instance.Play(AudioManager.Instance.SfxClips[7]);
+            //AudioManager.Instance.Play(AudioManager.Instance.SfxClips[7]);
             VFXManager.Instance.CameraShake.ShakeCameraForSeconds(0.7f);
         }
         UpdateUI();
@@ -352,7 +352,9 @@ public abstract class Character : MonoBehaviour
     {
         if (_animator != null)
         {
+            
             _animator.SetTrigger("Attack");
+            
         }
     }
     public IEnumerator WaitUntillDeathAnimationEnd()

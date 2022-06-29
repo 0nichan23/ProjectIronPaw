@@ -18444,26 +18444,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1579456994}
     m_Modifications:
-    - target: {fileID: 1956391306, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: 8025715465113356337, guid: 70841d8d27600ca4aa6feb780381e09d, type: 2}
-    - target: {fileID: 1956391308, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1956391308, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
-      propertyPath: m_Volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1956391308, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: 9085683109642458132, guid: 70841d8d27600ca4aa6feb780381e09d, type: 2}
-    - target: {fileID: 1956391309, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: -9213013926087087990, guid: 70841d8d27600ca4aa6feb780381e09d, type: 2}
     - target: {fileID: 3688633064367536785, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -18512,38 +18492,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4054370515128626527, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
-      propertyPath: BgMusic
-      value: 
-      objectReference: {fileID: 8300000, guid: a5b29d615e0ae3243b63e2638eb677e3, type: 3}
-    - target: {fileID: 4054370515128626527, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
-      propertyPath: WinSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 4e52100bbb445a146839ffa7ef39e82d, type: 3}
-    - target: {fileID: 4054370515128626527, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
-      propertyPath: LoseSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 53f68e4d70ebe664c8d0e4144306aedd, type: 3}
-    - target: {fileID: 4054370515128626527, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
-      propertyPath: SfxClips.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054370515128626527, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
-      propertyPath: SfxClips.Array.data[6]
-      value: 
-      objectReference: {fileID: 8300000, guid: b0b587d7796a0114b906f0129e7dee60, type: 3}
-    - target: {fileID: 4054370515128626527, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
-      propertyPath: SfxClips.Array.data[7]
-      value: 
-      objectReference: {fileID: 8300000, guid: ee8813552c9beb34ba4294652a3405b6, type: 3}
-    - target: {fileID: 4054370515128626527, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
-      propertyPath: SfxClips.Array.data[8]
-      value: 
-      objectReference: {fileID: 8300000, guid: 7400391d8fde74b468678f26a145b6b9, type: 3}
-    - target: {fileID: 4054370515128626527, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
-      propertyPath: SfxClips.Array.data[9]
-      value: 
-      objectReference: {fileID: 8300000, guid: 8c57dce1d097302459047b695ac716ee, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15c7929029cff5645adb456d0c3ebe6a, type: 3}
 --- !u!114 &1655063110 stripped
@@ -18811,7 +18759,7 @@ PrefabInstance:
       objectReference: {fileID: 589836112}
     - target: {fileID: 2796265857363522211, guid: e8a8d9f042ca4bc4099634048b90d501, type: 3}
       propertyPath: UltimateCharge
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2796265857363522211, guid: e8a8d9f042ca4bc4099634048b90d501, type: 3}
       propertyPath: CardCloseUpField

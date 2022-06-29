@@ -76,6 +76,7 @@ public class TurnManager : Singleton<TurnManager>
 
     public void EndTurn()
     {
+        
         _endTurn = true;
     }
 

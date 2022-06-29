@@ -364,8 +364,10 @@ public class PartyManager : Singleton<PartyManager>
         if (card.CardType == CardType.Attack)
         {
             playingCharacter.PlayAnimation(card.CardType);
+            
             yield return new WaitUntil(() => playingCharacter.ReachedAnimationSyncFrame);
         }
+        AudioManager.Instance.Play(AudioManager.Instance.SfxClips[7]);
         playingCharacter.ReachedAnimationSyncFrame = false;
         cardEffectRef.PlayEffect(playingCharacter, card);
         /* CardCleanup step 2: */ CardSOCleanup(playingCharacter);

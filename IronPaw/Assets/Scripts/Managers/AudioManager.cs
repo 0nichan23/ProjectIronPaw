@@ -11,7 +11,8 @@ public class AudioManager : Singleton<AudioManager>
 		public AudioSource PlayerSource;
 
 		public List<AudioClip> SfxClips = new List<AudioClip>();
-	
+		
+		public List<AudioClip> UltClips = new List<AudioClip>();
 	// Random pitch adjustment range.
 	public float LowPitchRange = .95f;
 		public float HighPitchRange = 1.05f;

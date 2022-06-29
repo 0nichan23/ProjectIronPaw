@@ -43,6 +43,7 @@ public class Duckislav : Hero
     public override void Ultimate()
     {
         _animator.SetTrigger("Ult");
+        AudioManager.Instance.Play(AudioManager.Instance.UltClips[0]);
         MaxAp++;
         CurrentAp++;
         OnStartTurn += DuckislavBuff;
