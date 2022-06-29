@@ -11,9 +11,10 @@ public class TextPopup : MonoBehaviour
         textMesh = GetComponent<TextMeshPro>();
     }
 
-    public void Setup(string input)
+    public void Setup(string input, Material givenFont)
     {
         textMesh.SetText(input);
+        textMesh.fontMaterial = givenFont;
     }
 
     public void TurnOff()

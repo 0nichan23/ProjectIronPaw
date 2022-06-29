@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class ObjectPooler : MonoBehaviour
+public class ObjectPooler<T> : MonoBehaviour  where T  : MonoBehaviour
 {
-    [SerializeField] private GameObject BulletPrefab;
+    [SerializeField] private GameObject _prefabToSpawn;
     [SerializeField] private int amountToPool = 20;
 
-    internal List<GameObject> pooledObjects = new List<GameObject>();
+    internal List<T> pooledObjects = new List<T>();
 
     private void Start()
     {
@@ -18,14 +18,21 @@ public class ObjectPooler : MonoBehaviour
     {
         for (int i = 0; i < amountToPool; i++)
         {
-            GameObject obj = Instantiate(BulletPrefab, transform);
+            GameObject obj = Instantiate(_prefabToSpawn, transform);
             obj.SetActive(false);
-            pooledObjects.Add(obj);
+            pooledObjects.Add(obj.GetComponent<T>());
         }
     }
     
-    public GameObject GetPooledObjects()
+    public T GetPooledObjects()
     {
-        return pooledObjects.Where(x => !x.activeInHierarchy).First<GameObject>();
+        foreach (var item in pooledObjects)
+        {
+            if (!item.gameObject.activeSelf)
+            {
+                return item;
+            }
+        }
+        return null;
     }
 }

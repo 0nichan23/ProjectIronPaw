@@ -369,6 +369,46 @@ public class PartyManager : Singleton<PartyManager>
         playingCharacter.ReachedAnimationSyncFrame = false;
         cardEffectRef.PlayEffect(playingCharacter, card);
         /* CardCleanup step 2: */ CardSOCleanup(playingCharacter);
+        
+        if(playingCharacter.Controller is PlayerController)
+        {
+            if (IsPlayerOutOfActions(playingCharacter))
+            {
+                UIManager.Instance.HUDCanvas.EndTurnButton.OnOutOfActions();
+            }
+
+        }
+    }
+
+    private bool IsPlayerOutOfActions(Character playingCharacter)
+    {
+        PlayerController playerController = (PlayerController)playingCharacter.Controller;
+
+        if(playingCharacter.Hand.Cards.Count == 0)
+        {
+            return true;
+        }
+        else
+        {
+            foreach (var card in playingCharacter.Hand.Cards)
+            {
+                if (card.EnergyCost <= playerController.CurrentEnergy)
+                {
+                    foreach (var hero in Heroes)
+                    {
+                        if (hero.CurrentAp > 0 || card.IsSwift)
+                        {
+                            if(card.CheckCardAndHeroColors(hero))
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return true;
+        }
     }
 
     private void CardUICleanup(Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)

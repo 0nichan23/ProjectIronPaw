@@ -27,7 +27,9 @@ public class PrefabManager : Singleton<PrefabManager>
     [SerializeField] private List<Sprite> _rarityFrames = new List<Sprite>();
     [SerializeField] private List<Sprite> _typeFrames = new List<Sprite>();
 
+    
 
+   
 
     [SerializeField] public KeywordDisplayManager _keywordManager;
 

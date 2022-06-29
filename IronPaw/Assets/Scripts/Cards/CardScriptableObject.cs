@@ -23,7 +23,7 @@ public class CardScriptableObject : ScriptableObject
 
 
 
-    private bool CheckCardAndHeroColors(Character playingCharacter)
+    public bool CheckCardAndHeroColors(Character playingCharacter)
     {
         if (Colors[0] == ColorIdentity.Colorless)
         {
