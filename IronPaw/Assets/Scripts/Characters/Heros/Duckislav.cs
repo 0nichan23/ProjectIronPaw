@@ -25,7 +25,7 @@ public class Duckislav : Hero
                     Debug.Log(enemy.CharacterName);
                 }
             }
-            Character randomEnemy = /*enemies[*//*new System.Random().Next(0, enemies.Count)*//*2];*/ EnemyWrapper.Instance.EnemyController.ControllerChracters[2];
+            Character randomEnemy = enemies[new System.Random().Next(0, enemies.Count)];
             randomEnemy.TakeDmg(new Damage(_passiveDamage , this, false));
             _popupManager.AddMessage("Passive", FontMaterialManager.Instance.TextFontMaterial);
         }
