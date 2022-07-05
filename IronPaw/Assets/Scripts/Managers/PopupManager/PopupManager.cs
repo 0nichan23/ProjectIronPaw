@@ -27,6 +27,7 @@ public class PopupManager : MonoBehaviour
         textPopup.gameObject.SetActive(true);
         TextQueue.Remove(textPopup);
         yield return new WaitUntil(() => !textPopup.gameObject.activeSelf);
+        _objectPooler.RemoveFromObjectsInUse(textPopup.gameObject.GetInstanceID());
         _isCurrentlyDisplayingPopup = false;
     }
 
@@ -40,3 +41,5 @@ public class PopupManager : MonoBehaviour
         TextQueue.Add(popupRef);
     }
 }
+
+

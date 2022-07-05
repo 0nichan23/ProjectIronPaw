@@ -30,7 +30,7 @@ public abstract class CardEffect : ScriptableObject
         {
             PlayCardEffect(playingCharacter, target);
         }
-        playingCharacter.Controller.OnPlayCard?.Invoke(card);
+        playingCharacter.Controller.InvokeOnPlayCard(card);
         UIManager.Instance.UpdateAllCharacterUIs();
         Targets.Clear();
     }

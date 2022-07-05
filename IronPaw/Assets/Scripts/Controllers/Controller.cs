@@ -22,10 +22,15 @@ public abstract class Controller : MonoBehaviour
 
     protected virtual void TheBetterStart()
     {
-        OnPlayCard += UpdateAllDataTrackers;
         OnEndTurn += TurnTracker.ResetData;
     }
 
+
+    public void InvokeOnPlayCard(CardScriptableObject card)
+    {
+        UpdateAllDataTrackers(card);
+        OnPlayCard?.Invoke(card);
+    }
 
     private void UpdateAllDataTrackers(CardScriptableObject card)
     {
@@ -37,6 +42,7 @@ public abstract class Controller : MonoBehaviour
     private void UpdateDataTracker(CardScriptableObject card, DataTracker dataTracker)
     {
         dataTracker.NumberOfCardsPlayed++;
+        Debug.Log(dataTracker.NumberOfCardsPlayed);
         switch(card.CardType)
         {
             case CardType.Attack:

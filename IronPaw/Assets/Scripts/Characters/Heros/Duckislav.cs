@@ -12,7 +12,8 @@ public class Duckislav : Hero
 
     public void DuckislavPassive(CardScriptableObject card)
     {
-        if(Controller.TurnTracker.NumberOfCardsPlayed == _numberOfCardsToProccPassive)
+        Debug.Log("Duckie");
+        if (Controller.TurnTracker.NumberOfCardsPlayed == _numberOfCardsToProccPassive)
         {
             AudioManager.Instance.Play(AudioManager.Instance.SfxClips[9]);
             List<Character> enemies = new List<Character>();
@@ -21,10 +22,11 @@ public class Duckislav : Hero
                 if(enemy.CurrentHP > 0)
                 {
                     enemies.Add(enemy);
+                    Debug.Log(enemy.CharacterName);
                 }
             }
-            Character randomEnemy = enemies[new System.Random().Next(0, enemies.Count)];
-            randomEnemy.TakeDmg(new Damage(_passiveDamage, this, false));
+            Character randomEnemy = /*enemies[*//*new System.Random().Next(0, enemies.Count)*//*2];*/ EnemyWrapper.Instance.EnemyController.ControllerChracters[2];
+            randomEnemy.TakeDmg(new Damage(_passiveDamage , this, false));
             _popupManager.AddMessage("Passive", FontMaterialManager.Instance.TextFontMaterial);
         }
         
