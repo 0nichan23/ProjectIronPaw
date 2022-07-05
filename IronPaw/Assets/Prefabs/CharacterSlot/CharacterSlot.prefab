@@ -49,6 +49,7 @@ MonoBehaviour:
   Hpbar: {fileID: 3108431085175390778}
   BlockText: {fileID: 3319305886124552259}
   ActionPointsText: {fileID: 8717213064080258396}
+  _outOfPointsColor: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
   IntentionDisplayer: {fileID: 0}
 --- !u!1 &642544601221059104
 GameObject:

@@ -25,6 +25,9 @@ public class CharacterPersonalUI : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI ActionPointsText;
 
+    [SerializeField]
+    Color _outOfPointsColor;
+
 
     public IntentionDisplayer IntentionDisplayer;
 
@@ -128,7 +131,7 @@ public class CharacterPersonalUI : MonoBehaviour
     public void UpdateActionPoint(int maxap, int curap)
     {
         ActionPointsText.text = curap.ToString();
-        UIManager.Instance.DetermineTextColorBasedOnRule(ActionPointsText, curap > 0, Color.white, Color.red);
+        UIManager.Instance.DetermineTextColorBasedOnRule(ActionPointsText, curap > 0, Color.white, _outOfPointsColor);
     }
 
 
