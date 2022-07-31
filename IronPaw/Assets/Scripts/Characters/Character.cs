@@ -387,12 +387,14 @@ public abstract class Character : MonoBehaviour
         {
             _outline.ChangeOutlineColor(outlineColor);
         }
+        _refSlot.ArrowImage.SetActive(state);
     }
 
     public void ToggleCharacterSelectability(bool state)
     {
         _button.gameObject.SetActive(state);
         _outline.enabled = state;
+        _refSlot.ArrowImage.SetActive(state);
     }
 
 }

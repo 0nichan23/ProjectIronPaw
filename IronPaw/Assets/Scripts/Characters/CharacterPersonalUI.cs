@@ -19,6 +19,8 @@ public class CharacterPersonalUI : MonoBehaviour
     [SerializeField]
     HealthBar Hpbar;
 
+    [SerializeField] private GameObject _arrowImage;
+
     [SerializeField]
     TextMeshProUGUI BlockText;
 
@@ -32,6 +34,7 @@ public class CharacterPersonalUI : MonoBehaviour
     public IntentionDisplayer IntentionDisplayer;
 
     public List<StatusEffectSlot> Stats { get => stats; }
+    public GameObject ArrowImage { get => _arrowImage;  }
 
     private void Awake()
     {
