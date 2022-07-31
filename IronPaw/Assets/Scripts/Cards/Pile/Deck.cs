@@ -25,7 +25,13 @@ public class Deck : CardPile
         }
 
         base.Draw();
+    }
 
+    public void DrawOnEditor()
+    {
+#if UNITY_EDITOR
 
+        Draw();
+#endif
     }
 }
