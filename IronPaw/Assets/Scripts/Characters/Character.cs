@@ -97,8 +97,6 @@ public abstract class Character : MonoBehaviour
 
     protected virtual void TheBetterStart()
     {
-        _outline = GetComponentInParent<Outline>();
-        RefSlot = GetComponentInChildren<CharacterPersonalUI>();
         _currentHp = MaxHP;
         OnStartTurn += StartOfTurnReset;
         StartOfTurnReset();

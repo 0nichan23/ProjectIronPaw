@@ -6,11 +6,6 @@ public class AnimationEventInvoker : MonoBehaviour
 {
     [SerializeField] private Character _character;
 
-    void Start()
-    {
-        _character = GetComponentInChildren<Character>();
-    }
-
     public void OnAttackDealDmg()
     {
         _character.ReachedAnimationSyncFrame = true;
