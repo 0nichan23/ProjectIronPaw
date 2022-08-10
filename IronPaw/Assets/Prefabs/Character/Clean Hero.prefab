@@ -77,9 +77,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _character: {fileID: 8918401723526288884}
-  _outline: {fileID: 0}
-  _animator: {fileID: 0}
-  _animationEventInvoker: {fileID: 0}
+  _outline: {fileID: 1439626817967191260}
+  _animator: {fileID: 2239323974189360580}
+  _animationEventInvoker: {fileID: 8918401724640483213}
 --- !u!1001 &1439626817563343995
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -4,10 +4,6 @@ using UnityEngine;
 
 public abstract class Hero : Character
 {
-    private bool _selectable;
-
-    public bool Selectable { get => _selectable; set => _selectable = value; }
-
     [SerializeField] GameObject ElectricityEffect;
 
     public override void Subscribe()
