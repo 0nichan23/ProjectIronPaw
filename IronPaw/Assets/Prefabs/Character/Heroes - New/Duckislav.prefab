@@ -74,6 +74,20 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 7946280015992518833}
+    - target: {fileID: 5638113106737658828, guid: 939648f1561fa0146aca39f20bfe17b6, type: 3}
+      propertyPath: _stats.Dexterity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638113106737658828, guid: 939648f1561fa0146aca39f20bfe17b6, type: 3}
+      propertyPath: _passiveDescription
+      value: Whenever the 4th card is played on the player's turn, Duckislav deals
+        6 damage to a random enemy.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638113106737658828, guid: 939648f1561fa0146aca39f20bfe17b6, type: 3}
+      propertyPath: _ultimateDescription
+      value: Duckislav gains an Action Point and "At the start of your turn, draw
+        an extra card".
+      objectReference: {fileID: 0}
     - target: {fileID: 8918401724697547640, guid: 939648f1561fa0146aca39f20bfe17b6, type: 3}
       propertyPath: m_RootOrder
       value: 0
