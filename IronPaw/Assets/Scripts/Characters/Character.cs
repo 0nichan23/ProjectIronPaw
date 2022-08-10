@@ -107,6 +107,11 @@ public abstract class Character : MonoBehaviour
         DetermineController();
         InitStats();
         UpdateUI();
+        if(_profile)
+        {
+            CharacterSprite = _profile.CharacterSprite;
+        }
+        
     }
 
     protected void InvokeStartTurn()

@@ -5,4 +5,6 @@ using UnityEngine;
 public class CharacterProfile : MonoBehaviour
 {
     [SerializeField] protected Character _character;
+
+    [SerializeField] public Sprite CharacterSprite;
 }
