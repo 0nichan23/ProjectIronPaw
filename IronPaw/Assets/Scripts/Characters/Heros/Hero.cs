@@ -2,35 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Hero : Character
+public class Hero : Character
 {
     [SerializeField] GameObject ElectricityEffect;
+
 
     public override void Subscribe()
     {
         Controller.OnStartTurn += InvokeStartTurn;
         Controller.OnEndTurn += InvokeEndTurn;
         OnRecieveTaunt += PartyManager.Instance.EnemiesRerollTargetsForNewTaunts;
-        SubscribePassive();
+
+        _profile.SubscribePassive();
     }
     public override void UnSubscribe()
     {
         Controller.OnStartTurn -= InvokeStartTurn;
         Controller.OnEndTurn -= InvokeEndTurn;
-        UnSubscribePassive();
+
+        _profile.UnSubscribePassive();
     }
 
-    public abstract void SubscribePassive();
-    public abstract void UnSubscribePassive();
+
 
     public void PerformUltimate()
     {
         PlayerWrapper.Instance.PlayerController.ResetUltimateCharge();
         ElectricityEffect.SetActive(true);
-        Ultimate();
+        _profile.Ultimate();
     }
 
-    public abstract void Ultimate();
+    
 
     protected override void DetermineController()
     {

@@ -23,7 +23,7 @@ public abstract class Character : MonoBehaviour
 
     [SerializeField] private CharacterPersonalUI _refSlot;
 
-    [SerializeField] protected Animator _animator;
+    [SerializeField] private Animator animator;
     [SerializeField] private bool _reachedAnimationSyncFrame;
     public AnimationEvent AnimationSyncEvent;
 
@@ -46,7 +46,9 @@ public abstract class Character : MonoBehaviour
 
     [SerializeField] private Controller _controller;
     [SerializeField] private CharacterStats _stats = new CharacterStats();
-    [SerializeField] protected PopupManager _popupManager;
+    [SerializeField] private PopupManager popupManager;
+
+    [SerializeField] protected HeroProfile _profile;
 
     public int MaxHP { get => _maxHp; }
     public int CurrentHP { get => _currentHp; }
@@ -88,6 +90,8 @@ public abstract class Character : MonoBehaviour
     public bool ReachedAnimationSyncFrame { get => _reachedAnimationSyncFrame; set => _reachedAnimationSyncFrame = value; }
     public string PassiveDescription { get => _passiveDescription; set => _passiveDescription = value; }
     public string UltimateDescription { get => _ultimateDescription; set => _ultimateDescription = value; }
+    public Animator Animator { get => animator; }
+    public PopupManager PopupManager { get => popupManager; }
 
     private void Start()
     {
@@ -223,7 +227,7 @@ public abstract class Character : MonoBehaviour
             _currentHp = MaxHP;
         }
         UpdateUI();
-        _popupManager.AddMessage(amount.ToString(), FontMaterialManager.Instance.HealingFontMaterial);
+        PopupManager.AddMessage(amount.ToString(), FontMaterialManager.Instance.HealingFontMaterial);
         VFXManager.Instance.CreateHealingParticle(transform.position);
         AudioManager.Instance.Play(AudioManager.Instance.SfxClips[2]);
 
@@ -260,7 +264,7 @@ public abstract class Character : MonoBehaviour
                 int hpToLose = remainder;
 
                 _currentHp -= hpToLose;
-                _animator.SetTrigger("Hit");               
+                Animator.SetTrigger("Hit");               
 
                 if (_currentHp <= 0)
                 {
@@ -279,7 +283,7 @@ public abstract class Character : MonoBehaviour
             VFXManager.Instance.CameraShake.ShakeCameraForSeconds(0.7f);
         }
         UpdateUI();
-        _popupManager.AddMessage(amount.ToString(), FontMaterialManager.Instance.DamageFontMaterial);
+        PopupManager.AddMessage(amount.ToString(), FontMaterialManager.Instance.DamageFontMaterial);
        // VFXManager.Instance.CreateDamagePopup(transform.position, amount);
         VFXManager.Instance.CreateHitParticle(transform.position);
     }
@@ -289,7 +293,7 @@ public abstract class Character : MonoBehaviour
         OnDeath?.Invoke();
         UnSubscribe();
         IsAlive = false;
-        _animator.SetTrigger("Die");
+        Animator.SetTrigger("Die");
         
         if (this is Hero)
         {
@@ -348,10 +352,10 @@ public abstract class Character : MonoBehaviour
 
     public void PlayAnimation(CardType cardType)
     {
-        if (_animator != null)
+        if (Animator != null)
         {
             
-            _animator.SetTrigger("Attack");
+            Animator.SetTrigger("Attack");
             
         }
     }

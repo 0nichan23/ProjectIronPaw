@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sima : Hero
+public class Sima : HeroProfile
 {
     [SerializeField] private int _passiveHealAmount = 2;
     [SerializeField] private int _ultimateHealAmount = 6;
@@ -12,10 +12,10 @@ public class Sima : Hero
 
     public override void Ultimate()
     {
-        _animator.SetTrigger("Ult");
+        _character.Animator.SetTrigger("Ult");
         foreach (var hero in PartyManager.Instance.Heroes)
         {
-            hero.Heal(_ultimateHealAmount, this);
+            hero.Heal(_ultimateHealAmount, _character);
 
         }
     }
@@ -24,7 +24,7 @@ public class Sima : Hero
     {
         List<Character> damagedHeroes = new List<Character>();
 
-        foreach (var hero in Controller.ControllerChracters)
+        foreach (var hero in _character.Controller.ControllerChracters)
         {
             if (hero.IsAlive && hero.CurrentHP < hero.MaxHP)
             {
@@ -38,17 +38,17 @@ public class Sima : Hero
         }
         AudioManager.Instance.Play(AudioManager.Instance.SfxClips[9]);
         Character randomHero = damagedHeroes[new System.Random().Next(0, damagedHeroes.Count)];
-        randomHero.Heal(_passiveHealAmount, this);
+        randomHero.Heal(_passiveHealAmount, _character);
     }
 
     public override void SubscribePassive()
     {
-        ExiledPile.OnCardAdded+= SimaPassive;
+        _character.ExiledPile.OnCardAdded+= SimaPassive;
     }
 
     public override void UnSubscribePassive()
     {
-        ExiledPile.OnCardAdded -= SimaPassive;
+        _character.ExiledPile.OnCardAdded -= SimaPassive;
     }
 
     
