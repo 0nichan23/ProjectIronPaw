@@ -59,6 +59,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5638113106737658828, guid: 939648f1561fa0146aca39f20bfe17b6, type: 3}
+      propertyPath: _maxHp
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638113106737658828, guid: 939648f1561fa0146aca39f20bfe17b6, type: 3}
       propertyPath: _outline
       value: 
       objectReference: {fileID: 956550204572649254}

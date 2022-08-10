@@ -6,10 +6,6 @@ public class CharacterStatusEffectsViewer : CustomButton
 {
     [SerializeField] private Character _character;
 
-    private void Start()
-    {
-        _character = GetComponentInParent<Character>();
-    }
     protected override void LongPress()
     {
         UIManager.Instance.CharacterCanvas.ShowCharacterCanvas(_character, false);

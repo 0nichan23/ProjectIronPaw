@@ -318,6 +318,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3525306344791199245, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
+      propertyPath: _character
+      value: 
+      objectReference: {fileID: 5638113106737658828}
     - target: {fileID: 4051039046034293481, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
       propertyPath: m_Name
       value: DisplayZone
@@ -433,7 +437,7 @@ PrefabInstance:
     - target: {fileID: 8969792705910281527, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
       propertyPath: _character
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5638113106737658828}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
 --- !u!4 &4029595562022890037 stripped
