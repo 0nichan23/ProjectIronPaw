@@ -41,6 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2951061349425645215}
+  - component: {fileID: 2911879587517956658}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -63,6 +64,22 @@ Transform:
   m_Father: {fileID: 8918401724697547640}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2911879587517956658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9087170107381886042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dba405630221b6498a493490412f175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _character: {fileID: 8918401723526288884}
+  _outline: {fileID: 0}
+  _animator: {fileID: 0}
+  _animationEventInvoker: {fileID: 0}
 --- !u!1001 &1439626817563343995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -335,6 +352,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 35955ece74df2f345b324474983ab42b, type: 3}
       propertyPath: m_Name
       value: Duckislav Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 35955ece74df2f345b324474983ab42b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2374970537594849544, guid: 35955ece74df2f345b324474983ab42b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
