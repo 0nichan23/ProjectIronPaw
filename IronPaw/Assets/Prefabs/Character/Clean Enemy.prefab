@@ -98,7 +98,7 @@ MonoBehaviour:
   DiscardPile: {fileID: 4453381674556464421}
   ExiledPile: {fileID: 4040012996174254967}
   Hand: {fileID: 1570805480558081713}
-  colors: 
+  colors: 04000000
   _maxHp: 0
   _currentHp: 0
   _currentBlock: 0
@@ -623,7 +623,7 @@ PrefabInstance:
     - target: {fileID: 8751769977570650448, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6539426334840520380}
     - target: {fileID: 8751769977570650448, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
