@@ -477,6 +477,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 787876a00e682c541bb071ed8d2216af, type: 3}
+--- !u!114 &8219787349174935652 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4561648715664145638, guid: 787876a00e682c541bb071ed8d2216af, type: 3}
+  m_PrefabInstance: {fileID: 5574530952070519938}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634389d622b03db4d830e5d8bfe82980, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8918401724073118883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -552,6 +563,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5456441972058763898, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
+      propertyPath: IntentionDisplayer
+      value: 
+      objectReference: {fileID: 8219787349174935652}
     - target: {fileID: 5489739295222752918, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
       propertyPath: m_RootOrder
       value: 0
