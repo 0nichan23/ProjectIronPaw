@@ -6,11 +6,7 @@ using UnityEngine.UI;
 
 public abstract class Character : MonoBehaviour
 {
-    public Deck Deck;
-    public DiscardPile DiscardPile;
-    public ExiledPile ExiledPile;
-    public Hand Hand;
-
+    #region Attributes
     [SerializeField] private List<ColorIdentity> colors;
     [SerializeField] private int _maxHp;
     [SerializeField] private int _currentHp;
@@ -20,36 +16,43 @@ public abstract class Character : MonoBehaviour
     [SerializeField] private int _amountOfBlockToLose;
     [SerializeField] private int _currentAp;
     [SerializeField] private int _maxAp;
-
-    [SerializeField] private CharacterPersonalUI _refSlot;
-
-    [SerializeField] private Animator animator;
     [SerializeField] private bool _reachedAnimationSyncFrame;
-    public AnimationEvent AnimationSyncEvent;
-
+    public bool DoneDying;
     [SerializeField] private string _passiveDescription;
     [SerializeField] private string _ultimateDescription;
 
-    public bool DoneDying;
+    [SerializeField] private CharacterStats _stats = new CharacterStats();
 
     private List<StatusEffect> _activeStatusEffects = new List<StatusEffect>();
+    #endregion
 
+    #region References
+    [SerializeField] private CharacterPersonalUI _refSlot;
+    [SerializeField] private PopupManager popupManager;
+    [SerializeField] private Button _button;
+    [SerializeField] private Controller _controller;
+
+    public Deck Deck;
+    public DiscardPile DiscardPile;
+    public ExiledPile ExiledPile;
+    public Hand Hand;
+
+    
+
+    public Sprite CharacterSprite;
+
+    [SerializeField] private Outline _outline;
+    [SerializeField] private Animator animator;
+    #endregion
+
+    public AnimationEvent AnimationSyncEvent;
     public Action OnStartTurn;
     public Action OnEndTurn;
     public Action OnRecieveTaunt;
     public Action OnDeath;
     public Action<Damage> OnTakeDamage;
 
-    [SerializeField] private Button _button;
-
-    public Sprite CharacterSprite;
-
-    [SerializeField] private Controller _controller;
-    [SerializeField] private CharacterStats _stats = new CharacterStats();
-    [SerializeField] private PopupManager popupManager;
-
-    
-
+    #region Properties
     public int MaxHP { get => _maxHp; }
     public int CurrentHP { get => _currentHp; }
     public List<ColorIdentity> Colors { get => colors; set => colors = value; }
@@ -72,7 +75,7 @@ public abstract class Character : MonoBehaviour
 
     public bool IsAlive = true;
 
-    public Outline _outline;
+    
 
     public int AmountOfBlockToLose
     {
@@ -92,6 +95,7 @@ public abstract class Character : MonoBehaviour
     public string UltimateDescription { get => _ultimateDescription; set => _ultimateDescription = value; }
     public Animator Animator { get => animator; }
     public PopupManager PopupManager { get => popupManager; }
+    #endregion
 
     private void Start()
     {
