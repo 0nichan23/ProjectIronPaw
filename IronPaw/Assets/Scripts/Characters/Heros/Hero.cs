@@ -6,6 +6,7 @@ public class Hero : Character
 {
     [SerializeField] GameObject ElectricityEffect;
 
+    [SerializeField] protected HeroProfile _profile;
 
     public override void Subscribe()
     {

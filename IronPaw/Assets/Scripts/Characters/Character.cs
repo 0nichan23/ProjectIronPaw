@@ -48,7 +48,7 @@ public abstract class Character : MonoBehaviour
     [SerializeField] private CharacterStats _stats = new CharacterStats();
     [SerializeField] private PopupManager popupManager;
 
-    [SerializeField] protected HeroProfile _profile;
+    
 
     public int MaxHP { get => _maxHp; }
     public int CurrentHP { get => _currentHp; }
@@ -107,9 +107,11 @@ public abstract class Character : MonoBehaviour
         DetermineController();
         InitStats();
         UpdateUI();
-        if(_profile)
+
+        CharacterProfile profile = GetComponent<CharacterProfile>();
+        if(profile)
         {
-            CharacterSprite = _profile.CharacterSprite;
+            CharacterSprite = profile.CharacterSprite;
         }
         
     }

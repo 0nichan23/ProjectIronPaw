@@ -22,16 +22,7 @@ public abstract class CardPile : MonoBehaviour
 
     private void Awake()
     {
-        if (!GetComponent<Enemy>())
-        {
-            _controller = PlayerWrapper.Instance.PlayerController;
-            OnDrawCard += ((PlayerController)_controller).UpdatePlayerUI;
-            OnCardAdded += ((PlayerController)_controller).UpdatePlayerUI;
-        }
-        else
-        {
-            _controller = EnemyWrapper.Instance.EnemyController;
-        }
+        DetermineController();
 
         InitDeck();
     }
@@ -104,6 +95,20 @@ public abstract class CardPile : MonoBehaviour
             {
                 _cards.Push(card);
             }
+        }
+    }
+
+    private void DetermineController()
+    {
+        if (!GetComponent<Enemy>())
+        {
+            _controller = PlayerWrapper.Instance.PlayerController;
+            OnDrawCard += ((PlayerController)_controller).UpdatePlayerUI;
+            OnCardAdded += ((PlayerController)_controller).UpdatePlayerUI;
+        }
+        else
+        {
+            _controller = EnemyWrapper.Instance.EnemyController;
         }
     }
 }

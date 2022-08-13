@@ -9,9 +9,9 @@ public class Enemy : Character
 
     public List<Character> Targets = new List<Character>();
 
+    [SerializeField] protected EnemyProfile _profile;
 
 
-    
     public override void Subscribe()
     {
         Controller.OnStartTurn += InvokeStartTurn;
