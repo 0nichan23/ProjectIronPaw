@@ -50,6 +50,18 @@ PrefabInstance:
       propertyPath: _animationEventInvoker
       value: 
       objectReference: {fileID: 8905193166234197691}
+    - target: {fileID: 2951061349425645215, guid: 939648f1561fa0146aca39f20bfe17b6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951061349425645215, guid: 939648f1561fa0146aca39f20bfe17b6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951061349425645215, guid: 939648f1561fa0146aca39f20bfe17b6, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 4363921442305991854, guid: 939648f1561fa0146aca39f20bfe17b6, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
