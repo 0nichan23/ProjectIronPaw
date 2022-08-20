@@ -7,9 +7,6 @@ public class Sima : HeroProfile
     [SerializeField] private int _passiveHealAmount = 2;
     [SerializeField] private int _ultimateHealAmount = 6;
 
-
-   
-
     public override void Ultimate()
     {
         _character.Animator.SetTrigger("Ult");
