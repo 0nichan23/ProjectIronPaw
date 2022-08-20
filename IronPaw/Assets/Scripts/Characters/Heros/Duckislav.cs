@@ -10,7 +10,7 @@ public class Duckislav : HeroProfile
 
     
 
-    public void DuckislavPassive(CardScriptableObject card)
+    public void DuckislavPassive(Card card)
     {
         if (_character.Controller.TurnTracker.NumberOfCardsPlayed == _numberOfCardsToProccPassive)
         {

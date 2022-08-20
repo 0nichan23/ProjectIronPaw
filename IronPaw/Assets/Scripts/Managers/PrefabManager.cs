@@ -53,7 +53,7 @@ public class PrefabManager : Singleton<PrefabManager>
 
 
 
-    public Sprite GetIntentionTypeSprite(CardScriptableObject card)
+    public Sprite GetIntentionTypeSprite(Card card)
     {
         switch (card.CardType)
         {

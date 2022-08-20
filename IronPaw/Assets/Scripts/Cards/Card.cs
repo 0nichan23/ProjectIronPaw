@@ -3,9 +3,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-[CreateAssetMenu(fileName = "New Card", menuName = "Cards/CardScriptableObject")]
-public class CardScriptableObject : ScriptableObject
-{
+public class Card : MonoBehaviour
+{ 
     public string CardName;
     public string Description;
     public ColorIdentity[] Colors;
@@ -44,7 +43,7 @@ public class CardScriptableObject : ScriptableObject
         return false;
     }
 
-   
+
     public void SpendResources(Character playingCharacter)
     {
         if (playingCharacter is Hero)
@@ -61,10 +60,10 @@ public class CardScriptableObject : ScriptableObject
     }
 
     public void SendCardToAppropriatePile(Character playingCharacter)
-    {       
+    {
         if (IsUsable)
         {
-            playingCharacter.ExiledPile.AddCardToPile(this);            
+            playingCharacter.ExiledPile.AddCardToPile(this);
         }
         else // Discard this CardSO to discardpile
         {
@@ -119,27 +118,19 @@ public class CardScriptableObject : ScriptableObject
         character.Hand.AddCard(this);
     }
 
-    public void CreateCardDisplay()
+    public void SetCardDisplay()
     {
-        GameObject GO = Instantiate(PrefabManager.Instance.PlainCardDispaly, PlayerWrapper.Instance.PlayerController.Hand.transform);
-        CardDisplay = GO;
-
-        GO.transform.SetParent(PlayerWrapper.Instance.PlayerController.Hand.gameObject.transform);
-
-        CardUI GOUI = GO.GetComponent<CardUI>();
-        GOUI.CardSO = this;
-
-        GOUI.InitializeDisplay();
+        transform.SetParent(PlayerWrapper.Instance.PlayerController.Hand.gameObject.transform);
     }
 
     public void ClearTargetsFromCardEffect()
     {
         // The Shadow Realm Bug
 
-        if(CardEffect != null)
+        if (CardEffect != null)
         {
             CardEffect.Targets.Clear();
-        }        
+        }
     }
 
 

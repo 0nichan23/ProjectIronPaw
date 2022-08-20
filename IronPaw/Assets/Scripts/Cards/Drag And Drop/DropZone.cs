@@ -12,7 +12,7 @@ public class DropZone : MonoBehaviour, IDropHandler
         if(draggable != null)
         {
             CardUI cardUI = draggable.gameObject.GetComponent<CardUI>();
-            if (!cardUI.CardSO.CheckCardValidity() || transform.childCount > 0)
+            if (!cardUI.Card.CheckCardValidity() || transform.childCount > 0)
             {
                 return;
             }
@@ -26,7 +26,7 @@ public class DropZone : MonoBehaviour, IDropHandler
                  * inst valid (example: not enough energy, no valid heroes, etc), in which case we might want to return the card display to 
                  * Hand or something
                  */
-                StartCoroutine(CombatManager.Instance.WaitUntilHeroIsClickedPlayCard(cardUI.CardSO));            
+                StartCoroutine(CombatManager.Instance.WaitUntilHeroIsClickedPlayCard(cardUI.Card));            
             }
         }
     }

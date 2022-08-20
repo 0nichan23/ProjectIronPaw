@@ -35,7 +35,7 @@ public class EnemyController : Controller
         foreach (Enemy enemy in ControllerChracters)
         {
             CurrentEnemyDonePlaying = false;
-            CardScriptableObject playedCard = null;
+            Card playedCard = null;
 
             if (enemy.IsAlive)
             {
@@ -59,29 +59,8 @@ public class EnemyController : Controller
             }
         }
         StartCoroutine(RevealIntentions());
-        //RevealIntentions();
         TurnManager.Instance.EndTurn();
     }
-
-    /*public void RevealIntentions()
-    {
-        foreach (Enemy enemy in ControllerChracters)
-        {
-            if(enemy.CurrentHP > 0)
-            {
-                enemy.Deck.Draw();
-                if(enemy.Hand.Cards.Count > 0)
-                {
-                    CombatManager.Instance.EnemyAcquireTargets(enemy, enemy.Hand.Cards[0]);
-                    if (enemy.RefSlot.IntentionDisplayer != null)
-                    {
-                        enemy.RefSlot.IntentionDisplayer.DisplayIntention(enemy.Targets, enemy.Hand.Cards[0]);
-                    }
-                    // shows the enemy's intent (symbol (+number if relevant) + Hero Portrait) 
-                }
-            }            
-        }
-    }*/
 
 
 

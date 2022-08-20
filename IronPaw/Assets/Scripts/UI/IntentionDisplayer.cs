@@ -20,7 +20,7 @@ public class IntentionDisplayer : MonoBehaviour
         DamageText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
-    public void DisplayIntention(List<Character> targets, CardScriptableObject playedCard, Enemy playingEnemy)
+    public void DisplayIntention(List<Character> targets, Card playedCard, Enemy playingEnemy)
     {
         
         if (targets.Count == 0)

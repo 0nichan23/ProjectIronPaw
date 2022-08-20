@@ -40,7 +40,7 @@ public class UIManager : Singleton<UIManager>
         ToggleCharacterHighlightCanvas(!state);
     }
 
-    public void ToggleCardZoomCanvas(CardScriptableObject givenCard, bool state, CardUI self)
+    public void ToggleCardZoomCanvas(Card givenCard, bool state, CardUI self)
     {
         CardZoomCanvas.gameObject.SetActive(state);
         if (state)

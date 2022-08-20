@@ -17,7 +17,7 @@ public class CombatManager : Singleton<CombatManager>
     public Character SelectedCharacter;
     public CardUI SelectedCardUI;
 
-    private CardScriptableObject _cardToGetRidOfRef;
+    private Card _cardToGetRidOfRef;
     private void Start()
     {
         Enemies = new List<Character>(EnemyWrapper.Instance.EnemyController.ControllerChracters);
@@ -26,7 +26,7 @@ public class CombatManager : Singleton<CombatManager>
     }
 
     #region Enemy Functions
-    public void EnemyAcquireTargets(Enemy playingEnemy, CardScriptableObject card)
+    public void EnemyAcquireTargets(Enemy playingEnemy, Card card)
     {
         playingEnemy.Targets.Clear();
         ClearCachedCharacters();
@@ -126,7 +126,7 @@ public class CombatManager : Singleton<CombatManager>
         RerolledTargetsForTaunt = true;
     }
 
-    public void EnemyPlayCard(Enemy playingEnemy, CardScriptableObject card)
+    public void EnemyPlayCard(Enemy playingEnemy, Card card)
     {
         foreach (var target in playingEnemy.Targets)
         {
@@ -149,7 +149,7 @@ public class CombatManager : Singleton<CombatManager>
     #endregion
 
     #region Player Functions
-    public void PlayCard(Character playingCharacter, CardScriptableObject card)
+    public void PlayCard(Character playingCharacter, Card card)
     {
 
         ClearCachedCharacters();
@@ -285,7 +285,7 @@ public class CombatManager : Singleton<CombatManager>
         }
     }
 
-    public IEnumerator WaitUntilHeroIsClickedPlayCard(CardScriptableObject card)
+    public IEnumerator WaitUntilHeroIsClickedPlayCard(Card card)
     {
         UIManager.Instance.ToggleSelectionCanvas(true, "Select a Hero");
         yield return new WaitUntil(() => SelectedCharacter != null);
@@ -293,7 +293,7 @@ public class CombatManager : Singleton<CombatManager>
         PlayCard(SelectedCharacter, card);
     }
 
-    public IEnumerator WaitUntilTargetIsSelected(Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)
+    public IEnumerator WaitUntilTargetIsSelected(Character playingCharacter, Card card, CardEffect cardEffectRef, CardUI cardUI)
     {
         UIManager.Instance.SelectionCanvas.Title.text = "Select a target";
         yield return new WaitUntil(() => SelectedCharacter != null);
@@ -322,7 +322,7 @@ public class CombatManager : Singleton<CombatManager>
 
     #region Universal Functions
 
-    private void FillLegalTargets(Character playingCharacter, CardScriptableObject card, List<Character> targetList)
+    private void FillLegalTargets(Character playingCharacter, Card card, List<Character> targetList)
     {
         _pointerList = targetList;
         ClearCachedCharacters();
@@ -358,7 +358,7 @@ public class CombatManager : Singleton<CombatManager>
         _pointerList = null;
     }
 
-    private IEnumerator PlayCardAnimationSync(Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)
+    private IEnumerator PlayCardAnimationSync(Character playingCharacter, Card card, CardEffect cardEffectRef, CardUI cardUI)
     {
         /* CardCleanup step 1: */
         CardUICleanup(playingCharacter, card, cardEffectRef, cardUI);
@@ -415,7 +415,7 @@ public class CombatManager : Singleton<CombatManager>
         }
     }
 
-    private void CardUICleanup(Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)
+    private void CardUICleanup(Character playingCharacter, Card card, CardEffect cardEffectRef, CardUI cardUI)
     {
         _cardToGetRidOfRef = card;
         playingCharacter.Hand.RemoveCard(card);
@@ -444,7 +444,7 @@ public class CombatManager : Singleton<CombatManager>
 
         foreach (var card in PlayerWrapper.Instance.PlayerController.Hand.Cards)
         {
-            card.CreateCardDisplay();
+            card.SetCardDisplay();
         }
     }
 

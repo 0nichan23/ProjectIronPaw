@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Deck", menuName = "Decks/DeckSO")]
 public class DeckSO : ScriptableObject
 {
-    public List<CardScriptableObject> Cards;
+    public List<GameObject> Cards;
 }

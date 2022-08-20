@@ -24,7 +24,7 @@ public class CardCloseUp : MonoBehaviour
 
 
 
-    public void InitializeDisplay(CardScriptableObject givenCard, CardUI cardUIRef)
+    public void InitializeDisplay(Card givenCard, CardUI cardUIRef)
     { 
 
         _manaCostDisplay.text = givenCard.EnergyCost.ToString();
@@ -63,7 +63,7 @@ public class CardCloseUp : MonoBehaviour
         }
     }
 
-    private void InitCardToolTips(CardScriptableObject givenCard)
+    private void InitCardToolTips(Card givenCard)
     {
         if(givenCard.Keywords.Count > 0)
         {

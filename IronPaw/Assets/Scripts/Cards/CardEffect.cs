@@ -19,7 +19,7 @@ public abstract class CardEffect : ScriptableObject
         CardDamage = new Damage(DamageValue, playingCharacter, true);
     }
 
-    public void PlayEffect(Character playingCharacter, CardScriptableObject card)
+    public void PlayEffect(Character playingCharacter, Card card)
     {
         if (playingCharacter is Hero)
         {

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class DaggerThrowEffect : CardEffect
 {
-    [SerializeField] private CardScriptableObject cardToCreate;
+    [SerializeField] private GameObject cardToCreate;
 
     protected override void PlayCardEffect(Character playingCharacter, Character target)
     {

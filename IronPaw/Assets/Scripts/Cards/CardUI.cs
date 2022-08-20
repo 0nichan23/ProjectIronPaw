@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class CardUI : MonoBehaviour
 {
-    public CardScriptableObject CardSO;
+    public Card Card;
 
     [SerializeField] ColorIdentity[] _colors = new ColorIdentity[2];
 
@@ -39,15 +39,20 @@ public class CardUI : MonoBehaviour
     public RectTransform Container { get => _container; set => _container = value; }
     public RectTransform OriginalTransform { get => _originalTransform; set => _originalTransform = value; }
 
+    private void Start()
+    {
+        InitializeDisplay();
+    }
+
     public void InitializeDisplay()
     {
         _originalTransform = Container;
-        ArtWorkDisplay.sprite = CardSO.Artwork;
-        _manaCostDisplay.text = CardSO.EnergyCost.ToString();
-        _cardNameDisplay.text = CardSO.CardName;
+        ArtWorkDisplay.sprite = Card.Artwork;
+        _manaCostDisplay.text = Card.EnergyCost.ToString();
+        _cardNameDisplay.text = Card.CardName;
         InitCardFrame();
         InitDescription();
-        InitType(CardSO.CardType);
+        InitType(Card.CardType);
     }
 
 
@@ -82,7 +87,7 @@ public class CardUI : MonoBehaviour
         CardDescDisplay.text = "";
 
         // 1) ---------------  Adding Keywords that need to be added at start of card ------
-        foreach (var keywordInCard in CardSO.Keywords)
+        foreach (var keywordInCard in Card.Keywords)
         {
             foreach (var keywordToAdd in PrefabManager.Instance._keywordManager.KeywordsToAddToCardDescription)
             {
@@ -121,10 +126,10 @@ public class CardUI : MonoBehaviour
         }
 
         // 2) -----  Adding the card description text from the CardSO (from the inspector)--
-        CardDescDisplay.text += CardSO.Description.ToString();
+        CardDescDisplay.text += Card.Description.ToString();
 
         // 3) -----------------------  Making Keywords Bold --------------------------------
-        foreach (var keywordInCard in CardSO.Keywords)
+        foreach (var keywordInCard in Card.Keywords)
         {
             string cappedKeyWord = "";
 
@@ -217,10 +222,10 @@ public class CardUI : MonoBehaviour
     public void OnClick()
     {
         //play card normally
-        if (CardSO.CheckCardValidity() && this != CombatManager.Instance.SelectedCardUI)
+        if (Card.CheckCardValidity() && this != CombatManager.Instance.SelectedCardUI)
         {
             SelectCard();
-            StartCoroutine(CombatManager.Instance.WaitUntilHeroIsClickedPlayCard(CardSO));
+            StartCoroutine(CombatManager.Instance.WaitUntilHeroIsClickedPlayCard(Card));
         }
         else
         {
@@ -245,7 +250,7 @@ public class CardUI : MonoBehaviour
             yield return null;
         }
         // LongPress
-        UIManager.Instance.ToggleCardZoomCanvas(CardSO, true, this);
+        UIManager.Instance.ToggleCardZoomCanvas(Card, true, this);
 
     }
 
@@ -253,19 +258,19 @@ public class CardUI : MonoBehaviour
     {
         List<string> colorID = new List<string>();
 
-        colorID.Add(CardSO.Colors[0].ToString());
+        colorID.Add(Card.Colors[0].ToString());
 
-        if (CardSO.Colors.Length > 1)
+        if (Card.Colors.Length > 1)
         {
-            colorID.Add(CardSO.Colors[1].ToString());
+            colorID.Add(Card.Colors[1].ToString());
         }
 
         CardFrame.sprite = PrefabManager.Instance.GetCardFrameByColor(colorID);
         PlateFrame.sprite = PrefabManager.Instance.GetCardPlateFrameByColor(colorID);
 
 
-        RarityFrame.sprite = PrefabManager.Instance.GetCardRarityFrame(CardSO.Rarity);
-        TypeFrame.sprite = PrefabManager.Instance.GetCardTypeFrame(CardSO.CardType);
+        RarityFrame.sprite = PrefabManager.Instance.GetCardRarityFrame(Card.Rarity);
+        TypeFrame.sprite = PrefabManager.Instance.GetCardTypeFrame(Card.CardType);
 
     }
 

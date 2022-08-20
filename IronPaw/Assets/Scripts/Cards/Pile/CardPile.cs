@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class CardPile : MonoBehaviour
 {
-    Stack<CardScriptableObject> _cards = new Stack<CardScriptableObject>();
+    protected Stack<Card> _cards = new Stack<Card>();
 
     [SerializeField] protected Hand _hand;
 
@@ -13,45 +13,41 @@ public abstract class CardPile : MonoBehaviour
     public Action OnDrawCard;
     public Action OnCardAdded;
 
-    // Will be removed/Initialized differently when deck building is a thing
-    [SerializeField] private List<CardScriptableObject> _cardsGiven = new List<CardScriptableObject>();
-    [SerializeField] private List<DeckSO> _decksGiven = new List<DeckSO>();
+    
 
-    public Stack<CardScriptableObject> Cards { get => _cards; set => _cards = value; }
+    public Stack<Card> Cards { get => _cards; set => _cards = value; }
     public Controller Controller { get => _controller; }
 
     private void Awake()
     {
         DetermineController();
-
-        InitDeck();
     }
 
     public void Shuffle()
     {
-        _cardsGiven.Clear();
+        List<Card> tempCards = new List<Card>();
 
         foreach (var card in Cards)
         {
-            _cardsGiven.Add(card);
+            tempCards.Add(card);
         }
 
         Cards.Clear();
 
-        int n = _cardsGiven.Count;
+        int n = tempCards.Count;
         while (n > 1)
         {
             n--;
             int k = UnityEngine.Random.Range(0, n + 1);
 
-            CardScriptableObject tempCardSlot = _cardsGiven[k];
-            _cardsGiven[k] = _cardsGiven[n];
-            _cardsGiven[n] = tempCardSlot;
+            Card tempCardSlot = tempCards[k];
+            tempCards[k] = tempCards[n];
+            tempCards[n] = tempCardSlot;
         }
 
 
 
-        foreach (var card in _cardsGiven)
+        foreach (var card in tempCards)
         {
             Cards.Push(card);
         }
@@ -61,7 +57,7 @@ public abstract class CardPile : MonoBehaviour
     {
         if (Cards.Count > 0)
         {
-            CardScriptableObject cardDrawn = Cards.Pop();
+            Card cardDrawn = Cards.Pop();
 
             _hand.AddCard(cardDrawn);
 
@@ -71,32 +67,18 @@ public abstract class CardPile : MonoBehaviour
     }
 
     // Not For Build
-    public CardScriptableObject[] Search(Filter filter)
+    public Card[] Search(Filter filter)
     {
         return null;
     }
 
-    public virtual void AddCardToPile(CardScriptableObject card)
+    public virtual void AddCardToPile(Card card)
     {
         _cards.Push(card);
         OnCardAdded?.Invoke();
     }
 
-    private void InitDeck()
-    {
-        foreach (CardScriptableObject card in _cardsGiven)
-        {
-            _cards.Push(card);
-        }
-
-        foreach (DeckSO deck in _decksGiven)
-        {
-            foreach (CardScriptableObject card in deck.Cards)
-            {
-                _cards.Push(card);
-            }
-        }
-    }
+    
 
     private void DetermineController()
     {

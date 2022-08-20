@@ -13,7 +13,7 @@ public abstract class Controller : MonoBehaviour
     public Action OnStartTurn;
     public Action OnEndTurn;
 
-    public Action<CardScriptableObject> OnPlayCard;
+    public Action<Card> OnPlayCard;
 
     private void Start()
     {
@@ -26,20 +26,20 @@ public abstract class Controller : MonoBehaviour
     }
 
 
-    public void InvokeOnPlayCard(CardScriptableObject card)
+    public void InvokeOnPlayCard(Card card)
     {
         UpdateAllDataTrackers(card);
         OnPlayCard?.Invoke(card);
     }
 
-    private void UpdateAllDataTrackers(CardScriptableObject card)
+    private void UpdateAllDataTrackers(Card card)
     {
         UpdateDataTracker(card, TurnTracker);
         UpdateDataTracker(card, CombatTracker);
         UpdateDataTracker(card, RunTracker);
     }
 
-    private void UpdateDataTracker(CardScriptableObject card, DataTracker dataTracker)
+    private void UpdateDataTracker(Card card, DataTracker dataTracker)
     {
         dataTracker.NumberOfCardsPlayed++;
         switch(card.CardType)
