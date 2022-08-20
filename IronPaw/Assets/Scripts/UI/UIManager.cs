@@ -56,12 +56,12 @@ public class UIManager : Singleton<UIManager>
 
     public void UpdateAllCharacterUIs()
     {
-        foreach (var hero in PartyManager.Instance.Heroes)
+        foreach (var hero in CombatManager.Instance.Heroes)
         {
             hero.UpdateUI();
         }
 
-        foreach (var enemy in PartyManager.Instance.Enemies)
+        foreach (var enemy in CombatManager.Instance.Enemies)
         {
             enemy.UpdateUI();
         }

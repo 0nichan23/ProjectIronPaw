@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PartyManager : Singleton<PartyManager>
+public class CombatManager : Singleton<CombatManager>
 {
     public List<Character> Heroes;
     public List<Character> Enemies;
@@ -20,8 +20,8 @@ public class PartyManager : Singleton<PartyManager>
     private CardScriptableObject _cardToGetRidOfRef;
     private void Start()
     {
-        Enemies = new List<Character> ( EnemyWrapper.Instance.EnemyController.ControllerChracters );
-        Heroes = new List<Character> ( PlayerWrapper.Instance.PlayerController.ControllerChracters );
+        Enemies = new List<Character>(EnemyWrapper.Instance.EnemyController.ControllerChracters);
+        Heroes = new List<Character>(PlayerWrapper.Instance.PlayerController.ControllerChracters);
         _potentialTargets = new List<Character>();
     }
 
@@ -134,7 +134,7 @@ public class PartyManager : Singleton<PartyManager>
             {
                 card.CardEffect.Targets.Add(target);
             }
-           
+
 
         }
         playingEnemy.Targets.Clear();
@@ -151,7 +151,7 @@ public class PartyManager : Singleton<PartyManager>
     #region Player Functions
     public void PlayCard(Character playingCharacter, CardScriptableObject card)
     {
-        
+
         ClearCachedCharacters();
         TurnOffAllButtons();
         CardEffect cardEffectRef = card.CardEffect;
@@ -272,7 +272,7 @@ public class PartyManager : Singleton<PartyManager>
 
     private IEnumerator WaitUntilHeroIsClickedUltimate()
     {
-        if(PlayerWrapper.Instance.PlayerController.UltimateReady)
+        if (PlayerWrapper.Instance.PlayerController.UltimateReady)
         {
             UIManager.Instance.ToggleSelectionCanvas(true, "Select a Hero");
             TurnOnAllHeroButtons();
@@ -282,7 +282,7 @@ public class PartyManager : Singleton<PartyManager>
             UIManager.Instance.ToggleSelectionCanvas(false, null);
             ((Hero)SelectedCharacter).PerformUltimate();
             SelectedCharacter = null;
-        }        
+        }
     }
 
     public IEnumerator WaitUntilHeroIsClickedPlayCard(CardScriptableObject card)
@@ -312,10 +312,10 @@ public class PartyManager : Singleton<PartyManager>
         _pointerList = null;
         TurnOffAllButtons();
         ClearCachedCharacters();
-        if(SelectedCardUI)
+        if (SelectedCardUI)
         {
             SelectedCardUI.DeselectCard();
-        }        
+        }
         UIManager.Instance.ToggleSelectionCanvas(false, null);
     }
     #endregion
@@ -357,22 +357,24 @@ public class PartyManager : Singleton<PartyManager>
 
         _pointerList = null;
     }
-    
+
     private IEnumerator PlayCardAnimationSync(Character playingCharacter, CardScriptableObject card, CardEffect cardEffectRef, CardUI cardUI)
     {
-        /* CardCleanup step 1: */ CardUICleanup(playingCharacter, card, cardEffectRef, cardUI);
+        /* CardCleanup step 1: */
+        CardUICleanup(playingCharacter, card, cardEffectRef, cardUI);
         if (card.CardType == CardType.Attack)
         {
             playingCharacter.PlayAnimation(card.CardType);
-            
+
             yield return new WaitUntil(() => playingCharacter.ReachedAnimationSyncFrame);
         }
         AudioManager.Instance.Play(AudioManager.Instance.SfxClips[7]);
         playingCharacter.ReachedAnimationSyncFrame = false;
         cardEffectRef.PlayEffect(playingCharacter, card);
-        /* CardCleanup step 2: */ CardSOCleanup(playingCharacter);
-        
-        if(playingCharacter.Controller is PlayerController)
+        /* CardCleanup step 2: */
+        CardSOCleanup(playingCharacter);
+
+        if (playingCharacter.Controller is PlayerController)
         {
             if (IsPlayerOutOfActions(playingCharacter))
             {
@@ -386,7 +388,7 @@ public class PartyManager : Singleton<PartyManager>
     {
         PlayerController playerController = (PlayerController)playingCharacter.Controller;
 
-        if(playingCharacter.Hand.Cards.Count == 0)
+        if (playingCharacter.Hand.Cards.Count == 0)
         {
             return true;
         }
@@ -400,7 +402,7 @@ public class PartyManager : Singleton<PartyManager>
                     {
                         if (hero.CurrentAp > 0 || card.IsSwift)
                         {
-                            if(card.CheckCardAndHeroColors(hero))
+                            if (card.CheckCardAndHeroColors(hero))
                             {
                                 return false;
                             }
@@ -420,7 +422,7 @@ public class PartyManager : Singleton<PartyManager>
         _cardToGetRidOfRef.SpendResources(playingCharacter);
         if (cardUI != null)
         {
-            cardUI.DestroyTheHeretic();       
+            cardUI.DestroyTheHeretic();
         }
         TurnOffAllButtons();
         ReInitHand();
@@ -436,7 +438,7 @@ public class PartyManager : Singleton<PartyManager>
     {
         GameObject Hand = PlayerWrapper.Instance.PlayerController.Hand.gameObject;
         for (int i = 0; i < Hand.transform.childCount; i++)
-        {           
+        {
             Hand.transform.GetChild(i).GetComponent<CardUI>().DestroyTheHeretic();
         }
 
@@ -444,7 +446,7 @@ public class PartyManager : Singleton<PartyManager>
         {
             card.CreateCardDisplay();
         }
-    }    
+    }
 
     private void ClearCachedCharacters()
     {
@@ -475,7 +477,7 @@ public class PartyManager : Singleton<PartyManager>
             }
         }
     }
-    
+
     private void TurnOnAllCachedButtons(ColorIdentity color)
     {
         foreach (var character in _potentialTargets)

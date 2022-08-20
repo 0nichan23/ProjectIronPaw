@@ -12,7 +12,7 @@ public class Hero : Character
     {
         Controller.OnStartTurn += InvokeStartTurn;
         Controller.OnEndTurn += InvokeEndTurn;
-        OnRecieveTaunt += PartyManager.Instance.EnemiesRerollTargetsForNewTaunts;
+        OnRecieveTaunt += CombatManager.Instance.EnemiesRerollTargetsForNewTaunts;
 
         _profile.SubscribePassive();
     }

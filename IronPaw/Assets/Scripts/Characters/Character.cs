@@ -219,7 +219,7 @@ public abstract class Character : MonoBehaviour
 
     public void SelectCharacter()
     {
-        PartyManager.Instance.SelectedCharacter = this;
+        CombatManager.Instance.SelectedCharacter = this;
     }
 
     public void GainBlock(int amount)
@@ -308,11 +308,11 @@ public abstract class Character : MonoBehaviour
         
         if (this is Hero)
         {
-            PartyManager.Instance.Heroes.Remove(this);
+            CombatManager.Instance.Heroes.Remove(this);
         }
         else if (this is Enemy)
         {
-            PartyManager.Instance.Enemies.Remove(this);
+            CombatManager.Instance.Enemies.Remove(this);
         }
 
         StartCoroutine(WaitUntillDeathAnimationEnd());
@@ -378,14 +378,14 @@ public abstract class Character : MonoBehaviour
         VFXManager.Instance.CreateDeathParticle(transform.position);
         if (this is Hero)
         {
-            if (PartyManager.Instance.Heroes.Count == 0)
+            if (CombatManager.Instance.Heroes.Count == 0)
             {
                 TurnManager.Instance.LoseGame();
             }
         }
         else if (this is Enemy)
         {
-            if (PartyManager.Instance.Enemies.Count == 0)
+            if (CombatManager.Instance.Enemies.Count == 0)
             {
                 TurnManager.Instance.WinGame();
             }

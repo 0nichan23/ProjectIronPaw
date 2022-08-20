@@ -42,7 +42,6 @@ public abstract class Controller : MonoBehaviour
     private void UpdateDataTracker(CardScriptableObject card, DataTracker dataTracker)
     {
         dataTracker.NumberOfCardsPlayed++;
-        Debug.Log(dataTracker.NumberOfCardsPlayed);
         switch(card.CardType)
         {
             case CardType.Attack:

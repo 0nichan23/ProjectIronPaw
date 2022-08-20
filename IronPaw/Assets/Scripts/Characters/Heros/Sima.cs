@@ -13,7 +13,7 @@ public class Sima : HeroProfile
     public override void Ultimate()
     {
         _character.Animator.SetTrigger("Ult");
-        foreach (var hero in PartyManager.Instance.Heroes)
+        foreach (var hero in CombatManager.Instance.Heroes)
         {
             hero.Heal(_ultimateHealAmount, _character);
 

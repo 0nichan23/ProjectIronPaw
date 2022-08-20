@@ -217,10 +217,10 @@ public class CardUI : MonoBehaviour
     public void OnClick()
     {
         //play card normally
-        if (CardSO.CheckCardValidity() && this != PartyManager.Instance.SelectedCardUI)
+        if (CardSO.CheckCardValidity() && this != CombatManager.Instance.SelectedCardUI)
         {
             SelectCard();
-            StartCoroutine(PartyManager.Instance.WaitUntilHeroIsClickedPlayCard(CardSO));
+            StartCoroutine(CombatManager.Instance.WaitUntilHeroIsClickedPlayCard(CardSO));
         }
         else
         {
@@ -228,7 +228,7 @@ public class CardUI : MonoBehaviour
             // We dont want to play this sound inside of DeselectCard because SelectCard also invokes DeselectCard,
             // which will make the soundclip play twice
             AudioManager.Instance.Play(AudioManager.Instance.SfxClips[4]); 
-            PartyManager.Instance.CancelCard();
+            CombatManager.Instance.CancelCard();
         }
     }
 
@@ -274,16 +274,16 @@ public class CardUI : MonoBehaviour
         AudioManager.Instance.Play(AudioManager.Instance.SfxClips[4]);
         DeselectCard();
         
-        PartyManager.Instance.SelectedCardUI = this;
+        CombatManager.Instance.SelectedCardUI = this;
         HighlightSelectedCard();
     }
 
     public void DeselectCard()
     {
-        if (PartyManager.Instance.SelectedCardUI)
+        if (CombatManager.Instance.SelectedCardUI)
         {
-            PartyManager.Instance.SelectedCardUI.DehighlightSelectedCard();
-            PartyManager.Instance.SelectedCardUI = null;
+            CombatManager.Instance.SelectedCardUI.DehighlightSelectedCard();
+            CombatManager.Instance.SelectedCardUI = null;
         }
     }
 

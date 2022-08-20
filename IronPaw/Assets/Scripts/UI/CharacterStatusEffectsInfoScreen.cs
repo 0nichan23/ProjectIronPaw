@@ -42,21 +42,21 @@ public class CharacterStatusEffectsInfoScreen : MonoBehaviour
 
         if (givenCharacter is Hero)
         {
-            pointerList = PartyManager.Instance.Heroes;
+            pointerList = CombatManager.Instance.Heroes;
             pointerContainer = _heroesContainer;
         }
         else if (givenCharacter is Enemy)
         {
-            pointerList = PartyManager.Instance.Enemies;
+            pointerList = CombatManager.Instance.Enemies;
             pointerContainer = _enemiesContainer;
         }
 
-        for (int i = 0; i < PartyManager.Instance.Heroes.Count; i++)
+        for (int i = 0; i < CombatManager.Instance.Heroes.Count; i++)
         {
             _heroesContainer.transform.GetChild(i).gameObject.SetActive(false);
         }
 
-        for (int i = 0; i < PartyManager.Instance.Enemies.Count; i++)
+        for (int i = 0; i < CombatManager.Instance.Enemies.Count; i++)
         {
             _enemiesContainer.transform.GetChild(i).gameObject.SetActive(false);
         }

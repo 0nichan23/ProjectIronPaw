@@ -76,7 +76,7 @@ public class CardScriptableObject : ScriptableObject
     {
         List<Character> cachedHeroes = new List<Character>();
 
-        PartyManager.Instance.TurnOffAllButtons();
+        CombatManager.Instance.TurnOffAllButtons();
 
         if (PlayerWrapper.Instance.PlayerController.CurrentEnergy < EnergyCost)
         {

@@ -26,7 +26,7 @@ public class DropZone : MonoBehaviour, IDropHandler
                  * inst valid (example: not enough energy, no valid heroes, etc), in which case we might want to return the card display to 
                  * Hand or something
                  */
-                StartCoroutine(PartyManager.Instance.WaitUntilHeroIsClickedPlayCard(cardUI.CardSO));            
+                StartCoroutine(CombatManager.Instance.WaitUntilHeroIsClickedPlayCard(cardUI.CardSO));            
             }
         }
     }

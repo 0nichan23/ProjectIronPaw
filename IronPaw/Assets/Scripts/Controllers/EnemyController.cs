@@ -45,7 +45,7 @@ public class EnemyController : Controller
                     // if(targets still legal) => 
                     if(enemy.AreTargetsStillAlive()) // Skip current enemy turn if  no legal targets
                     {
-                        PartyManager.Instance.EnemyPlayCard(enemy, playedCard);
+                        CombatManager.Instance.EnemyPlayCard(enemy, playedCard);
                     }
                     else
                     {
@@ -72,7 +72,7 @@ public class EnemyController : Controller
                 enemy.Deck.Draw();
                 if(enemy.Hand.Cards.Count > 0)
                 {
-                    PartyManager.Instance.EnemyAcquireTargets(enemy, enemy.Hand.Cards[0]);
+                    CombatManager.Instance.EnemyAcquireTargets(enemy, enemy.Hand.Cards[0]);
                     if (enemy.RefSlot.IntentionDisplayer != null)
                     {
                         enemy.RefSlot.IntentionDisplayer.DisplayIntention(enemy.Targets, enemy.Hand.Cards[0]);
@@ -96,7 +96,7 @@ public class EnemyController : Controller
                 if (enemy.Hand.Cards.Count > 0)
                 {
                     enemy.Hand.Cards[0].CardEffect.InitializePlayEffect(enemy);
-                    PartyManager.Instance.EnemyAcquireTargets(enemy, enemy.Hand.Cards[0]);
+                    CombatManager.Instance.EnemyAcquireTargets(enemy, enemy.Hand.Cards[0]);
                     if (enemy.RefSlot.IntentionDisplayer != null)
                     {
                         enemy.RefSlot.IntentionDisplayer.DisplayIntention(enemy.Targets, enemy.Hand.Cards[0], enemy);

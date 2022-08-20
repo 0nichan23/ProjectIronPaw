@@ -29,16 +29,16 @@ public class TurnManager : Singleton<TurnManager>
         _playerController = PlayerWrapper.Instance.PlayerController;
         _enemyController = EnemyWrapper.Instance.EnemyController;
 
-        foreach (Enemy enemy in PartyManager.Instance.Enemies)
+        foreach (Enemy enemy in CombatManager.Instance.Enemies)
         {
             _enemies.Add(enemy);
         }
-        foreach (Hero hero in PartyManager.Instance.Heroes)
+        foreach (Hero hero in CombatManager.Instance.Heroes)
         {
             _heroes.Add(hero);
         }
-        _enemyController.OnEndTurn += PartyManager.Instance.ResetRerollForTaunt;
-        _playerController.OnEndTurn += PartyManager.Instance.ResetRerollForTaunt;
+        _enemyController.OnEndTurn += CombatManager.Instance.ResetRerollForTaunt;
+        _playerController.OnEndTurn += CombatManager.Instance.ResetRerollForTaunt;
         _runningTurnLoop = StartCoroutine(TurnLoop());
     }
 

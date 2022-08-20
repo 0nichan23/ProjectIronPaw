@@ -63,7 +63,7 @@ public class CharacterCanvas : MonoBehaviour
 
         if(UIManager.Instance.SelectionCanvas)
         {
-            PartyManager.Instance.CancelCard();
+            CombatManager.Instance.CancelCard();
         }
     }
 
