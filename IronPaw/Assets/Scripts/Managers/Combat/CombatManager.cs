@@ -159,7 +159,7 @@ public class CombatManager : Singleton<CombatManager>
         CardUI cardUI = null;
         if (playingCharacter is Hero)
         {
-            cardUI = card.CardDisplay.GetComponent<CardUI>();
+            cardUI = card.CardUI;
         }
 
         switch (cardEffectRef.TargetType)
@@ -425,7 +425,7 @@ public class CombatManager : Singleton<CombatManager>
             cardUI.DestroyTheHeretic();
         }
         TurnOffAllButtons();
-        ReInitHand();
+        //ReInitHand(); // TODO: Get rid of this shite
         UIManager.Instance.ToggleSelectionCanvas(false, null);
     }
 

@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Card : MonoBehaviour
-{ 
+{
     public string CardName;
     public string Description;
     public ColorIdentity[] Colors;
@@ -16,7 +16,7 @@ public class Card : MonoBehaviour
     public bool IsUsable;
     public Sprite Artwork;
     public CardType CardType;
-    public GameObject CardDisplay;
+    public CardUI CardUI;
     public List<KeyWords> Keywords = new List<KeyWords>();
     public UtilityBuffType BuffType;
 

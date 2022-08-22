@@ -70,7 +70,7 @@ public class Hand : MonoBehaviour
 
     public void ClearCard(Card card)
     {
-        Destroy(card.CardDisplay);
+        Destroy(card.CardUI);
         RemoveCard(card);
         DiscardPile.AddCardToPile(card);
     }

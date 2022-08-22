@@ -26,23 +26,70 @@ public class TurnManager : Singleton<TurnManager>
 
     private void Start()
     {
+        //_playerController = PlayerWrapper.Instance.PlayerController;
+        //_enemyController = EnemyWrapper.Instance.EnemyController;
+
+        //foreach (Enemy enemy in CombatManager.Instance.Enemies)
+        //{
+        //    _enemies.Add(enemy);
+        //}
+        //foreach (Hero hero in CombatManager.Instance.Heroes)
+        //{
+        //    _heroes.Add(hero);
+        //}
+        //_enemyController.OnEndTurn += CombatManager.Instance.ResetRerollForTaunt;
+        //_playerController.OnEndTurn += CombatManager.Instance.ResetRerollForTaunt;
+        //_runningTurnLoop = StartCoroutine(TurnLoop());
+
+        StartCoroutine(SetupGame());
+    }
+
+    IEnumerator SetupGame()
+    {
+        Debug.Log("Setting Up Game...");
         _playerController = PlayerWrapper.Instance.PlayerController;
         _enemyController = EnemyWrapper.Instance.EnemyController;
+
+        List<Deck> setupDecks = new List<Deck>();
 
         foreach (Enemy enemy in CombatManager.Instance.Enemies)
         {
             _enemies.Add(enemy);
+            setupDecks.Add(enemy.Deck);
         }
+
+        setupDecks.Add(PlayerWrapper.Instance.PlayerController.Deck);
         foreach (Hero hero in CombatManager.Instance.Heroes)
         {
             _heroes.Add(hero);
         }
         _enemyController.OnEndTurn += CombatManager.Instance.ResetRerollForTaunt;
         _playerController.OnEndTurn += CombatManager.Instance.ResetRerollForTaunt;
+
+
+        // Waiting for all decks to be ready before starting game-loop
+        bool areAllDecksSetup = false;
+
+        while(!areAllDecksSetup)
+        {
+            Debug.Log("Setting Up Decks...");
+            yield return new WaitForEndOfFrame();
+            int numberOfSetupDecks = 0;
+            foreach (var deck in setupDecks)
+            {
+                if(deck.IsReady)
+                {
+                    numberOfSetupDecks++;
+                }
+            }
+            if(numberOfSetupDecks == setupDecks.Count)
+            {
+                areAllDecksSetup = true;
+            }            
+        }
+
         _runningTurnLoop = StartCoroutine(TurnLoop());
     }
-
-
 
     IEnumerator TurnLoop()
     {

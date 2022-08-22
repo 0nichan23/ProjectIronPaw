@@ -6,15 +6,23 @@ public class Deck : CardPile
     [SerializeField]
     private DiscardPile _discardPile;
 
+    [SerializeField] private List<Card> _cardsRef; // for debugging through inspector
+
+    private bool _isReady;
+
+    // Will be removed/Initialized differently when deck building is a thing
+    [SerializeField] private List<GameObject> _cardsGiven = new List<GameObject>();
+    [SerializeField] private List<DeckSO> _decksGiven = new List<DeckSO>();
+
+    public bool IsReady { get => _isReady; set => _isReady = value; }
+
     private void Start()
     {
         InitDeck();
         Shuffle();
     }
 
-    // Will be removed/Initialized differently when deck building is a thing
-    [SerializeField] private List<GameObject> _cardsGiven = new List<GameObject>();
-    [SerializeField] private List<DeckSO> _decksGiven = new List<DeckSO>();
+    
 
     public override void Draw()
     {
@@ -54,8 +62,12 @@ public class Deck : CardPile
             foreach (GameObject cardGO in deck.Cards)
             {
                 GameObject newCard = Instantiate(cardGO, this.transform);
-                _cards.Push(newCard.GetComponent<Card>());
+                var newCardComp = newCard.GetComponent<Card>();
+                _cards.Push(newCardComp);
+                _cardsRef.Add(newCardComp); // for debugging through inspector
             }
         }
+
+        IsReady = true;
     }
 }
