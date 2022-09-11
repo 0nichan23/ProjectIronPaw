@@ -361,7 +361,7 @@ public class CombatManager : Singleton<CombatManager>
     private IEnumerator PlayCardAnimationSync(Character playingCharacter, Card card, CardEffect cardEffectRef, CardUI cardUI)
     {
         /* CardCleanup step 1: */
-        CardUICleanup(playingCharacter, card, cardEffectRef, cardUI);
+        CardUICleanup(playingCharacter, card, cardEffectRef);
         if (card.CardType == CardType.Attack)
         {
             playingCharacter.PlayAnimation(card.CardType);
@@ -415,9 +415,10 @@ public class CombatManager : Singleton<CombatManager>
         }
     }
 
-    private void CardUICleanup(Character playingCharacter, Card card, CardEffect cardEffectRef, CardUI cardUI)
+    private void CardUICleanup(Character playingCharacter, Card card, CardEffect cardEffectRef)
     {
         _cardToGetRidOfRef = card;
+        _cardToGetRidOfRef.CardUI.DeselectCard();
         playingCharacter.Hand.RemoveCard(card);
         _cardToGetRidOfRef.SpendResources(playingCharacter);
 
