@@ -420,10 +420,8 @@ public class CombatManager : Singleton<CombatManager>
         _cardToGetRidOfRef = card;
         playingCharacter.Hand.RemoveCard(card);
         _cardToGetRidOfRef.SpendResources(playingCharacter);
-        if (cardUI != null)
-        {
-            cardUI.DestroyTheHeretic();
-        }
+
+        _cardToGetRidOfRef.gameObject.SetActive(false);
         TurnOffAllButtons();
         //ReInitHand(); // TODO: Get rid of this shite
         UIManager.Instance.ToggleSelectionCanvas(false, null);

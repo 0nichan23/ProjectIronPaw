@@ -29,6 +29,8 @@ public class Hand : MonoBehaviour
 
         if (_controller == PlayerWrapper.Instance.PlayerController)
         {
+            givenCard.transform.parent = this.transform;
+            givenCard.gameObject.SetActive(true);
             givenCard.SetCardDisplay();
             ToggleScrollableHand();
         }
@@ -49,6 +51,7 @@ public class Hand : MonoBehaviour
         Cards.Remove(givenCard);
         if (_controller == PlayerWrapper.Instance.PlayerController)
         {
+            givenCard.gameObject.SetActive(false);
             ToggleScrollableHand();
         }
 
@@ -70,7 +73,7 @@ public class Hand : MonoBehaviour
 
     public void ClearCard(Card card)
     {
-        Destroy(card.CardUI);
+
         RemoveCard(card);
         DiscardPile.AddCardToPile(card);
     }

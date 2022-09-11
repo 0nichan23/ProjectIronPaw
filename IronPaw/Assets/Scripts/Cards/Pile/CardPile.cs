@@ -59,6 +59,8 @@ public abstract class CardPile : MonoBehaviour
         {
             Card cardDrawn = Cards.Pop();
 
+
+
             _hand.AddCard(cardDrawn);
 
             OnDrawCard?.Invoke();
@@ -74,6 +76,7 @@ public abstract class CardPile : MonoBehaviour
 
     public virtual void AddCardToPile(Card card)
     {
+        card.gameObject.transform.parent = this.transform;
         _cards.Push(card);
         OnCardAdded?.Invoke();
     }

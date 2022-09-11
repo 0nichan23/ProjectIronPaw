@@ -61,6 +61,11 @@ public class Card : MonoBehaviour
 
     public void SendCardToAppropriatePile(Character playingCharacter)
     {
+        if(transform.parent != null)
+        {
+            transform.parent = null;
+        }
+
         if (IsUsable)
         {
             playingCharacter.ExiledPile.AddCardToPile(this);
