@@ -6631,8 +6631,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PartyManager, Assembly-CSharp
+      - m_Target: {fileID: 1387612409}
+        m_TargetAssemblyTypeName: CombatManager, Assembly-CSharp
         m_MethodName: SelectHeroToUltimate
         m_Mode: 1
         m_Arguments:
