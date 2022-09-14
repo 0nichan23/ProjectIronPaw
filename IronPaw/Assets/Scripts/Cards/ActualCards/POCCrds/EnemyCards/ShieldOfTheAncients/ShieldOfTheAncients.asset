@@ -9,17 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a49c1bbb566c17044a844e5c42c123e5, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b102eb5aa1dec342a12e2ea3754b295, type: 3}
   m_Name: ShieldOfTheAncients
   m_EditorClassIdentifier: 
-  CardName: Shield Of The Ancients
-  Description: Become Immune 1 turn
-  Colors: 04000000
-  Rarity: 0
-  EnergyCost: 1
-  CardEffect: {fileID: 11400000, guid: 581d485b9cab102418bdc7ce2d359b79, type: 2}
-  IsSwift: 0
-  IsUsable: 0
-  Artwork: {fileID: 0}
-  CardType: 1
-  CardDisplay: {fileID: 0}

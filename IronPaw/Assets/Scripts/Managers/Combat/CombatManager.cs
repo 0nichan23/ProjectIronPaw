@@ -154,7 +154,7 @@ public class CombatManager : Singleton<CombatManager>
 
         ClearCachedCharacters();
         TurnOffAllButtons();
-        CardEffect cardEffectRef = card.CardEffect;
+        AbstractCardEffect cardEffectRef = card.CardEffect;
         SelectedCharacter = null;
         CardUI cardUI = null;
         if (playingCharacter is Hero)
@@ -293,7 +293,7 @@ public class CombatManager : Singleton<CombatManager>
         PlayCard(SelectedCharacter, card);
     }
 
-    public IEnumerator WaitUntilTargetIsSelected(Character playingCharacter, Card card, CardEffect cardEffectRef, CardUI cardUI)
+    public IEnumerator WaitUntilTargetIsSelected(Character playingCharacter, Card card, AbstractCardEffect cardEffectRef, CardUI cardUI)
     {
         UIManager.Instance.SelectionCanvas.Title.text = "Select a target";
         yield return new WaitUntil(() => SelectedCharacter != null);
@@ -358,7 +358,7 @@ public class CombatManager : Singleton<CombatManager>
         _pointerList = null;
     }
 
-    private IEnumerator PlayCardAnimationSync(Character playingCharacter, Card card, CardEffect cardEffectRef, CardUI cardUI)
+    private IEnumerator PlayCardAnimationSync(Character playingCharacter, Card card, AbstractCardEffect cardEffectRef, CardUI cardUI)
     {
         /* CardCleanup step 1: */
         CardUICleanup(playingCharacter, card, cardEffectRef);
@@ -415,7 +415,7 @@ public class CombatManager : Singleton<CombatManager>
         }
     }
 
-    private void CardUICleanup(Character playingCharacter, Card card, CardEffect cardEffectRef)
+    private void CardUICleanup(Character playingCharacter, Card card, AbstractCardEffect cardEffectRef)
     {
         _cardToGetRidOfRef = card;
         _cardToGetRidOfRef.CardUI.DeselectCard();

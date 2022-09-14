@@ -11,14 +11,13 @@ public class Card : MonoBehaviour
     public Rarity Rarity;
     public int EnergyCost;
     [SerializeField]
-    public CardEffect CardEffect;
+    public AbstractCardEffect CardEffect;
     public bool IsSwift;
     public bool IsUsable;
     public Sprite Artwork;
     public CardType CardType;
     public CardUI CardUI;
     public List<KeyWords> Keywords = new List<KeyWords>();
-    public UtilityBuffType BuffType;
 
 
 

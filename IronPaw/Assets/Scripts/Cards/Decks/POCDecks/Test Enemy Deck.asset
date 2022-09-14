@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Test Enemy Deck
   m_EditorClassIdentifier: 
   Cards:
-  - {fileID: 8442212764643538765, guid: 0fda3cb578cf86641b390d8ffc131393, type: 3}
+  - {fileID: 4064249980086704721, guid: 5b2d8aa0a60bdbd45b5917b54af41cea, type: 3}

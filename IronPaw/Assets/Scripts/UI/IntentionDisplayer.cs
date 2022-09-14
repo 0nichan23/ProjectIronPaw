@@ -50,7 +50,7 @@ public class IntentionDisplayer : MonoBehaviour
         {
             case CardType.Attack:
                 DamageText.gameObject.SetActive(true);
-                float dmg = playedCard.CardEffect.DamageValue;
+                float dmg = ((AttackCardEffect)(playedCard.CardEffect)).DamageValue;
 
                 if(AreAllTargetsAfflictedByStatusEffect(StatusEffectType.Immune, targets))
                 {

@@ -65,11 +65,13 @@ public class PrefabManager : Singleton<PrefabManager>
                 return IntentionIcons[1];
 
             case CardType.Utility:
-                if (card.BuffType == UtilityBuffType.BUFF)
+                UtilityCardEffect utilityRef = card.CardEffect as UtilityCardEffect;
+
+                if (utilityRef.BuffType == UtilityBuffType.BUFF)
                 {
                     return IntentionIcons[2];
                 }
-                else if(card.BuffType == UtilityBuffType.DEBUFF)
+                else if(utilityRef.BuffType == UtilityBuffType.DEBUFF)
                 {
                     return IntentionIcons[3];
                 }
