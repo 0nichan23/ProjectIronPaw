@@ -175,8 +175,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1107705182379805954}
-  - component: {fileID: 1107705182379805953}
   - component: {fileID: 6578652678727766426}
+  - component: {fileID: 1107705182379805953}
   - component: {fileID: 5762028140752848732}
   m_Layer: 5
   m_Name: CleanCard
@@ -205,6 +205,18 @@ RectTransform:
   m_AnchoredPosition: {x: -20, y: 0}
   m_SizeDelta: {x: 64, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &6578652678727766426
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107705182379805955}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &1107705182379805953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,7 +230,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 5762028140752848732}
-  _colors: 0000000000000000
   _container: {fileID: 921739193436264978}
   _cardSelectedOffset: 20
   _artWorkDisplay: {fileID: 1107705184101646741}
@@ -231,18 +242,6 @@ MonoBehaviour:
   _cardDescDisplay: {fileID: 1107705183418863509}
   _cardTypeDisplay: {fileID: 1107705183517765901}
   _longPressTime: 0.7
---- !u!225 &6578652678727766426
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1107705182379805955}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!114 &5762028140752848732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,7 +266,6 @@ MonoBehaviour:
   CardType: 0
   CardUI: {fileID: 1107705182379805953}
   Keywords: 
-  BuffType: 0
 --- !u!1 &1107705182904120794
 GameObject:
   m_ObjectHideFlags: 0

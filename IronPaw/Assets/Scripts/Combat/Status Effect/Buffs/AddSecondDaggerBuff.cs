@@ -38,6 +38,7 @@ public class AddSecondDaggerBuff : Buff
         {
             //_cardToAddToHand.GenerateCard(_host);
             // TODO: Create GenerateCard() func in Hand Class
+            _host.Hand.GenerateCard(_cardToAddToHand);
             TurnCounter--;
         }        
     }

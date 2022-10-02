@@ -246,6 +246,10 @@ public abstract class Character : MonoBehaviour
 
     public void TakeDmg(Damage damage)
     {
+        if(damage == null)
+        {
+            Debug.Log("damage is null");
+        }
         int amount;
 
         if (IsAfflictedBy(StatusEffectType.Immune))

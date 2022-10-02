@@ -53,21 +53,26 @@ public class Deck : CardPile
     {
         foreach (GameObject cardGO in _cardsGiven)
         {
-            GameObject newCard = Instantiate(cardGO, this.transform);
-            _cards.Push(newCard.GetComponent<Card>());
+            InstantiateNewCardAndAddToDeck(cardGO);
         }
 
         foreach (DeckSO deck in _decksGiven)
         {
             foreach (GameObject cardGO in deck.Cards)
             {
-                GameObject newCard = Instantiate(cardGO, this.transform);
-                var newCardComp = newCard.GetComponent<Card>();
-                _cards.Push(newCardComp);
-                _cardsRef.Add(newCardComp); // for debugging through inspector
+                InstantiateNewCardAndAddToDeck(cardGO);
             }
         }
 
         IsReady = true;
+    }
+
+    private void InstantiateNewCardAndAddToDeck(GameObject cardGO)
+    {
+        GameObject newCard = Instantiate(cardGO, this.transform);
+        newCard.SetActive(false);
+        var newCardComp = newCard.GetComponent<Card>();
+        _cards.Push(newCardComp);
+        _cardsRef.Add(newCardComp); // for debugging through inspector
     }
 }

@@ -2,14 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GuardCardEffect : AbstractCardEffect
+public class ShieldOfTheAncientsCardEffect : GuardCardEffect
 {
-    public int BlockValue;
-
     protected override void PlayCardEffect(Character playingCharacter, Character target)
     {
-        
+        target.AddStatusEffect(new Immune(target, 1));
     }
-
-    
 }

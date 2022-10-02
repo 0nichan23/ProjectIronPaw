@@ -2,14 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GuardCardEffect : AbstractCardEffect
+public class ExtraActionCardEffect : UtilityCardEffect
 {
-    public int BlockValue;
-
     protected override void PlayCardEffect(Character playingCharacter, Character target)
     {
-        
+        target.MaxAp++;
+        target.CurrentAp++;
     }
-
-    
 }

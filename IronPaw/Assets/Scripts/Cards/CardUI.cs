@@ -8,7 +8,7 @@ public class CardUI : MonoBehaviour
 {
     public Card Card;
 
-    [SerializeField] ColorIdentity[] _colors = new ColorIdentity[2];
+    //[SerializeField] ColorIdentity[] _colors = new ColorIdentity[2];
 
     [SerializeField] private RectTransform _container;
     private RectTransform _originalTransform;
@@ -239,7 +239,10 @@ public class CardUI : MonoBehaviour
 
     public void StopHoldingMouse()
     {
-        StopCoroutine(_runningCoroutine);
+        if(_runningCoroutine != null)
+        {
+            StopCoroutine(_runningCoroutine);
+        }        
     }
 
     private IEnumerator CountTimeHeld()

@@ -11,6 +11,7 @@ public abstract class AbstractCardEffect : MonoBehaviour
 
     public void PlayEffect(Character playingCharacter, Card card)
     {
+        InitializePlayEffect(playingCharacter); // Is mostly used in attack cards
 
         foreach (var target in Targets)
         {
