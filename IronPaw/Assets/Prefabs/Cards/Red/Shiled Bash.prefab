@@ -101,15 +101,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1107705182379805955, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: m_Name
-      value: Cleaving Strike
+      value: Shiled Bash
+      objectReference: {fileID: 0}
+    - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
+      propertyPath: Rarity
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: Artwork
       value: 
-      objectReference: {fileID: 21300000, guid: 3db43eaab8072e74bb3453b394f12317, type: 3}
+      objectReference: {fileID: 21300000, guid: 7b820b8835b2ea641a83b95f53daa763, type: 3}
+    - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
+      propertyPath: IsSwift
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: CardName
-      value: Cleaving Strike
+      value: Shield Bash
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: CardType
@@ -118,15 +126,14 @@ PrefabInstance:
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: CardEffect
       value: 
-      objectReference: {fileID: 9029597465148151019}
+      objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: EnergyCost
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: Description
-      value: Deal 10 Damage. If this kills a unit, gain one more Action Point and
-        one more Energy this turn only.
+      value: Deal Damage equal to the Hero's Block.
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: Colors.Array.size
@@ -134,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: Keywords.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: Colors.Array.data[0]
@@ -142,7 +149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: Keywords.Array.data[0]
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: Keywords.Array.data[1]
@@ -150,23 +157,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
---- !u!1 &7529883286500568312 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1107705182379805955, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
-  m_PrefabInstance: {fileID: 7431184622083367419}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &9029597465148151019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7529883286500568312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41acd995bd3315b46a0b3dd7b7a0b20d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TargetType: 5
-  Targets: []
-  DamageValue: 10

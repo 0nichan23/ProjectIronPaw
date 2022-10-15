@@ -101,32 +101,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1107705182379805955, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: m_Name
-      value: Cleaving Strike
+      value: Thorns of the First One
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: Artwork
       value: 
-      objectReference: {fileID: 21300000, guid: 3db43eaab8072e74bb3453b394f12317, type: 3}
+      objectReference: {fileID: 21300000, guid: b8cc182f1cc3aa34cabcd79ba15268ff, type: 3}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: CardName
-      value: Cleaving Strike
+      value: Thorns of the First One
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: CardType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
+      propertyPath: IsUsable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: CardEffect
       value: 
-      objectReference: {fileID: 9029597465148151019}
+      objectReference: {fileID: 8481401395408043436}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: EnergyCost
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: Description
-      value: Deal 10 Damage. If this kills a unit, gain one more Action Point and
-        one more Energy this turn only.
+      value: A Hero gains 3 Thorns.
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: Colors.Array.size
@@ -134,19 +137,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: Keywords.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: Colors.Array.data[0]
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: Keywords.Array.data[0]
-      value: 7
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: Keywords.Array.data[1]
-      value: 12
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
@@ -155,7 +158,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1107705182379805955, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
   m_PrefabInstance: {fileID: 7431184622083367419}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9029597465148151019
+--- !u!114 &8481401395408043436
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,9 +167,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7529883286500568312}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41acd995bd3315b46a0b3dd7b7a0b20d, type: 3}
+  m_Script: {fileID: 11500000, guid: 83ce7d7c20551b14f928202f56cc1312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetType: 5
+  TargetType: 1
   Targets: []
-  DamageValue: 10
+  BuffType: 1
