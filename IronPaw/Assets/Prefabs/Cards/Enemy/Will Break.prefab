@@ -118,7 +118,7 @@ PrefabInstance:
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: CardEffect
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3514900027470768432}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: EnergyCost
       value: 1
