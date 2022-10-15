@@ -101,19 +101,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1107705182379805955, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: m_Name
-      value: Second Dagger
+      value: Regenerate
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: Artwork
       value: 
-      objectReference: {fileID: 21300000, guid: d4a60ac003892804789509e78beff20f, type: 3}
-    - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
-      propertyPath: IsSwift
-      value: 1
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300000, guid: 7ada1a9f01c5f5e44a382d35c404acb9, type: 3}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: CardName
-      value: Second Dagger
+      value: Regenerate
+      objectReference: {fileID: 0}
+    - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
+      propertyPath: CardType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: IsUsable
@@ -122,18 +122,18 @@ PrefabInstance:
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: CardEffect
       value: 
-      objectReference: {fileID: 6889029137569990837}
+      objectReference: {fileID: 1679077703264255645}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: EnergyCost
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: Description
-      value: Deal 3 Damage
+      value: A Hero gains regenerate 3.
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: Colors.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: Keywords.Array.size
@@ -141,23 +141,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: Colors.Array.data[0]
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
+      propertyPath: Colors.Array.data[1]
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: Keywords.Array.data[0]
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: Keywords.Array.data[1]
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: Keywords.Array.data[2]
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
-      propertyPath: Keywords.Array.data[3]
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
@@ -166,7 +166,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1107705182379805955, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
   m_PrefabInstance: {fileID: 7431184622083367419}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6889029137569990837
+--- !u!114 &1679077703264255645
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,9 +175,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7529883286500568312}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53f05a8107779274d9fcb53c6f452dab, type: 3}
+  m_Script: {fileID: 11500000, guid: 1403d1d67b577fa4e92748c151d14997, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetType: 5
+  TargetType: 1
   Targets: []
-  DamageValue: 3
+  BuffType: 1

@@ -29,7 +29,7 @@ public class Hand : MonoBehaviour
 
         if (_controller == PlayerWrapper.Instance.PlayerController)
         {
-            givenCard.transform.parent = this.transform;
+            //givenCard.transform.parent = this.transform;
             givenCard.gameObject.SetActive(true);
             givenCard.SetCardDisplay();
             ToggleScrollableHand();
@@ -42,8 +42,8 @@ public class Hand : MonoBehaviour
          * NEVER HAVE A CARD CREATE ANOTHER COPY OF ITSELF, BROKEN AS FUCK FOR SOME REASON, REQUESTING ASSISTANCE
          * TODO: Figure why this is the case
          */
-        Instantiate(cardPrefab);
-        AddCard(cardPrefab.GetComponent<Card>());
+        GameObject generatedCard = Instantiate(cardPrefab, this.transform);
+        AddCard(generatedCard.GetComponent<Card>());
     }
 
     public void RemoveCard(Card givenCard)
