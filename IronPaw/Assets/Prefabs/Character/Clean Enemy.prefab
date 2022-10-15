@@ -94,10 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d895bed4de2d184392f07249fdb4a8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Deck: {fileID: 132347764164005086}
-  DiscardPile: {fileID: 4453381674556464421}
-  ExiledPile: {fileID: 4040012996174254967}
-  Hand: {fileID: 1570805480558081713}
   colors: 04000000
   _maxHp: 0
   _currentHp: 0
@@ -106,23 +102,27 @@ MonoBehaviour:
   _amountOfBlockToLose: 0
   _currentAp: 0
   _maxAp: 0
-  _refSlot: {fileID: 3494135861631794905}
-  animator: {fileID: 0}
   _reachedAnimationSyncFrame: 0
+  DoneDying: 0
   _passiveDescription: 
   _ultimateDescription: 
-  DoneDying: 0
-  _button: {fileID: 193671762965882355}
-  CharacterSprite: {fileID: 0}
-  _controller: {fileID: 0}
   _stats:
     Strength: 0
     Dexterity: 0
     Intelligence: 0
     Faith: 0
+  _refSlot: {fileID: 3494135861631794905}
   popupManager: {fileID: 8206415409656420217}
-  IsAlive: 1
+  _button: {fileID: 193671762965882355}
+  _controller: {fileID: 0}
+  Deck: {fileID: 132347764164005086}
+  DiscardPile: {fileID: 4453381674556464421}
+  ExiledPile: {fileID: 4040012996174254967}
+  Hand: {fileID: 1570805480558081713}
+  CharacterSprite: {fileID: 0}
   _outline: {fileID: 0}
+  animator: {fileID: 0}
+  IsAlive: 1
   Targets: []
   _profile: {fileID: 0}
 --- !u!114 &132347764164005086
@@ -139,9 +139,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hand: {fileID: 1570805480558081713}
   _controller: {fileID: 0}
+  _discardPile: {fileID: 4453381674556464421}
+  _cardsRef: []
   _cardsGiven: []
   _decksGiven: []
-  _discardPile: {fileID: 4453381674556464421}
 --- !u!114 &1570805480558081713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,8 +174,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hand: {fileID: 1570805480558081713}
   _controller: {fileID: 0}
-  _cardsGiven: []
-  _decksGiven: []
 --- !u!114 &4040012996174254967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,8 +188,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hand: {fileID: 1570805480558081713}
   _controller: {fileID: 0}
-  _cardsGiven: []
-  _decksGiven: []
 --- !u!1 &8918401724697547641
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,7 +535,7 @@ PrefabInstance:
     - target: {fileID: 3525306344791199245, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
       propertyPath: _character
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6539426334840520380}
     - target: {fileID: 4051039046034293481, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
       propertyPath: m_Name
       value: DisplayZone
@@ -658,7 +655,7 @@ PrefabInstance:
     - target: {fileID: 8969792705910281527, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
       propertyPath: _character
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6539426334840520380}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9e896e1796c0674ea96e5c9324a4d84, type: 3}
 --- !u!4 &4029595562022890037 stripped

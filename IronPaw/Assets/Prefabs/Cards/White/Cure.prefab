@@ -129,8 +129,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: Description
-      value: Heal a Hero for 3. If that Hero had any Debuffs, remove them and it
-        gains 3 Block for every debuff removed this way.
+      value: Heal a Hero for 3 & remove all debuffs. It gains 3 Block for every debuff
+        removed.
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: Colors.Array.size

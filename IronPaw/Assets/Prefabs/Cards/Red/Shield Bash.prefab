@@ -101,7 +101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1107705182379805955, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: m_Name
-      value: Shiled Bash
+      value: Shield Bash
       objectReference: {fileID: 0}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: Rarity
@@ -126,7 +126,7 @@ PrefabInstance:
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: CardEffect
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 523766054496884420}
     - target: {fileID: 5762028140752848732, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
       propertyPath: EnergyCost
       value: 0
@@ -157,3 +157,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
+--- !u!1 &7529883286500568312 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1107705182379805955, guid: dc7a84e9d1176cc4e88721d5788abf0b, type: 3}
+  m_PrefabInstance: {fileID: 7431184622083367419}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &523766054496884420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7529883286500568312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32a24f66f85430c43a47e7801aee79f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetType: 5
+  Targets: []
+  DamageValue: 0
