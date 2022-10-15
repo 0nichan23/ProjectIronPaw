@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: SimaBasicDeck
   m_EditorClassIdentifier: 
   Cards:
-  - {fileID: 11400000, guid: 8823a42d6de9ec144b2899207867826c, type: 2}
-  - {fileID: 11400000, guid: 8823a42d6de9ec144b2899207867826c, type: 2}
-  - {fileID: 11400000, guid: 78accdfa171f72e40b588588665e1067, type: 2}
-  - {fileID: 11400000, guid: 78accdfa171f72e40b588588665e1067, type: 2}
-  - {fileID: 11400000, guid: 2b5d32ceb1cc8bf4ca6f25eec8b6fe1f, type: 2}
-  - {fileID: 11400000, guid: 52a604842ed3998408b4abebe2b4fdce, type: 2}
-  - {fileID: 11400000, guid: 9652aefa8a3fad74b95a50859f82a1c5, type: 2}
-  - {fileID: 11400000, guid: 56f3c13e16fd45a4ab6379f3e1d8226a, type: 2}
-  - {fileID: 11400000, guid: 2aaff3692a4d6e542ae401e05e909da6, type: 2}
-  - {fileID: 11400000, guid: efb97a0f5c4019648b255e3e13abf206, type: 2}
+  - {fileID: 7529883286500568312, guid: b9f887bbd21c396489861de1b01cc335, type: 3}
+  - {fileID: 7529883286500568312, guid: b9f887bbd21c396489861de1b01cc335, type: 3}
+  - {fileID: 7529883286500568312, guid: a10792ea3c9060c4e825b520f043dca7, type: 3}
+  - {fileID: 7529883286500568312, guid: a10792ea3c9060c4e825b520f043dca7, type: 3}
+  - {fileID: 7529883286500568312, guid: 48b97fa66053a6a44b13f88886f8ef20, type: 3}
+  - {fileID: 7529883286500568312, guid: ad0b67739164fdf4189c44dbb2576edd, type: 3}
+  - {fileID: 7529883286500568312, guid: cba00ee399985054a8e4eac501d81643, type: 3}
+  - {fileID: 7529883286500568312, guid: 6a966887516d0b548a6722e81ffc29d2, type: 3}
+  - {fileID: 7529883286500568312, guid: 706d8f541fc9c4b43b0a28ffb837a7b7, type: 3}
+  - {fileID: 7529883286500568312, guid: 34a445532fb10b94ba6667dd18f91e20, type: 3}

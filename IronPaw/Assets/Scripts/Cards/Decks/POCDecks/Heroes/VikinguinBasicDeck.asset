@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: VikinguinBasicDeck
   m_EditorClassIdentifier: 
   Cards:
-  - {fileID: 11400000, guid: 8823a42d6de9ec144b2899207867826c, type: 2}
-  - {fileID: 11400000, guid: 8823a42d6de9ec144b2899207867826c, type: 2}
-  - {fileID: 11400000, guid: 78accdfa171f72e40b588588665e1067, type: 2}
-  - {fileID: 11400000, guid: 78accdfa171f72e40b588588665e1067, type: 2}
-  - {fileID: 11400000, guid: 450d9a2f6c303974c8384f0cce321791, type: 2}
-  - {fileID: 11400000, guid: 450d9a2f6c303974c8384f0cce321791, type: 2}
-  - {fileID: 11400000, guid: be968eeadd199ff42ac3af452457bdc9, type: 2}
-  - {fileID: 11400000, guid: be968eeadd199ff42ac3af452457bdc9, type: 2}
-  - {fileID: 11400000, guid: 5a58791b5b62b7143a775932f3b38093, type: 2}
-  - {fileID: 11400000, guid: 14d9f01ae7fb4cc4fac8cace7df06348, type: 2}
+  - {fileID: 7529883286500568312, guid: b9f887bbd21c396489861de1b01cc335, type: 3}
+  - {fileID: 7529883286500568312, guid: b9f887bbd21c396489861de1b01cc335, type: 3}
+  - {fileID: 7529883286500568312, guid: a10792ea3c9060c4e825b520f043dca7, type: 3}
+  - {fileID: 7529883286500568312, guid: a10792ea3c9060c4e825b520f043dca7, type: 3}
+  - {fileID: 7529883286500568312, guid: f370198d7db04e947aabc420d24bcf81, type: 3}
+  - {fileID: 7529883286500568312, guid: f370198d7db04e947aabc420d24bcf81, type: 3}
+  - {fileID: 7529883286500568312, guid: 36c6c5588c86e76498fc0d86dcce595c, type: 3}
+  - {fileID: 7529883286500568312, guid: 36c6c5588c86e76498fc0d86dcce595c, type: 3}
+  - {fileID: 7529883286500568312, guid: f3575ae497e36cc40ad6717bec7871d4, type: 3}
+  - {fileID: 7529883286500568312, guid: 9d8c647cbd3e2fa468e560defc2687d5, type: 3}

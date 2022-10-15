@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: DuckislavBasicDeck
   m_EditorClassIdentifier: 
   Cards:
-  - {fileID: 11400000, guid: 8823a42d6de9ec144b2899207867826c, type: 2}
-  - {fileID: 11400000, guid: 8823a42d6de9ec144b2899207867826c, type: 2}
-  - {fileID: 11400000, guid: 78accdfa171f72e40b588588665e1067, type: 2}
-  - {fileID: 11400000, guid: 78accdfa171f72e40b588588665e1067, type: 2}
-  - {fileID: 11400000, guid: 2b5d32ceb1cc8bf4ca6f25eec8b6fe1f, type: 2}
-  - {fileID: 11400000, guid: 51fc68708e5e48d4cba51dc5ab5ff3fe, type: 2}
-  - {fileID: 11400000, guid: 51fc68708e5e48d4cba51dc5ab5ff3fe, type: 2}
-  - {fileID: 11400000, guid: 12041fc1ef479924882be36225d29f0f, type: 2}
-  - {fileID: 11400000, guid: 12041fc1ef479924882be36225d29f0f, type: 2}
-  - {fileID: 11400000, guid: 67d75f58921100143ba75873cbc6fed3, type: 2}
+  - {fileID: 7529883286500568312, guid: b9f887bbd21c396489861de1b01cc335, type: 3}
+  - {fileID: 7529883286500568312, guid: b9f887bbd21c396489861de1b01cc335, type: 3}
+  - {fileID: 7529883286500568312, guid: a10792ea3c9060c4e825b520f043dca7, type: 3}
+  - {fileID: 7529883286500568312, guid: a10792ea3c9060c4e825b520f043dca7, type: 3}
+  - {fileID: 7529883286500568312, guid: 48b97fa66053a6a44b13f88886f8ef20, type: 3}
+  - {fileID: 7529883286500568312, guid: 684a5611903e8fa409e6fdee2d35edcf, type: 3}
+  - {fileID: 7529883286500568312, guid: 684a5611903e8fa409e6fdee2d35edcf, type: 3}
+  - {fileID: 7529883286500568312, guid: 5199c4b18306d024e949c20292a29391, type: 3}
+  - {fileID: 7529883286500568312, guid: 5199c4b18306d024e949c20292a29391, type: 3}
+  - {fileID: 7529883286500568312, guid: 8cff664f010bdb04892194bb8f2b45af, type: 3}

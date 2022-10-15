@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: CasterRatDeck
   m_EditorClassIdentifier: 
   Cards:
-  - {fileID: 11400000, guid: 00695503527b1f944a62c9941ae0c2e4, type: 2}
-  - {fileID: 11400000, guid: 00695503527b1f944a62c9941ae0c2e4, type: 2}
-  - {fileID: 11400000, guid: 00695503527b1f944a62c9941ae0c2e4, type: 2}
-  - {fileID: 11400000, guid: 00695503527b1f944a62c9941ae0c2e4, type: 2}
-  - {fileID: 11400000, guid: 1f64a78c4bb2739479eaf706ffcffa26, type: 2}
-  - {fileID: 11400000, guid: 1f64a78c4bb2739479eaf706ffcffa26, type: 2}
-  - {fileID: 11400000, guid: 456a39b24435bc941bb2eb9b9f8c5aaf, type: 2}
-  - {fileID: 11400000, guid: 456a39b24435bc941bb2eb9b9f8c5aaf, type: 2}
-  - {fileID: 11400000, guid: 7339fce027b18ba45b8b7de19488b5a7, type: 2}
-  - {fileID: 11400000, guid: fa22d89c09fa71346b9db7c6098c67a6, type: 2}
+  - {fileID: 8442212764643538765, guid: 0fda3cb578cf86641b390d8ffc131393, type: 3}
+  - {fileID: 8442212764643538765, guid: 0fda3cb578cf86641b390d8ffc131393, type: 3}
+  - {fileID: 8442212764643538765, guid: 0fda3cb578cf86641b390d8ffc131393, type: 3}
+  - {fileID: 8442212764643538765, guid: 0fda3cb578cf86641b390d8ffc131393, type: 3}
+  - {fileID: 8442212764643538765, guid: 3fdd04e3a23dc0744add995aab611f39, type: 3}
+  - {fileID: 8442212764643538765, guid: 3fdd04e3a23dc0744add995aab611f39, type: 3}
+  - {fileID: 8442212764643538765, guid: e3762d5e84e7fea4d907ba4802424546, type: 3}
+  - {fileID: 8442212764643538765, guid: e3762d5e84e7fea4d907ba4802424546, type: 3}
+  - {fileID: 8442212764643538765, guid: de598637a00a3a64e8a2bc41d3f3e9c4, type: 3}
+  - {fileID: 8442212764643538765, guid: e4dbb721b8e71bf46ac214421e062b96, type: 3}
