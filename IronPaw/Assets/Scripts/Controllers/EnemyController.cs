@@ -74,11 +74,17 @@ public class EnemyController : Controller
                 enemy.Deck.Draw();
                 if (enemy.Hand.Cards.Count > 0)
                 {
-                    enemy.Hand.Cards[0].CardEffect.InitializePlayEffect(enemy);
+                    Damage damageRef = null;
+                    if (enemy.Hand.Cards[0].CardType == CardType.Attack)
+                    {
+                        AttackCardEffect effectRef = (AttackCardEffect)enemy.Hand.Cards[0].CardEffect;
+                        damageRef = new Damage(effectRef.DamageValue, enemy, true);
+                    }
+
                     CombatManager.Instance.EnemyAcquireTargets(enemy, enemy.Hand.Cards[0]);
                     if (enemy.RefSlot.IntentionDisplayer != null)
                     {
-                        enemy.RefSlot.IntentionDisplayer.DisplayIntention(enemy.Targets, enemy.Hand.Cards[0], enemy);
+                        enemy.RefSlot.IntentionDisplayer.DisplayIntention(enemy.Targets, enemy.Hand.Cards[0], enemy, damageRef);
                     }
                     // shows the enemy's intent (symbol (+number if relevant) + Hero Portrait) 
                 }

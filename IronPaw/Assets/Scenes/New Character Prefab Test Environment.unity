@@ -31936,6 +31936,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4695208247599490591, guid: 1e943f0412338214195feffe4e57cbd0, type: 3}
+      propertyPath: _stats.Strength
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6449232566935891530, guid: 1e943f0412338214195feffe4e57cbd0, type: 3}
       propertyPath: m_Name
       value: Rat

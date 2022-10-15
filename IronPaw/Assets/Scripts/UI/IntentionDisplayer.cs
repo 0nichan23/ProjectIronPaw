@@ -20,7 +20,7 @@ public class IntentionDisplayer : MonoBehaviour
         DamageText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
-    public void DisplayIntention(List<Character> targets, Card playedCard, Enemy playingEnemy)
+    public void DisplayIntention(List<Character> targets, Card playedCard, Enemy playingEnemy, Damage damage)
     {
         
         if (targets.Count == 0)
@@ -49,8 +49,12 @@ public class IntentionDisplayer : MonoBehaviour
         switch (playedCard.CardType)
         {
             case CardType.Attack:
+                if(damage == null)
+                {
+                    break;
+                }
                 DamageText.gameObject.SetActive(true);
-                float dmg = ((AttackCardEffect)(playedCard.CardEffect)).DamageValue;
+                float dmg = damage.FinalDamage;
 
                 if(AreAllTargetsAfflictedByStatusEffect(StatusEffectType.Immune, targets))
                 {
@@ -58,10 +62,6 @@ public class IntentionDisplayer : MonoBehaviour
                 }
                 else
                 {
-                    if (playingEnemy.IsAfflictedBy(StatusEffectType.Weak))
-                    {
-                        dmg *= 0.67f;
-                    }
                     if (AreAllTargetsAfflictedByStatusEffect(StatusEffectType.Frail, targets))
                     {
                         dmg *= 1.5f;

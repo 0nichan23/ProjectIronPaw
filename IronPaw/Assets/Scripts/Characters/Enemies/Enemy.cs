@@ -59,7 +59,7 @@ public class Enemy : Character
         base.UpdateUI();
         if (RefSlot != null && Hand.Cards.Count > 0)
         {
-            RefSlot.IntentionDisplayer.DisplayIntention(Targets, Hand.Cards[0], this);
+            RefSlot.IntentionDisplayer.DisplayIntention(Targets, Hand.Cards[0], this, null);
         }
     }
 
