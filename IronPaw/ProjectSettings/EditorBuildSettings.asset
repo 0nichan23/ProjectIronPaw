@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/OrthographicScene.unity
-    guid: c3aa7dcb1df3438419ba63fa777b1a53
+    path: Assets/Scenes/New Character Prefab Test Environment.unity
+    guid: 2c34f7bf8856bc64080f515e7ad4dbe0
   m_configObjects: {}
