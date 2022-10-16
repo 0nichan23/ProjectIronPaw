@@ -35,7 +35,7 @@ public class CharacterStatusEffectsInfoScreen : MonoBehaviour
 
     private void TurnOnModel(Character givenCharacter)
     {
-        //RON BANDEL
+        
 
         List<Character> pointerList = null;
         GameObject pointerContainer = null;
