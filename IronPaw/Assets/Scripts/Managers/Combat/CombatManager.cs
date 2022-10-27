@@ -21,7 +21,7 @@ public class CombatManager : Singleton<CombatManager>
     private void Start()
     {
         Enemies = new List<Character>(EnemyWrapper.Instance.EnemyController.ControllerChracters);
-        Heroes = new List<Character>(PlayerWrapper.Instance.PlayerController.ControllerChracters);
+        
         _potentialTargets = new List<Character>();
     }
 
@@ -149,6 +149,11 @@ public class CombatManager : Singleton<CombatManager>
     #endregion
 
     #region Player Functions
+
+    public void SetHeroes()
+    {
+        Heroes = new List<Character>(PlayerWrapper.Instance.PlayerController.ControllerChracters);
+    }
     public void PlayCard(Character playingCharacter, Card card)
     {
 

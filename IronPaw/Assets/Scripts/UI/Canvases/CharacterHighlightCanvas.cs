@@ -15,6 +15,10 @@ public class CharacterHighlightCanvas : MonoBehaviour
 
     [SerializeField] private GameObject _heroesContainer;
     [SerializeField] private GameObject _enemiesContainer;
+
+    public GameObject HeroesContainer { get => _heroesContainer; }
+    public GameObject EnemiesContainer { get => _enemiesContainer; }
+
     public void InitInfo(Character character)
     {
         _passiveDesscription.text = character.PassiveDescription;
@@ -38,22 +42,22 @@ public class CharacterHighlightCanvas : MonoBehaviour
         if (givenCharacter is Hero)
         {
             pointerList = CombatManager.Instance.Heroes;
-            pointerContainer = _heroesContainer;
+            pointerContainer = HeroesContainer;
         }
         else if (givenCharacter is Enemy)
         {
             pointerList = CombatManager.Instance.Enemies;
-            pointerContainer = _enemiesContainer;
+            pointerContainer = EnemiesContainer;
         }
 
         for (int i = 0; i < CombatManager.Instance.Heroes.Count; i++)
         {
-            _heroesContainer.transform.GetChild(i).gameObject.SetActive(false);
+            HeroesContainer.transform.GetChild(i).gameObject.SetActive(false);
         }
 
         for (int i = 0; i < CombatManager.Instance.Enemies.Count; i++)
         {
-            _enemiesContainer.transform.GetChild(i).gameObject.SetActive(false);
+            EnemiesContainer.transform.GetChild(i).gameObject.SetActive(false);
         }
 
         for (int i = 0; i < pointerList.Count; i++)

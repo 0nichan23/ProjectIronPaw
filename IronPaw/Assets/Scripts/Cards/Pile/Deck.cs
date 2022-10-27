@@ -15,11 +15,11 @@ public class Deck : CardPile
     [SerializeField] private List<DeckSO> _decksGiven = new List<DeckSO>();
 
     public bool IsReady { get => _isReady; set => _isReady = value; }
+    public List<DeckSO> DecksGiven { get => _decksGiven; set => _decksGiven = value; }
 
     private void Start()
     {
-        InitDeck();
-        Shuffle();
+        //SetDeckForStartOfGame()
     }
 
     
@@ -56,7 +56,7 @@ public class Deck : CardPile
             InstantiateNewCardAndAddToDeck(cardGO);
         }
 
-        foreach (DeckSO deck in _decksGiven)
+        foreach (DeckSO deck in DecksGiven)
         {
             foreach (GameObject cardGO in deck.Cards)
             {
@@ -74,5 +74,11 @@ public class Deck : CardPile
         var newCardComp = newCard.GetComponent<Card>();
         _cards.Push(newCardComp);
         _cardsRef.Add(newCardComp); // for debugging through inspector
+    }
+
+    public void SetDeckForStartOfGame()
+    {
+        InitDeck();
+        Shuffle();
     }
 }

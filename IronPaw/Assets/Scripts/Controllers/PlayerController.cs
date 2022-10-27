@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -36,9 +37,13 @@ public class PlayerController : Controller
         }
     }
 
+
     [SerializeField]
     TextMeshProUGUI EnergyText;
 
+    [SerializeField] private List<Transform> _heroesPositions = new List<Transform>();
+
+    public List<Transform> HeroesPositions { get => _heroesPositions; set => _heroesPositions = value; }
     
 
 
@@ -47,13 +52,7 @@ public class PlayerController : Controller
 
     private void Awake()
     {
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            if (transform.GetChild(i).gameObject.activeSelf)
-            {
-                ControllerChracters.Add(transform.GetChild(i).GetComponentInChildren<Hero>());
-            }
-        }
+        //FillPlayerControllerHeroes();
 
         OnStartTurn += BasicStartOfTurnTasks;
         OnEndTurn += BasicEndOfTurnTasks;
@@ -61,6 +60,20 @@ public class PlayerController : Controller
         TurnOnUltButtonOnSufficientUltCharge();
 
         UIManager.Instance.HUDCanvas.UltButton.FillUltimateChargeUI(UltimateCharge / MaximumUltimateCharge);
+    }
+
+    public void FillPlayerControllerHeroes()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            if (transform.GetChild(i).gameObject.activeSelf)
+            {
+                if(transform.GetChild(i).GetComponentInChildren<Hero>() != null)
+                {
+                    ControllerChracters.Add(transform.GetChild(i).GetComponentInChildren<Hero>());
+                }                
+            }
+        }
     }
 
 

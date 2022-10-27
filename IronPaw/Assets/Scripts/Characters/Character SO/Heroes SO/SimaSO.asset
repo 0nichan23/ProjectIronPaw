@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1293d0865ce787546964f3948ae1158a, type: 3}
+  m_Name: SimaSO
+  m_EditorClassIdentifier: 
+  Character: {fileID: 8670714369753314049, guid: f99e76b86f9ce1348a88258c837e3064, type: 3}
+  CharacterModelForCharacterCanvas: {fileID: 3452992401821068850, guid: f337a8d13348f194482f9a9f6f38f415, type: 3}
+  Deck: {fileID: 11400000, guid: 904b843a94b0c35498d61486c2c6a1cc, type: 2}

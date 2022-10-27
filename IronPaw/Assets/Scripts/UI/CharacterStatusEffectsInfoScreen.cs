@@ -15,6 +15,9 @@ public class CharacterStatusEffectsInfoScreen : MonoBehaviour
     // 
     private int _numberOfStatsBuffer = 4;
 
+    public GameObject HeroesContainer { get => _heroesContainer; }
+    public GameObject EnemiesContainer { get => _enemiesContainer; }
+
     public void InitInfo(Character character)
     {
         TurnOnModel(character);
@@ -43,22 +46,22 @@ public class CharacterStatusEffectsInfoScreen : MonoBehaviour
         if (givenCharacter is Hero)
         {
             pointerList = CombatManager.Instance.Heroes;
-            pointerContainer = _heroesContainer;
+            pointerContainer = HeroesContainer;
         }
         else if (givenCharacter is Enemy)
         {
             pointerList = CombatManager.Instance.Enemies;
-            pointerContainer = _enemiesContainer;
+            pointerContainer = EnemiesContainer;
         }
 
         for (int i = 0; i < CombatManager.Instance.Heroes.Count; i++)
         {
-            _heroesContainer.transform.GetChild(i).gameObject.SetActive(false);
+            HeroesContainer.transform.GetChild(i).gameObject.SetActive(false);
         }
 
         for (int i = 0; i < CombatManager.Instance.Enemies.Count; i++)
         {
-            _enemiesContainer.transform.GetChild(i).gameObject.SetActive(false);
+            EnemiesContainer.transform.GetChild(i).gameObject.SetActive(false);
         }
 
         for (int i = 0; i < pointerList.Count; i++)

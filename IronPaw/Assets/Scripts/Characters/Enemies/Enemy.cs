@@ -11,6 +11,11 @@ public class Enemy : Character
 
     [SerializeField] protected EnemyProfile _profile;
 
+    protected override void TheBetterStart()
+    {
+        base.TheBetterStart();
+        Deck.SetDeckForStartOfGame();
+    }
 
     public override void Subscribe()
     {

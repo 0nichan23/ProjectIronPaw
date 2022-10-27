@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/New Character Prefab Test Environment.unity
+    path: Assets/Scenes/Battle Scene.unity
     guid: 2c34f7bf8856bc64080f515e7ad4dbe0
   m_configObjects: {}

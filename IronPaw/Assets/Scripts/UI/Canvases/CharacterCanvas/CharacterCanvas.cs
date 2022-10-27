@@ -34,6 +34,8 @@ public class CharacterCanvas : MonoBehaviour
     private Dictionary<ColorIdentity, Color> _colorDictionary;
     private Character _cachedCharacter;
 
+    public CharacterStatusEffectsInfoScreen CharacterStatusEffectsInfoScreen { get => _characterStatusEffectsInfoScreen; }
+    public CharacterHighlightCanvas CharacterHighlightCanvas { get => _characterHighlightCanvas;  }
 
     private void Start()
     {
@@ -56,10 +58,10 @@ public class CharacterCanvas : MonoBehaviour
 
         SetToggleButton();
 
-        _characterHighlightCanvas.gameObject.SetActive(state);
-        _characterHighlightCanvas.InitInfo(character);
-        _characterStatusEffectsInfoScreen.gameObject.SetActive(!state);
-        _characterStatusEffectsInfoScreen.InitInfo(character);
+        CharacterHighlightCanvas.gameObject.SetActive(state);
+        CharacterHighlightCanvas.InitInfo(character);
+        CharacterStatusEffectsInfoScreen.gameObject.SetActive(!state);
+        CharacterStatusEffectsInfoScreen.InitInfo(character);
 
         if(UIManager.Instance.SelectionCanvas)
         {
@@ -112,8 +114,8 @@ public class CharacterCanvas : MonoBehaviour
         ToggleCanvasState();
         SetToggleButton();
         
-        _characterHighlightCanvas.gameObject.SetActive(!_characterHighlightCanvas.gameObject.activeSelf);
-        _characterStatusEffectsInfoScreen.gameObject.SetActive(!_characterStatusEffectsInfoScreen.gameObject.activeSelf);
+        CharacterHighlightCanvas.gameObject.SetActive(!CharacterHighlightCanvas.gameObject.activeSelf);
+        CharacterStatusEffectsInfoScreen.gameObject.SetActive(!CharacterStatusEffectsInfoScreen.gameObject.activeSelf);
     }
 
     private void InitInfo(Character character)
